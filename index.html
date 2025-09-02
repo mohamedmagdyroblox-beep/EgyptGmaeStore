@@ -129,45 +129,25 @@
         /* Hero Section */
         .hero {
             text-align: center;
-            padding: 80px 0;
+            padding: 60px 0;
             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23f1f5f9" width="100" height="100"/><path fill="%23e2e8f0" d="M0 50 L100 50 M50 0 L50 100" stroke-width="0.5"/></svg>');
             background-size: 30px 30px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
-            z-index: 0;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 1;
         }
         
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin-bottom: 20px;
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 800;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
         
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: var(--gray);
             max-width: 700px;
-            margin: 0 auto 40px;
-            font-weight: 400;
+            margin: 0 auto 30px;
         }
         
         .btn {
@@ -176,14 +156,14 @@
             justify-content: center;
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
-            padding: 16px 35px;
+            padding: 14px 30px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            margin: 8px;
+            margin: 5px;
             box-shadow: 0 4px 15px rgba(106, 17, 203, 0.3);
         }
         
@@ -194,18 +174,6 @@
         
         .btn i {
             margin-right: 10px;
-        }
-        
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            box-shadow: none;
-        }
-        
-        .btn-outline:hover {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
         }
         
         .btn-discord {
@@ -219,139 +187,101 @@
         
         /* Products Section */
         .products {
-            padding: 30px 0 80px;
+            padding: 40px 0;
             background: white;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
         
         .section-title h2 {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             color: var(--darker);
             margin-bottom: 15px;
-            font-weight: 700;
         }
         
         .section-title p {
             color: var(--gray);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             max-width: 700px;
             margin: 0 auto;
-            font-weight: 400;
         }
         
         .category-tabs {
             display: flex;
             justify-content: center;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             flex-wrap: wrap;
             gap: 15px;
         }
         
         .category-tab {
-            padding: 14px 28px;
+            padding: 12px 25px;
             background: white;
-            border: 2px solid #e2e8f0;
-            border-radius: 50px;
+            border: 2px solid #eaecef;
+            border-radius: 30px;
             cursor: pointer;
             font-weight: 600;
             transition: all 0.3s ease;
-            color: var(--gray);
         }
         
         .category-tab.active {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
             border-color: transparent;
-            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.2);
-        }
-        
-        .category-tab:hover:not(.active) {
-            border-color: var(--primary);
-            color: var(--primary);
         }
         
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
         
         .product-card {
             background: white;
-            border-radius: 20px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
-            border: 1px solid #f1f5f9;
         }
         
         .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
         
         .product-image {
-            height: 200px;
+            height: 180px;
             background: linear-gradient(45deg, var(--primary) 0%, var(--secondary) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 70px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .product-image::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
-            background-size: 100% 100%;
-        }
-        
-        .product-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--accent);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            z-index: 2;
+            font-size: 60px;
         }
         
         .product-content {
-            padding: 25px;
+            padding: 20px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
         
         .product-title {
-            font-size: 1.4rem;
-            margin-bottom: 12px;
-            color: var(--darker);
-            font-weight: 600;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark);
         }
         
         .product-desc {
             color: var(--gray);
-            margin-bottom: 20px;
-            font-size: 1rem;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
             flex-grow: 1;
-            line-height: 1.5;
         }
         
         .product-price {
@@ -359,50 +289,6 @@
             font-weight: 700;
             color: var(--primary);
             margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .product-price::before {
-            content: "EGP";
-            font-size: 1rem;
-            margin-right: 5px;
-            color: var(--gray);
-            font-weight: 500;
-        }
-        
-        .product-actions {
-            display: flex;
-            gap: 12px;
-        }
-        
-        .btn-product {
-            flex: 1;
-            text-align: center;
-            padding: 12px 20px;
-            border-radius: 10px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-buy {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            box-shadow: 0 4px 10px rgba(106, 17, 203, 0.25);
-        }
-        
-        .btn-buy:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(106, 17, 203, 0.35);
-        }
-        
-        .btn-info {
-            background: #f1f5f9;
-            color: var(--dark);
-        }
-        
-        .btn-info:hover {
-            background: #e2e8f0;
         }
         
         /* Features Section */
@@ -419,38 +305,32 @@
         
         .feature-card {
             background: white;
-            border-radius: 20px;
-            padding: 35px 30px;
+            border-radius: 15px;
+            padding: 30px;
             text-align: center;
             transition: all 0.3s ease;
-            border: 1px solid #f1f5f9;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
         }
         
         .feature-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
         
         .feature-icon {
-            font-size: 60px;
-            margin-bottom: 25px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
+            font-size: 50px;
+            margin-bottom: 20px;
+            color: var(--primary);
         }
         
         .feature-card h3 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin-bottom: 15px;
-            color: var(--darker);
-            font-weight: 600;
+            color: var(--dark);
         }
         
         .feature-card p {
             color: var(--gray);
-            line-height: 1.6;
         }
         
         /* How It Works Section */
@@ -463,12 +343,10 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
-            counter-reset: step-counter;
         }
         
         .step {
             text-align: center;
-            position: relative;
             padding: 0 20px;
         }
         
@@ -483,61 +361,46 @@
             justify-content: center;
             font-size: 24px;
             font-weight: 700;
-            margin: 0 auto 25px;
-            position: relative;
-            box-shadow: 0 10px 20px rgba(106, 17, 203, 0.2);
-        }
-        
-        .step-number::before {
-            counter-increment: step-counter;
-            content: counter(step-counter);
+            margin: 0 auto 20px;
         }
         
         .step h3 {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             margin-bottom: 15px;
-            color: var(--darker);
-            font-weight: 600;
+            color: var(--dark);
         }
         
         .step p {
             color: var(--gray);
-            line-height: 1.6;
         }
         
         /* Payment Methods */
         .payment-methods {
-            padding: 80px 0;
+            padding: 60px 0;
             background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            text-align: center;
         }
         
         .payment-icons {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 40px;
-            margin-top: 40px;
+            gap: 30px;
+            margin-top: 30px;
         }
         
         .payment-icon-large {
-            font-size: 60px;
+            font-size: 50px;
             color: var(--dark);
             display: flex;
             flex-direction: column;
             align-items: center;
-            transition: all 0.3s ease;
-        }
-        
-        .payment-icon-large:hover {
-            transform: translateY(-5px);
-            color: var(--primary);
         }
         
         .payment-icon-large span {
-            font-size: 16px;
-            margin-top: 15px;
+            font-size: 14px;
+            margin-top: 10px;
             color: var(--gray);
-            font-weight: 500;
         }
         
         /* Order Modal */
@@ -551,223 +414,119 @@
             background-color: rgba(0,0,0,0.7);
             z-index: 1000;
             overflow: auto;
-            backdrop-filter: blur(5px);
-            animation: fadeIn 0.3s ease;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
         }
         
         .modal-content {
             background-color: white;
             margin: 5% auto;
-            padding: 35px;
-            border-radius: 20px;
+            padding: 30px;
+            border-radius: 15px;
             width: 90%;
             max-width: 600px;
             position: relative;
-            animation: slideIn 0.4s ease;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
-            border: 1px solid #f1f5f9;
-        }
-        
-        @keyframes slideIn {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
         }
         
         .close {
             position: absolute;
-            top: 20px;
-            right: 25px;
+            top: 15px;
+            right: 20px;
             font-size: 28px;
             font-weight: bold;
             cursor: pointer;
             color: var(--gray);
-            transition: all 0.3s ease;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
         }
         
         .close:hover {
-            color: var(--error);
-            background: #fef2f2;
+            color: var(--dark);
+        }
+        
+        .order-form {
+            margin-top: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
         }
         
         .order-summary {
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 25px;
-            border: 1px solid #e2e8f0;
-        }
-        
-        .order-summary h3 {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
             margin-bottom: 20px;
-            color: var(--darker);
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-        }
-        
-        .order-summary h3 i {
-            margin-right: 10px;
-            color: var(--primary);
         }
         
         .order-item {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        
-        .order-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
+            margin-bottom: 10px;
         }
         
         .order-total {
             display: flex;
             justify-content: space-between;
             font-weight: bold;
-            font-size: 1.3rem;
-            padding-top: 15px;
-            margin-top: 15px;
-            border-top: 2px solid #e2e8f0;
-            color: var(--darker);
+            font-size: 1.2rem;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+            margin-top: 10px;
         }
         
-        .order-form {
-            margin-top: 25px;
-        }
-        
-        .form-group {
-            margin-bottom: 25px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: 600;
-            color: var(--darker);
-            display: flex;
-            align-items: center;
-        }
-        
-        .form-group label i {
-            margin-right: 10px;
-            color: var(--primary);
-            width: 20px;
-        }
-        
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%;
-            padding: 15px 20px;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            background: white;
-        }
-        
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.1);
-        }
-        
-        .form-group input:invalid:not(:focus):not(:placeholder-shown) {
-            border-color: var(--error);
-        }
-        
+        /* Payment Section */
         .payment-section {
             display: none;
-            margin-top: 25px;
-        }
-        
-        .payment-section h3 {
-            margin-bottom: 20px;
-            color: var(--darker);
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-        }
-        
-        .payment-section h3 i {
-            margin-right: 10px;
-            color: var(--primary);
-        }
-        
-        .payment-options {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
-            margin-bottom: 25px;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
         }
         
         .payment-option {
             display: flex;
             align-items: center;
-            padding: 20px;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 15px;
             cursor: pointer;
             transition: all 0.3s ease;
-            background: white;
         }
         
         .payment-option:hover {
             border-color: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
         }
         
         .payment-option.selected {
             border-color: var(--primary);
-            background: rgba(106, 17, 203, 0.05);
-            position: relative;
-        }
-        
-        .payment-option.selected::after {
-            content: "✓";
-            position: absolute;
-            top: -12px;
-            right: -12px;
-            background: var(--success);
-            color: white;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 14px;
-            box-shadow: 0 3px 10px rgba(34, 197, 94, 0.3);
+            background-color: rgba(106, 17, 203, 0.05);
         }
         
         .payment-option input {
             margin-right: 15px;
-            width: 20px;
-            height: 20px;
         }
         
         .payment-icon {
-            font-size: 32px;
+            font-size: 30px;
             margin-right: 15px;
             color: var(--dark);
-            width: 40px;
-            text-align: center;
         }
         
         .payment-details {
@@ -776,220 +535,134 @@
         
         .payment-details h4 {
             margin-bottom: 5px;
-            color: var(--darker);
-            font-weight: 600;
         }
         
         .payment-details p {
             color: var(--gray);
             font-size: 0.9rem;
-            line-height: 1.4;
         }
         
+        /* Payment Instructions */
         .payment-instructions {
             background: white;
             padding: 25px;
-            border-radius: 15px;
-            margin: 25px 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8f0;
-            display: none;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
         }
         
         .payment-instructions h4 {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: var(--primary);
-            font-size: 1.3rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-        }
-        
-        .payment-instructions h4 i {
-            margin-right: 10px;
         }
         
         .payment-amount {
-            font-size: 2rem;
-            font-weight: 800;
+            font-size: 1.8rem;
+            font-weight: bold;
             color: var(--primary);
-            margin: 20px 0;
-            text-align: center;
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-            padding: 15px;
-            border-radius: 12px;
-            border: 2px dashed #e2e8f0;
+            margin: 15px 0;
         }
         
         .payment-number {
-            font-size: 1.6rem;
-            font-weight: 700;
-            background: var(--darker);
-            color: white;
-            padding: 15px 25px;
-            border-radius: 12px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: #f1f8ff;
+            padding: 10px 20px;
+            border-radius: 8px;
             display: inline-block;
-            margin: 15px 0;
-            text-align: center;
-            width: 100%;
-            letter-spacing: 1px;
+            margin: 10px 0;
+            color: var(--dark);
         }
         
         .instruction-steps {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 25px;
+            gap: 15px;
+            margin-top: 20px;
         }
         
         .instruction-step {
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-            padding: 20px;
-            border-radius: 12px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
             text-align: center;
-            border: 1px solid #e2e8f0;
         }
         
         .step-number {
             background-color: var(--primary);
             color: white;
-            width: 35px;
-            height: 35px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 15px;
+            margin: 0 auto 10px;
             font-weight: bold;
-            font-size: 16px;
         }
         
-        .instruction-step div {
-            color: var(--dark);
-            font-weight: 500;
-            line-height: 1.4;
-        }
-        
+        /* Order Confirmation */
         .confirmation {
             display: none;
             text-align: center;
             padding: 30px;
-            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
-            border-radius: 15px;
-            margin-top: 25px;
-            border-left: 4px solid var(--success);
-            animation: fadeIn 0.5s ease;
+            background-color: #e8f5e9;
+            border-radius: 10px;
+            margin-top: 20px;
         }
         
         .confirmation h3 {
             color: var(--success);
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .confirmation h3 i {
-            margin-right: 10px;
-            font-size: 28px;
-        }
-        
-        .confirmation p {
-            margin-bottom: 20px;
-            color: var(--dark);
-            line-height: 1.6;
+            margin-bottom: 15px;
         }
         
         .order-details {
             text-align: left;
             background: white;
-            padding: 25px;
-            border-radius: 12px;
-            margin: 25px 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
         }
         
         .order-details h4 {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: var(--primary);
-            border-bottom: 2px solid #f1f5f9;
-            padding-bottom: 15px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-        }
-        
-        .order-details h4 i {
-            margin-right: 10px;
         }
         
         .order-details p {
-            margin-bottom: 12px;
-            padding-left: 15px;
-            border-left: 3px solid #f1f5f9;
-            display: flex;
-        }
-        
-        .order-details strong {
-            min-width: 120px;
-            color: var(--darker);
-        }
-        
-        .order-details span {
-            color: var(--gray);
-        }
-        
-        .spinner {
-            display: none;
-            width: 40px;
-            height: 40px;
-            margin: 20px auto;
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid var(--primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            margin-bottom: 10px;
         }
         
         /* Footer */
         footer {
-            background: var(--darker);
+            background: var(--dark);
             color: white;
-            padding: 60px 0 20px;
+            padding: 50px 0 20px;
         }
         
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 50px;
+            gap: 30px;
+            margin-bottom: 40px;
         }
         
         .footer-section h3 {
-            font-size: 1.4rem;
-            margin-bottom: 25px;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
             color: #ffdd40;
-            font-weight: 600;
         }
         
         .footer-section p, .footer-section a {
-            color: #cbd5e1;
-            margin-bottom: 12px;
+            color: #ecf0f1;
+            margin-bottom: 10px;
             display: block;
             text-decoration: none;
             transition: all 0.3s ease;
-            line-height: 1.6;
         }
         
         .footer-section a:hover {
             color: #ffdd40;
-            padding-left: 5px;
         }
         
         .social-icons {
@@ -1002,26 +675,18 @@
             font-size: 20px;
             color: white;
             transition: all 0.3s ease;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255,255,255,0.1);
         }
         
         .social-icons a:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
+            color: #ffdd40;
         }
         
         .copyright {
             text-align: center;
-            padding-top: 30px;
+            padding-top: 20px;
             border-top: 1px solid rgba(255,255,255,0.1);
-            color: #94a3b8;
-            font-size: 15px;
+            color: #bdc3c7;
+            font-size: 14px;
         }
         
         /* Responsive Design */
@@ -1042,17 +707,17 @@
             }
             
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
             
             .hero p {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
             
             .modal-content {
                 width: 95%;
                 margin: 10% auto;
-                padding: 25px;
+                padding: 20px;
             }
             
             .payment-option {
@@ -1062,28 +727,11 @@
             
             .payment-icon {
                 margin-right: 0;
-                margin-bottom: 15px;
+                margin-bottom: 10px;
             }
             
             .instruction-steps {
                 grid-template-columns: 1fr;
-            }
-            
-            .steps {
-                grid-template-columns: 1fr;
-            }
-            
-            .product-actions {
-                flex-direction: column;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .social-icons {
-                justify-content: center;
             }
         }
     </style>
@@ -1112,13 +760,11 @@
     </header>
 
     <section class="hero" id="home">
-        <div class="container hero-content">
+        <div class="container">
             <h1>Premium Robux & Game Items</h1>
             <p>Get the best deals on Robux and game items with instant delivery to your account. Pay with InstaPay or Vodafone Cash!</p>
-            <div>
-                <a href="#products" class="btn"><i class="fas fa-shopping-cart"></i> Shop Now</a>
-                <a href="https://discord.gg/pCYvMsmScW" class="btn btn-discord" target="_blank"><i class="fab fa-discord"></i> Support Server</a>
-            </div>
+            <a href="#products" class="btn"><i class="fas fa-shopping-cart"></i> View Products</a>
+            <a href="https://discord.gg/pCYvMsmScW" class="btn btn-discord" target="_blank"><i class="fab fa-discord"></i> Support Server</a>
         </div>
     </section>
 
@@ -1138,49 +784,30 @@
             
             <div class="product-grid" id="robux-products">
                 <div class="product-card">
-                    <div class="product-image">
-                        <div class="product-badge">Popular</div>
-                        <i class="fas fa-coins"></i>
-                    </div>
+                    <div class="product-image">🪙</div>
                     <div class="product-content">
                         <h3 class="product-title">500 Robux</h3>
-                        <p class="product-desc">Instant delivery to your Roblox account. Perfect for upgrading your avatar or purchasing game passes.</p>
-                        <div class="product-price">170</div>
-                        <div class="product-actions">
-                            <button class="btn-product btn-buy" onclick="openOrderModal('500 Robux', 170, 'Robux')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
-                            <button class="btn-product btn-info"><i class="fas fa-info"></i> Details</button>
-                        </div>
+                        <p class="product-desc">Instant delivery to your account</p>
+                        <p class="product-price">170 EGP</p>
+                        <button class="btn" onclick="openOrderModal('500 Robux', 170, 'Robux')">Buy Now</button>
                     </div>
                 </div>
-                
                 <div class="product-card">
-                    <div class="product-image">
-                        <i class="fas fa-coins"></i>
-                    </div>
+                    <div class="product-image">🪙</div>
                     <div class="product-content">
                         <h3 class="product-title">1,000 Robux</h3>
-                        <p class="product-desc">Double the Robux for your gaming needs. Get more value with this popular package.</p>
-                        <div class="product-price">320</div>
-                        <div class="product-actions">
-                            <button class="btn-product btn-buy" onclick="openOrderModal('1000 Robux', 320, 'Robux')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
-                            <button class="btn-product btn-info"><i class="fas fa-info"></i> Details</button>
-                        </div>
+                        <p class="product-desc">Instant delivery to your account</p>
+                        <p class="product-price">320 EGP</p>
+                        <button class="btn" onclick="openOrderModal('1000 Robux', 320, 'Robux')">Buy Now</button>
                     </div>
                 </div>
-                
                 <div class="product-card">
-                    <div class="product-image">
-                        <div class="product-badge">Best Value</div>
-                        <i class="fas fa-coins"></i>
-                    </div>
+                    <div class="product-image">🪙</div>
                     <div class="product-content">
                         <h3 class="product-title">2,000 Robux</h3>
-                        <p class="product-desc">Maximum value with our largest Robux package. Perfect for serious gamers and content creators.</p>
-                        <div class="product-price">600</div>
-                        <div class="product-actions">
-                            <button class="btn-product btn-buy" onclick="openOrderModal('2000 Robux', 600, 'Robux')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
-                            <button class="btn-product btn-info"><i class="fas fa-info"></i> Details</button>
-                        </div>
+                        <p class="product-desc">Instant delivery to your account</p>
+                        <p class="product-price">600 EGP</p>
+                        <button class="btn" onclick="openOrderModal('2000 Robux', 600, 'Robux')">Buy Now</button>
                     </div>
                 </div>
             </div>
@@ -1190,7 +817,7 @@
                     <i class="fas fa-box-open" style="font-size: 60px; color: var(--gray); margin-bottom: 20px;"></i>
                     <h3>No products available yet</h3>
                     <p>Check back soon for new items in this category!</p>
-                    <a href="https://discord.gg/pCYvMsmScW" class="btn" target="_blank"><i class="fab fa-discord"></i> Request Items</a>
+                    <a href="https://discord.gg/pCYvMsmScW" class="btn" target="_blank">Request Items on Discord</a>
                 </div>
             </div>
         </div>
@@ -1211,12 +838,62 @@
                 <div class="feature-card">
                     <div class="feature-icon">⚡</div>
                     <h3>Instant Delivery</h3>
-                    <p>Receive your items within minutes after payment confirmation. No waiting required.</p>
+                    <p>Receive your items within minutes after payment confirmation.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🛡️</div>
                     <h3>Secure Transactions</h3>
-                    <p>All transactions are protected with secure verification processes for your safety.</p>
+                    <p>All transactions are protected with secure verification processes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>How It Works</h2>
+                <p>Simple process to purchase from our store</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Choose Your Item</h3>
+                    <p>Select the Robux or game items you want from our products list.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Fill Order Details</h3>
+                    <p>Provide your Roblox username and contact information.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Make Payment</h3>
+                    <p>Pay easily using InstaPay or Vodafone Cash.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Receive Items</h3>
+                    <p>Get your items delivered to your account within 24 hours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="payment-methods">
+        <div class="container">
+            <div class="section-title">
+                <h2>Accepted Payment Methods</h2>
+                <p>We accept popular Egyptian payment options</p>
+            </div>
+            <div class="payment-icons">
+                <div class="payment-icon-large">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <span>Vodafone Cash</span>
+                </div>
+                <div class="payment-icon-large">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>InstaPay</span>
                 </div>
             </div>
         </div>
@@ -1227,7 +904,7 @@
             <span class="close" onclick="closeOrderModal()">&times;</span>
             <h2>Place Your Order</h2>
             <div class="order-summary">
-                <h3><i class="fas fa-receipt"></i> Order Summary</h3>
+                <h3>Order Summary</h3>
                 <div class="order-item">
                     <span id="modal-item-name">Product Name</span>
                     <span id="modal-item-price">0 EGP</span>
@@ -1240,58 +917,56 @@
             
             <form class="order-form" id="orderForm" onsubmit="return false;">
                 <div class="form-group">
-                    <label><i class="fas fa-user"></i> Your Roblox Username *</label>
-                    <input type="text" id="username" name="username" placeholder="Enter your Roblox username" required>
+                    <label for="username">Your Roblox Username *</label>
+                    <input type="text" id="username" name="username" required>
                 </div>
                 
                 <div class="form-group">
-                    <label><i class="fas fa-envelope"></i> Your Email *</label>
-                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                    <label for="email">Your Email *</label>
+                    <input type="email" id="email" name="email" required>
                 </div>
                 
                 <div class="form-group">
-                    <label><i class="fas fa-phone"></i> Your WhatsApp Number *</label>
-                    <input type="tel" id="phone" name="phone" placeholder="01XXXXXXXXX" pattern="01[0-9]{9}" required>
+                    <label for="phone">Your WhatsApp Number *</label>
+                    <input type="tel" id="phone" name="phone" required>
                 </div>
                 
                 <div class="form-group">
-                    <label><i class="fas fa-link"></i> Gamepass Link *</label>
+                    <label for="gamepassLinkInput">Gamepass Link *</label>
                     <input type="url" id="gamepassLinkInput" name="gamepassLink" placeholder="Paste your gamepass link here" required>
                 </div>
                 
-                <button type="button" class="btn" onclick="showPaymentOptions()"><i class="fas fa-arrow-right"></i> Continue to Payment</button>
+                <button type="button" class="btn" onclick="showPaymentOptions()">Continue to Payment</button>
             </form>
             
             <div id="paymentSection" class="payment-section">
-                <h3><i class="fas fa-credit-card"></i> Select Payment Method</h3>
+                <h3>Select Payment Method</h3>
                 
-                <div class="payment-options">
-                    <div class="payment-option" onclick="selectPayment('instapay')">
-                        <input type="radio" name="paymentMethod" id="instapay" value="instapay">
-                        <div class="payment-icon">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <div class="payment-details">
-                            <h4>InstaPay</h4>
-                            <p>Secure bank transfer with InstaPay. Fast and reliable.</p>
-                        </div>
+                <div class="payment-option" onclick="selectPayment('instapay')">
+                    <input type="radio" name="paymentMethod" id="instapay" value="instapay">
+                    <div class="payment-icon">
+                        <i class="fas fa-mobile-alt"></i>
                     </div>
-                    
-                    <div class="payment-option" onclick="selectPayment('vodafone_cash')">
-                        <input type="radio" name="paymentMethod" id="vodafone_cash" value="vodafone_cash">
-                        <div class="payment-icon">
-                            <i class="fas fa-money-bill-wave"></i>
-                        </div>
-                        <div class="payment-details">
-                            <h4>Vodafone Cash</h4>
-                            <p>Pay instantly with your Vodafone Cash wallet.</p>
-                        </div>
+                    <div class="payment-details">
+                        <h4>InstaPay</h4>
+                        <p>Secure bank transfer with InstaPay</p>
+                    </div>
+                </div>
+                
+                <div class="payment-option" onclick="selectPayment('vodafone_cash')">
+                    <input type="radio" name="paymentMethod" id="vodafone_cash" value="vodafone_cash">
+                    <div class="payment-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <div class="payment-details">
+                        <h4>Vodafone Cash</h4>
+                        <p>Pay instantly with your Vodafone Cash wallet</p>
                     </div>
                 </div>
                 
                 <div id="paymentDetails" style="display: none;">
                     <div class="payment-instructions">
-                        <h4><i class="fas fa-info-circle"></i> Payment Instructions</h4>
+                        <h4 id="payment-method-title">Payment Instructions</h4>
                         <p>Please send the following amount to:</p>
                         <div class="payment-amount" id="paymentAmount">0 EGP</div>
                         <div class="payment-number">01021336310</div>
@@ -1317,134 +992,57 @@
                         </div>
                     </div>
                     
-                    <div class="spinner" id="submitSpinner"></div>
-                    
-                    <button type="button" class="btn btn-success" style="margin-top: 15px; width: 100%; padding: 16px;" onclick="submitOrder()" id="submitOrderBtn">
-                        <i class="fas fa-check-circle"></i> I've Made the Payment
+                    <button type="button" class="btn" style="margin-top: 15px; width: 100%;" onclick="submitOrder()">
+                        I've Made the Payment
                     </button>
                 </div>
             </div>
             
             <div id="orderConfirmation" class="confirmation">
-                <h3><i class="fas fa-check-circle"></i> Order Received Successfully!</h3>
+                <h3>Order Received Successfully!</h3>
                 <p>Thank you for your order. We will verify your payment and deliver your items within <strong>24 hours</strong>.</p>
-                <p style="font-weight: bold; color: var(--error);">Remember to manually check your bank account to confirm the payment was received.</p>
                 
                 <div class="order-details">
-                    <h4><i class="fas fa-receipt"></i> Order Details:</h4>
-                    <p><strong>Product:</strong> <span id="conf-product"></span></p>
-                    <p><strong>Price:</strong> <span id="conf-price"></span></p>
-                    <p><strong>Username:</strong> <span id="conf-username"></span></p>
-                    <p><strong>Email:</strong> <span id="conf-email"></span></p>
-                    <p><strong>WhatsApp:</strong> <span id="conf-phone"></span></p>
-                    <p><strong>Gamepass:</strong> <span id="conf-gamepass"></span></p>
+                    <h4>Order Details:</h4>
+                    <p id="conf-product"></p>
+                    <p id="conf-price"></p>
+                    <p id="conf-username"></p>
+                    <p id="conf-email"></p>
+                    <p id="conf-phone"></p>
+                    <p id="conf-gamepass"></p>
                 </div>
                 
                 <p><strong>If you don't receive your items within 24 hours, contact us on Discord:</strong></p>
-                <p><a href="https://discord.gg/pCYvMsmScW" target="_blank" style="color: var(--discord); font-weight: bold;"><i class="fab fa-discord"></i> https://discord.gg/pCYvMsmScW</a></p>
+                <p><a href="https://discord.gg/pCYvMsmScW" target="_blank" style="color: var(--discord); font-weight: bold;">https://discord.gg/pCYvMsmScW</a></p>
                 
-                <button class="btn" onclick="closeOrderModal()"><i class="fas fa-times"></i> Close</button>
+                <button class="btn" onclick="closeOrderModal()">Finish</button>
             </div>
         </div>
     </div>
-    
-    <section class="how-it-works" id="how-it-works">
-        <div class="container">
-            <div class="section-title">
-                <h2>How It Works</h2>
-                <p>Simple process to purchase from our store</p>
-            </div>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number"></div>
-                    <h3>Choose Your Item</h3>
-                    <p>Select the Robux or game items you want from our products list.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number"></div>
-                    <h3>Fill Order Details</h3>
-                    <p>Provide your Roblox username and contact information in the order form.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number"></div>
-                    <h3>Make Payment</h3>
-                    <p>Pay easily using InstaPay or Vodafone Cash through our secure instructions.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number"></div>
-                    <h3>Receive Items</h3>
-                    <p>We'll verify your payment and deliver your items to your account instantly.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section class="payment-methods">
+    <footer id="contact">
         <div class="container">
-            <div class="section-title">
-                <h2>Accepted Payment Methods</h2>
-                <p>We accept popular Egyptian payment options for your convenience</p>
-            </div>
-            <div class="payment-icons">
-                <div class="payment-icon-large">
-                    <i class="fas fa-money-bill-wave"></i>
-                    <span>Vodafone Cash</span>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About EgyptGameStore</h3>
+                    <p>We sell Robux and game items with instant payment solutions for Egyptian gamers.</p>
                 </div>
-                <div class="payment-icon-large">
-                    <i class="fas fa-mobile-alt"></i>
-                    <span>InstaPay</span>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> Email: shadowbr500@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> Phone: 01021336310</p>
+                    <p><i class="fab fa-whatsapp"></i> WhatsApp: 01021336310</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Contact Us</h2>
-                <p>Reach out to us for support or inquiries</p>
-            </div>
-            <div style="text-align: center; max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
-                <div class="social-icons" style="justify-content: center; gap: 30px; font-size: 32px; margin-bottom: 25px;">
-                    <a href="https://discord.gg/pCYvMsmScW" target="_blank" title="Join our Discord" style="background: var(--discord);"><i class="fab fa-discord"></i></a>
-                    <a href="mailto:shadowbr500@gmail.com" title="Email Us" style="background: var(--primary);"><i class="fas fa-envelope"></i></a>
-                    <a href="https://wa.me/201021336310" title="WhatsApp" style="background: var(--success);"><i class="fab fa-whatsapp"></i></a>
-                </div>
-                <p style="margin-top: 20px; color: var(--gray);">For instant support, please use our Discord server or contact us via email/WhatsApp.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container footer-content">
-            <div class="footer-section about">
-                <h3>About Egypt<span>GameStore</span></h3>
-                <p>Your trusted source for Robux and game items in Egypt. We provide fast delivery, secure payments, and excellent customer support.</p>
-                <div class="social-icons">
-                    <a href="https://discord.gg/pCYvMsmScW" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
-                    <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#home">Home</a>
+                    <a href="#products">Products</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#contact">Contact</a>
                 </div>
             </div>
-            <div class="footer-section links">
-                <h3>Quick Links</h3>
-                <a href="#home">Home</a>
-                <a href="#products">Products</a>
-                <a href="#how-it-works">How It Works</a>
-                <a href="#contact">Contact</a>
-                <a href="#" onclick="alert('Privacy Policy: We value your privacy and only collect necessary information to process your orders.'); return false;">Privacy Policy</a>
-            </div>
-            <div class="footer-section contact-info">
-                <h3>Contact Info</h3>
-                <p><i class="fas fa-envelope"></i> shadowbr500@gmail.com</p>
-                <p><i class="fas fa-phone"></i> 01021336310 (InstaPay/Vodafone Cash)</p>
-                <p><i class="fab fa-whatsapp"></i> 01021336310 (WhatsApp)</p>
-                <p><i class="fab fa-discord"></i> EgyptGameStore Support</p>
-            </div>
-        </div>
-        <div class="copyright">
-            <div class="container">
-                &copy; <span id="currentYear"></span> EgyptGameStore. All rights reserved.
+            <div class="copyright">
+                <p>&copy; 2023 EgyptGameStore. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -1475,6 +1073,7 @@
         });
 
         let currentItem = {};
+        let selectedPaymentMethod = null;
 
         function openOrderModal(name, price, category) {
             currentItem = { name, price, category };
@@ -1489,8 +1088,11 @@
             document.getElementById('paymentDetails').style.display = 'none';
             document.getElementById('orderConfirmation').style.display = 'none';
             
-            const paymentOptions = document.querySelectorAll('.payment-option');
-            paymentOptions.forEach(option => option.classList.remove('selected'));
+            // Reset payment selection
+            selectedPaymentMethod = null;
+            document.querySelectorAll('.payment-option').forEach(option => {
+                option.classList.remove('selected');
+            });
             document.getElementById('orderForm').reset();
         }
 
@@ -1537,11 +1139,20 @@
         }
         
         function selectPayment(method) {
-            const paymentOptions = document.querySelectorAll('.payment-option');
-            paymentOptions.forEach(option => option.classList.remove('selected'));
+            selectedPaymentMethod = method;
+            
+            // Remove selected class from all options
+            document.querySelectorAll('.payment-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked option
             document.getElementById(method).closest('.payment-option').classList.add('selected');
+            
+            // Show payment details
             document.getElementById('paymentDetails').style.display = 'block';
-
+            
+            // Update payment instructions based on method
             if (method === 'instapay') {
                 document.getElementById('payment-method-title').textContent = 'InstaPay Instructions';
             } else if (method === 'vodafone_cash') {
@@ -1550,51 +1161,38 @@
         }
         
         function submitOrder() {
+            if (!selectedPaymentMethod) {
+                alert("Please select a payment method.");
+                return;
+            }
+            
             const username = document.getElementById('username').value;
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
             const gamepassLink = document.getElementById('gamepassLinkInput').value;
-            const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked');
             
-            if (!paymentMethod) {
-                alert("Please select a payment method.");
-                return;
-            }
-
-            const orderData = {
+            // Display order details in confirmation
+            document.getElementById('conf-product').textContent = `Product: ${currentItem.name}`;
+            document.getElementById('conf-price').textContent = `Price: ${currentItem.price} EGP`;
+            document.getElementById('conf-username').textContent = `Roblox Username: ${username}`;
+            document.getElementById('conf-email').textContent = `Email: ${email}`;
+            document.getElementById('conf-phone').textContent = `WhatsApp: ${phone}`;
+            document.getElementById('conf-gamepass').textContent = `Gamepass Link: ${gamepassLink}`;
+            
+            // Show confirmation and hide other sections
+            document.getElementById('paymentSection').style.display = 'none';
+            document.getElementById('orderConfirmation').style.display = 'block';
+            
+            // In a real implementation, you would send this data to your server/Discord here
+            console.log("Order placed:", {
                 product: currentItem.name,
                 price: currentItem.price,
                 username: username,
                 email: email,
                 phone: phone,
                 gamepassLink: gamepassLink,
-                paymentMethod: paymentMethod.value,
-            };
-
-            // Show loading spinner
-            document.getElementById('submitSpinner').style.display = 'block';
-            document.getElementById('submitOrderBtn').disabled = true;
-
-            // Simulate processing delay
-            setTimeout(() => {
-                // Hide loading spinner
-                document.getElementById('submitSpinner').style.display = 'none';
-                document.getElementById('submitOrderBtn').disabled = false;
-                
-                // Show confirmation
-                document.getElementById('conf-product').textContent = orderData.product;
-                document.getElementById('conf-price').textContent = orderData.price + ' EGP';
-                document.getElementById('conf-username').textContent = orderData.username;
-                document.getElementById('conf-email').textContent = orderData.email;
-                document.getElementById('conf-phone').textContent = orderData.phone;
-                document.getElementById('conf-gamepass').textContent = orderData.gamepassLink;
-
-                document.getElementById('paymentSection').style.display = 'none';
-                document.getElementById('orderConfirmation').style.display = 'block';
-                
-                // In a real implementation, you would send this data to your server/Discord here
-                console.log("Order placed:", orderData);
-            }, 1500);
+                paymentMethod: selectedPaymentMethod
+            });
         }
 
         // Close modal when clicking outside
