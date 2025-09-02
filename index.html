@@ -779,13 +779,42 @@
                 grid-template-columns: 1fr;
             }
         }
+        /* Custom Message Box */
+        .message-box {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 25px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            z-index: 1001;
+            text-align: center;
+            width: 80%;
+            max-width: 400px;
+        }
+        .message-box h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        .message-box p {
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+        .message-box .btn {
+            padding: 10px 20px;
+        }
     </style>
 </head>
 <body>
+    <!-- Discord Banner -->
     <div class="discord-banner">
         Need help? Join our <a href="https://discord.gg/pCYvMsmScW" target="_blank">Discord Support Server</a>
     </div>
 
+    <!-- Header -->
     <header>
         <div class="container">
             <div class="header-content">
@@ -804,6 +833,7 @@
         </div>
     </header>
 
+    <!-- Products Section -->
     <section class="products" id="products">
         <div class="container">
             <div class="section-title">
@@ -818,6 +848,7 @@
                 <div class="category-tab" data-category="garden">Grow a Garden</div>
             </div>
             
+            <!-- Robux Products -->
             <div class="product-grid" id="robux-products">
                 <div class="product-card">
                     <div class="product-image">🪙</div>
@@ -848,6 +879,7 @@
                 </div>
             </div>
             
+            <!-- Other Categories (Empty for now) -->
             <div class="product-grid" id="other-products" style="display: none; text-align: center; padding: 40px;">
                 <div style="grid-column: 1 / -1;">
                     <i class="fas fa-box-open" style="font-size: 60px; color: var(--gray); margin-bottom: 20px;"></i>
@@ -859,6 +891,7 @@
         </div>
     </section>
 
+    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
             <h1>Buy Cheap Robux & Game Items</h1>
@@ -868,6 +901,7 @@
         </div>
     </section>
 
+    <!-- Features Section -->
     <section class="features">
         <div class="container">
             <div class="section-title">
@@ -894,6 +928,7 @@
         </div>
     </section>
 
+    <!-- Order Modal -->
     <div id="orderModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeOrderModal()">&times;</span>
@@ -910,6 +945,7 @@
                 </div>
             </div>
             
+            <!-- Order Form -->
             <form class="order-form" id="orderForm" onsubmit="return false;">
                 <div class="form-group">
                     <label for="username">Your Roblox Username *</label>
@@ -934,6 +970,7 @@
                 <button type="button" class="btn" onclick="showPaymentOptions()">Continue to Payment</button>
             </form>
             
+            <!-- Payment Options -->
             <div id="paymentSection" class="payment-section">
                 <h3>Select Payment Method</h3>
                 
@@ -993,9 +1030,11 @@
                 </div>
             </div>
             
+            <!-- Order Confirmation -->
             <div id="orderConfirmation" class="confirmation">
                 <h3>Order Received Successfully! ✅</h3>
                 <p>Thank you for your order. We will verify your payment and deliver your items within <strong>24 hours</strong>.</p>
+                <p style="font-weight: bold; color: var(--error);">Remember to manually check your bank account to confirm the payment was received.</p>
                 
                 <div class="order-details">
                     <h4>Order Details:</h4>
@@ -1014,7 +1053,15 @@
             </div>
         </div>
     </div>
+    
+    <!-- Custom Message Box -->
+    <div id="messageBox" class="message-box">
+        <h4 id="messageTitle"></h4>
+        <p id="messageText"></p>
+        <button class="btn" onclick="closeMessageBox()">OK</button>
+    </div>
 
+    <!-- How It Works Section -->
     <section class="how-it-works" id="how-it-works">
         <div class="container">
             <div class="section-title">
@@ -1046,6 +1093,7 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-title">
@@ -1062,6 +1110,7 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <div class="container footer-content">
             <div class="footer-section about">
@@ -1116,6 +1165,16 @@
             });
         });
 
+        function showMessageBox(title, text) {
+            document.getElementById('messageTitle').textContent = title;
+            document.getElementById('messageText').textContent = text;
+            document.getElementById('messageBox').style.display = 'block';
+        }
+
+        function closeMessageBox() {
+            document.getElementById('messageBox').style.display = 'none';
+        }
+
         let currentItem = {};
 
         function openOrderModal(name, price, category) {
@@ -1143,7 +1202,7 @@
         function showPaymentOptions() {
             const form = document.getElementById('orderForm');
             if (!form.checkValidity()) {
-                form.reportValidity();
+                showMessageBox("Missing Information", "Please fill in all the required fields before continuing to payment.");
                 return;
             }
             document.getElementById('orderForm').style.display = 'none';
@@ -1184,8 +1243,9 @@
             const payload = {
                 embeds: [
                     {
-                        title: "New Order Received!",
-                        color: 6946979,
+                        title: "New Order Received! (Manual Verification Required)",
+                        description: "This is a new order notification. Please check your payment account to confirm the payment before fulfilling this order.",
+                        color: 16750848, // A nice orange color for a warning
                         fields: [
                             { name: "Product", value: orderData.product, inline: true },
                             { name: "Price", value: `${orderData.price} EGP`, inline: true },
