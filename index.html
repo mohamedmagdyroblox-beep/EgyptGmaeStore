@@ -113,15 +113,18 @@
         /* Hero Section */
         .hero {
             text-align: center;
-            padding: 60px 0;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23f5f7fa" width="100" height="100"/><path fill="%23e6e9ef" d="M0 50 L100 50 M50 0 L50 100" stroke-width="0.5"/></svg>');
+            padding: 80px 0;
+            background: linear-gradient(rgba(245, 247, 250, 0.9), rgba(245, 247, 250, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23f5f7fa" width="100" height="100"/><path fill="%23e6e9ef" d="M0 50 L100 50 M50 0 L50 100" stroke-width="0.5"/></svg>');
             background-size: 30px 30px;
         }
         
         .hero h1 {
-            font-size: 2.8rem;
+            font-size: 3rem;
             margin-bottom: 20px;
             color: var(--dark);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .hero p {
@@ -190,7 +193,7 @@
         }
         
         .section-title h2 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             color: var(--dark);
             margin-bottom: 15px;
         }
@@ -240,7 +243,8 @@
         
         /* Products Section */
         .products {
-            padding: 40px 0;
+            padding: 60px 0;
+            background: var(--light);
         }
         
         .category-tabs {
@@ -393,6 +397,7 @@
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
             outline: none;
             border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.1);
         }
         
         .order-summary {
@@ -609,17 +614,6 @@
             margin-bottom: 40px;
         }
         
-        .step:not(:last-child):after {
-            content: "";
-            position: absolute;
-            top: 40px;
-            right: -10%;
-            width: 20%;
-            height: 2px;
-            background: var(--primary);
-            display: none;
-        }
-        
         .step-number {
             width: 80px;
             height: 80px;
@@ -638,6 +632,7 @@
             font-size: 1.3rem;
             margin-bottom: 15px;
             color: var(--dark);
+            font-weight: 600;
         }
         
         .step p {
@@ -755,10 +750,6 @@
                 font-size: 1rem;
             }
             
-            .step:not(:last-child):after {
-                display: none;
-            }
-            
             .modal-content {
                 width: 95%;
                 margin: 10% auto;
@@ -778,7 +769,16 @@
             .instruction-steps {
                 grid-template-columns: 1fr;
             }
+            
+            .steps {
+                flex-direction: column;
+            }
+            
+            .step {
+                margin-bottom: 30px;
+            }
         }
+        
         /* Custom Message Box */
         .message-box {
             display: none;
@@ -806,6 +806,23 @@
         .message-box .btn {
             padding: 10px 20px;
         }
+        
+        /* Loading Spinner */
+        .spinner {
+            display: none;
+            width: 40px;
+            height: 40px;
+            margin: 20px auto;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
@@ -830,6 +847,41 @@
             </div>
         </div>
     </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Buy Cheap Robux & Game Items</h1>
+            <p>Get the best deals on Robux and game items with instant delivery to your account. Pay with InstaPay or Vodafone Cash!</p>
+            <a href="#products" class="btn">View Products</a>
+            <a href="https://discord.gg/pCYvMsmScW" class="btn btn-discord" target="_blank"><i class="fab fa-discord"></i> Support Server</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Our Store</h2>
+                <p>Fast, secure, and the best prices for gaming items in Egypt</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💳</div>
+                    <h3>Pay With Mobile Wallets</h3>
+                    <p>Easy Payment Methods With InstaPay & Vodafone Cash</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Secure Transactions</h3>
+                    <p>All transactions are protected with secure verification</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Instant Delivery</h3>
+                    <p>Get your items within minutes after payment confirmation</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="products" id="products">
         <div class="container">
@@ -886,41 +938,6 @@
         </div>
     </section>
 
-    <section class="hero" id="home">
-        <div class="container">
-            <h1>Buy Cheap Robux & Game Items</h1>
-            <p>Get the best deals on Robux and game items with instant delivery to your account. Pay with InstaPay or Vodafone Cash!</p>
-            <a href="#products" class="btn">View Products</a>
-            <a href="https://discord.gg/pCYvMsmScW" class="btn btn-discord" target="_blank"><i class="fab fa-discord"></i> Support Server</a>
-        </div>
-    </section>
-
-    <section class="features">
-        <div class="container">
-            <div class="section-title">
-                <h2>Why Choose Our Store</h2>
-                <p>Fast, secure, and the best prices for gaming items in Egypt</p>
-            </div>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">💳</div>
-                    <h3>Pay With Mobile Wallets</h3>
-                    <p>Easy Payment Methods With InstaPay & Vodafone Cash</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🛡️</div>
-                    <h3>Secure Transactions</h3>
-                    <p>All transactions are protected with secure verification</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Instant Delivery</h3>
-                    <p>Get your items within minutes after payment confirmation</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <div id="orderModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeOrderModal()">&times;</span>
@@ -950,7 +967,7 @@
                 
                 <div class="form-group">
                     <label for="phone">Your WhatsApp Number *</label>
-                    <input type="tel" id="phone" name="phone" required>
+                    <input type="tel" id="phone" name="phone" required pattern="[0-9]{11}" title="Please enter a valid 11-digit Egyptian phone number">
                 </div>
                 
                 <div class="form-group">
@@ -1014,7 +1031,9 @@
                         </div>
                     </div>
                     
-                    <button type="button" class="btn btn-success" style="margin-top: 15px; width: 100%;" onclick="submitOrder()">
+                    <div class="spinner" id="submitSpinner"></div>
+                    
+                    <button type="button" class="btn btn-success" style="margin-top: 15px; width: 100%;" onclick="submitOrder()" id="submitOrderBtn">
                         I've Made the Payment
                     </button>
                 </div>
@@ -1080,6 +1099,25 @@
         </div>
     </section>
 
+    <section class="payment-methods">
+        <div class="container">
+            <div class="section-title">
+                <h2>Accepted Payment Methods</h2>
+                <p>We accept popular Egyptian payment options for your convenience</p>
+            </div>
+            <div class="payment-icons">
+                <div class="payment-icon-large">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <span>Vodafone Cash</span>
+                </div>
+                <div class="payment-icon-large">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>InstaPay</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-title">
@@ -1113,11 +1151,12 @@
                 <a href="#products">Products</a>
                 <a href="#how-it-works">How It Works</a>
                 <a href="#contact">Contact</a>
-                <a href="#">Privacy Policy</a>
+                <a href="#" onclick="showMessageBox('Privacy Policy', 'We value your privacy. Your data is only used to process your orders and will never be shared with third parties.'); return false;">Privacy Policy</a>
             </div>
             <div class="footer-section contact-info">
                 <h3>Contact Info</h3>
                 <p><i class="fas fa-envelope"></i> shadowbr500@gmail.com</p>
+                <p><i class="fas fa-phone"></i> 01021336310 (InstaPay/Vodafone Cash)</p>
             </div>
         </div>
         <div class="copyright">
@@ -1186,10 +1225,38 @@
 
         function showPaymentOptions() {
             const form = document.getElementById('orderForm');
-            if (!form.checkValidity()) {
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const gamepassLink = document.getElementById('gamepassLinkInput').value;
+            
+            if (!username || !email || !phone || !gamepassLink) {
                 showMessageBox("Missing Information", "Please fill in all the required fields before continuing to payment.");
                 return;
             }
+            
+            // Validate email format
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showMessageBox("Invalid Email", "Please enter a valid email address.");
+                return;
+            }
+            
+            // Validate phone number (Egyptian format)
+            const phoneRegex = /^01[0125][0-9]{8}$/;
+            if (!phoneRegex.test(phone)) {
+                showMessageBox("Invalid Phone Number", "Please enter a valid Egyptian phone number (11 digits starting with 01).");
+                return;
+            }
+            
+            // Validate URL format
+            try {
+                new URL(gamepassLink);
+            } catch (e) {
+                showMessageBox("Invalid URL", "Please enter a valid gamepass link.");
+                return;
+            }
+            
             document.getElementById('orderForm').style.display = 'none';
             document.getElementById('paymentSection').style.display = 'block';
         }
@@ -1212,6 +1279,12 @@
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
             const gamepassLink = document.getElementById('gamepassLinkInput').value;
+            const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked');
+            
+            if (!paymentMethod) {
+                showMessageBox("Payment Method", "Please select a payment method.");
+                return;
+            }
 
             const orderData = {
                 product: currentItem.name,
@@ -1220,8 +1293,12 @@
                 email: email,
                 phone: phone,
                 gamepassLink: gamepassLink,
-                paymentMethod: document.querySelector('input[name="paymentMethod"]:checked').value,
+                paymentMethod: paymentMethod.value,
             };
+
+            // Show loading spinner
+            document.getElementById('submitSpinner').style.display = 'block';
+            document.getElementById('submitOrderBtn').disabled = true;
 
             const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1412244202024075485/kXO3zpjgJBaz4sXzqKN_pue4BAiyumGJPMuz-Ra2S4m-f79D5VPS5ytggnIv3iI4mA68';
 
@@ -1230,7 +1307,7 @@
                     {
                         title: "New Order Received! (Manual Verification Required)",
                         description: "This is a new order notification. Please check your payment account to confirm the payment before fulfilling this order.",
-                        color: 16750848, // A nice orange color for a warning
+                        color: 16750848,
                         fields: [
                             { name: "Product", value: orderData.product, inline: true },
                             { name: "Price", value: `${orderData.price} EGP`, inline: true },
@@ -1238,7 +1315,8 @@
                             { name: "Email", value: orderData.email, inline: false },
                             { name: "WhatsApp Number", value: orderData.phone, inline: false },
                             { name: "Gamepass Link", value: orderData.gamepassLink, inline: false },
-                            { name: "Payment Method", value: orderData.paymentMethod, inline: false }
+                            { name: "Payment Method", value: orderData.paymentMethod, inline: false },
+                            { name: "Order Time", value: new Date().toLocaleString(), inline: false }
                         ],
                         timestamp: new Date().toISOString()
                     }
@@ -1259,17 +1337,36 @@
             })
             .catch(error => {
                 console.error('Error sending order to Discord:', error);
+            })
+            .finally(() => {
+                // Hide loading spinner
+                document.getElementById('submitSpinner').style.display = 'none';
+                document.getElementById('submitOrderBtn').disabled = false;
+                
+                // Show confirmation
+                document.getElementById('conf-product').textContent = `Product: ${currentItem.name}`;
+                document.getElementById('conf-price').textContent = `Price: ${currentItem.price} EGP`;
+                document.getElementById('conf-username').textContent = `Roblox Username: ${username}`;
+                document.getElementById('conf-email').textContent = `Email: ${email}`;
+                document.getElementById('conf-phone').textContent = `WhatsApp: ${phone}`;
+                document.getElementById('conf-gamepass').textContent = `Gamepass Link: ${gamepassLink}`;
+
+                document.getElementById('paymentSection').style.display = 'none';
+                document.getElementById('orderConfirmation').style.display = 'block';
             });
+        }
 
-            document.getElementById('conf-product').textContent = `Product: ${currentItem.name}`;
-            document.getElementById('conf-price').textContent = `Price: ${currentItem.price} EGP`;
-            document.getElementById('conf-username').textContent = `Roblox Username: ${username}`;
-            document.getElementById('conf-email').textContent = `Email: ${email}`;
-            document.getElementById('conf-phone').textContent = `WhatsApp: ${phone}`;
-            document.getElementById('conf-gamepass').textContent = `Gamepass Link: ${gamepassLink}`;
-
-            document.getElementById('paymentSection').style.display = 'none';
-            document.getElementById('orderConfirmation').style.display = 'block';
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('orderModal');
+            if (event.target == modal) {
+                closeOrderModal();
+            }
+            
+            const messageBox = document.getElementById('messageBox');
+            if (event.target == messageBox) {
+                closeMessageBox();
+            }
         }
     </script>
 </body>
