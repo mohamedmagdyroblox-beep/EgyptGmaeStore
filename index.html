@@ -134,7 +134,7 @@
             align-items: center;
             gap: 15px;
             position: relative;
-            margin-left: 40px; /* Increased margin to move it further right */
+            margin-left: 60px; /* Increased margin to move it further right */
         }
         
         .user-info {
@@ -270,6 +270,22 @@
         .btn-auth:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
+        }
+        
+        .forgot-password {
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+        .forgot-password a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        
+        .forgot-password a:hover {
+            text-decoration: underline;
         }
         
         .discord-banner {
@@ -815,6 +831,123 @@
             justify-content: center;
             gap: 15px;
             margin-bottom: 30px;
+        }
+        
+        /* User Settings Section */
+        .user-settings {
+            padding: 60px 0;
+            background: white;
+            display: none;
+        }
+        
+        .user-settings.active {
+            display: block;
+        }
+        
+        .settings-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            padding: 40px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .settings-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .settings-title {
+            font-size: 1.8rem;
+            color: var(--darker);
+            font-weight: 700;
+        }
+        
+        .settings-tabs {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .settings-tab {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            font-weight: 600;
+            color: var(--gray);
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .settings-tab.active {
+            color: var(--primary);
+        }
+        
+        .settings-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+        }
+        
+        .settings-form {
+            display: none;
+        }
+        
+        .settings-form.active {
+            display: block;
+        }
+        
+        .settings-form .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .settings-form label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--darker);
+        }
+        
+        .settings-form input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .settings-form input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.1);
+        }
+        
+        .btn-save {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-save:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
         }
         
         /* Features Section */
@@ -1438,6 +1571,45 @@
             opacity: 0.9;
         }
         
+        .admin-tabs {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .admin-tab {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            font-weight: 600;
+            color: var(--gray);
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .admin-tab.active {
+            color: var(--primary);
+        }
+        
+        .admin-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+        }
+        
+        .admin-content {
+            display: none;
+        }
+        
+        .admin-content.active {
+            display: block;
+        }
+        
         .admin-table {
             width: 100%;
             border-collapse: collapse;
@@ -1445,6 +1617,7 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
         }
         
         .admin-table th {
@@ -1489,6 +1662,11 @@
         }
         
         .btn-view {
+            background: var(--success);
+            color: white;
+        }
+        
+        .btn-complete {
             background: var(--success);
             color: white;
         }
@@ -1718,6 +1896,82 @@
             color: var(--gray);
         }
         
+        /* Forgot Password Modal */
+        .forgot-password-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1000;
+            overflow: auto;
+        }
+        
+        .forgot-password-modal.active {
+            display: block;
+        }
+        
+        .forgot-password-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 40px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        
+        .forgot-password-title {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: var(--darker);
+            text-align: center;
+        }
+        
+        .forgot-password-form {
+            margin-bottom: 20px;
+        }
+        
+        .forgot-password-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--darker);
+        }
+        
+        .forgot-password-form input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .forgot-password-form input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.1);
+        }
+        
+        .back-to-login {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .back-to-login a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-to-login a:hover {
+            text-decoration: underline;
+        }
+        
         /* Admin Access Button */
         .admin-access {
             position: fixed;
@@ -1811,6 +2065,71 @@
             font-size: 15px;
         }
         
+        /* Hosting Info Section */
+        .hosting-info {
+            padding: 60px 0;
+            background: white;
+        }
+        
+        .hosting-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hosting-title {
+            font-size: 2rem;
+            color: var(--darker);
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 700;
+        }
+        
+        .hosting-steps {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .hosting-step {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .hosting-step:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .hosting-step h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hosting-step h3 i {
+            margin-right: 10px;
+        }
+        
+        .hosting-step p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+        
+        .hosting-step ul {
+            margin-left: 30px;
+            margin-top: 10px;
+        }
+        
+        .hosting-step li {
+            margin-bottom: 8px;
+            color: var(--gray);
+        }
+        
         /* Responsive Design */
         @media (max-width: 768px) {
             .header-content {
@@ -1900,6 +2219,14 @@
             }
             
             .data-management {
+                flex-direction: column;
+            }
+            
+            .settings-tabs {
+                flex-direction: column;
+            }
+            
+            .admin-tabs {
                 flex-direction: column;
             }
             
@@ -2129,6 +2456,62 @@
         </div>
     </section>
     
+    <section class="user-settings" id="user-settings">
+        <div class="container">
+            <div class="settings-container">
+                <div class="settings-header">
+                    <h2 class="settings-title">User Settings</h2>
+                    <button class="btn btn-outline btn-small" onclick="closeUserSettings()">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                </div>
+                
+                <div class="settings-tabs">
+                    <div class="settings-tab active" onclick="switchSettingsTab('profile')">Profile</div>
+                    <div class="settings-tab" onclick="switchSettingsTab('security')">Security</div>
+                </div>
+                
+                <form id="profileForm" class="settings-form active" onsubmit="return false;">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" id="settingsName" placeholder="Your full name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" id="settingsEmail" placeholder="Your email address">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" id="settingsPhone" placeholder="Your phone number">
+                    </div>
+                    
+                    <button type="button" class="btn-save" onclick="updateUserProfile()">Save Changes</button>
+                </form>
+                
+                <form id="securityForm" class="settings-form" onsubmit="return false;">
+                    <div class="form-group">
+                        <label>Current Password</label>
+                        <input type="password" id="currentPassword" placeholder="Enter your current password">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>New Password</label>
+                        <input type="password" id="newPassword" placeholder="Enter your new password">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Confirm New Password</label>
+                        <input type="password" id="confirmNewPassword" placeholder="Confirm your new password">
+                    </div>
+                    
+                    <button type="button" class="btn-save" onclick="changePassword()">Change Password</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
     <section class="features">
         <div class="container">
             <div class="section-title">
@@ -2329,6 +2712,62 @@
         </div>
     </section>
     
+    <section class="hosting-info" id="hosting-info">
+        <div class="container">
+            <div class="hosting-container">
+                <h2 class="hosting-title">Hosting Guide for Your EgyptGameStore</h2>
+                
+                <div class="hosting-steps">
+                    <div class="hosting-step">
+                        <h3><i class="fas fa-shopping-cart"></i> What to Purchase from Namecheap</h3>
+                        <p>To set up a proper hosting solution for your store, you'll need to purchase:</p>
+                        <ul>
+                            <li><strong>Shared Hosting Plan</strong> - Namecheap's Stellar or Stellar Plus plan is sufficient for starters</li>
+                            <li><strong>Domain Name</strong> - Your custom domain (e.g., egyptgamestore.com)</li>
+                            <li><strong>SSL Certificate</strong> - Often included free with hosting plans</li>
+                            <li><strong>Database Setup</strong> - MySQL database included with most hosting plans</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="hosting-step">
+                        <h3><i class="fas fa-cogs"></i> Technical Requirements</h3>
+                        <p>Your hosting plan should include:</p>
+                        <ul>
+                            <li>PHP 7.4 or higher</li>
+                            <li>MySQL 5.6 or higher</li>
+                            <li>cPanel or similar control panel</li>
+                            <li>At least 5GB storage</li>
+                            <li>SSL certificate (free Let's Encrypt is fine)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="hosting-step">
+                        <h3><i class="fas fa-database"></i> Database Migration Steps</h3>
+                        <p>When you get your hosting, you'll need to:</p>
+                        <ul>
+                            <li>Create a MySQL database through cPanel</li>
+                            <li>Update the website code to connect to your database instead of localStorage</li>
+                            <li>Import existing user data from localStorage to the new database</li>
+                            <li>Set up regular backups to prevent data loss</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="hosting-step">
+                        <h3><i class="fas fa-shield-alt"></i> Benefits of Server-Side Storage</h3>
+                        <p>With a proper database, you'll get:</p>
+                        <ul>
+                            <li>Persistent data across devices and browsers</li>
+                            <li>Automatic backups and data recovery</li>
+                            <li>Better security for user information</li>
+                            <li>Scalability as your business grows</li>
+                            <li>Professional appearance with custom domain</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- Admin Panel Section -->
     <section class="admin-panel" id="adminPanel">
         <div class="container">
@@ -2339,53 +2778,87 @@
                 </button>
             </div>
             
-            <div class="webhook-settings">
-                <h3>Discord Webhook Settings</h3>
-                <div class="webhook-form">
-                    <div class="webhook-form-group">
-                        <label>Webhook URL</label>
-                        <input type="text" id="webhookUrl" placeholder="https://discord.com/api/webhooks/...">
+            <div class="admin-tabs">
+                <div class="admin-tab active" onclick="switchAdminTab('dashboard')">Dashboard</div>
+                <div class="admin-tab" onclick="switchAdminTab('users')">Users</div>
+                <div class="admin-tab" onclick="switchAdminTab('orders')">Orders</div>
+                <div class="admin-tab" onclick="switchAdminTab('webhook')">Webhook</div>
+            </div>
+            
+            <div id="dashboard-content" class="admin-content active">
+                <div class="admin-stats">
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalUsers">0</div>
+                        <div class="stat-label">Total Users</div>
                     </div>
-                    <button class="webhook-btn" onclick="saveWebhookSettings()">Save</button>
-                </div>
-                <div class="webhook-status" id="webhookStatus">Webhook not configured</div>
-            </div>
-            
-            <div class="admin-stats">
-                <div class="stat-card">
-                    <div class="stat-value" id="totalUsers">0</div>
-                    <div class="stat-label">Total Users</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" id="totalOrders">0</div>
-                    <div class="stat-label">Total Orders</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" id="totalRevenue">0</div>
-                    <div class="stat-label">Total Revenue (EGP)</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" id="pendingOrders">0</div>
-                    <div class="stat-label">Pending Orders</div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalOrders">0</div>
+                        <div class="stat-label">Total Orders</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalRevenue">0</div>
+                        <div class="stat-label">Total Revenue (EGP)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="pendingOrders">0</div>
+                        <div class="stat-label">Pending Orders</div>
+                    </div>
                 </div>
             </div>
             
-            <h3 style="margin-bottom: 20px; color: var(--darker);">User Accounts</h3>
-            <table class="admin-table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Registered</th>
-                        <th>Orders</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody id="usersTableBody">
-                    <!-- Users will be populated here -->
-                </tbody>
-            </table>
+            <div id="users-content" class="admin-content">
+                <h3 style="margin-bottom: 20px; color: var(--darker);">User Accounts</h3>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Registered</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersTableBody">
+                        <!-- Users will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div id="orders-content" class="admin-content">
+                <h3 style="margin-bottom: 20px; color: var(--darker);">Order Management</h3>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Payment Method</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ordersTableBody">
+                        <!-- Orders will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div id="webhook-content" class="admin-content">
+                <div class="webhook-settings">
+                    <h3>Discord Webhook Settings</h3>
+                    <div class="webhook-form">
+                        <div class="webhook-form-group">
+                            <label>Webhook URL</label>
+                            <input type="text" id="webhookUrl" placeholder="https://discord.com/api/webhooks/...">
+                        </div>
+                        <button class="webhook-btn" onclick="saveWebhookSettings()">Save</button>
+                    </div>
+                    <div class="webhook-status" id="webhookStatus">Webhook not configured</div>
+                </div>
+            </div>
         </div>
     </section>
     
@@ -2434,6 +2907,25 @@
             </div>
             
             <button class="admin-btn" onclick="adminLogin()">Login</button>
+        </div>
+    </div>
+    
+    <!-- Forgot Password Modal -->
+    <div class="forgot-password-modal" id="forgotPasswordModal">
+        <div class="forgot-password-content">
+            <span class="close" onclick="closeForgotPassword()">&times;</span>
+            <h2 class="forgot-password-title">Forgot Password</h2>
+            
+            <div class="forgot-password-form">
+                <label>Email Address</label>
+                <input type="email" id="forgotEmail" placeholder="Enter your email address">
+            </div>
+            
+            <button class="admin-btn" onclick="resetPassword()">Reset Password</button>
+            
+            <div class="back-to-login">
+                <a href="#" onclick="showLoginFromForgotPassword()">Back to Login</a>
+            </div>
         </div>
     </div>
     
@@ -2580,6 +3072,7 @@
                 name,
                 email,
                 password, // In a real app, this should be hashed
+                phone: '',
                 registeredAt: new Date().toISOString()
             };
             
@@ -2678,6 +3171,9 @@
                         <div class="user-avatar">${initials}</div>
                         <span>${currentUser.name}</span>
                     </div>
+                    <button class="btn btn-outline btn-small" onclick="openUserSettings()">
+                        <i class="fas fa-cog"></i> Settings
+                    </button>
                     <button class="btn btn-outline btn-small" onclick="logoutUser()">
                         <i class="fas fa-sign-out-alt"></i> Logout
                     </button>
@@ -2706,6 +3202,10 @@
                             </div>
                             
                             <button type="button" class="btn-auth" onclick="loginUser()">Login</button>
+                            
+                            <div class="forgot-password">
+                                <a href="#" onclick="showForgotPassword()">Forgot Password?</a>
+                            </div>
                         </form>
                         
                         <form id="registerForm" class="auth-form" onsubmit="return false;">
@@ -2988,505 +3488,4 @@
             }
             
             // Get orders from localStorage
-            const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
-            
-            // Filter orders by current user's email
-            const userOrders = orders.filter(order => order.email === currentUser.email);
-            
-            if (userOrders.length === 0) {
-                orderList.innerHTML = `
-                    <div class="empty-orders">
-                        <i class="fas fa-receipt"></i>
-                        <h3>No orders yet</h3>
-                        <p>Your order history will appear here once you make a purchase.</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            // Display orders
-            orderList.innerHTML = '';
-            userOrders.forEach(order => {
-                const orderDate = new Date(order.createdAt).toLocaleDateString();
-                const statusClass = order.status === 'completed' ? 'status-completed' : 'status-pending';
-                const statusText = order.status === 'completed' ? 'Completed' : 'Pending';
-                
-                const orderElement = document.createElement('div');
-                orderElement.className = 'order-item';
-                orderElement.innerHTML = `
-                    <div class="order-header">
-                        <div class="order-id">${order.id}</div>
-                        <div class="order-date">${orderDate}</div>
-                        <div class="order-status ${statusClass}">${statusText}</div>
-                    </div>
-                    <div class="order-details-grid">
-                        <div class="order-detail-item">
-                            <div class="order-detail-label">Product</div>
-                            <div class="order-detail-value">${order.product}</div>
-                        </div>
-                        <div class="order-detail-item">
-                            <div class="order-detail-label">Price</div>
-                            <div class="order-detail-value">${order.price} EGP</div>
-                        </div>
-                        <div class="order-detail-item">
-                            <div class="order-detail-label">Username</div>
-                            <div class="order-detail-value">${order.username}</div>
-                        </div>
-                        <div class="order-detail-item">
-                            <div class="order-detail-label">Payment Method</div>
-                            <div class="order-detail-value">${order.paymentMethod === 'instapay' ? 'InstaPay' : 'Vodafone Cash'}</div>
-                        </div>
-                    </div>
-                `;
-                orderList.appendChild(orderElement);
-            });
-        }
-        
-        // Data Management Functions
-        function addDataManagementButtons() {
-            const orderHistorySection = document.getElementById('order-history');
-            const container = orderHistorySection.querySelector('.container');
-            
-            // Check if buttons already exist
-            if (document.querySelector('.data-management')) {
-                return;
-            }
-            
-            const buttonsDiv = document.createElement('div');
-            buttonsDiv.className = 'data-management';
-            buttonsDiv.innerHTML = `
-                <button class="btn" onclick="exportOrderData()">
-                    <i class="fas fa-download"></i> Export My Orders
-                </button>
-                <button class="btn" onclick="importOrderData()">
-                    <i class="fas fa-upload"></i> Import Orders
-                </button>
-            `;
-            
-            container.insertBefore(buttonsDiv, container.firstChild.nextSibling);
-        }
-        
-        function exportOrderData() {
-            if (!currentUser) {
-                showNotification('Please login to export your data', 'error');
-                return;
-            }
-            
-            // Get user's orders
-            const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
-            const userOrders = orders.filter(order => order.email === currentUser.email);
-            
-            if (userOrders.length === 0) {
-                showNotification('No orders to export', 'info');
-                return;
-            }
-            
-            // Create export data
-            const exportData = {
-                userEmail: currentUser.email,
-                orders: userOrders,
-                exportDate: new Date().toISOString()
-            };
-            
-            // Create and download file
-            const dataStr = JSON.stringify(exportData, null, 2);
-            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
-            
-            const exportFileDefaultName = `egyptgamestore-orders-${currentUser.email.replace(/[@.]/g, '-')}.json`;
-            
-            const linkElement = document.createElement('a');
-            linkElement.setAttribute('href', dataUri);
-            linkElement.setAttribute('download', exportFileDefaultName);
-            linkElement.click();
-            
-            showNotification('Order data exported successfully', 'success');
-        }
-        
-        function importOrderData() {
-            if (!currentUser) {
-                showNotification('Please login to import data', 'error');
-                return;
-            }
-            
-            // Create file input
-            const input = document.createElement('input');
-            input.type = 'file';
-            input.accept = '.json';
-            
-            input.onchange = e => {
-                const file = e.target.files[0];
-                if (!file) return;
-                
-                const reader = new FileReader();
-                reader.onload = function(event) {
-                    try {
-                        const importData = JSON.parse(event.target.result);
-                        
-                        // Validate import data
-                        if (!importData.userEmail || !importData.orders) {
-                            showNotification('Invalid import file format', 'error');
-                            return;
-                        }
-                        
-                        // Check if email matches current user
-                        if (importData.userEmail !== currentUser.email) {
-                            showNotification('Import data does not match your account', 'error');
-                            return;
-                        }
-                        
-                        // Get existing orders
-                        const existingOrders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
-                        
-                        // Filter out any existing orders for this user to avoid duplicates
-                        const filteredExistingOrders = existingOrders.filter(order => 
-                            order.email !== currentUser.email
-                        );
-                        
-                        // Combine existing orders with imported orders
-                        const allOrders = [...filteredExistingOrders, ...importData.orders];
-                        
-                        // Save to localStorage
-                        localStorage.setItem('egyptGameStoreOrders', JSON.stringify(allOrders));
-                        
-                        // Refresh order history
-                        loadOrderHistory();
-                        
-                        showNotification(`Successfully imported ${importData.orders.length} orders`, 'success');
-                    } catch (error) {
-                        showNotification('Error reading import file', 'error');
-                        console.error('Import error:', error);
-                    }
-                };
-                
-                reader.readAsText(file);
-            };
-            
-            input.click();
-        }
-        
-        // Discord Webhook Functions
-        function loadWebhookSettings() {
-            const webhookUrl = localStorage.getItem('egyptGameStoreWebhookUrl');
-            if (webhookUrl) {
-                document.getElementById('webhookUrl').value = webhookUrl;
-                document.getElementById('webhookStatus').textContent = 'Webhook configured';
-                document.getElementById('webhookStatus').style.color = 'var(--success)';
-            }
-        }
-        
-        function saveWebhookSettings() {
-            const webhookUrl = document.getElementById('webhookUrl').value.trim();
-            
-            if (!webhookUrl) {
-                showNotification('Please enter a webhook URL', 'error');
-                return;
-            }
-            
-            // Validate webhook URL format (basic validation)
-            if (!webhookUrl.startsWith('https://discord.com/api/webhooks/')) {
-                showNotification('Please enter a valid Discord webhook URL', 'error');
-                return;
-            }
-            
-            // Save to localStorage
-            localStorage.setItem('egyptGameStoreWebhookUrl', webhookUrl);
-            
-            // Update status
-            document.getElementById('webhookStatus').textContent = 'Webhook configured';
-            document.getElementById('webhookStatus').style.color = 'var(--success)';
-            
-            showNotification('Webhook settings saved successfully', 'success');
-        }
-        
-        function sendDiscordWebhook(order) {
-            const webhookUrl = localStorage.getItem('egyptGameStoreWebhookUrl');
-            
-            if (!webhookUrl) {
-                console.log('No webhook URL configured');
-                return;
-            }
-            
-            // Create embed message
-            const embed = {
-                title: 'New Order Received',
-                color: 0x6a11cb, // Purple color
-                fields: [
-                    {
-                        name: 'Order ID',
-                        value: order.id,
-                        inline: true
-                    },
-                    {
-                        name: 'Product',
-                        value: order.product,
-                        inline: true
-                    },
-                    {
-                        name: 'Price',
-                        value: `${order.price} EGP`,
-                        inline: true
-                    },
-                    {
-                        name: 'Customer',
-                        value: order.username,
-                        inline: true
-                    },
-                    {
-                        name: 'Email',
-                        value: order.email,
-                        inline: true
-                    },
-                    {
-                        name: 'Phone',
-                        value: order.phone,
-                        inline: true
-                    },
-                    {
-                        name: 'Payment Method',
-                        value: order.paymentMethod === 'instapay' ? 'InstaPay' : 'Vodafone Cash',
-                        inline: true
-                    },
-                    {
-                        name: 'Status',
-                        value: order.status,
-                        inline: true
-                    }
-                ],
-                timestamp: new Date().toISOString()
-            };
-            
-            // Send webhook
-            fetch(webhookUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    embeds: [embed]
-                })
-            })
-            .then(response => {
-                if (response.ok) {
-                    console.log('Webhook sent successfully');
-                } else {
-                    console.error('Failed to send webhook:', response.status, response.statusText);
-                }
-            })
-            .catch(error => {
-                console.error('Error sending webhook:', error);
-            });
-        }
-        
-        // Admin Panel Functions
-        let isAdminLoggedIn = false;
-        const ADMIN_PASSWORD = "egyptgamestore2023"; // Change this to your desired password
-        
-        function showAdminLogin() {
-            document.getElementById('adminLogin').classList.add('active');
-        }
-        
-        function closeAdminLogin() {
-            document.getElementById('adminLogin').classList.remove('active');
-            document.getElementById('adminPassword').value = '';
-        }
-        
-        function adminLogin() {
-            const password = document.getElementById('adminPassword').value;
-            
-            if (password === ADMIN_PASSWORD) {
-                isAdminLoggedIn = true;
-                localStorage.setItem('egyptGameStoreAdminLoggedIn', 'true');
-                closeAdminLogin();
-                showAdminPanel();
-            } else {
-                showNotification('Incorrect admin password', 'error');
-            }
-        }
-        
-        function logoutAdmin() {
-            isAdminLoggedIn = false;
-            localStorage.removeItem('egyptGameStoreAdminLoggedIn');
-            document.getElementById('adminPanel').style.display = 'none';
-            showNotification('Logged out of admin panel', 'info');
-        }
-        
-        function showAdminPanel() {
-            // Hide other sections
-            document.querySelectorAll('section').forEach(section => {
-                section.style.display = 'none';
-            });
-            
-            // Show admin panel
-            document.getElementById('adminPanel').style.display = 'block';
-            
-            // Load admin data
-            loadAdminStats();
-            loadUsersTable();
-        }
-        
-        function loadAdminStats() {
-            // Get users
-            const users = JSON.parse(localStorage.getItem('egyptGameStoreUsers')) || [];
-            document.getElementById('totalUsers').textContent = users.length;
-            
-            // Get orders
-            const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
-            document.getElementById('totalOrders').textContent = orders.length;
-            
-            // Calculate total revenue
-            const totalRevenue = orders.reduce((sum, order) => sum + parseInt(order.price), 0);
-            document.getElementById('totalRevenue').textContent = totalRevenue;
-            
-            // Count pending orders
-            const pendingOrders = orders.filter(order => order.status === 'pending').length;
-            document.getElementById('pendingOrders').textContent = pendingOrders;
-        }
-        
-        function loadUsersTable() {
-            const users = JSON.parse(localStorage.getItem('egyptGameStoreUsers')) || [];
-            const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
-            const tableBody = document.getElementById('usersTableBody');
-            
-            tableBody.innerHTML = '';
-            
-            users.forEach(user => {
-                const userOrders = orders.filter(order => order.email === user.email);
-                const registeredDate = new Date(user.registeredAt).toLocaleDateString();
-                
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${user.id}</td>
-                    <td>${user.name}</td>
-                    <td>${user.email}</td>
-                    <td>${registeredDate}</td>
-                    <td>${userOrders.length}</td>
-                    <td>
-                        <div class="admin-actions">
-                            <button class="btn-small btn-view" onclick="viewAccount(${user.id})">
-                                <i class="fas fa-eye"></i> View
-                            </button>
-                            <button class="btn-small btn-edit" onclick="editAccount(${user.id})">
-                                <i class="fas fa-edit"></i> Edit
-                            </button>
-                            <button class="btn-small btn-delete" onclick="deleteAccount(${user.id})">
-                                <i class="fas fa-trash"></i> Delete
-                            </button>
-                        </div>
-                    </td>
-                `;
-                tableBody.appendChild(row);
-            });
-        }
-        
-        function viewAccount(userId) {
-            const users = JSON.parse(localStorage.getItem('egyptGameStoreUsers')) || [];
-            const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
-            
-            const user = users.find(u => u.id === userId);
-            if (!user) return;
-            
-            const userOrders = orders.filter(order => order.email === user.email);
-            
-            // Populate account info
-            const accountInfo = document.getElementById('accountInfo');
-            accountInfo.innerHTML = `
-                <div class="info-item">
-                    <div class="info-label">User ID</div>
-                    <div class="info-value">${user.id}</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-label">Full Name</div>
-                    <div class="info-value">${user.name}</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-label">Email</div>
-                    <div class="info-value">${user.email}</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-label">Registered At</div>
-                    <div class="info-value">${new Date(user.registeredAt).toLocaleString()}</div>
-                </div>
-            `;
-            
-            // Populate orders table
-            const ordersTable = document.getElementById('userOrdersTable');
-            ordersTable.innerHTML = '';
-            
-            if (userOrders.length === 0) {
-                ordersTable.innerHTML = '<tr><td colspan="5" style="text-align: center;">No orders found</td></tr>';
-            } else {
-                userOrders.forEach(order => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${order.id}</td>
-                        <td>${order.product}</td>
-                        <td>${order.price} EGP</td>
-                        <td>${new Date(order.createdAt).toLocaleDateString()}</td>
-                        <td>
-                            <span class="order-status ${order.status === 'completed' ? 'status-completed' : 'status-pending'}">
-                                ${order.status === 'completed' ? 'Completed' : 'Pending'}
-                            </span>
-                        </td>
-                    `;
-                    ordersTable.appendChild(row);
-                });
-            }
-            
-            // Show modal
-            document.getElementById('accountDetails').classList.add('active');
-        }
-        
-        function closeAccountDetails() {
-            document.getElementById('accountDetails').classList.remove('active');
-        }
-        
-        function editAccount(userId) {
-            // For now, we'll just show a notification
-            // In a real implementation, you would open an edit form
-            showNotification('Edit functionality would open here', 'info');
-        }
-        
-        function deleteAccount(userId) {
-            if (confirm('Are you sure you want to delete this account? This action cannot be undone.')) {
-                // Get users and remove the user
-                let users = JSON.parse(localStorage.getItem('egyptGameStoreUsers')) || [];
-                const userToDelete = users.find(u => u.id === userId);
-                users = users.filter(user => user.id !== userId);
-                localStorage.setItem('egyptGameStoreUsers', JSON.stringify(users));
-                
-                // Also remove user's orders
-                if (userToDelete) {
-                    let orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
-                    orders = orders.filter(order => order.email !== userToDelete.email);
-                    localStorage.setItem('egyptGameStoreOrders', JSON.stringify(orders));
-                }
-                
-                // Refresh the table
-                loadUsersTable();
-                loadAdminStats();
-                
-                showNotification('Account deleted successfully', 'success');
-            }
-        }
-        
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('orderModal');
-            const accountDetails = document.getElementById('accountDetails');
-            const adminLogin = document.getElementById('adminLogin');
-            
-            if (event.target === modal) {
-                closeOrderModal();
-            }
-            
-            if (event.target === accountDetails) {
-                closeAccountDetails();
-            }
-            
-            if (event.target === adminLogin) {
-                closeAdminLogin();
-            }
-        }
-    </script>
-</body>
-</html>
+            const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders
