@@ -509,6 +509,103 @@
             box-shadow: 0 6px 15px rgba(106, 17, 203, 0.35);
         }
         
+        /* Order History Section */
+        .order-history {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .order-list {
+            margin-top: 40px;
+        }
+        
+        .order-item {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .order-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .order-id {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        
+        .order-date {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .order-status {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .status-pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .status-completed {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .order-details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .order-detail-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .order-detail-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-bottom: 5px;
+        }
+        
+        .order-detail-value {
+            font-weight: 500;
+            color: var(--darker);
+        }
+        
+        .empty-orders {
+            text-align: center;
+            padding: 40px;
+            color: var(--gray);
+        }
+        
+        .empty-orders i {
+            font-size: 60px;
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+        
         /* Features Section */
         .features {
             padding: 80px 0;
@@ -648,103 +745,6 @@
             font-weight: 500;
         }
         
-        /* Order History Section */
-        .order-history {
-            padding: 80px 0;
-            background: white;
-        }
-        
-        .order-list {
-            margin-top: 40px;
-        }
-        
-        .order-item {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8f0;
-            transition: all 0.3s ease;
-        }
-        
-        .order-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-        
-        .order-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        
-        .order-id {
-            font-weight: 600;
-            color: var(--primary);
-            font-size: 1.1rem;
-        }
-        
-        .order-date {
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-        
-        .order-status {
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        
-        .status-pending {
-            background: #fef3c7;
-            color: #92400e;
-        }
-        
-        .status-completed {
-            background: #d1fae5;
-            color: #065f46;
-        }
-        
-        .order-details-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
-        }
-        
-        .order-detail-item {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .order-detail-label {
-            font-size: 0.8rem;
-            color: var(--gray);
-            margin-bottom: 5px;
-        }
-        
-        .order-detail-value {
-            font-weight: 500;
-            color: var(--darker);
-        }
-        
-        .empty-orders {
-            text-align: center;
-            padding: 40px;
-            color: var(--gray);
-        }
-        
-        .empty-orders i {
-            font-size: 60px;
-            margin-bottom: 20px;
-            color: var(--gray);
-        }
-        
         /* Order Modal */
         .modal {
             display: none;
@@ -845,6 +845,16 @@
             border-bottom: none;
             margin-bottom: 0;
             padding-bottom: 0;
+        }
+        
+        .order-item-name {
+            color: var(--darker) !important;
+            font-weight: 500 !important;
+        }
+        
+        .order-item-price {
+            color: var(--primary) !important;
+            font-weight: 600 !important;
         }
         
         .order-total {
@@ -1548,8 +1558,8 @@
             <div class="order-summary">
                 <h3><i class="fas fa-receipt"></i> Order Summary</h3>
                 <div class="order-item-summary">
-                    <span id="modal-item-name">Product Name</span>
-                    <span id="modal-item-price">0 EGP</span>
+                    <span id="modal-item-name" class="order-item-name">Product Name</span>
+                    <span id="modal-item-price" class="order-item-price">0 EGP</span>
                 </div>
                 <div class="order-total">
                     <span>Total:</span>
@@ -1786,17 +1796,38 @@
         
         function openOrderModal(name, price, category) {
             currentItem = { name, price, category };
-            document.getElementById('modal-item-name').textContent = name;
-            document.getElementById('modal-item-price').textContent = price + ' EGP';
-            document.getElementById('modal-total-price').textContent = price + ' EGP';
-            document.getElementById('paymentAmount').textContent = price + ' EGP';
-            document.getElementById('instruction-amount').textContent = price + ' EGP';
+            
+            // Make sure the modal is visible
             document.getElementById('orderModal').style.display = 'block';
+            
+            // Set the product name and price with explicit styling
+            const nameElement = document.getElementById('modal-item-name');
+            const priceElement = document.getElementById('modal-item-price');
+            const totalElement = document.getElementById('modal-total-price');
+            const paymentAmountElement = document.getElementById('paymentAmount');
+            const instructionAmountElement = document.getElementById('instruction-amount');
+            
+            // Set text content
+            nameElement.textContent = name;
+            priceElement.textContent = price + ' EGP';
+            totalElement.textContent = price + ' EGP';
+            paymentAmountElement.textContent = price + ' EGP';
+            instructionAmountElement.textContent = price + ' EGP';
+            
+            // Force visibility by setting explicit styles
+            nameElement.style.color = 'var(--darker)';
+            nameElement.style.fontWeight = '500';
+            nameElement.style.display = 'inline';
+            
+            priceElement.style.color = 'var(--primary)';
+            priceElement.style.fontWeight = '600';
+            priceElement.style.display = 'inline';
+            
+            // Reset form and payment selection
             document.getElementById('orderForm').style.display = 'block';
             document.getElementById('paymentSection').style.display = 'none';
             document.getElementById('orderConfirmation').style.display = 'none';
             
-            // Reset payment selection
             selectedPaymentMethod = null;
             document.querySelectorAll('.payment-option').forEach(option => {
                 option.classList.remove('selected');
@@ -1817,7 +1848,6 @@
             const gamepassLink = document.getElementById('gamepassLinkInput').value;
             
             if (!username || !email || !phone || !gamepassLink) {
-                // Create a more user-friendly notification instead of alert
                 showNotification('Please fill in all the required fields before continuing to payment.', 'error');
                 return;
             }
@@ -1927,68 +1957,81 @@
         
         // Function to save order to localStorage
         function saveOrderToLocalStorage(orderData) {
-            // Get existing orders from localStorage
-            let orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
-            
-            // Add new order to the beginning of the array
-            orders.unshift(orderData);
-            
-            // Save back to localStorage
-            localStorage.setItem('egyptGameStoreOrders', JSON.stringify(orders));
+            try {
+                // Get existing orders from localStorage
+                let orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
+                
+                // Add new order to the beginning of the array
+                orders.unshift(orderData);
+                
+                // Save back to localStorage
+                localStorage.setItem('egyptGameStoreOrders', JSON.stringify(orders));
+                console.log("Order saved to localStorage:", orderData);
+            } catch (error) {
+                console.error("Error saving order to localStorage:", error);
+                showNotification("Error saving order. Please try again.", "error");
+            }
         }
         
         // Function to load order history from localStorage
         function loadOrderHistory() {
-            const orderList = document.getElementById('orderList');
-            const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
-            
-            if (orders.length === 0) {
-                orderList.innerHTML = `
-                    <div class="empty-orders">
-                        <i class="fas fa-receipt"></i>
-                        <h3>No orders yet</h3>
-                        <p>Your order history will appear here once you make a purchase.</p>
-                    </div>
-                `;
-                return;
+            try {
+                const orderList = document.getElementById('orderList');
+                const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
+                
+                console.log("Loading orders from localStorage:", orders);
+                
+                if (orders.length === 0) {
+                    orderList.innerHTML = `
+                        <div class="empty-orders">
+                            <i class="fas fa-receipt"></i>
+                            <h3>No orders yet</h3>
+                            <p>Your order history will appear here once you make a purchase.</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                orderList.innerHTML = '';
+                
+                orders.forEach(order => {
+                    const orderDate = new Date(order.timestamp);
+                    const formattedDate = orderDate.toLocaleDateString() + ' ' + orderDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                    
+                    const orderElement = document.createElement('div');
+                    orderElement.className = 'order-item';
+                    orderElement.innerHTML = `
+                        <div class="order-header">
+                            <div class="order-id">${order.orderId}</div>
+                            <div class="order-date">${formattedDate}</div>
+                            <div class="order-status status-${order.status}">${order.status.charAt(0).toUpperCase() + order.status.slice(1)}</div>
+                        </div>
+                        <div class="order-details-grid">
+                            <div class="order-detail-item">
+                                <div class="order-detail-label">Product</div>
+                                <div class="order-detail-value">${order.product}</div>
+                            </div>
+                            <div class="order-detail-item">
+                                <div class="order-detail-label">Price</div>
+                                <div class="order-detail-value">${order.price} EGP</div>
+                            </div>
+                            <div class="order-detail-item">
+                                <div class="order-detail-label">Username</div>
+                                <div class="order-detail-value">${order.username}</div>
+                            </div>
+                            <div class="order-detail-item">
+                                <div class="order-detail-label">Payment Method</div>
+                                <div class="order-detail-value">${order.paymentMethod}</div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    orderList.appendChild(orderElement);
+                });
+            } catch (error) {
+                console.error("Error loading order history:", error);
+                showNotification("Error loading order history. Please refresh the page.", "error");
             }
-            
-            orderList.innerHTML = '';
-            
-            orders.forEach(order => {
-                const orderDate = new Date(order.timestamp);
-                const formattedDate = orderDate.toLocaleDateString() + ' ' + orderDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-                
-                const orderElement = document.createElement('div');
-                orderElement.className = 'order-item';
-                orderElement.innerHTML = `
-                    <div class="order-header">
-                        <div class="order-id">${order.orderId}</div>
-                        <div class="order-date">${formattedDate}</div>
-                        <div class="order-status status-${order.status}">${order.status.charAt(0).toUpperCase() + order.status.slice(1)}</div>
-                    </div>
-                    <div class="order-details-grid">
-                        <div class="order-detail-item">
-                            <div class="order-detail-label">Product</div>
-                            <div class="order-detail-value">${order.product}</div>
-                        </div>
-                        <div class="order-detail-item">
-                            <div class="order-detail-label">Price</div>
-                            <div class="order-detail-value">${order.price} EGP</div>
-                        </div>
-                        <div class="order-detail-item">
-                            <div class="order-detail-label">Username</div>
-                            <div class="order-detail-value">${order.username}</div>
-                        </div>
-                        <div class="order-detail-item">
-                            <div class="order-detail-label">Payment Method</div>
-                            <div class="order-detail-value">${order.paymentMethod}</div>
-                        </div>
-                    </div>
-                `;
-                
-                orderList.appendChild(orderElement);
-            });
         }
         
         // Function to send order to Discord webhook
