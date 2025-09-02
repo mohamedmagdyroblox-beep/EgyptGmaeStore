@@ -1317,11 +1317,26 @@
                         </div>
                     </div>
                 </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Blox Fruits - Rumble Fruit</h3>
+                        <p class="product-desc">Control the elements with the rare Rumble Fruit. A must-have for serious Blox Fruits players.</p>
+                        <div class="product-price">520</div>
+                        <div class="product-actions">
+                            <button class="btn-product btn-buy" onclick="openOrderModal('Blox Fruits - Rumble Fruit', 520, 'Blox Fruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <div class="product-grid" id="mm2-products" style="display: none;">
                 <div class="product-card">
                     <div class="product-image">
+                        <div class="product-badge">Legendary</div>
                         <i class="fas fa-skull"></i>
                     </div>
                     <div class="product-content">
@@ -1333,11 +1348,26 @@
                         </div>
                     </div>
                 </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">MM2 - Ancient Weapon Pack</h3>
+                        <p class="product-desc">Collection of ancient weapons with unique effects. Limited edition items for collectors.</p>
+                        <div class="product-price">420</div>
+                        <div class="product-actions">
+                            <button class="btn-product btn-buy" onclick="openOrderModal('MM2 - Ancient Weapon Pack', 420, 'Murder Mystery 2')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <div class="product-grid" id="garden-products" style="display: none;">
                 <div class="product-card">
                     <div class="product-image">
+                        <div class="product-badge">Limited</div>
                         <i class="fas fa-seedling"></i>
                     </div>
                     <div class="product-content">
@@ -1346,6 +1376,20 @@
                         <div class="product-price">290</div>
                         <div class="product-actions">
                             <button class="btn-product btn-buy" onclick="openOrderModal('Grow a Garden - Rare Seeds', 290, 'Grow a Garden')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Grow a Garden - Mystery Tree</h3>
+                        <p class="product-desc">Grow a special mystery tree that produces random rare items. A surprise in every harvest!</p>
+                        <div class="product-price">350</div>
+                        <div class="product-actions">
+                            <button class="btn-product btn-buy" onclick="openOrderModal('Grow a Garden - Mystery Tree', 350, 'Grow a Garden')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                         </div>
                     </div>
                 </div>
@@ -1607,12 +1651,6 @@
                 
                 if (productsContainer) {
                     productsContainer.style.display = 'grid';
-                } else {
-                    // If no products exist for this category, show a message
-                    const otherProducts = document.getElementById('other-products');
-                    if (otherProducts) {
-                        otherProducts.style.display = 'block';
-                    }
                 }
             });
         });
@@ -1730,15 +1768,105 @@
             document.getElementById('paymentSection').style.display = 'none';
             document.getElementById('orderConfirmation').style.display = 'block';
             
-            // In a real implementation, you would send this data to your server/Discord here
-            console.log("Order placed:", {
+            // Prepare order data
+            const orderData = {
                 product: currentItem.name,
                 price: currentItem.price,
+                category: currentItem.category,
                 username: username,
                 email: email,
                 phone: phone,
                 gamepassLink: gamepassLink,
-                paymentMethod: selectedPaymentMethod
+                paymentMethod: selectedPaymentMethod === 'instapay' ? 'InstaPay' : 'Vodafone Cash',
+                timestamp: new Date().toISOString()
+            };
+            
+            // Send order to Discord webhook
+            sendToDiscord(orderData);
+            
+            // In a real implementation, you would send this data to your server/Discord here
+            console.log("Order placed:", orderData);
+        }
+        
+        // Function to send order to Discord webhook
+        function sendToDiscord(orderData) {
+            // Replace this with your actual Discord webhook URL
+            const webhookUrl = "https://discord.com/api/webhooks/1158609479190298654/your_webhook_id_here";
+            
+            // Create embed message
+            const embed = {
+                title: "New Order Received!",
+                color: 0x6a11cb, // Purple color matching the site theme
+                fields: [
+                    {
+                        name: "Product",
+                        value: orderData.product,
+                        inline: true
+                    },
+                    {
+                        name: "Price",
+                        value: orderData.price + " EGP",
+                        inline: true
+                    },
+                    {
+                        name: "Category",
+                        value: orderData.category,
+                        inline: true
+                    },
+                    {
+                        name: "Roblox Username",
+                        value: orderData.username,
+                        inline: false
+                    },
+                    {
+                        name: "Email",
+                        value: orderData.email,
+                        inline: false
+                    },
+                    {
+                        name: "WhatsApp",
+                        value: orderData.phone,
+                        inline: false
+                    },
+                    {
+                        name: "Gamepass Link",
+                        value: orderData.gamepassLink,
+                        inline: false
+                    },
+                    {
+                        name: "Payment Method",
+                        value: orderData.paymentMethod,
+                        inline: false
+                    }
+                ],
+                footer: {
+                    text: "EgyptGameStore Order System"
+                },
+                timestamp: orderData.timestamp
+            };
+            
+            const payload = {
+                content: "A new order has been placed!",
+                embeds: [embed]
+            };
+            
+            // Send to Discord
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Order notification sent to Discord successfully');
+                } else {
+                    console.error('Failed to send order notification to Discord');
+                }
+            })
+            .catch(error => {
+                console.error('Error sending order to Discord:', error);
             });
         }
         
