@@ -47,7 +47,7 @@
             padding: 0 20px;
         }
         
-        /* Header Styles */
+        /* Enhanced Header Styles */
         header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
@@ -360,12 +360,13 @@
             background: var(--primary);
         }
         
-        /* Hero Section */
+        /* Enhanced Hero Section */
         .hero {
             text-align: center;
-            padding: 80px 0;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23f1f5f9" width="100" height="100"/><path fill="%23e2e8f0" d="M0 50 L100 50 M50 0 L50 100" stroke-width="0.5"/></svg>');
-            background-size: 30px 30px;
+            padding: 100px 0;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
             position: relative;
             overflow: hidden;
         }
@@ -373,11 +374,11 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.8) 0%, rgba(37, 117, 252, 0.8) 100%);
             z-index: 0;
         }
         
@@ -387,19 +388,18 @@
         }
         
         .hero h1 {
-            font-size: 3.2rem;
+            font-size: 4rem;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: white;
             font-weight: 800;
             animation: fadeInUp 0.8s ease forwards;
             opacity: 0;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         
         .hero p {
-            font-size: 1.3rem;
-            color: var(--gray);
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
             max-width: 700px;
             margin: 0 auto 40px;
             animation: fadeInUp 0.8s ease 0.2s forwards;
@@ -833,25 +833,46 @@
             margin-bottom: 30px;
         }
         
-        /* User Settings Section */
-        .user-settings {
-            padding: 60px 0;
-            background: white;
+        /* User Settings Modal */
+        .user-settings-modal {
             display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1000;
+            overflow: auto;
+            animation: fadeIn 0.3s ease;
         }
         
-        .user-settings.active {
+        .user-settings-modal.active {
             display: block;
         }
         
-        .settings-container {
-            max-width: 700px;
-            margin: 0 auto;
-            background: white;
+        .user-settings-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 35px;
             border-radius: 20px;
-            box-shadow: var(--card-shadow);
-            padding: 40px;
-            border: 1px solid #e2e8f0;
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            border: 1px solid #f1f5f9;
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
         
         .settings-header {
@@ -1119,17 +1140,6 @@
             box-shadow: 0 25px 50px rgba(0,0,0,0.15);
             border: 1px solid #f1f5f9;
             animation: slideIn 0.3s ease;
-        }
-        
-        @keyframes slideIn {
-            from {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
         }
         
         .close {
@@ -2062,71 +2072,6 @@
             font-size: 15px;
         }
         
-        /* Hosting Info Section */
-        .hosting-info {
-            padding: 60px 0;
-            background: white;
-        }
-        
-        .hosting-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .hosting-title {
-            font-size: 2rem;
-            color: var(--darker);
-            margin-bottom: 30px;
-            text-align: center;
-            font-weight: 700;
-        }
-        
-        .hosting-steps {
-            background: #f8fafc;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        
-        .hosting-step {
-            margin-bottom: 25px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        
-        .hosting-step:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-        
-        .hosting-step h3 {
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-        }
-        
-        .hosting-step h3 i {
-            margin-right: 10px;
-        }
-        
-        .hosting-step p {
-            color: var(--gray);
-            line-height: 1.6;
-        }
-        
-        .hosting-step ul {
-            margin-left: 30px;
-            margin-top: 10px;
-        }
-        
-        .hosting-step li {
-            margin-bottom: 8px;
-            color: var(--gray);
-        }
-        
         /* Responsive Design */
         @media (max-width: 768px) {
             .header-content {
@@ -2453,61 +2398,60 @@
         </div>
     </section>
     
-    <section class="user-settings" id="user-settings">
-        <div class="container">
-            <div class="settings-container">
-                <div class="settings-header">
-                    <h2 class="settings-title">User Settings</h2>
-                    <button class="btn btn-outline btn-small" onclick="closeUserSettings()">
-                        <i class="fas fa-times"></i> Close
-                    </button>
-                </div>
-                
-                <div class="settings-tabs">
-                    <div class="settings-tab active" onclick="switchSettingsTab('profile')">Profile</div>
-                    <div class="settings-tab" onclick="switchSettingsTab('security')">Security</div>
-                </div>
-                
-                <form id="profileForm" class="settings-form active" onsubmit="return false;">
-                    <div class="form-group">
-                        <label>Full Name</label>
-                        <input type="text" id="settingsName" placeholder="Your full name">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Email Address</label>
-                        <input type="email" id="settingsEmail" placeholder="Your email address">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Phone Number</label>
-                        <input type="tel" id="settingsPhone" placeholder="Your phone number">
-                    </div>
-                    
-                    <button type="button" class="btn-save" onclick="updateUserProfile()">Save Changes</button>
-                </form>
-                
-                <form id="securityForm" class="settings-form" onsubmit="return false;">
-                    <div class="form-group">
-                        <label>Current Password</label>
-                        <input type="password" id="currentPassword" placeholder="Enter your current password">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>New Password</label>
-                        <input type="password" id="newPassword" placeholder="Enter your new password">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Confirm New Password</label>
-                        <input type="password" id="confirmNewPassword" placeholder="Confirm your new password">
-                    </div>
-                    
-                    <button type="button" class="btn-save" onclick="changePassword()">Change Password</button>
-                </form>
+    <!-- User Settings Modal -->
+    <div class="user-settings-modal" id="user-settings-modal">
+        <div class="user-settings-content">
+            <div class="settings-header">
+                <h2 class="settings-title">User Settings</h2>
+                <button class="btn btn-outline btn-small" onclick="closeUserSettings()">
+                    <i class="fas fa-times"></i> Close
+                </button>
             </div>
+            
+            <div class="settings-tabs">
+                <div class="settings-tab active" onclick="switchSettingsTab('profile')">Profile</div>
+                <div class="settings-tab" onclick="switchSettingsTab('security')">Security</div>
+            </div>
+            
+            <form id="profileForm" class="settings-form active" onsubmit="return false;">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="settingsName" placeholder="Your full name">
+                </div>
+                
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="settingsEmail" placeholder="Your email address">
+                </div>
+                
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" id="settingsPhone" placeholder="Your phone number">
+                </div>
+                
+                <button type="button" class="btn-save" onclick="updateUserProfile()">Save Changes</button>
+            </form>
+            
+            <form id="securityForm" class="settings-form" onsubmit="return false;">
+                <div class="form-group">
+                    <label>Current Password</label>
+                    <input type="password" id="currentPassword" placeholder="Enter your current password">
+                </div>
+                
+                <div class="form-group">
+                    <label>New Password</label>
+                    <input type="password" id="newPassword" placeholder="Enter your new password">
+                </div>
+                
+                <div class="form-group">
+                    <label>Confirm New Password</label>
+                    <input type="password" id="confirmNewPassword" placeholder="Confirm your new password">
+                </div>
+                
+                <button type="button" class="btn-save" onclick="changePassword()">Change Password</button>
+            </form>
         </div>
-    </section>
+    </div>
     
     <section class="features">
         <div class="container">
@@ -2704,62 +2648,6 @@
                 <div class="payment-icon-large">
                     <i class="fas fa-mobile-alt"></i>
                     <span>InstaPay</span>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section class="hosting-info" id="hosting-info">
-        <div class="container">
-            <div class="hosting-container">
-                <h2 class="hosting-title">Hosting Guide for Your EgyptGameStore</h2>
-                
-                <div class="hosting-steps">
-                    <div class="hosting-step">
-                        <h3><i class="fas fa-shopping-cart"></i> What to Purchase from Namecheap</h3>
-                        <p>To set up a proper hosting solution for your store, you'll need to purchase:</p>
-                        <ul>
-                            <li><strong>Shared Hosting Plan</strong> - Namecheap's Stellar or Stellar Plus plan is sufficient for starters</li>
-                            <li><strong>Domain Name</strong> - Your custom domain (e.g., egyptgamestore.com)</li>
-                            <li><strong>SSL Certificate</strong> - Often included free with hosting plans</li>
-                            <li><strong>Database Setup</strong> - MySQL database included with most hosting plans</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="hosting-step">
-                        <h3><i class="fas fa-cogs"></i> Technical Requirements</h3>
-                        <p>Your hosting plan should include:</p>
-                        <ul>
-                            <li>PHP 7.4 or higher</li>
-                            <li>MySQL 5.6 or higher</li>
-                            <li>cPanel or similar control panel</li>
-                            <li>At least 5GB storage</li>
-                            <li>SSL certificate (free Let's Encrypt is fine)</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="hosting-step">
-                        <h3><i class="fas fa-database"></i> Database Migration Steps</h3>
-                        <p>When you get your hosting, you'll need to:</p>
-                        <ul>
-                            <li>Create a MySQL database through cPanel</li>
-                            <li>Update the website code to connect to your database instead of localStorage</li>
-                            <li>Import existing user data from localStorage to the new database</li>
-                            <li>Set up regular backups to prevent data loss</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="hosting-step">
-                        <h3><i class="fas fa-shield-alt"></i> Benefits of Server-Side Storage</h3>
-                        <p>With a proper database, you'll get:</p>
-                        <ul>
-                            <li>Persistent data across devices and browsers</li>
-                            <li>Automatic backups and data recovery</li>
-                            <li>Better security for user information</li>
-                            <li>Scalability as your business grows</li>
-                            <li>Professional appearance with custom domain</li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>
@@ -3535,7 +3423,7 @@
         }
         
         function openUserSettings() {
-            document.getElementById('user-settings').classList.add('active');
+            document.getElementById('user-settings-modal').classList.add('active');
             
             // Load user data into form
             document.getElementById('settingsName').value = currentUser.name || '';
@@ -3544,7 +3432,7 @@
         }
         
         function closeUserSettings() {
-            document.getElementById('user-settings').classList.remove('active');
+            document.getElementById('user-settings-modal').classList.remove('active');
         }
         
         function switchSettingsTab(tab) {
@@ -3667,14 +3555,14 @@
                 isAdminLoggedIn = true;
                 localStorage.setItem('egyptGameStoreAdminLoggedIn', 'true');
                 
-                // Show admin panel
-                document.getElementById('adminPanel').classList.add('active');
-                
                 // Close login modal
                 closeAdminLogin();
                 
                 // Load admin data
                 loadAdminData();
+                
+                // Show admin panel
+                document.getElementById('adminPanel').classList.add('active');
                 
                 showNotification('Admin login successful', 'success');
             } else {
