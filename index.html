@@ -133,6 +133,7 @@
             display: flex;
             align-items: center;
             gap: 15px;
+            position: relative;
         }
         
         .user-info {
@@ -152,6 +153,122 @@
             align-items: center;
             justify-content: center;
             font-weight: 600;
+        }
+        
+        /* Auth Dropdown Styles */
+        .auth-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 10px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            width: 320px;
+            padding: 20px;
+            z-index: 1000;
+            display: none;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .auth-dropdown.active {
+            display: block;
+        }
+        
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .auth-tab {
+            flex: 1;
+            text-align: center;
+            padding: 12px;
+            font-weight: 600;
+            color: var(--gray);
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .auth-tab.active {
+            color: var(--primary);
+        }
+        
+        .auth-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+        }
+        
+        .auth-form {
+            display: none;
+        }
+        
+        .auth-form.active {
+            display: block;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: var(--darker);
+            font-size: 14px;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.1);
+        }
+        
+        .btn-auth {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .btn-auth:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
         }
         
         .discord-banner {
@@ -185,6 +302,45 @@
         
         .discord-banner i {
             margin-right: 8px;
+        }
+        
+        /* Notification Styles */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 10000;
+            transform: translateX(120%);
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            max-width: 300px;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        .notification i {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        
+        .notification.success {
+            background: var(--success);
+        }
+        
+        .notification.error {
+            background: var(--error);
+        }
+        
+        .notification.info {
+            background: var(--primary);
         }
         
         /* Hero Section */
@@ -791,61 +947,6 @@
             font-weight: 500;
         }
         
-        /* Auth Section */
-        .auth-section {
-            padding: 80px 0;
-            background: white;
-        }
-        
-        .auth-container {
-            max-width: 500px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            padding: 40px;
-            border: 1px solid #e2e8f0;
-        }
-        
-        .auth-tabs {
-            display: flex;
-            margin-bottom: 30px;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        
-        .auth-tab {
-            flex: 1;
-            text-align: center;
-            padding: 15px;
-            font-weight: 600;
-            color: var(--gray);
-            cursor: pointer;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-        
-        .auth-tab.active {
-            color: var(--primary);
-        }
-        
-        .auth-tab.active::after {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--primary);
-        }
-        
-        .auth-form {
-            display: none;
-        }
-        
-        .auth-form.active {
-            display: block;
-        }
-        
         /* Order Modal */
         .modal {
             display: none;
@@ -1364,6 +1465,11 @@
                 margin-top: 15px;
             }
             
+            .auth-dropdown {
+                width: 280px;
+                right: -10px;
+            }
+            
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -1609,55 +1715,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-    
-    <section class="auth-section" id="auth">
-        <div class="container">
-            <div class="auth-container">
-                <div class="auth-tabs">
-                    <div class="auth-tab active" onclick="switchAuthTab('login')">Login</div>
-                    <div class="auth-tab" onclick="switchAuthTab('register')">Register</div>
-                </div>
-                
-                <form id="loginForm" class="auth-form active" onsubmit="return false;">
-                    <div class="form-group">
-                        <label><i class="fas fa-envelope"></i> Email</label>
-                        <input type="email" id="loginEmail" placeholder="Your email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label><i class="fas fa-lock"></i> Password</label>
-                        <input type="password" id="loginPassword" placeholder="Your password" required>
-                    </div>
-                    
-                    <button type="button" class="btn" onclick="loginUser()" style="width: 100%;"><i class="fas fa-sign-in-alt"></i> Login</button>
-                </form>
-                
-                <form id="registerForm" class="auth-form" onsubmit="return false;">
-                    <div class="form-group">
-                        <label><i class="fas fa-user"></i> Full Name</label>
-                        <input type="text" id="registerName" placeholder="Your full name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label><i class="fas fa-envelope"></i> Email</label>
-                        <input type="email" id="registerEmail" placeholder="Your email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label><i class="fas fa-lock"></i> Password</label>
-                        <input type="password" id="registerPassword" placeholder="Create a password" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label><i class="fas fa-lock"></i> Confirm Password</label>
-                        <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
-                    </div>
-                    
-                    <button type="button" class="btn" onclick="registerUser()" style="width: 100%;"><i class="fas fa-user-plus"></i> Register</button>
-                </form>
             </div>
         </div>
     </section>
@@ -2029,10 +2086,8 @@
             // Reset form
             document.getElementById('registerForm').reset();
             
-            // Redirect to home after a short delay
-            setTimeout(() => {
-                window.location.href = '#home';
-            }, 1500);
+            // Close the dropdown
+            toggleAuthDropdown();
         }
         
         function loginUser() {
@@ -2074,10 +2129,8 @@
             // Reset form
             document.getElementById('loginForm').reset();
             
-            // Redirect to home after a short delay
-            setTimeout(() => {
-                window.location.href = '#home';
-            }, 1500);
+            // Close the dropdown
+            toggleAuthDropdown();
         }
         
         function logoutUser() {
@@ -2085,11 +2138,6 @@
             localStorage.removeItem('egyptGameStoreCurrentUser');
             updateUserMenu();
             showNotification('You have been logged out', 'info');
-            
-            // Redirect to home after a short delay
-            setTimeout(() => {
-                window.location.href = '#home';
-            }, 1000);
         }
         
         function loadUserFromStorage() {
@@ -2121,20 +2169,116 @@
             } else {
                 // User is not logged in
                 userMenu.innerHTML = `
-                    <a href="#auth" class="btn btn-outline">
+                    <button class="btn btn-outline" onclick="toggleAuthDropdown()">
                         <i class="fas fa-sign-in-alt"></i> Login / Register
-                    </a>
+                    </button>
+                    <div class="auth-dropdown" id="authDropdown">
+                        <div class="auth-tabs">
+                            <div class="auth-tab active" onclick="switchAuthTab('login')">Login</div>
+                            <div class="auth-tab" onclick="switchAuthTab('register')">Register</div>
+                        </div>
+                        
+                        <form id="loginForm" class="auth-form active" onsubmit="return false;">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" id="loginEmail" placeholder="Your email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" id="loginPassword" placeholder="Your password" required>
+                            </div>
+                            
+                            <button type="button" class="btn-auth" onclick="loginUser()">Login</button>
+                        </form>
+                        
+                        <form id="registerForm" class="auth-form" onsubmit="return false;">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" id="registerName" placeholder="Your full name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" id="registerEmail" placeholder="Your email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" id="registerPassword" placeholder="Create a password" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Confirm Password</label>
+                                <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+                            </div>
+                            
+                            <button type="button" class="btn-auth" onclick="registerUser()">Register</button>
+                        </form>
+                    </div>
                 `;
             }
+        }
+        
+        function toggleAuthDropdown() {
+            const dropdown = document.getElementById('authDropdown');
+            if (dropdown) {
+                dropdown.classList.toggle('active');
+            }
+        }
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const userMenu = document.getElementById('userMenu');
+            const dropdown = document.getElementById('authDropdown');
+            
+            if (dropdown && dropdown.classList.contains('active') && 
+                !userMenu.contains(event.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+        
+        function showNotification(message, type = 'info') {
+            // Remove any existing notifications
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            
+            // Add icon based on type
+            let icon = 'fa-info-circle';
+            if (type === 'success') icon = 'fa-check-circle';
+            if (type === 'error') icon = 'fa-exclamation-circle';
+            
+            // Set notification content
+            notification.innerHTML = `<i class="fas ${icon}"></i> ${message}`;
+            
+            // Add to DOM
+            document.body.appendChild(notification);
+            
+            // Show notification
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 10);
+            
+            // Hide notification after 3 seconds
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 3000);
         }
         
         function openOrderModal(name, price, category) {
             // Check if user is logged in
             if (!currentUser) {
                 showNotification('Please login to place an order', 'error');
-                setTimeout(() => {
-                    window.location.href = '#auth';
-                }, 1000);
+                toggleAuthDropdown();
                 return;
             }
             
@@ -2245,4 +2389,147 @@
             }
         }
         
-        function submitOrder
+        function submitOrder() {
+            if (!selectedPaymentMethod) {
+                showNotification('Please select a payment method', 'error');
+                return;
+            }
+            
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const gamepassLink = document.getElementById('gamepassLinkInput').value;
+            
+            // Show spinner
+            document.getElementById('submitSpinner').style.display = 'block';
+            document.getElementById('submitOrderBtn').disabled = true;
+            
+            // Simulate order processing
+            setTimeout(() => {
+                // Create order object
+                const order = {
+                    id: 'EGS-' + Date.now(),
+                    product: currentItem.name,
+                    price: currentItem.price,
+                    category: currentItem.category,
+                    username,
+                    email,
+                    phone,
+                    gamepassLink,
+                    paymentMethod: selectedPaymentMethod,
+                    status: 'pending',
+                    createdAt: new Date().toISOString()
+                };
+                
+                // Get existing orders
+                const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
+                
+                // Add new order
+                orders.push(order);
+                
+                // Save to localStorage
+                localStorage.setItem('egyptGameStoreOrders', JSON.stringify(orders));
+                
+                // Update UI
+                document.getElementById('submitSpinner').style.display = 'none';
+                document.getElementById('submitOrderBtn').disabled = false;
+                
+                // Show confirmation
+                document.getElementById('paymentSection').style.display = 'none';
+                document.getElementById('orderConfirmation').style.display = 'block';
+                
+                // Update confirmation details
+                document.getElementById('conf-product').textContent = currentItem.name;
+                document.getElementById('conf-price').textContent = currentItem.price + ' EGP';
+                document.getElementById('conf-username').textContent = username;
+                document.getElementById('conf-email').textContent = email;
+                document.getElementById('conf-phone').textContent = phone;
+                document.getElementById('conf-gamepass').textContent = gamepassLink;
+                
+                // Load updated order history
+                loadOrderHistory();
+                
+                // Show notification
+                showNotification('Order placed successfully!', 'success');
+            }, 1500);
+        }
+        
+        function loadOrderHistory() {
+            const orderList = document.getElementById('orderList');
+            
+            if (!currentUser) {
+                orderList.innerHTML = `
+                    <div class="empty-orders">
+                        <i class="fas fa-receipt"></i>
+                        <h3>Please login to view your order history</h3>
+                        <p>Login to see your previous orders.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Get orders from localStorage
+            const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
+            
+            // Filter orders by current user's email
+            const userOrders = orders.filter(order => order.email === currentUser.email);
+            
+            if (userOrders.length === 0) {
+                orderList.innerHTML = `
+                    <div class="empty-orders">
+                        <i class="fas fa-receipt"></i>
+                        <h3>No orders yet</h3>
+                        <p>Your order history will appear here once you make a purchase.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Display orders
+            orderList.innerHTML = '';
+            userOrders.forEach(order => {
+                const orderDate = new Date(order.createdAt).toLocaleDateString();
+                const statusClass = order.status === 'completed' ? 'status-completed' : 'status-pending';
+                const statusText = order.status === 'completed' ? 'Completed' : 'Pending';
+                
+                const orderElement = document.createElement('div');
+                orderElement.className = 'order-item';
+                orderElement.innerHTML = `
+                    <div class="order-header">
+                        <div class="order-id">${order.id}</div>
+                        <div class="order-date">${orderDate}</div>
+                        <div class="order-status ${statusClass}">${statusText}</div>
+                    </div>
+                    <div class="order-details-grid">
+                        <div class="order-detail-item">
+                            <div class="order-detail-label">Product</div>
+                            <div class="order-detail-value">${order.product}</div>
+                        </div>
+                        <div class="order-detail-item">
+                            <div class="order-detail-label">Price</div>
+                            <div class="order-detail-value">${order.price} EGP</div>
+                        </div>
+                        <div class="order-detail-item">
+                            <div class="order-detail-label">Username</div>
+                            <div class="order-detail-value">${order.username}</div>
+                        </div>
+                        <div class="order-detail-item">
+                            <div class="order-detail-label">Payment Method</div>
+                            <div class="order-detail-value">${order.paymentMethod === 'instapay' ? 'InstaPay' : 'Vodafone Cash'}</div>
+                        </div>
+                    </div>
+                `;
+                orderList.appendChild(orderElement);
+            });
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('orderModal');
+            if (event.target === modal) {
+                closeOrderModal();
+            }
+        }
+    </script>
+</body>
+</html>
