@@ -25,7 +25,6 @@
             --error: #e74c3c;
         }
         
-        /* New line added for smooth scrolling */
         html {
             scroll-behavior: smooth;
         }
@@ -1085,7 +1084,7 @@
             <div class="footer-section contact-info">
                 <h3>Contact Info</h3>
                 <p><i class="fas fa-envelope"></i> shadowbr500@gmail.com</p>
-                </div>
+            </div>
         </div>
         <div class="copyright">
             <div class="container">
@@ -1097,33 +1096,26 @@
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        // Product category tabs functionality
         const categoryTabs = document.querySelectorAll('.category-tab');
         const productGrids = document.querySelectorAll('.product-grid');
 
         categoryTabs.forEach(tab => {
             tab.addEventListener('click', () => {
-                // Remove active class from all tabs
                 categoryTabs.forEach(t => t.classList.remove('active'));
-                // Add active class to the clicked tab
                 tab.classList.add('active');
 
-                // Hide all product grids
                 productGrids.forEach(grid => grid.style.display = 'none');
 
-                // Show the corresponding product grid
                 const category = tab.dataset.category;
                 const productsContainer = document.getElementById(category + '-products');
                 if (productsContainer) {
                     productsContainer.style.display = 'grid';
                 } else {
-                    // Show "No products available" message for categories without products
                     document.getElementById('other-products').style.display = 'block';
                 }
             });
         });
 
-        // Functionality for the Order Modal
         let currentItem = {};
 
         function openOrderModal(name, price, category) {
@@ -1139,7 +1131,6 @@
             document.getElementById('paymentDetails').style.display = 'none';
             document.getElementById('orderConfirmation').style.display = 'none';
             
-            // Unselect payment methods and clear form
             const paymentOptions = document.querySelectorAll('.payment-option');
             paymentOptions.forEach(option => option.classList.remove('selected'));
             document.getElementById('orderForm').reset();
@@ -1178,7 +1169,53 @@
             const phone = document.getElementById('phone').value;
             const gamepassLink = document.getElementById('gamepassLinkInput').value;
 
-            // Display confirmation details
+            const orderData = {
+                product: currentItem.name,
+                price: currentItem.price,
+                username: username,
+                email: email,
+                phone: phone,
+                gamepassLink: gamepassLink,
+                paymentMethod: document.querySelector('input[name="paymentMethod"]:checked').value,
+            };
+
+            const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1412244202024075485/kXO3zpjgJBaz4sXzqKN_pue4BAiyumGJPMuz-Ra2S4m-f79D5VPS5ytggnIv3iI4mA68';
+
+            const payload = {
+                embeds: [
+                    {
+                        title: "New Order Received!",
+                        color: 6946979,
+                        fields: [
+                            { name: "Product", value: orderData.product, inline: true },
+                            { name: "Price", value: `${orderData.price} EGP`, inline: true },
+                            { name: "Username", value: orderData.username, inline: false },
+                            { name: "Email", value: orderData.email, inline: false },
+                            { name: "WhatsApp Number", value: orderData.phone, inline: false },
+                            { name: "Gamepass Link", value: orderData.gamepassLink, inline: false },
+                            { name: "Payment Method", value: orderData.paymentMethod, inline: false }
+                        ],
+                        timestamp: new Date().toISOString()
+                    }
+                ]
+            };
+
+            fetch(DISCORD_WEBHOOK_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    console.error('Failed to send order to Discord. Status:', response.status);
+                }
+            })
+            .catch(error => {
+                console.error('Error sending order to Discord:', error);
+            });
+
             document.getElementById('conf-product').textContent = `Product: ${currentItem.name}`;
             document.getElementById('conf-price').textContent = `Price: ${currentItem.price} EGP`;
             document.getElementById('conf-username').textContent = `Roblox Username: ${username}`;
