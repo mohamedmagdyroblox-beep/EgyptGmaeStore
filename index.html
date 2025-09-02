@@ -134,7 +134,7 @@
             align-items: center;
             gap: 15px;
             position: relative;
-            margin-left: 60px; /* Increased margin to move it further right */
+            margin-left: 60px;
         }
         
         .user-info {
@@ -708,13 +708,13 @@
             font-weight: 600;
             transition: all 0.3s ease;
             cursor: pointer;
+            border: none;
+            color: white;
         }
         
         .btn-buy {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
             box-shadow: 0 4px 10px rgba(106, 17, 203, 0.25);
-            border: none;
         }
         
         .btn-buy:hover {
@@ -1649,26 +1649,23 @@
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
+            color: white;
         }
         
         .btn-edit {
             background: var(--warning);
-            color: white;
         }
         
         .btn-delete {
             background: var(--error);
-            color: white;
         }
         
         .btn-view {
             background: var(--success);
-            color: white;
         }
         
         .btn-complete {
             background: var(--success);
-            color: white;
         }
         
         /* Account Details Modal */
@@ -2973,6 +2970,7 @@
         
         // Initialize user state
         let currentUser = null;
+        let isAdminLoggedIn = false;
         
         // Load user from localStorage on page load
         document.addEventListener('DOMContentLoaded', function() {
@@ -3488,4 +3486,618 @@
             }
             
             // Get orders from localStorage
-            const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders
+            const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
+            
+            // Filter orders for current user
+            const userOrders = orders.filter(order => order.email === currentUser.email);
+            
+            if (userOrders.length === 0) {
+                orderList.innerHTML = `
+                    <div class="empty-orders">
+                        <i class="fas fa-receipt"></i>
+                        <h3>No orders yet</h3>
+                        <p>Your order history will appear here once you make a purchase.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Display orders
+            orderList.innerHTML = userOrders.map(order => `
+                <div class="order-item">
+                    <div class="order-header">
+                        <div class="order-id">${order.id}</div>
+                        <div class="order-date">${new Date(order.createdAt).toLocaleDateString()}</div>
+                        <div class="order-status ${order.status === 'completed' ? 'status-completed' : 'status-pending'}">
+                            ${order.status === 'completed' ? 'Completed' : 'Pending'}
+                        </div>
+                    </div>
+                    <div class="order-details-grid">
+                        <div class="order-detail-item">
+                            <div class="order-detail-label">Product</div>
+                            <div class="order-detail-value">${order.product}</div>
+                        </div>
+                        <div class="order-detail-item">
+                            <div class="order-detail-label">Price</div>
+                            <div class="order-detail-value">${order.price} EGP</div>
+                        </div>
+                        <div class="order-detail-item">
+                            <div class="order-detail-label">Payment Method</div>
+                            <div class="order-detail-value">${order.paymentMethod === 'instapay' ? 'InstaPay' : 'Vodafone Cash'}</div>
+                        </div>
+                        <div class="order-detail-item">
+                            <div class="order-detail-label">Status</div>
+                            <div class="order-detail-value">${order.status === 'completed' ? 'Completed' : 'Pending'}</div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function openUserSettings() {
+            document.getElementById('user-settings').classList.add('active');
+            
+            // Load user data into form
+            document.getElementById('settingsName').value = currentUser.name || '';
+            document.getElementById('settingsEmail').value = currentUser.email || '';
+            document.getElementById('settingsPhone').value = currentUser.phone || '';
+        }
+        
+        function closeUserSettings() {
+            document.getElementById('user-settings').classList.remove('active');
+        }
+        
+        function switchSettingsTab(tab) {
+            const profileForm = document.getElementById('profileForm');
+            const securityForm = document.getElementById('securityForm');
+            const settingsTabs = document.querySelectorAll('.settings-tab');
+            
+            settingsTabs.forEach(t => t.classList.remove('active'));
+            
+            if (tab === 'profile') {
+                settingsTabs[0].classList.add('active');
+                profileForm.classList.add('active');
+                securityForm.classList.remove('active');
+            } else {
+                settingsTabs[1].classList.add('active');
+                securityForm.classList.add('active');
+                profileForm.classList.remove('active');
+            }
+        }
+        
+        function updateUserProfile() {
+            const name = document.getElementById('settingsName').value;
+            const email = document.getElementById('settingsEmail').value;
+            const phone = document.getElementById('settingsPhone').value;
+            
+            if (!name || !email) {
+                showNotification('Name and email are required', 'error');
+                return;
+            }
+            
+            // Update current user
+            currentUser.name = name;
+            currentUser.email = email;
+            currentUser.phone = phone;
+            
+            // Save to localStorage
+            localStorage.setItem('egyptGameStoreCurrentUser', JSON.stringify(currentUser));
+            
+            // Update users array
+            const users = JSON.parse(localStorage.getItem('egyptGameStoreUsers')) || [];
+            const userIndex = users.findIndex(u => u.id === currentUser.id);
+            
+            if (userIndex !== -1) {
+                users[userIndex] = currentUser;
+                localStorage.setItem('egyptGameStoreUsers', JSON.stringify(users));
+            }
+            
+            // Update UI
+            updateUserMenu();
+            
+            showNotification('Profile updated successfully', 'success');
+        }
+        
+        function changePassword() {
+            const currentPassword = document.getElementById('currentPassword').value;
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmNewPassword').value;
+            
+            if (!currentPassword || !newPassword || !confirmPassword) {
+                showNotification('Please fill in all password fields', 'error');
+                return;
+            }
+            
+            if (newPassword !== confirmPassword) {
+                showNotification('New passwords do not match', 'error');
+                return;
+            }
+            
+            if (newPassword.length < 6) {
+                showNotification('Password must be at least 6 characters', 'error');
+                return;
+            }
+            
+            // Check current password
+            if (currentPassword !== currentUser.password) {
+                showNotification('Current password is incorrect', 'error');
+                return;
+            }
+            
+            // Update password
+            currentUser.password = newPassword;
+            
+            // Save to localStorage
+            localStorage.setItem('egyptGameStoreCurrentUser', JSON.stringify(currentUser));
+            
+            // Update users array
+            const users = JSON.parse(localStorage.getItem('egyptGameStoreUsers')) || [];
+            const userIndex = users.findIndex(u => u.id === currentUser.id);
+            
+            if (userIndex !== -1) {
+                users[userIndex] = currentUser;
+                localStorage.setItem('egyptGameStoreUsers', JSON.stringify(users));
+            }
+            
+            // Reset form
+            document.getElementById('securityForm').reset();
+            
+            showNotification('Password changed successfully', 'success');
+        }
+        
+        function addDataManagementButtons() {
+            // This function is for future data management features
+            console.log('Data management buttons would be added here');
+        }
+        
+        // Admin Panel Functions
+        function showAdminLogin() {
+            document.getElementById('adminLogin').classList.add('active');
+        }
+        
+        function closeAdminLogin() {
+            document.getElementById('adminLogin').classList.remove('active');
+        }
+        
+        function adminLogin() {
+            const password = document.getElementById('adminPassword').value;
+            
+            // Simple password check (in a real app, use proper authentication)
+            if (password === 'admin123') {
+                isAdminLoggedIn = true;
+                localStorage.setItem('egyptGameStoreAdminLoggedIn', 'true');
+                
+                // Show admin panel
+                document.getElementById('adminPanel').classList.add('active');
+                
+                // Close login modal
+                closeAdminLogin();
+                
+                // Load admin data
+                loadAdminData();
+                
+                showNotification('Admin login successful', 'success');
+            } else {
+                showNotification('Incorrect admin password', 'error');
+            }
+        }
+        
+        function logoutAdmin() {
+            isAdminLoggedIn = false;
+            localStorage.removeItem('egyptGameStoreAdminLoggedIn');
+            
+            // Hide admin panel
+            document.getElementById('adminPanel').classList.remove('active');
+            
+            showNotification('Admin logged out', 'info');
+        }
+        
+        function switchAdminTab(tab) {
+            const dashboardContent = document.getElementById('dashboard-content');
+            const usersContent = document.getElementById('users-content');
+            const ordersContent = document.getElementById('orders-content');
+            const webhookContent = document.getElementById('webhook-content');
+            const adminTabs = document.querySelectorAll('.admin-tab');
+            
+            adminTabs.forEach(t => t.classList.remove('active'));
+            
+            // Hide all content
+            dashboardContent.classList.remove('active');
+            usersContent.classList.remove('active');
+            ordersContent.classList.remove('active');
+            webhookContent.classList.remove('active');
+            
+            // Show selected content
+            if (tab === 'dashboard') {
+                adminTabs[0].classList.add('active');
+                dashboardContent.classList.add('active');
+            } else if (tab === 'users') {
+                adminTabs[1].classList.add('active');
+                usersContent.classList.add('active');
+                loadUsersTable();
+            } else if (tab === 'orders') {
+                adminTabs[2].classList.add('active');
+                ordersContent.classList.add('active');
+                loadOrdersTable();
+            } else if (tab === 'webhook') {
+                adminTabs[3].classList.add('active');
+                webhookContent.classList.add('active');
+            }
+        }
+        
+        function loadAdminData() {
+            // Get data from localStorage
+            const users = JSON.parse(localStorage.getItem('egyptGameStoreUsers')) || [];
+            const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
+            
+            // Calculate stats
+            const totalRevenue = orders.reduce((sum, order) => sum + parseInt(order.price), 0);
+            const pendingOrders = orders.filter(order => order.status === 'pending').length;
+            
+            // Update stats
+            document.getElementById('totalUsers').textContent = users.length;
+            document.getElementById('totalOrders').textContent = orders.length;
+            document.getElementById('totalRevenue').textContent = totalRevenue;
+            document.getElementById('pendingOrders').textContent = pendingOrders;
+        }
+        
+        function loadUsersTable() {
+            const users = JSON.parse(localStorage.getItem('egyptGameStoreUsers')) || [];
+            const usersTableBody = document.getElementById('usersTableBody');
+            
+            usersTableBody.innerHTML = users.map(user => `
+                <tr>
+                    <td>${user.id}</td>
+                    <td>${user.name}</td>
+                    <td>${user.email}</td>
+                    <td>${user.phone || 'N/A'}</td>
+                    <td>${new Date(user.registeredAt).toLocaleDateString()}</td>
+                    <td>
+                        <div class="admin-actions">
+                            <button class="btn-small btn-view" onclick="viewUser(${user.id})">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn-small btn-delete" onclick="deleteUser(${user.id})">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        }
+        
+        function loadOrdersTable() {
+            const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
+            const ordersTableBody = document.getElementById('ordersTableBody');
+            
+            ordersTableBody.innerHTML = orders.map(order => `
+                <tr>
+                    <td>${order.id}</td>
+                    <td>${order.username}</td>
+                    <td>${order.product}</td>
+                    <td>${order.price} EGP</td>
+                    <td>${order.paymentMethod === 'instapay' ? 'InstaPay' : 'Vodafone Cash'}</td>
+                    <td>${new Date(order.createdAt).toLocaleDateString()}</td>
+                    <td>
+                        <span class="order-status ${order.status === 'completed' ? 'status-completed' : 'status-pending'}">
+                            ${order.status === 'completed' ? 'Completed' : 'Pending'}
+                        </span>
+                    </td>
+                    <td>
+                        <div class="admin-actions">
+                            <button class="btn-small btn-view" onclick="viewOrder('${order.id}')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            ${order.status === 'pending' ? `
+                                <button class="btn-small btn-complete" onclick="completeOrder('${order.id}')">
+                                    <i class="fas fa-check"></i>
+                                </button>
+                            ` : ''}
+                            <button class="btn-small btn-delete" onclick="deleteOrder('${order.id}')">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        }
+        
+        function viewUser(userId) {
+            const users = JSON.parse(localStorage.getItem('egyptGameStoreUsers')) || [];
+            const user = users.find(u => u.id === userId);
+            
+            if (user) {
+                // Show user details in a modal
+                document.getElementById('accountDetails').classList.add('active');
+                
+                // Populate account info
+                document.getElementById('accountInfo').innerHTML = `
+                    <div class="info-item">
+                        <div class="info-label">User ID</div>
+                        <div class="info-value">${user.id}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Name</div>
+                        <div class="info-value">${user.name}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Email</div>
+                        <div class="info-value">${user.email}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Phone</div>
+                        <div class="info-value">${user.phone || 'N/A'}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Registered</div>
+                        <div class="info-value">${new Date(user.registeredAt).toLocaleDateString()}</div>
+                    </div>
+                `;
+                
+                // Load user orders
+                loadUserOrders(user.email);
+            }
+        }
+        
+        function loadUserOrders(userEmail) {
+            const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
+            const userOrders = orders.filter(order => order.email === userEmail);
+            const userOrdersTable = document.getElementById('userOrdersTable');
+            
+            userOrdersTable.innerHTML = userOrders.map(order => `
+                <tr>
+                    <td>${order.id}</td>
+                    <td>${order.product}</td>
+                    <td>${order.price} EGP</td>
+                    <td>${new Date(order.createdAt).toLocaleDateString()}</td>
+                    <td>
+                        <span class="order-status ${order.status === 'completed' ? 'status-completed' : 'status-pending'}">
+                            ${order.status === 'completed' ? 'Completed' : 'Pending'}
+                        </span>
+                    </td>
+                </tr>
+            `).join('');
+        }
+        
+        function deleteUser(userId) {
+            if (confirm('Are you sure you want to delete this user?')) {
+                // Get users
+                const users = JSON.parse(localStorage.getItem('egyptGameStoreUsers')) || [];
+                
+                // Filter out the user
+                const updatedUsers = users.filter(user => user.id !== userId);
+                
+                // Save to localStorage
+                localStorage.setItem('egyptGameStoreUsers', JSON.stringify(updatedUsers));
+                
+                // Reload table
+                loadUsersTable();
+                
+                // Update stats
+                loadAdminData();
+                
+                showNotification('User deleted successfully', 'success');
+            }
+        }
+        
+        function viewOrder(orderId) {
+            const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
+            const order = orders.find(o => o.id === orderId);
+            
+            if (order) {
+                // Show order details in a modal
+                document.getElementById('accountDetails').classList.add('active');
+                
+                // Populate account info
+                document.getElementById('accountInfo').innerHTML = `
+                    <div class="info-item">
+                        <div class="info-label">Order ID</div>
+                        <div class="info-value">${order.id}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Product</div>
+                        <div class="info-value">${order.product}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Price</div>
+                        <div class="info-value">${order.price} EGP</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Customer</div>
+                        <div class="info-value">${order.username}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Email</div>
+                        <div class="info-value">${order.email}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Phone</div>
+                        <div class="info-value">${order.phone}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Payment Method</div>
+                        <div class="info-value">${order.paymentMethod === 'instapay' ? 'InstaPay' : 'Vodafone Cash'}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Status</div>
+                        <div class="info-value">${order.status === 'completed' ? 'Completed' : 'Pending'}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Date</div>
+                        <div class="info-value">${new Date(order.createdAt).toLocaleDateString()}</div>
+                    </div>
+                `;
+                
+                // Hide orders section
+                document.querySelector('.orders-section').style.display = 'none';
+            }
+        }
+        
+        function completeOrder(orderId) {
+            // Get orders
+            const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
+            
+            // Find and update the order
+            const orderIndex = orders.findIndex(order => order.id === orderId);
+            
+            if (orderIndex !== -1) {
+                orders[orderIndex].status = 'completed';
+                
+                // Save to localStorage
+                localStorage.setItem('egyptGameStoreOrders', JSON.stringify(orders));
+                
+                // Reload table
+                loadOrdersTable();
+                
+                // Update stats
+                loadAdminData();
+                
+                showNotification('Order marked as completed', 'success');
+            }
+        }
+        
+        function deleteOrder(orderId) {
+            if (confirm('Are you sure you want to delete this order?')) {
+                // Get orders
+                const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
+                
+                // Filter out the order
+                const updatedOrders = orders.filter(order => order.id !== orderId);
+                
+                // Save to localStorage
+                localStorage.setItem('egyptGameStoreOrders', JSON.stringify(updatedOrders));
+                
+                // Reload table
+                loadOrdersTable();
+                
+                // Update stats
+                loadAdminData();
+                
+                showNotification('Order deleted successfully', 'success');
+            }
+        }
+        
+        function closeAccountDetails() {
+            document.getElementById('accountDetails').classList.remove('active');
+            
+            // Show orders section again
+            document.querySelector('.orders-section').style.display = 'block';
+        }
+        
+        // Webhook Functions
+        function loadWebhookSettings() {
+            const webhookUrl = localStorage.getItem('egyptGameStoreWebhookUrl');
+            
+            if (webhookUrl) {
+                document.getElementById('webhookUrl').value = webhookUrl;
+                document.getElementById('webhookStatus').textContent = 'Webhook configured';
+            }
+        }
+        
+        function saveWebhookSettings() {
+            const webhookUrl = document.getElementById('webhookUrl').value;
+            
+            if (webhookUrl) {
+                localStorage.setItem('egyptGameStoreWebhookUrl', webhookUrl);
+                document.getElementById('webhookStatus').textContent = 'Webhook configured';
+                showNotification('Webhook settings saved', 'success');
+            } else {
+                localStorage.removeItem('egyptGameStoreWebhookUrl');
+                document.getElementById('webhookStatus').textContent = 'Webhook not configured';
+                showNotification('Webhook settings cleared', 'info');
+            }
+        }
+        
+        function sendDiscordWebhook(order) {
+            const webhookUrl = localStorage.getItem('egyptGameStoreWebhookUrl');
+            
+            if (webhookUrl) {
+                // Create webhook payload
+                const payload = {
+                    embeds: [{
+                        title: 'New Order Received',
+                        color: 0x6a11cb,
+                        fields: [
+                            { name: 'Order ID', value: order.id, inline: true },
+                            { name: 'Product', value: order.product, inline: true },
+                            { name: 'Price', value: `${order.price} EGP`, inline: true },
+                            { name: 'Customer', value: order.username, inline: true },
+                            { name: 'Email', value: order.email, inline: true },
+                            { name: 'Payment Method', value: order.paymentMethod === 'instapay' ? 'InstaPay' : 'Vodafone Cash', inline: true },
+                            { name: 'Status', value: order.status, inline: true }
+                        ],
+                        timestamp: new Date().toISOString()
+                    }]
+                };
+                
+                // Send webhook
+                fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                })
+                .then(response => {
+                    if (response.ok) {
+                        console.log('Webhook sent successfully');
+                    } else {
+                        console.error('Failed to send webhook');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error sending webhook:', error);
+                });
+            }
+        }
+        
+        // Forgot Password Functions
+        function showForgotPassword() {
+            // Close auth dropdown
+            toggleAuthDropdown();
+            
+            // Show forgot password modal
+            document.getElementById('forgotPasswordModal').classList.add('active');
+        }
+        
+        function closeForgotPassword() {
+            document.getElementById('forgotPasswordModal').classList.remove('active');
+        }
+        
+        function showLoginFromForgotPassword() {
+            closeForgotPassword();
+            toggleAuthDropdown();
+        }
+        
+        function resetPassword() {
+            const email = document.getElementById('forgotEmail').value;
+            
+            if (!email) {
+                showNotification('Please enter your email address', 'error');
+                return;
+            }
+            
+            // Get users
+            const users = JSON.parse(localStorage.getItem('egyptGameStoreUsers')) || [];
+            
+            // Find user with matching email
+            const user = users.find(u => u.email === email);
+            
+            if (!user) {
+                showNotification('No account found with that email address', 'error');
+                return;
+            }
+            
+            // In a real app, you would send a password reset email
+            // For this demo, we'll just show a success message
+            showNotification('Password reset instructions have been sent to your email', 'success');
+            
+            // Close modal
+            closeForgotPassword();
+            
+            // Reset form
+            document.getElementById('forgotEmail').value = '';
+        }
+    </script>
+</body>
+</html>
