@@ -648,6 +648,103 @@
             font-weight: 500;
         }
         
+        /* Order History Section */
+        .order-history {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .order-list {
+            margin-top: 40px;
+        }
+        
+        .order-item {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .order-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .order-id {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        
+        .order-date {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .order-status {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .status-pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .status-completed {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .order-details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .order-detail-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .order-detail-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-bottom: 5px;
+        }
+        
+        .order-detail-value {
+            font-weight: 500;
+            color: var(--darker);
+        }
+        
+        .empty-orders {
+            text-align: center;
+            padding: 40px;
+            color: var(--gray);
+        }
+        
+        .empty-orders i {
+            font-size: 60px;
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+        
         /* Order Modal */
         .modal {
             display: none;
@@ -735,7 +832,7 @@
             color: var(--primary);
         }
         
-        .order-item {
+        .order-item-summary {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -744,7 +841,7 @@
             border-bottom: 1px solid #e2e8f0;
         }
         
-        .order-item:last-child {
+        .order-item-summary:last-child {
             border-bottom: none;
             margin-bottom: 0;
             padding-bottom: 0;
@@ -1192,6 +1289,10 @@
                 flex-direction: column;
             }
             
+            .order-details-grid {
+                grid-template-columns: 1fr;
+            }
+            
             .footer-content {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -1213,6 +1314,7 @@
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#products">Products</a></li>
+                        <li><a href="#order-history">Order History</a></li>
                         <li><a href="#how-it-works">How It Works</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
@@ -1396,6 +1498,24 @@
             </div>
         </div>
     </section>
+    
+    <section class="order-history" id="order-history">
+        <div class="container">
+            <div class="section-title">
+                <h2>Order History</h2>
+                <p>View your recent orders and their status</p>
+            </div>
+            
+            <div class="order-list" id="orderList">
+                <div class="empty-orders">
+                    <i class="fas fa-receipt"></i>
+                    <h3>No orders yet</h3>
+                    <p>Your order history will appear here once you make a purchase.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <section class="features">
         <div class="container">
             <div class="section-title">
@@ -1427,7 +1547,7 @@
             <h2>Place Your Order</h2>
             <div class="order-summary">
                 <h3><i class="fas fa-receipt"></i> Order Summary</h3>
-                <div class="order-item">
+                <div class="order-item-summary">
                     <span id="modal-item-name">Product Name</span>
                     <span id="modal-item-price">0 EGP</span>
                 </div>
@@ -1611,6 +1731,7 @@
                     <h3>Quick Links</h3>
                     <a href="#home">Home</a>
                     <a href="#products">Products</a>
+                    <a href="#order-history">Order History</a>
                     <a href="#how-it-works">How It Works</a>
                     <a href="#contact">Contact</a>
                 </div>
@@ -1630,6 +1751,11 @@
     <script>
         // Set current year in footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Load order history from localStorage on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadOrderHistory();
+        });
         
         // Category tabs functionality
         const categoryTabs = document.querySelectorAll('.category-tab');
@@ -1769,8 +1895,12 @@
             document.getElementById('paymentSection').style.display = 'none';
             document.getElementById('orderConfirmation').style.display = 'block';
             
+            // Generate a unique order ID
+            const orderId = 'EGS-' + Date.now();
+            
             // Prepare order data
             const orderData = {
+                orderId: orderId,
                 product: currentItem.name,
                 price: currentItem.price,
                 category: currentItem.category,
@@ -1779,14 +1909,86 @@
                 phone: phone,
                 gamepassLink: gamepassLink,
                 paymentMethod: selectedPaymentMethod === 'instapay' ? 'InstaPay' : 'Vodafone Cash',
+                status: 'pending',
                 timestamp: new Date().toISOString()
             };
+            
+            // Save order to localStorage
+            saveOrderToLocalStorage(orderData);
             
             // Send order to Discord webhook
             sendToDiscord(orderData);
             
-            // In a real implementation, you would send this data to your server/Discord here
+            // Reload order history
+            loadOrderHistory();
+            
             console.log("Order placed:", orderData);
+        }
+        
+        // Function to save order to localStorage
+        function saveOrderToLocalStorage(orderData) {
+            // Get existing orders from localStorage
+            let orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
+            
+            // Add new order to the beginning of the array
+            orders.unshift(orderData);
+            
+            // Save back to localStorage
+            localStorage.setItem('egyptGameStoreOrders', JSON.stringify(orders));
+        }
+        
+        // Function to load order history from localStorage
+        function loadOrderHistory() {
+            const orderList = document.getElementById('orderList');
+            const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
+            
+            if (orders.length === 0) {
+                orderList.innerHTML = `
+                    <div class="empty-orders">
+                        <i class="fas fa-receipt"></i>
+                        <h3>No orders yet</h3>
+                        <p>Your order history will appear here once you make a purchase.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            orderList.innerHTML = '';
+            
+            orders.forEach(order => {
+                const orderDate = new Date(order.timestamp);
+                const formattedDate = orderDate.toLocaleDateString() + ' ' + orderDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                
+                const orderElement = document.createElement('div');
+                orderElement.className = 'order-item';
+                orderElement.innerHTML = `
+                    <div class="order-header">
+                        <div class="order-id">${order.orderId}</div>
+                        <div class="order-date">${formattedDate}</div>
+                        <div class="order-status status-${order.status}">${order.status.charAt(0).toUpperCase() + order.status.slice(1)}</div>
+                    </div>
+                    <div class="order-details-grid">
+                        <div class="order-detail-item">
+                            <div class="order-detail-label">Product</div>
+                            <div class="order-detail-value">${order.product}</div>
+                        </div>
+                        <div class="order-detail-item">
+                            <div class="order-detail-label">Price</div>
+                            <div class="order-detail-value">${order.price} EGP</div>
+                        </div>
+                        <div class="order-detail-item">
+                            <div class="order-detail-label">Username</div>
+                            <div class="order-detail-value">${order.username}</div>
+                        </div>
+                        <div class="order-detail-item">
+                            <div class="order-detail-label">Payment Method</div>
+                            <div class="order-detail-value">${order.paymentMethod}</div>
+                        </div>
+                    </div>
+                `;
+                
+                orderList.appendChild(orderElement);
+            });
         }
         
         // Function to send order to Discord webhook
@@ -1799,6 +2001,11 @@
                 title: "🛒 New Order Received!",
                 color: 0x6a11cb, // Purple color matching the site theme
                 fields: [
+                    {
+                        name: "Order ID",
+                        value: orderData.orderId,
+                        inline: true
+                    },
                     {
                         name: "Product",
                         value: orderData.product,
