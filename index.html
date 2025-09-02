@@ -1733,8 +1733,9 @@
             // Add selected class to clicked option
             document.getElementById(method).closest('.payment-option').classList.add('selected');
             
-            // Show payment details
+            // Show payment details and instructions
             document.getElementById('paymentDetails').style.display = 'block';
+            document.querySelector('.payment-instructions').style.display = 'block';
             
             // Update payment instructions based on method
             const paymentTitle = document.getElementById('payment-method-title');
@@ -1795,7 +1796,7 @@
             
             // Create embed message
             const embed = {
-                title: "New Order Received!",
+                title: "🛒 New Order Received!",
                 color: 0x6a11cb, // Purple color matching the site theme
                 fields: [
                     {
@@ -1846,7 +1847,7 @@
             };
             
             const payload = {
-                content: "A new order has been placed!",
+                content: "@everyone A new order has been placed!",
                 embeds: [embed]
             };
             
@@ -1861,12 +1862,15 @@
             .then(response => {
                 if (response.ok) {
                     console.log('Order notification sent to Discord successfully');
+                    showNotification('Order submitted successfully!', 'success');
                 } else {
                     console.error('Failed to send order notification to Discord');
+                    showNotification('Order submitted, but notification failed to send to Discord.', 'error');
                 }
             })
             .catch(error => {
                 console.error('Error sending order to Discord:', error);
+                showNotification('Order submitted, but notification failed to send to Discord.', 'error');
             });
         }
         
@@ -1885,7 +1889,7 @@
             notification.className = `notification notification-${type}`;
             notification.innerHTML = `
                 <div class="notification-content">
-                    <i class="fas fa-${type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+                    <i class="fas fa-${type === 'error' ? 'exclamation-circle' : type === 'success' ? 'check-circle' : 'info-circle'}"></i>
                     <span>${message}</span>
                     <button class="notification-close"><i class="fas fa-times"></i></button>
                 </div>
@@ -1914,6 +1918,10 @@
                     border-left: 4px solid var(--primary);
                 }
                 
+                .notification-success {
+                    border-left: 4px solid var(--success);
+                }
+                
                 .notification-content {
                     display: flex;
                     align-items: center;
@@ -1931,6 +1939,10 @@
                 
                 .notification-info i {
                     color: var(--primary);
+                }
+                
+                .notification-success i {
+                    color: var(--success);
                 }
                 
                 .notification-close {
