@@ -47,7 +47,7 @@
             padding: 0 20px;
         }
         
-        /* Enhanced Header Styles */
+        /* Header Styles */
         header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
@@ -134,7 +134,6 @@
             align-items: center;
             gap: 15px;
             position: relative;
-            margin-left: 60px;
         }
         
         .user-info {
@@ -364,7 +363,9 @@
         .hero {
             text-align: center;
             padding: 100px 0;
-            background: linear-gradient(135deg, rgba(106, 17, 203, 0.9) 0%, rgba(37, 117, 252, 0.9) 100%);
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
             position: relative;
             overflow: hidden;
         }
@@ -880,6 +881,31 @@
             font-weight: 700;
         }
         
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: var(--gray);
+            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .close:hover {
+            color: var(--error);
+            background: #fef2f2;
+            transform: rotate(90deg);
+        }
+        
         .settings-tabs {
             display: flex;
             margin-bottom: 30px;
@@ -1132,31 +1158,6 @@
             animation: slideIn 0.3s ease;
         }
         
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            color: var(--gray);
-            transition: all 0.3s ease;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-        }
-        
-        .close:hover {
-            color: var(--error);
-            background: #fef2f2;
-            transform: rotate(90deg);
-        }
-        
         .order-summary {
             background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
             padding: 25px;
@@ -1368,6 +1369,7 @@
         
         .payment-instructions h4 i {
             margin-right: 10px;
+            font-size: 24px;
         }
         
         .payment-amount {
@@ -1522,6 +1524,383 @@
             100% { transform: rotate(360deg); }
         }
         
+        /* Admin Panel Styles */
+        .admin-panel {
+            display: none;
+            padding: 60px 0;
+            background: white;
+        }
+        
+        .admin-panel.active {
+            display: block;
+        }
+        
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .admin-title {
+            font-size: 2rem;
+            color: var(--darker);
+            font-weight: 700;
+        }
+        
+        .admin-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.2);
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .admin-tabs {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .admin-tab {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            font-weight: 600;
+            color: var(--gray);
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .admin-tab.active {
+            color: var(--primary);
+        }
+        
+        .admin-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+        }
+        
+        .admin-content {
+            display: none;
+        }
+        
+        .admin-content.active {
+            display: block;
+        }
+        
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        
+        .admin-table th {
+            background: var(--darker);
+            color: white;
+            text-align: left;
+            padding: 15px;
+            font-weight: 600;
+        }
+        
+        .admin-table td {
+            padding: 15px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        
+        .admin-table tr:hover {
+            background: #f8fafc;
+        }
+        
+        .admin-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn-small {
+            padding: 6px 12px;
+            font-size: 0.8rem;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+        }
+        
+        .btn-edit {
+            background: var(--warning);
+        }
+        
+        .btn-delete {
+            background: var(--error);
+        }
+        
+        .btn-view {
+            background: var(--success);
+        }
+        
+        .btn-complete {
+            background: var(--success);
+        }
+        
+        /* Account Details Modal */
+        .account-details {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1000;
+            overflow: auto;
+        }
+        
+        .account-details.active {
+            display: block;
+        }
+        
+        .account-details-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 800px;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        
+        .account-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .account-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .info-item {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+            color: var(--darker);
+        }
+        
+        .info-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-bottom: 5px;
+        }
+        
+        .info-value {
+            font-weight: 600;
+            color: var(--darker);
+        }
+        
+        .orders-section {
+            margin-top: 30px;
+        }
+        
+        .orders-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        
+        .orders-table th {
+            background: var(--darker);
+            color: white;
+            text-align: left;
+            padding: 12px;
+            font-weight: 600;
+        }
+        
+        .orders-table td {
+            padding: 12px;
+            border-bottom: 1px solid #f1f5f9;
+            color: var(--darker);
+        }
+        
+        .orders-table tr:hover {
+            background: #f8fafc;
+        }
+        
+        /* Admin Login Form */
+        .admin-login {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1000;
+            overflow: auto;
+        }
+        
+        .admin-login.active {
+            display: block;
+        }
+        
+        .admin-login-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 40px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        
+        .admin-login-title {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: var(--darker);
+            text-align: center;
+        }
+        
+        .admin-form-group {
+            margin-bottom: 20px;
+        }
+        
+        .admin-form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--darker);
+        }
+        
+        .admin-form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .admin-form-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.1);
+        }
+        
+        .admin-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+        
+        .admin-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
+        }
+        
+        /* Webhook Settings */
+        .webhook-settings {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .webhook-settings h3 {
+            margin-bottom: 15px;
+            color: var(--darker);
+            font-weight: 600;
+        }
+        
+        .webhook-form {
+            display: flex;
+            gap: 10px;
+            align-items: flex-end;
+        }
+        
+        .webhook-form-group {
+            flex: 1;
+            margin-bottom: 0;
+        }
+        
+        .webhook-form-group label {
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        
+        .webhook-form-group input {
+            padding: 10px;
+            font-size: 14px;
+        }
+        
+        .webhook-btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .webhook-btn:hover {
+            background: var(--secondary);
+        }
+        
+        .webhook-status {
+            margin-top: 10px;
+            font-size: 14px;
+            color: var(--gray);
+        }
+        
         /* Forgot Password Modal */
         .forgot-password-modal {
             display: none;
@@ -1596,6 +1975,31 @@
         
         .back-to-login a:hover {
             text-decoration: underline;
+        }
+        
+        /* Admin Access Button */
+        .admin-access {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--darker);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+        
+        .admin-access:hover {
+            transform: scale(1.1);
+            background: var(--primary);
         }
         
         /* Footer */
@@ -1733,11 +2137,32 @@
                 grid-template-columns: 1fr;
             }
             
-            .data-management {
+            .admin-table {
+                font-size: 0.9rem;
+            }
+            
+            .admin-actions {
                 flex-direction: column;
             }
             
+            .admin-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .account-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .webhook-form {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
             .settings-tabs {
+                flex-direction: column;
+            }
+            
+            .admin-tabs {
                 flex-direction: column;
             }
             
@@ -1799,7 +2224,7 @@
                 <div class="product-card">
                     <div class="product-image">
                         <div class="product-badge">Popular</div>
-                        <i class="fab fa-roblox" style="font-size: 70px;"></i>
+                        <img src="https://images.rbxcdn.com/5223c46d4b5c3b7b8b8b8b8b8b8b8b8b" alt="Robux" style="height: 120px; width: auto; object-fit: contain;">
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">500 Robux</h3>
@@ -1813,7 +2238,7 @@
                 
                 <div class="product-card">
                     <div class="product-image">
-                        <i class="fab fa-roblox" style="font-size: 70px;"></i>
+                        <img src="https://images.rbxcdn.com/5223c46d4b5c3b7b8b8b8b8b8b8b8b8b" alt="Robux" style="height: 120px; width: auto; object-fit: contain;">
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">1,000 Robux</h3>
@@ -1828,7 +2253,7 @@
                 <div class="product-card">
                     <div class="product-image">
                         <div class="product-badge">Best Value</div>
-                        <i class="fab fa-roblox" style="font-size: 70px;"></i>
+                        <img src="https://images.rbxcdn.com/5223c46d4b5c3b7b8b8b8b8b8b8b8b8b" alt="Robux" style="height: 120px; width: auto; object-fit: contain;">
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">2,000 Robux</h3>
@@ -1845,7 +2270,7 @@
                 <div class="product-card">
                     <div class="product-image">
                         <div class="product-badge">New</div>
-                        <i class="fas fa-apple-alt"></i>
+                        <i class="fas fa-apple-alt" style="color: white; font-size: 70px;"></i>
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">Blox Fruits - Light Fruit</h3>
@@ -1859,7 +2284,7 @@
                 
                 <div class="product-card">
                     <div class="product-image">
-                        <i class="fas fa-fire"></i>
+                        <i class="fas fa-fire" style="color: white; font-size: 70px;"></i>
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">Blox Fruits - Flame Fruit</h3>
@@ -1873,7 +2298,7 @@
                 
                 <div class="product-card">
                     <div class="product-image">
-                        <i class="fas fa-bolt"></i>
+                        <i class="fas fa-bolt" style="color: white; font-size: 70px;"></i>
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">Blox Fruits - Rumble Fruit</h3>
@@ -1890,7 +2315,7 @@
                 <div class="product-card">
                     <div class="product-image">
                         <div class="product-badge">Legendary</div>
-                        <i class="fas fa-skull"></i>
+                        <i class="fas fa-skull" style="color: white; font-size: 70px;"></i>
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">MM2 - Godly Knife Set</h3>
@@ -1904,7 +2329,7 @@
                 
                 <div class="product-card">
                     <div class="product-image">
-                        <i class="fas fa-gem"></i>
+                        <i class="fas fa-gem" style="color: white; font-size: 70px;"></i>
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">MM2 - Ancient Weapon Pack</h3>
@@ -1921,7 +2346,7 @@
                 <div class="product-card">
                     <div class="product-image">
                         <div class="product-badge">Limited</div>
-                        <i class="fas fa-seedling"></i>
+                        <i class="fas fa-seedling" style="color: white; font-size: 70px;"></i>
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">Grow a Garden - Rare Seeds</h3>
@@ -1935,7 +2360,7 @@
                 
                 <div class="product-card">
                     <div class="product-image">
-                        <i class="fas fa-tree"></i>
+                        <i class="fas fa-tree" style="color: white; font-size: 70px;"></i>
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">Grow a Garden - Mystery Tree</h3>
@@ -1972,9 +2397,7 @@
         <div class="user-settings-content">
             <div class="settings-header">
                 <h2 class="settings-title">User Settings</h2>
-                <button class="close" onclick="closeUserSettings()">
-                    <i class="fas fa-times"></i>
-                </button>
+                <span class="close" onclick="closeUserSettings()">&times;</span>
             </div>
             
             <div class="settings-tabs">
@@ -2222,781 +2645,38 @@
         </div>
     </section>
     
-    <!-- Forgot Password Modal -->
-    <div class="forgot-password-modal" id="forgotPasswordModal">
-        <div class="forgot-password-content">
-            <span class="close" onclick="closeForgotPassword()">&times;</span>
-            <h2 class="forgot-password-title">Forgot Password</h2>
-            
-            <div class="forgot-password-form">
-                <label>Email Address</label>
-                <input type="email" id="forgotEmail" placeholder="Enter your email address">
-            </div>
-            
-            <button class="admin-btn" onclick="resetPassword()">Reset Password</button>
-            
-            <div class="back-to-login">
-                <a href="#" onclick="showLoginFromForgotPassword()">Back to Login</a>
-            </div>
-        </div>
-    </div>
-    
-    <footer id="contact">
+    <!-- Admin Panel Section -->
+    <section class="admin-panel" id="adminPanel">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>About EgyptGameStore</h3>
-                    <p>Your trusted source for Robux and game items in Egypt. We provide fast delivery, secure payments, and excellent customer support.</p>
-                    <div class="social-icons">
-                        <a href="https://discord.gg/pCYvMsmScW" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
-                        <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <a href="#home">Home</a>
-                    <a href="#products">Products</a>
-                    <a href="#order-history">Order History</a>
-                    <a href="#how-it-works">How It Works</a>
-                    <a href="#contact">Contact</a>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <p><i class="fas fa-envelope"></i> shadowbr500@gmail.com</p>
-                    <p><i class="fas fa-phone"></i> 01021336310 (InstaPay/Vodafone Cash)</p>
-                    <p><i class="fab fa-whatsapp"></i> 01021336310 (WhatsApp)</p>
-                    <p><i class="fab fa-discord"></i> EgyptGameStore Support</p>
-                </div>
+            <div class="admin-header">
+                <h2 class="admin-title">Admin Panel</h2>
+                <button class="btn btn-outline" onclick="logoutAdmin()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
             </div>
-            <div class="copyright">
-                <p>&copy; <span id="currentYear">2023</span> EgyptGameStore. All rights reserved.</p>
+            
+            <div class="admin-tabs">
+                <div class="admin-tab active" onclick="switchAdminTab('dashboard')">Dashboard</div>
+                <div class="admin-tab" onclick="switchAdminTab('users')">Users</div>
+                <div class="admin-tab" onclick="switchAdminTab('orders')">Orders</div>
+                <div class="admin-tab" onclick="switchAdminTab('webhook')">Webhook</div>
             </div>
-        </div>
-    </footer>
-    <script>
-        // Set current year in footer
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-        
-        // Initialize user state
-        let currentUser = null;
-        
-        // Load user from localStorage on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            loadUserFromStorage();
-            updateUserMenu();
-            loadOrderHistory();
-            addDataManagementButtons();
-        });
-        
-        // Category tabs functionality
-        const categoryTabs = document.querySelectorAll('.category-tab');
-        const productGrids = document.querySelectorAll('.product-grid');
-        
-        categoryTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                categoryTabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                
-                // Hide all product grids
-                productGrids.forEach(grid => {
-                    grid.style.display = 'none';
-                });
-                
-                // Show selected category
-                const category = tab.dataset.category;
-                const productsContainer = document.getElementById(category + '-products');
-                
-                if (productsContainer) {
-                    productsContainer.style.display = 'grid';
-                }
-            });
-        });
-        
-        let currentItem = {};
-        let selectedPaymentMethod = null;
-        
-        // User authentication functions
-        function switchAuthTab(tab) {
-            const loginForm = document.getElementById('loginForm');
-            const registerForm = document.getElementById('registerForm');
-            const authTabs = document.querySelectorAll('.auth-tab');
             
-            authTabs.forEach(t => t.classList.remove('active'));
-            
-            if (tab === 'login') {
-                authTabs[0].classList.add('active');
-                loginForm.classList.add('active');
-                registerForm.classList.remove('active');
-            } else {
-                authTabs[1].classList.add('active');
-                registerForm.classList.add('active');
-                loginForm.classList.remove('active');
-            }
-        }
-        
-        function registerUser() {
-            const name = document.getElementById('registerName').value;
-            const email = document.getElementById('registerEmail').value;
-            const password = document.getElementById('registerPassword').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
-            
-            if (!name || !email || !password || !confirmPassword) {
-                showNotification('Please fill in all fields', 'error');
-                return;
-            }
-            
-            if (password !== confirmPassword) {
-                showNotification('Passwords do not match', 'error');
-                return;
-            }
-            
-            if (password.length < 6) {
-                showNotification('Password must be at least 6 characters', 'error');
-                return;
-            }
-            
-            // Get existing users
-            const users = JSON.parse(localStorage.getItem('egyptGameStoreUsers')) || [];
-            
-            // Check if email already exists
-            if (users.some(user => user.email === email)) {
-                showNotification('Email already registered', 'error');
-                return;
-            }
-            
-            // Create new user
-            const newUser = {
-                id: Date.now(),
-                name,
-                email,
-                password, // In a real app, this should be hashed
-                phone: '',
-                registeredAt: new Date().toISOString()
-            };
-            
-            // Add user to array
-            users.push(newUser);
-            
-            // Save to localStorage
-            localStorage.setItem('egyptGameStoreUsers', JSON.stringify(users));
-            
-            // Auto login the new user
-            currentUser = newUser;
-            localStorage.setItem('egyptGameStoreCurrentUser', JSON.stringify(newUser));
-            
-            // Update UI
-            updateUserMenu();
-            
-            // Show success message
-            showNotification('Registration successful! You are now logged in.', 'success');
-            
-            // Reset form
-            document.getElementById('registerForm').reset();
-            
-            // Close the dropdown
-            toggleAuthDropdown();
-        }
-        
-        function loginUser() {
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
-            
-            if (!email || !password) {
-                showNotification('Please enter email and password', 'error');
-                return;
-            }
-            
-            // Get users from localStorage
-            const users = JSON.parse(localStorage.getItem('egyptGameStoreUsers')) || [];
-            
-            // Find user with matching email
-            const user = users.find(u => u.email === email);
-            
-            if (!user) {
-                showNotification('User not found', 'error');
-                return;
-            }
-            
-            // Check password
-            if (user.password !== password) {
-                showNotification('Incorrect password', 'error');
-                return;
-            }
-            
-            // Set current user
-            currentUser = user;
-            localStorage.setItem('egyptGameStoreCurrentUser', JSON.stringify(user));
-            
-            // Update UI
-            updateUserMenu();
-            
-            // Show success message
-            showNotification('Login successful!', 'success');
-            
-            // Reset form
-            document.getElementById('loginForm').reset();
-            
-            // Close the dropdown
-            toggleAuthDropdown();
-        }
-        
-        function logoutUser() {
-            currentUser = null;
-            localStorage.removeItem('egyptGameStoreCurrentUser');
-            updateUserMenu();
-            showNotification('You have been logged out', 'info');
-        }
-        
-        function loadUserFromStorage() {
-            try {
-                const userData = localStorage.getItem('egyptGameStoreCurrentUser');
-                if (userData) {
-                    currentUser = JSON.parse(userData);
-                }
-            } catch (error) {
-                console.error('Error loading user from storage:', error);
-            }
-        }
-        
-        function updateUserMenu() {
-            const userMenu = document.getElementById('userMenu');
-            
-            if (currentUser) {
-                // User is logged in
-                const initials = currentUser.name.split(' ').map(n => n[0]).join('').toUpperCase();
-                userMenu.innerHTML = `
-                    <div class="user-info">
-                        <div class="user-avatar">${initials}</div>
-                        <span>${currentUser.name}</span>
+            <div id="dashboard-content" class="admin-content active">
+                <div class="admin-stats">
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalUsers">0</div>
+                        <div class="stat-label">Total Users</div>
                     </div>
-                    <button class="btn btn-outline btn-small" onclick="openUserSettings()">
-                        <i class="fas fa-cog"></i> Settings
-                    </button>
-                    <button class="btn btn-outline btn-small" onclick="logoutUser()">
-                        <i class="fas fa-sign-out-alt"></i> Logout
-                    </button>
-                `;
-            } else {
-                // User is not logged in
-                userMenu.innerHTML = `
-                    <button class="btn btn-outline" onclick="toggleAuthDropdown()">
-                        <i class="fas fa-sign-in-alt"></i> Login / Register
-                    </button>
-                    <div class="auth-dropdown" id="authDropdown">
-                        <div class="auth-tabs">
-                            <div class="auth-tab active" onclick="switchAuthTab('login')">Login</div>
-                            <div class="auth-tab" onclick="switchAuthTab('register')">Register</div>
-                        </div>
-                        
-                        <form id="loginForm" class="auth-form active" onsubmit="return false;">
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input type="email" id="loginEmail" placeholder="Your email" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input type="password" id="loginPassword" placeholder="Your password" required>
-                            </div>
-                            
-                            <button type="button" class="btn-auth" onclick="loginUser()">Login</button>
-                            
-                            <div class="forgot-password">
-                                <a href="#" onclick="showForgotPassword()">Forgot Password?</a>
-                            </div>
-                        </form>
-                        
-                        <form id="registerForm" class="auth-form" onsubmit="return false;">
-                            <div class="form-group">
-                                <label>Full Name</label>
-                                <input type="text" id="registerName" placeholder="Your full name" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input type="email" id="registerEmail" placeholder="Your email" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input type="password" id="registerPassword" placeholder="Create a password" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label>Confirm Password</label>
-                                <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
-                            </div>
-                            
-                            <button type="button" class="btn-auth" onclick="registerUser()">Register</button>
-                        </form>
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalOrders">0</div>
+                        <div class="stat-label">Total Orders</div>
                     </div>
-                `;
-            }
-        }
-        
-        function toggleAuthDropdown() {
-            const dropdown = document.getElementById('authDropdown');
-            if (dropdown) {
-                dropdown.classList.toggle('active');
-            }
-        }
-        
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(event) {
-            const userMenu = document.getElementById('userMenu');
-            const dropdown = document.getElementById('authDropdown');
-            
-            if (dropdown && dropdown.classList.contains('active') && 
-                !userMenu.contains(event.target)) {
-                dropdown.classList.remove('active');
-            }
-        });
-        
-        function showNotification(message, type = 'info') {
-            // Remove any existing notifications
-            const existingNotification = document.querySelector('.notification');
-            if (existingNotification) {
-                existingNotification.remove();
-            }
-            
-            // Create notification element
-            const notification = document.createElement('div');
-            notification.className = `notification ${type}`;
-            
-            // Add icon based on type
-            let icon = 'fa-info-circle';
-            if (type === 'success') icon = 'fa-check-circle';
-            if (type === 'error') icon = 'fa-exclamation-circle';
-            
-            // Set notification content
-            notification.innerHTML = `<i class="fas ${icon}"></i> ${message}`;
-            
-            // Add to DOM
-            document.body.appendChild(notification);
-            
-            // Show notification
-            setTimeout(() => {
-                notification.classList.add('show');
-            }, 10);
-            
-            // Hide notification after 3 seconds
-            setTimeout(() => {
-                notification.classList.remove('show');
-                setTimeout(() => {
-                    notification.remove();
-                }, 300);
-            }, 3000);
-        }
-        
-        function openOrderModal(name, price, category) {
-            // Check if user is logged in
-            if (!currentUser) {
-                showNotification('Please login to place an order', 'error');
-                toggleAuthDropdown();
-                return;
-            }
-            
-            currentItem = { name, price, category };
-            
-            // Make sure the modal is visible
-            document.getElementById('orderModal').style.display = 'block';
-            
-            // Set the product name and price with explicit styling
-            const nameElement = document.getElementById('modal-item-name');
-            const priceElement = document.getElementById('modal-item-price');
-            const totalElement = document.getElementById('modal-total-price');
-            const paymentAmountElement = document.getElementById('paymentAmount');
-            const instructionAmountElement = document.getElementById('instruction-amount');
-            
-            // Set text content
-            nameElement.textContent = name;
-            priceElement.textContent = price + ' EGP';
-            totalElement.textContent = price + ' EGP';
-            paymentAmountElement.textContent = price + ' EGP';
-            instructionAmountElement.textContent = price + ' EGP';
-            
-            // Force visibility by setting explicit styles
-            nameElement.style.color = 'var(--darker)';
-            nameElement.style.fontWeight = '500';
-            nameElement.style.display = 'inline';
-            nameElement.style.fontSize = '1.1rem';
-            
-            priceElement.style.color = 'var(--primary)';
-            priceElement.style.fontWeight = '600';
-            priceElement.style.display = 'inline';
-            priceElement.style.fontSize = '1.1rem';
-            
-            // Reset form and payment selection
-            document.getElementById('orderForm').style.display = 'block';
-            document.getElementById('paymentSection').style.display = 'none';
-            document.getElementById('orderConfirmation').style.display = 'none';
-            
-            selectedPaymentMethod = null;
-            document.querySelectorAll('.payment-option').forEach(option => {
-                option.classList.remove('selected');
-            });
-            document.getElementById('paymentDetails').style.display = 'none';
-            document.getElementById('orderForm').reset();
-        }
-        
-        function closeOrderModal() {
-            document.getElementById('orderModal').style.display = 'none';
-        }
-        
-        function showPaymentOptions() {
-            const form = document.getElementById('orderForm');
-            const username = document.getElementById('username').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const gamepassLink = document.getElementById('gamepassLinkInput').value;
-            
-            if (!username || !email || !phone || !gamepassLink) {
-                showNotification('Please fill in all the required fields before continuing to payment.', 'error');
-                return;
-            }
-            
-            // Validate email format
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                showNotification('Please enter a valid email address.', 'error');
-                return;
-            }
-            
-            // Validate phone number (Egyptian format)
-            const phoneRegex = /^01[0-9]{9}$/;
-            if (!phoneRegex.test(phone)) {
-                showNotification('Please enter a valid Egyptian phone number (11 digits starting with 01).', 'error');
-                return;
-            }
-            
-            // Validate URL format
-            try {
-                new URL(gamepassLink);
-            } catch (e) {
-                showNotification('Please enter a valid gamepass link.', 'error');
-                return;
-            }
-            
-            document.getElementById('orderForm').style.display = 'none';
-            document.getElementById('paymentSection').style.display = 'block';
-        }
-        
-        function selectPayment(method) {
-            selectedPaymentMethod = method;
-            
-            // Remove selected class from all options
-            document.querySelectorAll('.payment-option').forEach(option => {
-                option.classList.remove('selected');
-            });
-            
-            // Add selected class to clicked option
-            document.getElementById(method).closest('.payment-option').classList.add('selected');
-            
-            // Show payment details and instructions
-            document.getElementById('paymentDetails').style.display = 'block';
-            document.querySelector('.payment-instructions').style.display = 'block';
-            
-            // Update payment instructions based on method
-            const paymentTitle = document.getElementById('payment-method-title');
-            if (method === 'instapay') {
-                paymentTitle.innerHTML = '<i class="fas fa-info-circle"></i> InstaPay Payment Instructions';
-            } else if (method === 'vodafone_cash') {
-                paymentTitle.innerHTML = '<i class="fas fa-info-circle"></i> Vodafone Cash Payment Instructions';
-            }
-        }
-        
-        function submitOrder() {
-            if (!selectedPaymentMethod) {
-                showNotification('Please select a payment method', 'error');
-                return;
-            }
-            
-            const username = document.getElementById('username').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const gamepassLink = document.getElementById('gamepassLinkInput').value;
-            
-            // Show spinner
-            document.getElementById('submitSpinner').style.display = 'block';
-            document.getElementById('submitOrderBtn').disabled = true;
-            
-            // Simulate order processing
-            setTimeout(() => {
-                // Create order object
-                const order = {
-                    id: 'EGS-' + Date.now(),
-                    product: currentItem.name,
-                    price: currentItem.price,
-                    category: currentItem.category,
-                    username,
-                    email,
-                    phone,
-                    gamepassLink,
-                    paymentMethod: selectedPaymentMethod,
-                    status: 'pending',
-                    createdAt: new Date().toISOString()
-                };
-                
-                // Get existing orders
-                const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
-                
-                // Add new order
-                orders.push(order);
-                
-                // Save to localStorage
-                localStorage.setItem('egyptGameStoreOrders', JSON.stringify(orders));
-                
-                // Update UI
-                document.getElementById('submitSpinner').style.display = 'none';
-                document.getElementById('submitOrderBtn').disabled = false;
-                
-                // Show confirmation
-                document.getElementById('paymentSection').style.display = 'none';
-                document.getElementById('orderConfirmation').style.display = 'block';
-                
-                // Update confirmation details
-                document.getElementById('conf-product').textContent = currentItem.name;
-                document.getElementById('conf-price').textContent = currentItem.price + ' EGP';
-                document.getElementById('conf-username').textContent = username;
-                document.getElementById('conf-email').textContent = email;
-                document.getElementById('conf-phone').textContent = phone;
-                document.getElementById('conf-gamepass').textContent = gamepassLink;
-                
-                // Load updated order history
-                loadOrderHistory();
-                
-                // Show notification
-                showNotification('Order placed successfully!', 'success');
-            }, 1500);
-        }
-        
-        function loadOrderHistory() {
-            const orderList = document.getElementById('orderList');
-            
-            if (!currentUser) {
-                orderList.innerHTML = `
-                    <div class="empty-orders">
-                        <i class="fas fa-receipt"></i>
-                        <h3>Please login to view your order history</h3>
-                        <p>Login to see your previous orders.</p>
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalRevenue">0</div>
+                        <div class="stat-label">Total Revenue (EGP)</div>
                     </div>
-                `;
-                return;
-            }
-            
-            // Get orders from localStorage
-            const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
-            
-            // Filter orders for current user
-            const userOrders = orders.filter(order => order.email === currentUser.email);
-            
-            if (userOrders.length === 0) {
-                orderList.innerHTML = `
-                    <div class="empty-orders">
-                        <i class="fas fa-receipt"></i>
-                        <h3>No orders yet</h3>
-                        <p>Your order history will appear here once you make a purchase.</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            // Display orders
-            orderList.innerHTML = userOrders.map(order => `
-                <div class="order-item">
-                    <div class="order-header">
-                        <div class="order-id">${order.id}</div>
-                        <div class="order-date">${new Date(order.createdAt).toLocaleDateString()}</div>
-                        <div class="order-status ${order.status === 'completed' ? 'status-completed' : 'status-pending'}">
-                            ${order.status === 'completed' ? 'Completed' : 'Pending'}
-                        </div>
-                    </div>
-                    <div class="order-details-grid">
-                        <div class="order-detail-item">
-                            <div class="order-detail-label">Product</div>
-                            <div class="order-detail-value">${order.product}</div>
-                        </div>
-                        <div class="order-detail-item">
-                            <div class="order-detail-label">Price</div>
-                            <div class="order-detail-value">${order.price} EGP</div>
-                        </div>
-                        <div class="order-detail-item">
-                            <div class="order-detail-label">Payment Method</div>
-                            <div class="order-detail-value">${order.paymentMethod === 'instapay' ? 'InstaPay' : 'Vodafone Cash'}</div>
-                        </div>
-                        <div class="order-detail-item">
-                            <div class="order-detail-label">Status</div>
-                            <div class="order-detail-value">${order.status === 'completed' ? 'Completed' : 'Pending'}</div>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
-        
-        function openUserSettings() {
-            document.getElementById('user-settings-modal').classList.add('active');
-            
-            // Load user data into form
-            document.getElementById('settingsName').value = currentUser.name || '';
-            document.getElementById('settingsEmail').value = currentUser.email || '';
-            document.getElementById('settingsPhone').value = currentUser.phone || '';
-        }
-        
-        function closeUserSettings() {
-            document.getElementById('user-settings-modal').classList.remove('active');
-        }
-        
-        function switchSettingsTab(tab) {
-            const profileForm = document.getElementById('profileForm');
-            const securityForm = document.getElementById('securityForm');
-            const settingsTabs = document.querySelectorAll('.settings-tab');
-            
-            settingsTabs.forEach(t => t.classList.remove('active'));
-            
-            if (tab === 'profile') {
-                settingsTabs[0].classList.add('active');
-                profileForm.classList.add('active');
-                securityForm.classList.remove('active');
-            } else {
-                settingsTabs[1].classList.add('active');
-                securityForm.classList.add('active');
-                profileForm.classList.remove('active');
-            }
-        }
-        
-        function updateUserProfile() {
-            const name = document.getElementById('settingsName').value;
-            const email = document.getElementById('settingsEmail').value;
-            const phone = document.getElementById('settingsPhone').value;
-            
-            if (!name || !email) {
-                showNotification('Name and email are required', 'error');
-                return;
-            }
-            
-            // Update current user
-            currentUser.name = name;
-            currentUser.email = email;
-            currentUser.phone = phone;
-            
-            // Save to localStorage
-            localStorage.setItem('egyptGameStoreCurrentUser', JSON.stringify(currentUser));
-            
-            // Update users array
-            const users = JSON.parse(localStorage.getItem('egyptGameStoreUsers')) || [];
-            const userIndex = users.findIndex(u => u.id === currentUser.id);
-            
-            if (userIndex !== -1) {
-                users[userIndex] = currentUser;
-                localStorage.setItem('egyptGameStoreUsers', JSON.stringify(users));
-            }
-            
-            // Update UI
-            updateUserMenu();
-            
-            showNotification('Profile updated successfully', 'success');
-        }
-        
-        function changePassword() {
-            const currentPassword = document.getElementById('currentPassword').value;
-            const newPassword = document.getElementById('newPassword').value;
-            const confirmPassword = document.getElementById('confirmNewPassword').value;
-            
-            if (!currentPassword || !newPassword || !confirmPassword) {
-                showNotification('Please fill in all password fields', 'error');
-                return;
-            }
-            
-            if (newPassword !== confirmPassword) {
-                showNotification('New passwords do not match', 'error');
-                return;
-            }
-            
-            if (newPassword.length < 6) {
-                showNotification('Password must be at least 6 characters', 'error');
-                return;
-            }
-            
-            // Check current password
-            if (currentPassword !== currentUser.password) {
-                showNotification('Current password is incorrect', 'error');
-                return;
-            }
-            
-            // Update password
-            currentUser.password = newPassword;
-            
-            // Save to localStorage
-            localStorage.setItem('egyptGameStoreCurrentUser', JSON.stringify(currentUser));
-            
-            // Update users array
-            const users = JSON.parse(localStorage.getItem('egyptGameStoreUsers')) || [];
-            const userIndex = users.findIndex(u => u.id === currentUser.id);
-            
-            if (userIndex !== -1) {
-                users[userIndex] = currentUser;
-                localStorage.setItem('egyptGameStoreUsers', JSON.stringify(users));
-            }
-            
-            // Reset form
-            document.getElementById('securityForm').reset();
-            
-            showNotification('Password changed successfully', 'success');
-        }
-        
-        function addDataManagementButtons() {
-            // This function is for future data management features
-            console.log('Data management buttons would be added here');
-        }
-        
-        // Forgot Password Functions
-        function showForgotPassword() {
-            // Close auth dropdown
-            toggleAuthDropdown();
-            
-            // Show forgot password modal
-            document.getElementById('forgotPasswordModal').classList.add('active');
-        }
-        
-        function closeForgotPassword() {
-            document.getElementById('forgotPasswordModal').classList.remove('active');
-        }
-        
-        function showLoginFromForgotPassword() {
-            closeForgotPassword();
-            toggleAuthDropdown();
-        }
-        
-        function resetPassword() {
-            const email = document.getElementById('forgotEmail').value;
-            
-            if (!email) {
-                showNotification('Please enter your email address', 'error');
-                return;
-            }
-            
-            // Get users
-            const users = JSON.parse(localStorage.getItem('egyptGameStoreUsers')) || [];
-            
-            // Find user with matching email
-            const user = users.find(u => u.email === email);
-            
-            if (!user) {
-                showNotification('No account found with that email address', 'error');
-                return;
-            }
-            
-            // In a real app, you would send a password reset email
-            // For this demo, we'll just show a success message
-            showNotification('Password reset instructions have been sent to your email', 'success');
-            
-            // Close modal
-            closeForgotPassword();
-            
-            // Reset form
-            document.getElementById('forgotEmail').value = '';
-        }
-    </script>
-</body>
-</html>
+                    <div class="stat-card">
+                        <div class="stat-value" id="pendingOrders">0</div>
+                        <div class="stat-label">Pending Orders</div>
+                    </
