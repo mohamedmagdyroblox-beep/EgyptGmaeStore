@@ -15,8 +15,8 @@
         }
         
         :root {
-            --primary: #6a11cb;
-            --secondary: #2575fc;
+            --primary: #00b4d8;
+            --secondary: #0077b6;
             --accent: #ff5722;
             --discord: #5865F2;
             --light: #f8fafc;
@@ -254,7 +254,7 @@
         .form-group input:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.1);
+            box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.1);
         }
         
         .btn-auth {
@@ -272,7 +272,7 @@
         
         .btn-auth:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 180, 216, 0.3);
         }
         
         .forgot-password {
@@ -432,7 +432,7 @@
             border: none;
             cursor: pointer;
             margin: 8px;
-            box-shadow: 0 4px 15px rgba(106, 17, 203, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
             position: relative;
             overflow: hidden;
             z-index: 1;
@@ -457,7 +457,7 @@
         
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(106, 17, 203, 0.4);
+            box-shadow: 0 8px 25px rgba(0, 180, 216, 0.4);
         }
         
         .btn i {
@@ -480,7 +480,7 @@
         }
         
         .btn-outline:hover {
-            background: rgba(106, 17, 203, 0.1);
+            background: rgba(0, 180, 216, 0.1);
         }
         
         .btn-small {
@@ -563,7 +563,7 @@
         .category-tab.active {
             color: white;
             border-color: transparent;
-            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 180, 216, 0.2);
         }
         
         .category-tab.active::before {
@@ -600,7 +600,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(106, 17, 203, 0.05) 0%, rgba(37, 117, 252, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(0, 180, 216, 0.05) 0%, rgba(0, 119, 182, 0.05) 100%);
             opacity: 0;
             transition: opacity 0.3s ease;
             pointer-events: none;
@@ -717,12 +717,12 @@
         
         .btn-buy {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            box-shadow: 0 4px 10px rgba(106, 17, 203, 0.25);
+            box-shadow: 0 4px 10px rgba(0, 180, 216, 0.25);
         }
         
         .btn-buy:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(106, 17, 203, 0.35);
+            box-shadow: 0 6px 15px rgba(0, 180, 216, 0.35);
         }
         
         /* Order History Section */
@@ -947,7 +947,7 @@
         .settings-form input:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.1);
+            box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.1);
         }
         
         .btn-save {
@@ -963,7 +963,7 @@
         
         .btn-save:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 180, 216, 0.3);
         }
         
         /* Features Section */
@@ -1050,7 +1050,7 @@
             font-weight: 700;
             margin: 0 auto 25px;
             position: relative;
-            box-shadow: 0 10px 20px rgba(106, 17, 203, 0.2);
+            box-shadow: 0 10px 20px rgba(0, 180, 216, 0.2);
             transition: transform 0.3s ease;
         }
         
@@ -1253,7 +1253,7 @@
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.1);
+            box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.1);
         }
         
         .payment-section {
@@ -1300,7 +1300,7 @@
         
         .payment-option.selected {
             border-color: var(--primary);
-            background: rgba(106, 17, 203, 0.05);
+            background: rgba(0, 180, 216, 0.05);
             position: relative;
         }
         
@@ -1530,12 +1530,31 @@
         /* Admin Panel Styles */
         .admin-panel {
             display: none;
-            padding: 60px 0;
-            background: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            z-index: 2000;
+            overflow: auto;
         }
         
         .admin-panel.active {
             display: block;
+        }
+        
+        .admin-panel-content {
+            background-color: white;
+            margin: 2% auto;
+            padding: 30px;
+            border-radius: 20px;
+            width: 95%;
+            max-width: 1200px;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+            border: 1px solid #f1f5f9;
+            animation: slideIn 0.3s ease;
         }
         
         .admin-header {
@@ -1551,6 +1570,14 @@
             font-size: 2rem;
             color: var(--darker);
             font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .admin-title i {
+            margin-right: 15px;
+            color: var(--primary);
+            font-size: 28px;
         }
         
         .admin-stats {
@@ -1566,7 +1593,12 @@
             padding: 20px;
             border-radius: 12px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 180, 216, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
         }
         
         .stat-value {
@@ -1584,10 +1616,12 @@
             display: flex;
             margin-bottom: 30px;
             border-bottom: 1px solid #e2e8f0;
+            flex-wrap: wrap;
         }
         
         .admin-tab {
             flex: 1;
+            min-width: 120px;
             text-align: center;
             padding: 15px;
             font-weight: 600;
@@ -1675,6 +1709,142 @@
         
         .btn-complete {
             background: var(--success);
+        }
+        
+        .btn-reset {
+            background: var(--primary);
+            margin-left: 10px;
+        }
+        
+        .delete-confirmation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 3000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .delete-confirmation.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .delete-confirmation-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+        
+        .delete-confirmation.active .delete-confirmation-content {
+            transform: scale(1);
+        }
+        
+        .delete-confirmation h3 {
+            margin-bottom: 20px;
+            color: var(--darker);
+            font-size: 1.5rem;
+        }
+        
+        .delete-confirmation p {
+            margin-bottom: 25px;
+            color: var(--gray);
+        }
+        
+        .delete-confirmation-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .btn-cancel {
+            background: #e2e8f0;
+            color: var(--dark);
+        }
+        
+        .btn-confirm {
+            background: var(--error);
+        }
+        
+        /* Order Details Modal */
+        .order-details-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 2500;
+            overflow: auto;
+        }
+        
+        .order-details-modal.active {
+            display: block;
+        }
+        
+        .order-details-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 800px;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        
+        .order-details-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .order-details-title {
+            font-size: 1.8rem;
+            color: var(--darker);
+            font-weight: 700;
+        }
+        
+        .order-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .order-info-item {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .order-info-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-bottom: 5px;
+        }
+        
+        .order-info-value {
+            font-weight: 600;
+            color: var(--darker);
         }
         
         /* Account Details Modal */
@@ -1824,7 +1994,7 @@
         .admin-form-group input:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.1);
+            box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.1);
         }
         
         .admin-btn {
@@ -1842,7 +2012,7 @@
         
         .admin-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 180, 216, 0.3);
         }
         
         /* Webhook Settings */
@@ -1960,7 +2130,7 @@
         .forgot-password-form input:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.1);
+            box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.1);
         }
         
         .back-to-login {
@@ -2227,7 +2397,7 @@
             
             <div class="product-grid" id="robux-products">
                 <div class="product-card">
-                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1614294148140-43d963309518?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');">
+                    <div class="product-image" style="background-image: url('https://i.imgur.com/1zXkY3p.png'); background-size: cover; background-position: center;">
                         <div class="product-badge">Popular</div>
                     </div>
                     <div class="product-content">
@@ -2241,7 +2411,7 @@
                 </div>
                 
                 <div class="product-card">
-                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1614294148140-43d963309518?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');">
+                    <div class="product-image" style="background-image: url('https://i.imgur.com/1zXkY3p.png'); background-size: cover; background-position: center;">
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">1,000 Robux</h3>
@@ -2254,7 +2424,7 @@
                 </div>
                 
                 <div class="product-card">
-                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1614294148140-43d963309518?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');">
+                    <div class="product-image" style="background-image: url('https://i.imgur.com/1zXkY3p.png'); background-size: cover; background-position: center;">
                         <div class="product-badge">Best Value</div>
                     </div>
                     <div class="product-content">
@@ -2649,14 +2819,17 @@
         </div>
     </section>
     
-    <!-- Admin Panel Section -->
-    <section class="admin-panel" id="adminPanel">
-        <div class="container">
+    <!-- Admin Panel Modal -->
+    <div class="admin-panel" id="adminPanel">
+        <div class="admin-panel-content">
             <div class="admin-header">
-                <h2 class="admin-title">Admin Panel</h2>
-                <button class="btn btn-outline" onclick="logoutAdmin()">
-                    <i class="fas fa-sign-out-alt"></i> Logout
-                </button>
+                <h2 class="admin-title"><i class="fas fa-user-shield"></i> Admin Panel</h2>
+                <div>
+                    <button class="btn btn-reset" onclick="resetDashboard()"><i class="fas fa-sync-alt"></i> Reset Dashboard</button>
+                    <button class="btn btn-outline" onclick="logoutAdmin()">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
             </div>
             
             <div class="admin-tabs">
@@ -2741,7 +2914,33 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+    
+    <!-- Order Details Modal -->
+    <div class="order-details-modal" id="orderDetailsModal">
+        <div class="order-details-content">
+            <span class="close" onclick="closeOrderDetailsModal()">&times;</span>
+            <div class="order-details-header">
+                <h2 class="order-details-title">Order Details</h2>
+            </div>
+            
+            <div class="order-info" id="orderInfo">
+                <!-- Order info will be populated here -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Delete Confirmation Modal -->
+    <div class="delete-confirmation" id="deleteConfirmation">
+        <div class="delete-confirmation-content">
+            <h3>Confirm Deletion</h3>
+            <p>Are you sure you want to delete this item? This action cannot be undone.</p>
+            <div class="delete-confirmation-buttons">
+                <button class="btn btn-cancel" onclick="cancelDelete()">Cancel</button>
+                <button class="btn btn-confirm" onclick="confirmDelete()">Delete</button>
+            </div>
+        </div>
+    </div>
     
     <!-- Account Details Modal -->
     <div class="account-details" id="accountDetails">
@@ -2855,6 +3054,8 @@
         // Initialize user state
         let currentUser = null;
         let isAdminLoggedIn = false;
+        let deleteTarget = null;
+        let deleteType = null;
         
         // Load user from localStorage on page load
         document.addEventListener('DOMContentLoaded', function() {
@@ -3562,9 +3763,6 @@
                 // Show admin panel
                 document.getElementById('adminPanel').classList.add('active');
                 
-                // Scroll to admin panel
-                document.getElementById('adminPanel').scrollIntoView({ behavior: 'smooth' });
-                
                 showNotification('Admin login successful', 'success');
             } else {
                 showNotification('Incorrect admin password', 'error');
@@ -3630,9 +3828,43 @@
             document.getElementById('pendingOrders').textContent = pendingOrders;
         }
         
+        function resetDashboard() {
+            // Clear all data
+            if (confirm('Are you sure you want to reset all data? This action cannot be undone.')) {
+                localStorage.removeItem('egyptGameStoreUsers');
+                localStorage.removeItem('egyptGameStoreOrders');
+                localStorage.removeItem('egyptGameStoreWebhookUrl');
+                
+                // Reload admin data
+                loadAdminData();
+                
+                // Reload tables if they're visible
+                if (document.getElementById('users-content').classList.contains('active')) {
+                    loadUsersTable();
+                }
+                
+                if (document.getElementById('orders-content').classList.contains('active')) {
+                    loadOrdersTable();
+                }
+                
+                showNotification('Dashboard reset successfully', 'success');
+            }
+        }
+        
         function loadUsersTable() {
             const users = JSON.parse(localStorage.getItem('egyptGameStoreUsers')) || [];
             const usersTableBody = document.getElementById('usersTableBody');
+            
+            if (users.length === 0) {
+                usersTableBody.innerHTML = `
+                    <tr>
+                        <td colspan="6" style="text-align: center; padding: 30px; color: var(--gray);">
+                            No users found
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
             
             usersTableBody.innerHTML = users.map(user => `
                 <tr>
@@ -3658,6 +3890,17 @@
         function loadOrdersTable() {
             const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
             const ordersTableBody = document.getElementById('ordersTableBody');
+            
+            if (orders.length === 0) {
+                ordersTableBody.innerHTML = `
+                    <tr>
+                        <td colspan="8" style="text-align: center; padding: 30px; color: var(--gray);">
+                            No orders found
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
             
             ordersTableBody.innerHTML = orders.map(order => `
                 <tr>
@@ -3733,6 +3976,17 @@
             const userOrders = orders.filter(order => order.email === userEmail);
             const userOrdersTable = document.getElementById('userOrdersTable');
             
+            if (userOrders.length === 0) {
+                userOrdersTable.innerHTML = `
+                    <tr>
+                        <td colspan="5" style="text-align: center; padding: 30px; color: var(--gray);">
+                            No orders found for this user
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+            
             userOrdersTable.innerHTML = userOrders.map(order => `
                 <tr>
                     <td>${order.id}</td>
@@ -3749,24 +4003,9 @@
         }
         
         function deleteUser(userId) {
-            if (confirm('Are you sure you want to delete this user?')) {
-                // Get users
-                const users = JSON.parse(localStorage.getItem('egyptGameStoreUsers')) || [];
-                
-                // Filter out the user
-                const updatedUsers = users.filter(user => user.id !== userId);
-                
-                // Save to localStorage
-                localStorage.setItem('egyptGameStoreUsers', JSON.stringify(updatedUsers));
-                
-                // Reload table
-                loadUsersTable();
-                
-                // Update stats
-                loadAdminData();
-                
-                showNotification('User deleted successfully', 'success');
-            }
+            deleteTarget = userId;
+            deleteType = 'user';
+            document.getElementById('deleteConfirmation').classList.add('active');
         }
         
         function viewOrder(orderId) {
@@ -3775,50 +4014,47 @@
             
             if (order) {
                 // Show order details in a modal
-                document.getElementById('accountDetails').classList.add('active');
+                document.getElementById('orderDetailsModal').classList.add('active');
                 
-                // Populate account info
-                document.getElementById('accountInfo').innerHTML = `
-                    <div class="info-item">
-                        <div class="info-label">Order ID</div>
-                        <div class="info-value">${order.id}</div>
+                // Populate order info
+                document.getElementById('orderInfo').innerHTML = `
+                    <div class="order-info-item">
+                        <div class="order-info-label">Order ID</div>
+                        <div class="order-info-value">${order.id}</div>
                     </div>
-                    <div class="info-item">
-                        <div class="info-label">Product</div>
-                        <div class="info-value">${order.product}</div>
+                    <div class="order-info-item">
+                        <div class="order-info-label">Product</div>
+                        <div class="order-info-value">${order.product}</div>
                     </div>
-                    <div class="info-item">
-                        <div class="info-label">Price</div>
-                        <div class="info-value">${order.price} EGP</div>
+                    <div class="order-info-item">
+                        <div class="order-info-label">Price</div>
+                        <div class="order-info-value">${order.price} EGP</div>
                     </div>
-                    <div class="info-item">
-                        <div class="info-label">Customer</div>
-                        <div class="info-value">${order.username}</div>
+                    <div class="order-info-item">
+                        <div class="order-info-label">Customer</div>
+                        <div class="order-info-value">${order.username}</div>
                     </div>
-                    <div class="info-item">
-                        <div class="info-label">Email</div>
-                        <div class="info-value">${order.email}</div>
+                    <div class="order-info-item">
+                        <div class="order-info-label">Email</div>
+                        <div class="order-info-value">${order.email}</div>
                     </div>
-                    <div class="info-item">
-                        <div class="info-label">Phone</div>
-                        <div class="info-value">${order.phone}</div>
+                    <div class="order-info-item">
+                        <div class="order-info-label">Phone</div>
+                        <div class="order-info-value">${order.phone}</div>
                     </div>
-                    <div class="info-item">
-                        <div class="info-label">Payment Method</div>
-                        <div class="info-value">${order.paymentMethod === 'instapay' ? 'InstaPay' : 'Vodafone Cash'}</div>
+                    <div class="order-info-item">
+                        <div class="order-info-label">Payment Method</div>
+                        <div class="order-info-value">${order.paymentMethod === 'instapay' ? 'InstaPay' : 'Vodafone Cash'}</div>
                     </div>
-                    <div class="info-item">
-                        <div class="info-label">Status</div>
-                        <div class="info-value">${order.status === 'completed' ? 'Completed' : 'Pending'}</div>
+                    <div class="order-info-item">
+                        <div class="order-info-label">Status</div>
+                        <div class="order-info-value">${order.status === 'completed' ? 'Completed' : 'Pending'}</div>
                     </div>
-                    <div class="info-item">
-                        <div class="info-label">Date</div>
-                        <div class="info-value">${new Date(order.createdAt).toLocaleDateString()}</div>
+                    <div class="order-info-item">
+                        <div class="order-info-label">Date</div>
+                        <div class="order-info-value">${new Date(order.createdAt).toLocaleDateString()}</div>
                     </div>
                 `;
-                
-                // Hide orders section
-                document.querySelector('.orders-section').style.display = 'none';
             }
         }
         
@@ -3846,12 +4082,41 @@
         }
         
         function deleteOrder(orderId) {
-            if (confirm('Are you sure you want to delete this order?')) {
+            deleteTarget = orderId;
+            deleteType = 'order';
+            document.getElementById('deleteConfirmation').classList.add('active');
+        }
+        
+        function cancelDelete() {
+            document.getElementById('deleteConfirmation').classList.remove('active');
+            deleteTarget = null;
+            deleteType = null;
+        }
+        
+        function confirmDelete() {
+            if (deleteType === 'user') {
+                // Get users
+                const users = JSON.parse(localStorage.getItem('egyptGameStoreUsers')) || [];
+                
+                // Filter out the user
+                const updatedUsers = users.filter(user => user.id !== deleteTarget);
+                
+                // Save to localStorage
+                localStorage.setItem('egyptGameStoreUsers', JSON.stringify(updatedUsers));
+                
+                // Reload table
+                loadUsersTable();
+                
+                // Update stats
+                loadAdminData();
+                
+                showNotification('User deleted successfully', 'success');
+            } else if (deleteType === 'order') {
                 // Get orders
                 const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
                 
                 // Filter out the order
-                const updatedOrders = orders.filter(order => order.id !== orderId);
+                const updatedOrders = orders.filter(order => order.id !== deleteTarget);
                 
                 // Save to localStorage
                 localStorage.setItem('egyptGameStoreOrders', JSON.stringify(updatedOrders));
@@ -3864,13 +4129,17 @@
                 
                 showNotification('Order deleted successfully', 'success');
             }
+            
+            // Close confirmation modal
+            cancelDelete();
         }
         
         function closeAccountDetails() {
             document.getElementById('accountDetails').classList.remove('active');
-            
-            // Show orders section again
-            document.querySelector('.orders-section').style.display = 'block';
+        }
+        
+        function closeOrderDetailsModal() {
+            document.getElementById('orderDetailsModal').classList.remove('active');
         }
         
         // Webhook Functions
@@ -3905,7 +4174,7 @@
                 const payload = {
                     embeds: [{
                         title: 'New Order Received',
-                        color: 0x6a11cb,
+                        color: 0x00b4d8,
                         fields: [
                             { name: 'Order ID', value: order.id, inline: true },
                             { name: 'Product', value: order.product, inline: true },
