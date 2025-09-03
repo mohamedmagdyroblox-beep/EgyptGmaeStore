@@ -363,11 +363,11 @@
             background: var(--primary);
         }
         
-        /* Enhanced Hero Section - IMPROVED COLORS */
+        /* Enhanced Hero Section - CHANGED TO CYAN/WHITE */
         .hero {
             text-align: center;
             padding: 100px 0;
-            background: linear-gradient(135deg, #ff9a00 0%, #ff5722 100%);
+            background: linear-gradient(135deg, #00d4ff 0%, #ffffff 100%);
             position: relative;
             overflow: hidden;
         }
@@ -379,7 +379,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(255, 154, 0, 0.9) 0%, rgba(255, 87, 34, 0.9) 100%);
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%);
             z-index: 0;
         }
         
@@ -391,16 +391,16 @@
         .hero h1 {
             font-size: 4rem;
             margin-bottom: 20px;
-            color: white;
+            color: var(--darker);
             font-weight: 800;
             animation: fadeInUp 0.8s ease forwards;
             opacity: 0;
-            text-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            text-shadow: none;
         }
         
         .hero p {
             font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: var(--dark);
             max-width: 700px;
             margin: 0 auto 40px;
             animation: fadeInUp 0.8s ease 0.2s forwards;
@@ -475,12 +475,12 @@
         
         .btn-outline {
             background: transparent;
-            border: 2px solid white;
-            color: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
         }
         
         .btn-outline:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(106, 17, 203, 0.1);
         }
         
         .btn-small {
@@ -3561,6 +3561,9 @@
                 
                 // Show admin panel
                 document.getElementById('adminPanel').classList.add('active');
+                
+                // Scroll to admin panel
+                document.getElementById('adminPanel').scrollIntoView({ behavior: 'smooth' });
                 
                 showNotification('Admin login successful', 'success');
             } else {
