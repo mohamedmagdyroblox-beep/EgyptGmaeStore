@@ -47,15 +47,16 @@
             padding: 0 20px;
         }
         
-        /* Header Styles */
+        /* Enhanced Header Styles - WHITE HEADER */
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
+            background: white;
+            color: var(--dark);
             padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-bottom: 1px solid #e2e8f0;
         }
         
         .header-content {
@@ -69,12 +70,14 @@
             font-weight: 700;
             display: flex;
             align-items: center;
+            color: var(--primary);
         }
         
         .logo i {
             margin-right: 12px;
             font-size: 32px;
             background: var(--accent);
+            color: white;
             padding: 8px;
             border-radius: 10px;
             transition: transform 0.3s ease;
@@ -85,8 +88,7 @@
         }
         
         .logo span {
-            color: #ffdd40;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            color: var(--secondary);
         }
         
         nav ul {
@@ -99,7 +101,7 @@
         }
         
         nav ul li a {
-            color: white;
+            color: var(--dark);
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
@@ -115,7 +117,7 @@
             left: 50%;
             width: 0;
             height: 2px;
-            background: #ffdd40;
+            background: var(--primary);
             transition: all 0.3s ease;
             transform: translateX(-50%);
         }
@@ -125,7 +127,7 @@
         }
         
         nav ul li a:hover {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(106, 17, 203, 0.1);
             transform: translateY(-2px);
         }
         
@@ -134,13 +136,14 @@
             align-items: center;
             gap: 15px;
             position: relative;
+            margin-left: 60px;
         }
         
         .user-info {
             display: flex;
             align-items: center;
             gap: 10px;
-            color: white;
+            color: var(--dark);
             font-weight: 500;
         }
         
@@ -148,11 +151,12 @@
             width: 36px;
             height: 36px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(106, 17, 203, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 600;
+            color: var(--primary);
         }
         
         /* Auth Dropdown Styles */
@@ -169,6 +173,7 @@
             z-index: 1000;
             display: none;
             animation: slideDown 0.3s ease;
+            border: 1px solid #e2e8f0;
         }
         
         @keyframes slideDown {
@@ -363,9 +368,7 @@
         .hero {
             text-align: center;
             padding: 100px 0;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.9) 0%, rgba(37, 117, 252, 0.9) 100%);
             position: relative;
             overflow: hidden;
         }
@@ -881,31 +884,6 @@
             font-weight: 700;
         }
         
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            color: var(--gray);
-            transition: all 0.3s ease;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-        }
-        
-        .close:hover {
-            color: var(--error);
-            background: #fef2f2;
-            transform: rotate(90deg);
-        }
-        
         .settings-tabs {
             display: flex;
             margin-bottom: 30px;
@@ -1158,6 +1136,31 @@
             animation: slideIn 0.3s ease;
         }
         
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: var(--gray);
+            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .close:hover {
+            color: var(--error);
+            background: #fef2f2;
+            transform: rotate(90deg);
+        }
+        
         .order-summary {
             background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
             padding: 25px;
@@ -1369,7 +1372,6 @@
         
         .payment-instructions h4 i {
             margin-right: 10px;
-            font-size: 24px;
         }
         
         .payment-amount {
@@ -1723,7 +1725,6 @@
             padding: 15px;
             border-radius: 8px;
             border-left: 4px solid var(--primary);
-            color: var(--darker);
         }
         
         .info-label {
@@ -1758,7 +1759,6 @@
         .orders-table td {
             padding: 12px;
             border-bottom: 1px solid #f1f5f9;
-            color: var(--darker);
         }
         
         .orders-table tr:hover {
@@ -2158,6 +2158,10 @@
                 gap: 15px;
             }
             
+            .data-management {
+                flex-direction: column;
+            }
+            
             .settings-tabs {
                 flex-direction: column;
             }
@@ -2224,7 +2228,7 @@
                 <div class="product-card">
                     <div class="product-image">
                         <div class="product-badge">Popular</div>
-                        <img src="https://images.rbxcdn.com/5223c46d4b5c3b7b8b8b8b8b8b8b8b8b" alt="Robux" style="height: 120px; width: auto; object-fit: contain;">
+                        <i class="fab fa-roblox" style="font-size: 70px;"></i>
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">500 Robux</h3>
@@ -2238,7 +2242,7 @@
                 
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="https://images.rbxcdn.com/5223c46d4b5c3b7b8b8b8b8b8b8b8b8b" alt="Robux" style="height: 120px; width: auto; object-fit: contain;">
+                        <i class="fab fa-roblox" style="font-size: 70px;"></i>
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">1,000 Robux</h3>
@@ -2253,7 +2257,7 @@
                 <div class="product-card">
                     <div class="product-image">
                         <div class="product-badge">Best Value</div>
-                        <img src="https://images.rbxcdn.com/5223c46d4b5c3b7b8b8b8b8b8b8b8b8b" alt="Robux" style="height: 120px; width: auto; object-fit: contain;">
+                        <i class="fab fa-roblox" style="font-size: 70px;"></i>
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">2,000 Robux</h3>
@@ -2270,7 +2274,7 @@
                 <div class="product-card">
                     <div class="product-image">
                         <div class="product-badge">New</div>
-                        <i class="fas fa-apple-alt" style="color: white; font-size: 70px;"></i>
+                        <i class="fas fa-apple-alt"></i>
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">Blox Fruits - Light Fruit</h3>
@@ -2284,7 +2288,7 @@
                 
                 <div class="product-card">
                     <div class="product-image">
-                        <i class="fas fa-fire" style="color: white; font-size: 70px;"></i>
+                        <i class="fas fa-fire"></i>
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">Blox Fruits - Flame Fruit</h3>
@@ -2298,7 +2302,7 @@
                 
                 <div class="product-card">
                     <div class="product-image">
-                        <i class="fas fa-bolt" style="color: white; font-size: 70px;"></i>
+                        <i class="fas fa-bolt"></i>
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">Blox Fruits - Rumble Fruit</h3>
@@ -2315,7 +2319,7 @@
                 <div class="product-card">
                     <div class="product-image">
                         <div class="product-badge">Legendary</div>
-                        <i class="fas fa-skull" style="color: white; font-size: 70px;"></i>
+                        <i class="fas fa-skull"></i>
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">MM2 - Godly Knife Set</h3>
@@ -2329,7 +2333,7 @@
                 
                 <div class="product-card">
                     <div class="product-image">
-                        <i class="fas fa-gem" style="color: white; font-size: 70px;"></i>
+                        <i class="fas fa-gem"></i>
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">MM2 - Ancient Weapon Pack</h3>
@@ -2346,7 +2350,7 @@
                 <div class="product-card">
                     <div class="product-image">
                         <div class="product-badge">Limited</div>
-                        <i class="fas fa-seedling" style="color: white; font-size: 70px;"></i>
+                        <i class="fas fa-seedling"></i>
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">Grow a Garden - Rare Seeds</h3>
@@ -2360,7 +2364,7 @@
                 
                 <div class="product-card">
                     <div class="product-image">
-                        <i class="fas fa-tree" style="color: white; font-size: 70px;"></i>
+                        <i class="fas fa-tree"></i>
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">Grow a Garden - Mystery Tree</h3>
@@ -2397,7 +2401,9 @@
         <div class="user-settings-content">
             <div class="settings-header">
                 <h2 class="settings-title">User Settings</h2>
-                <span class="close" onclick="closeUserSettings()">&times;</span>
+                <button class="close" onclick="closeUserSettings()">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
             
             <div class="settings-tabs">
@@ -2679,4 +2685,1307 @@
                     <div class="stat-card">
                         <div class="stat-value" id="pendingOrders">0</div>
                         <div class="stat-label">Pending Orders</div>
-                    </
+                    </div>
+                </div>
+            </div>
+            
+            <div id="users-content" class="admin-content">
+                <h3 style="margin-bottom: 20px; color: var(--darker);">User Accounts</h3>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Registered</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersTableBody">
+                        <!-- Users will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div id="orders-content" class="admin-content">
+                <h3 style="margin-bottom: 20px; color: var(--darker);">Order Management</h3>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Payment Method</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ordersTableBody">
+                        <!-- Orders will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div id="webhook-content" class="admin-content">
+                <div class="webhook-settings">
+                    <h3>Discord Webhook Settings</h3>
+                    <div class="webhook-form">
+                        <div class="webhook-form-group">
+                            <label>Webhook URL</label>
+                            <input type="text" id="webhookUrl" placeholder="https://discord.com/api/webhooks/...">
+                        </div>
+                        <button class="webhook-btn" onclick="saveWebhookSettings()">Save</button>
+                    </div>
+                    <div class="webhook-status" id="webhookStatus">Webhook not configured</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Account Details Modal -->
+    <div class="account-details" id="accountDetails">
+        <div class="account-details-content">
+            <span class="close" onclick="closeAccountDetails()">&times;</span>
+            <div class="account-header">
+                <h2>Account Details</h2>
+                <div id="accountActions"></div>
+            </div>
+            
+            <div class="account-info" id="accountInfo">
+                <!-- Account info will be populated here -->
+            </div>
+            
+            <div class="orders-section">
+                <h3>Order History</h3>
+                <table class="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userOrdersTable">
+                        <!-- Orders will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Admin Login Modal -->
+    <div class="admin-login" id="adminLogin">
+        <div class="admin-login-content">
+            <span class="close" onclick="closeAdminLogin()">&times;</span>
+            <h2 class="admin-login-title">Admin Login</h2>
+            
+            <div class="admin-form-group">
+                <label>Admin Password</label>
+                <input type="password" id="adminPassword" placeholder="Enter admin password">
+            </div>
+            
+            <button class="admin-btn" onclick="adminLogin()">Login</button>
+        </div>
+    </div>
+    
+    <!-- Forgot Password Modal -->
+    <div class="forgot-password-modal" id="forgotPasswordModal">
+        <div class="forgot-password-content">
+            <span class="close" onclick="closeForgotPassword()">&times;</span>
+            <h2 class="forgot-password-title">Forgot Password</h2>
+            
+            <div class="forgot-password-form">
+                <label>Email Address</label>
+                <input type="email" id="forgotEmail" placeholder="Enter your email address">
+            </div>
+            
+            <button class="admin-btn" onclick="resetPassword()">Reset Password</button>
+            
+            <div class="back-to-login">
+                <a href="#" onclick="showLoginFromForgotPassword()">Back to Login</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Admin Access Button -->
+    <div class="admin-access" onclick="showAdminLogin()" title="Admin Access">
+        <i class="fas fa-user-shield"></i>
+    </div>
+    
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About EgyptGameStore</h3>
+                    <p>Your trusted source for Robux and game items in Egypt. We provide fast delivery, secure payments, and excellent customer support.</p>
+                    <div class="social-icons">
+                        <a href="https://discord.gg/pCYvMsmScW" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
+                        <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#home">Home</a>
+                    <a href="#products">Products</a>
+                    <a href="#order-history">Order History</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-envelope"></i> shadowbr500@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> 01021336310 (InstaPay/Vodafone Cash)</p>
+                    <p><i class="fab fa-whatsapp"></i> 01021336310 (WhatsApp)</p>
+                    <p><i class="fab fa-discord"></i> EgyptGameStore Support</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; <span id="currentYear">2023</span> EgyptGameStore. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Initialize user state
+        let currentUser = null;
+        let isAdminLoggedIn = false;
+        
+        // Load user from localStorage on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadUserFromStorage();
+            updateUserMenu();
+            loadOrderHistory();
+            addDataManagementButtons();
+            
+            // Check admin login status
+            if (localStorage.getItem('egyptGameStoreAdminLoggedIn') === 'true') {
+                isAdminLoggedIn = true;
+            }
+            
+            // Load webhook settings
+            loadWebhookSettings();
+        });
+        
+        // Category tabs functionality
+        const categoryTabs = document.querySelectorAll('.category-tab');
+        const productGrids = document.querySelectorAll('.product-grid');
+        
+        categoryTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                categoryTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Hide all product grids
+                productGrids.forEach(grid => {
+                    grid.style.display = 'none';
+                });
+                
+                // Show selected category
+                const category = tab.dataset.category;
+                const productsContainer = document.getElementById(category + '-products');
+                
+                if (productsContainer) {
+                    productsContainer.style.display = 'grid';
+                }
+            });
+        });
+        
+        let currentItem = {};
+        let selectedPaymentMethod = null;
+        
+        // User authentication functions
+        function switchAuthTab(tab) {
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+            const authTabs = document.querySelectorAll('.auth-tab');
+            
+            authTabs.forEach(t => t.classList.remove('active'));
+            
+            if (tab === 'login') {
+                authTabs[0].classList.add('active');
+                loginForm.classList.add('active');
+                registerForm.classList.remove('active');
+            } else {
+                authTabs[1].classList.add('active');
+                registerForm.classList.add('active');
+                loginForm.classList.remove('active');
+            }
+        }
+        
+        function registerUser() {
+            const name = document.getElementById('registerName').value;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (!name || !email || !password || !confirmPassword) {
+                showNotification('Please fill in all fields', 'error');
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                showNotification('Passwords do not match', 'error');
+                return;
+            }
+            
+            if (password.length < 6) {
+                showNotification('Password must be at least 6 characters', 'error');
+                return;
+            }
+            
+            // Get existing users
+            const users = JSON.parse(localStorage.getItem('egyptGameStoreUsers')) || [];
+            
+            // Check if email already exists
+            if (users.some(user => user.email === email)) {
+                showNotification('Email already registered', 'error');
+                return;
+            }
+            
+            // Create new user
+            const newUser = {
+                id: Date.now(),
+                name,
+                email,
+                password, // In a real app, this should be hashed
+                phone: '',
+                registeredAt: new Date().toISOString()
+            };
+            
+            // Add user to array
+            users.push(newUser);
+            
+            // Save to localStorage
+            localStorage.setItem('egyptGameStoreUsers', JSON.stringify(users));
+            
+            // Auto login the new user
+            currentUser = newUser;
+            localStorage.setItem('egyptGameStoreCurrentUser', JSON.stringify(newUser));
+            
+            // Update UI
+            updateUserMenu();
+            
+            // Show success message
+            showNotification('Registration successful! You are now logged in.', 'success');
+            
+            // Reset form
+            document.getElementById('registerForm').reset();
+            
+            // Close the dropdown
+            toggleAuthDropdown();
+        }
+        
+        function loginUser() {
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            if (!email || !password) {
+                showNotification('Please enter email and password', 'error');
+                return;
+            }
+            
+            // Get users from localStorage
+            const users = JSON.parse(localStorage.getItem('egyptGameStoreUsers')) || [];
+            
+            // Find user with matching email
+            const user = users.find(u => u.email === email);
+            
+            if (!user) {
+                showNotification('User not found', 'error');
+                return;
+            }
+            
+            // Check password
+            if (user.password !== password) {
+                showNotification('Incorrect password', 'error');
+                return;
+            }
+            
+            // Set current user
+            currentUser = user;
+            localStorage.setItem('egyptGameStoreCurrentUser', JSON.stringify(user));
+            
+            // Update UI
+            updateUserMenu();
+            
+            // Show success message
+            showNotification('Login successful!', 'success');
+            
+            // Reset form
+            document.getElementById('loginForm').reset();
+            
+            // Close the dropdown
+            toggleAuthDropdown();
+        }
+        
+        function logoutUser() {
+            currentUser = null;
+            localStorage.removeItem('egyptGameStoreCurrentUser');
+            updateUserMenu();
+            showNotification('You have been logged out', 'info');
+        }
+        
+        function loadUserFromStorage() {
+            try {
+                const userData = localStorage.getItem('egyptGameStoreCurrentUser');
+                if (userData) {
+                    currentUser = JSON.parse(userData);
+                }
+            } catch (error) {
+                console.error('Error loading user from storage:', error);
+            }
+        }
+        
+        function updateUserMenu() {
+            const userMenu = document.getElementById('userMenu');
+            
+            if (currentUser) {
+                // User is logged in
+                const initials = currentUser.name.split(' ').map(n => n[0]).join('').toUpperCase();
+                userMenu.innerHTML = `
+                    <div class="user-info">
+                        <div class="user-avatar">${initials}</div>
+                        <span>${currentUser.name}</span>
+                    </div>
+                    <button class="btn btn-outline btn-small" onclick="openUserSettings()">
+                        <i class="fas fa-cog"></i> Settings
+                    </button>
+                    <button class="btn btn-outline btn-small" onclick="logoutUser()">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                `;
+            } else {
+                // User is not logged in
+                userMenu.innerHTML = `
+                    <button class="btn btn-outline" onclick="toggleAuthDropdown()">
+                        <i class="fas fa-sign-in-alt"></i> Login / Register
+                    </button>
+                    <div class="auth-dropdown" id="authDropdown">
+                        <div class="auth-tabs">
+                            <div class="auth-tab active" onclick="switchAuthTab('login')">Login</div>
+                            <div class="auth-tab" onclick="switchAuthTab('register')">Register</div>
+                        </div>
+                        
+                        <form id="loginForm" class="auth-form active" onsubmit="return false;">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" id="loginEmail" placeholder="Your email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" id="loginPassword" placeholder="Your password" required>
+                            </div>
+                            
+                            <button type="button" class="btn-auth" onclick="loginUser()">Login</button>
+                            
+                            <div class="forgot-password">
+                                <a href="#" onclick="showForgotPassword()">Forgot Password?</a>
+                            </div>
+                        </form>
+                        
+                        <form id="registerForm" class="auth-form" onsubmit="return false;">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" id="registerName" placeholder="Your full name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" id="registerEmail" placeholder="Your email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" id="registerPassword" placeholder="Create a password" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Confirm Password</label>
+                                <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+                            </div>
+                            
+                            <button type="button" class="btn-auth" onclick="registerUser()">Register</button>
+                        </form>
+                    </div>
+                `;
+            }
+        }
+        
+        function toggleAuthDropdown() {
+            const dropdown = document.getElementById('authDropdown');
+            if (dropdown) {
+                dropdown.classList.toggle('active');
+            }
+        }
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const userMenu = document.getElementById('userMenu');
+            const dropdown = document.getElementById('authDropdown');
+            
+            if (dropdown && dropdown.classList.contains('active') && 
+                !userMenu.contains(event.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+        
+        function showNotification(message, type = 'info') {
+            // Remove any existing notifications
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            
+            // Add icon based on type
+            let icon = 'fa-info-circle';
+            if (type === 'success') icon = 'fa-check-circle';
+            if (type === 'error') icon = 'fa-exclamation-circle';
+            
+            // Set notification content
+            notification.innerHTML = `<i class="fas ${icon}"></i> ${message}`;
+            
+            // Add to DOM
+            document.body.appendChild(notification);
+            
+            // Show notification
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 10);
+            
+            // Hide notification after 3 seconds
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 3000);
+        }
+        
+        function openOrderModal(name, price, category) {
+            // Check if user is logged in
+            if (!currentUser) {
+                showNotification('Please login to place an order', 'error');
+                toggleAuthDropdown();
+                return;
+            }
+            
+            currentItem = { name, price, category };
+            
+            // Make sure the modal is visible
+            document.getElementById('orderModal').style.display = 'block';
+            
+            // Set the product name and price with explicit styling
+            const nameElement = document.getElementById('modal-item-name');
+            const priceElement = document.getElementById('modal-item-price');
+            const totalElement = document.getElementById('modal-total-price');
+            const paymentAmountElement = document.getElementById('paymentAmount');
+            const instructionAmountElement = document.getElementById('instruction-amount');
+            
+            // Set text content
+            nameElement.textContent = name;
+            priceElement.textContent = price + ' EGP';
+            totalElement.textContent = price + ' EGP';
+            paymentAmountElement.textContent = price + ' EGP';
+            instructionAmountElement.textContent = price + ' EGP';
+            
+            // Force visibility by setting explicit styles
+            nameElement.style.color = 'var(--darker)';
+            nameElement.style.fontWeight = '500';
+            nameElement.style.display = 'inline';
+            nameElement.style.fontSize = '1.1rem';
+            
+            priceElement.style.color = 'var(--primary)';
+            priceElement.style.fontWeight = '600';
+            priceElement.style.display = 'inline';
+            priceElement.style.fontSize = '1.1rem';
+            
+            // Reset form and payment selection
+            document.getElementById('orderForm').style.display = 'block';
+            document.getElementById('paymentSection').style.display = 'none';
+            document.getElementById('orderConfirmation').style.display = 'none';
+            
+            selectedPaymentMethod = null;
+            document.querySelectorAll('.payment-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            document.getElementById('paymentDetails').style.display = 'none';
+            document.getElementById('orderForm').reset();
+        }
+        
+        function closeOrderModal() {
+            document.getElementById('orderModal').style.display = 'none';
+        }
+        
+        function showPaymentOptions() {
+            const form = document.getElementById('orderForm');
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const gamepassLink = document.getElementById('gamepassLinkInput').value;
+            
+            if (!username || !email || !phone || !gamepassLink) {
+                showNotification('Please fill in all the required fields before continuing to payment.', 'error');
+                return;
+            }
+            
+            // Validate email format
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showNotification('Please enter a valid email address.', 'error');
+                return;
+            }
+            
+            // Validate phone number (Egyptian format)
+            const phoneRegex = /^01[0-9]{9}$/;
+            if (!phoneRegex.test(phone)) {
+                showNotification('Please enter a valid Egyptian phone number (11 digits starting with 01).', 'error');
+                return;
+            }
+            
+            // Validate URL format
+            try {
+                new URL(gamepassLink);
+            } catch (e) {
+                showNotification('Please enter a valid gamepass link.', 'error');
+                return;
+            }
+            
+            document.getElementById('orderForm').style.display = 'none';
+            document.getElementById('paymentSection').style.display = 'block';
+        }
+        
+        function selectPayment(method) {
+            selectedPaymentMethod = method;
+            
+            // Remove selected class from all options
+            document.querySelectorAll('.payment-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked option
+            document.getElementById(method).closest('.payment-option').classList.add('selected');
+            
+            // Show payment details and instructions
+            document.getElementById('paymentDetails').style.display = 'block';
+            document.querySelector('.payment-instructions').style.display = 'block';
+            
+            // Update payment instructions based on method
+            const paymentTitle = document.getElementById('payment-method-title');
+            if (method === 'instapay') {
+                paymentTitle.innerHTML = '<i class="fas fa-info-circle"></i> InstaPay Payment Instructions';
+            } else if (method === 'vodafone_cash') {
+                paymentTitle.innerHTML = '<i class="fas fa-info-circle"></i> Vodafone Cash Payment Instructions';
+            }
+        }
+        
+        function submitOrder() {
+            if (!selectedPaymentMethod) {
+                showNotification('Please select a payment method', 'error');
+                return;
+            }
+            
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const gamepassLink = document.getElementById('gamepassLinkInput').value;
+            
+            // Show spinner
+            document.getElementById('submitSpinner').style.display = 'block';
+            document.getElementById('submitOrderBtn').disabled = true;
+            
+            // Simulate order processing
+            setTimeout(() => {
+                // Create order object
+                const order = {
+                    id: 'EGS-' + Date.now(),
+                    product: currentItem.name,
+                    price: currentItem.price,
+                    category: currentItem.category,
+                    username,
+                    email,
+                    phone,
+                    gamepassLink,
+                    paymentMethod: selectedPaymentMethod,
+                    status: 'pending',
+                    createdAt: new Date().toISOString()
+                };
+                
+                // Get existing orders
+                const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
+                
+                // Add new order
+                orders.push(order);
+                
+                // Save to localStorage
+                localStorage.setItem('egyptGameStoreOrders', JSON.stringify(orders));
+                
+                // Send Discord webhook notification if configured
+                sendDiscordWebhook(order);
+                
+                // Update UI
+                document.getElementById('submitSpinner').style.display = 'none';
+                document.getElementById('submitOrderBtn').disabled = false;
+                
+                // Show confirmation
+                document.getElementById('paymentSection').style.display = 'none';
+                document.getElementById('orderConfirmation').style.display = 'block';
+                
+                // Update confirmation details
+                document.getElementById('conf-product').textContent = currentItem.name;
+                document.getElementById('conf-price').textContent = currentItem.price + ' EGP';
+                document.getElementById('conf-username').textContent = username;
+                document.getElementById('conf-email').textContent = email;
+                document.getElementById('conf-phone').textContent = phone;
+                document.getElementById('conf-gamepass').textContent = gamepassLink;
+                
+                // Load updated order history
+                loadOrderHistory();
+                
+                // Show notification
+                showNotification('Order placed successfully!', 'success');
+            }, 1500);
+        }
+        
+        function loadOrderHistory() {
+            const orderList = document.getElementById('orderList');
+            
+            if (!currentUser) {
+                orderList.innerHTML = `
+                    <div class="empty-orders">
+                        <i class="fas fa-receipt"></i>
+                        <h3>Please login to view your order history</h3>
+                        <p>Login to see your previous orders.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Get orders from localStorage
+            const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
+            
+            // Filter orders for current user
+            const userOrders = orders.filter(order => order.email === currentUser.email);
+            
+            if (userOrders.length === 0) {
+                orderList.innerHTML = `
+                    <div class="empty-orders">
+                        <i class="fas fa-receipt"></i>
+                        <h3>No orders yet</h3>
+                        <p>Your order history will appear here once you make a purchase.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Display orders
+            orderList.innerHTML = userOrders.map(order => `
+                <div class="order-item">
+                    <div class="order-header">
+                        <div class="order-id">${order.id}</div>
+                        <div class="order-date">${new Date(order.createdAt).toLocaleDateString()}</div>
+                        <div class="order-status ${order.status === 'completed' ? 'status-completed' : 'status-pending'}">
+                            ${order.status === 'completed' ? 'Completed' : 'Pending'}
+                        </div>
+                    </div>
+                    <div class="order-details-grid">
+                        <div class="order-detail-item">
+                            <div class="order-detail-label">Product</div>
+                            <div class="order-detail-value">${order.product}</div>
+                        </div>
+                        <div class="order-detail-item">
+                            <div class="order-detail-label">Price</div>
+                            <div class="order-detail-value">${order.price} EGP</div>
+                        </div>
+                        <div class="order-detail-item">
+                            <div class="order-detail-label">Payment Method</div>
+                            <div class="order-detail-value">${order.paymentMethod === 'instapay' ? 'InstaPay' : 'Vodafone Cash'}</div>
+                        </div>
+                        <div class="order-detail-item">
+                            <div class="order-detail-label">Status</div>
+                            <div class="order-detail-value">${order.status === 'completed' ? 'Completed' : 'Pending'}</div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function openUserSettings() {
+            document.getElementById('user-settings-modal').classList.add('active');
+            
+            // Load user data into form
+            document.getElementById('settingsName').value = currentUser.name || '';
+            document.getElementById('settingsEmail').value = currentUser.email || '';
+            document.getElementById('settingsPhone').value = currentUser.phone || '';
+        }
+        
+        function closeUserSettings() {
+            document.getElementById('user-settings-modal').classList.remove('active');
+        }
+        
+        function switchSettingsTab(tab) {
+            const profileForm = document.getElementById('profileForm');
+            const securityForm = document.getElementById('securityForm');
+            const settingsTabs = document.querySelectorAll('.settings-tab');
+            
+            settingsTabs.forEach(t => t.classList.remove('active'));
+            
+            if (tab === 'profile') {
+                settingsTabs[0].classList.add('active');
+                profileForm.classList.add('active');
+                securityForm.classList.remove('active');
+            } else {
+                settingsTabs[1].classList.add('active');
+                securityForm.classList.add('active');
+                profileForm.classList.remove('active');
+            }
+        }
+        
+        function updateUserProfile() {
+            const name = document.getElementById('settingsName').value;
+            const email = document.getElementById('settingsEmail').value;
+            const phone = document.getElementById('settingsPhone').value;
+            
+            if (!name || !email) {
+                showNotification('Name and email are required', 'error');
+                return;
+            }
+            
+            // Update current user
+            currentUser.name = name;
+            currentUser.email = email;
+            currentUser.phone = phone;
+            
+            // Save to localStorage
+            localStorage.setItem('egyptGameStoreCurrentUser', JSON.stringify(currentUser));
+            
+            // Update users array
+            const users = JSON.parse(localStorage.getItem('egyptGameStoreUsers')) || [];
+            const userIndex = users.findIndex(u => u.id === currentUser.id);
+            
+            if (userIndex !== -1) {
+                users[userIndex] = currentUser;
+                localStorage.setItem('egyptGameStoreUsers', JSON.stringify(users));
+            }
+            
+            // Update UI
+            updateUserMenu();
+            
+            showNotification('Profile updated successfully', 'success');
+        }
+        
+        function changePassword() {
+            const currentPassword = document.getElementById('currentPassword').value;
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmNewPassword').value;
+            
+            if (!currentPassword || !newPassword || !confirmPassword) {
+                showNotification('Please fill in all password fields', 'error');
+                return;
+            }
+            
+            if (newPassword !== confirmPassword) {
+                showNotification('New passwords do not match', 'error');
+                return;
+            }
+            
+            if (newPassword.length < 6) {
+                showNotification('Password must be at least 6 characters', 'error');
+                return;
+            }
+            
+            // Check current password
+            if (currentPassword !== currentUser.password) {
+                showNotification('Current password is incorrect', 'error');
+                return;
+            }
+            
+            // Update password
+            currentUser.password = newPassword;
+            
+            // Save to localStorage
+            localStorage.setItem('egyptGameStoreCurrentUser', JSON.stringify(currentUser));
+            
+            // Update users array
+            const users = JSON.parse(localStorage.getItem('egyptGameStoreUsers')) || [];
+            const userIndex = users.findIndex(u => u.id === currentUser.id);
+            
+            if (userIndex !== -1) {
+                users[userIndex] = currentUser;
+                localStorage.setItem('egyptGameStoreUsers', JSON.stringify(users));
+            }
+            
+            // Reset form
+            document.getElementById('securityForm').reset();
+            
+            showNotification('Password changed successfully', 'success');
+        }
+        
+        function addDataManagementButtons() {
+            // This function is for future data management features
+            console.log('Data management buttons would be added here');
+        }
+        
+        // Admin Panel Functions
+        function showAdminLogin() {
+            document.getElementById('adminLogin').classList.add('active');
+        }
+        
+        function closeAdminLogin() {
+            document.getElementById('adminLogin').classList.remove('active');
+        }
+        
+        function adminLogin() {
+            const password = document.getElementById('adminPassword').value;
+            
+            // Simple password check (in a real app, use proper authentication)
+            if (password === 'admin123') {
+                isAdminLoggedIn = true;
+                localStorage.setItem('egyptGameStoreAdminLoggedIn', 'true');
+                
+                // Close login modal
+                closeAdminLogin();
+                
+                // Load admin data
+                loadAdminData();
+                
+                // Show admin panel
+                document.getElementById('adminPanel').classList.add('active');
+                
+                showNotification('Admin login successful', 'success');
+            } else {
+                showNotification('Incorrect admin password', 'error');
+            }
+        }
+        
+        function logoutAdmin() {
+            isAdminLoggedIn = false;
+            localStorage.removeItem('egyptGameStoreAdminLoggedIn');
+            
+            // Hide admin panel
+            document.getElementById('adminPanel').classList.remove('active');
+            
+            showNotification('Admin logged out', 'info');
+        }
+        
+        function switchAdminTab(tab) {
+            const dashboardContent = document.getElementById('dashboard-content');
+            const usersContent = document.getElementById('users-content');
+            const ordersContent = document.getElementById('orders-content');
+            const webhookContent = document.getElementById('webhook-content');
+            const adminTabs = document.querySelectorAll('.admin-tab');
+            
+            adminTabs.forEach(t => t.classList.remove('active'));
+            
+            // Hide all content
+            dashboardContent.classList.remove('active');
+            usersContent.classList.remove('active');
+            ordersContent.classList.remove('active');
+            webhookContent.classList.remove('active');
+            
+            // Show selected content
+            if (tab === 'dashboard') {
+                adminTabs[0].classList.add('active');
+                dashboardContent.classList.add('active');
+            } else if (tab === 'users') {
+                adminTabs[1].classList.add('active');
+                usersContent.classList.add('active');
+                loadUsersTable();
+            } else if (tab === 'orders') {
+                adminTabs[2].classList.add('active');
+                ordersContent.classList.add('active');
+                loadOrdersTable();
+            } else if (tab === 'webhook') {
+                adminTabs[3].classList.add('active');
+                webhookContent.classList.add('active');
+            }
+        }
+        
+        function loadAdminData() {
+            // Get data from localStorage
+            const users = JSON.parse(localStorage.getItem('egyptGameStoreUsers')) || [];
+            const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
+            
+            // Calculate stats
+            const totalRevenue = orders.reduce((sum, order) => sum + parseInt(order.price), 0);
+            const pendingOrders = orders.filter(order => order.status === 'pending').length;
+            
+            // Update stats
+            document.getElementById('totalUsers').textContent = users.length;
+            document.getElementById('totalOrders').textContent = orders.length;
+            document.getElementById('totalRevenue').textContent = totalRevenue;
+            document.getElementById('pendingOrders').textContent = pendingOrders;
+        }
+        
+        function loadUsersTable() {
+            const users = JSON.parse(localStorage.getItem('egyptGameStoreUsers')) || [];
+            const usersTableBody = document.getElementById('usersTableBody');
+            
+            usersTableBody.innerHTML = users.map(user => `
+                <tr>
+                    <td>${user.id}</td>
+                    <td>${user.name}</td>
+                    <td>${user.email}</td>
+                    <td>${user.phone || 'N/A'}</td>
+                    <td>${new Date(user.registeredAt).toLocaleDateString()}</td>
+                    <td>
+                        <div class="admin-actions">
+                            <button class="btn-small btn-view" onclick="viewUser(${user.id})">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn-small btn-delete" onclick="deleteUser(${user.id})">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        }
+        
+        function loadOrdersTable() {
+            const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
+            const ordersTableBody = document.getElementById('ordersTableBody');
+            
+            ordersTableBody.innerHTML = orders.map(order => `
+                <tr>
+                    <td>${order.id}</td>
+                    <td>${order.username}</td>
+                    <td>${order.product}</td>
+                    <td>${order.price} EGP</td>
+                    <td>${order.paymentMethod === 'instapay' ? 'InstaPay' : 'Vodafone Cash'}</td>
+                    <td>${new Date(order.createdAt).toLocaleDateString()}</td>
+                    <td>
+                        <span class="order-status ${order.status === 'completed' ? 'status-completed' : 'status-pending'}">
+                            ${order.status === 'completed' ? 'Completed' : 'Pending'}
+                        </span>
+                    </td>
+                    <td>
+                        <div class="admin-actions">
+                            <button class="btn-small btn-view" onclick="viewOrder('${order.id}')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            ${order.status === 'pending' ? `
+                                <button class="btn-small btn-complete" onclick="completeOrder('${order.id}')">
+                                    <i class="fas fa-check"></i>
+                                </button>
+                            ` : ''}
+                            <button class="btn-small btn-delete" onclick="deleteOrder('${order.id}')">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        }
+        
+        function viewUser(userId) {
+            const users = JSON.parse(localStorage.getItem('egyptGameStoreUsers')) || [];
+            const user = users.find(u => u.id === userId);
+            
+            if (user) {
+                // Show user details in a modal
+                document.getElementById('accountDetails').classList.add('active');
+                
+                // Populate account info
+                document.getElementById('accountInfo').innerHTML = `
+                    <div class="info-item">
+                        <div class="info-label">User ID</div>
+                        <div class="info-value">${user.id}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Name</div>
+                        <div class="info-value">${user.name}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Email</div>
+                        <div class="info-value">${user.email}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Phone</div>
+                        <div class="info-value">${user.phone || 'N/A'}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Registered</div>
+                        <div class="info-value">${new Date(user.registeredAt).toLocaleDateString()}</div>
+                    </div>
+                `;
+                
+                // Load user orders
+                loadUserOrders(user.email);
+            }
+        }
+        
+        function loadUserOrders(userEmail) {
+            const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
+            const userOrders = orders.filter(order => order.email === userEmail);
+            const userOrdersTable = document.getElementById('userOrdersTable');
+            
+            userOrdersTable.innerHTML = userOrders.map(order => `
+                <tr>
+                    <td>${order.id}</td>
+                    <td>${order.product}</td>
+                    <td>${order.price} EGP</td>
+                    <td>${new Date(order.createdAt).toLocaleDateString()}</td>
+                    <td>
+                        <span class="order-status ${order.status === 'completed' ? 'status-completed' : 'status-pending'}">
+                            ${order.status === 'completed' ? 'Completed' : 'Pending'}
+                        </span>
+                    </td>
+                </tr>
+            `).join('');
+        }
+        
+        function deleteUser(userId) {
+            if (confirm('Are you sure you want to delete this user?')) {
+                // Get users
+                const users = JSON.parse(localStorage.getItem('egyptGameStoreUsers')) || [];
+                
+                // Filter out the user
+                const updatedUsers = users.filter(user => user.id !== userId);
+                
+                // Save to localStorage
+                localStorage.setItem('egyptGameStoreUsers', JSON.stringify(updatedUsers));
+                
+                // Reload table
+                loadUsersTable();
+                
+                // Update stats
+                loadAdminData();
+                
+                showNotification('User deleted successfully', 'success');
+            }
+        }
+        
+        function viewOrder(orderId) {
+            const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
+            const order = orders.find(o => o.id === orderId);
+            
+            if (order) {
+                // Show order details in a modal
+                document.getElementById('accountDetails').classList.add('active');
+                
+                // Populate account info
+                document.getElementById('accountInfo').innerHTML = `
+                    <div class="info-item">
+                        <div class="info-label">Order ID</div>
+                        <div class="info-value">${order.id}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Product</div>
+                        <div class="info-value">${order.product}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Price</div>
+                        <div class="info-value">${order.price} EGP</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Customer</div>
+                        <div class="info-value">${order.username}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Email</div>
+                        <div class="info-value">${order.email}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Phone</div>
+                        <div class="info-value">${order.phone}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Payment Method</div>
+                        <div class="info-value">${order.paymentMethod === 'instapay' ? 'InstaPay' : 'Vodafone Cash'}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Status</div>
+                        <div class="info-value">${order.status === 'completed' ? 'Completed' : 'Pending'}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Date</div>
+                        <div class="info-value">${new Date(order.createdAt).toLocaleDateString()}</div>
+                    </div>
+                `;
+                
+                // Hide orders section
+                document.querySelector('.orders-section').style.display = 'none';
+            }
+        }
+        
+        function completeOrder(orderId) {
+            // Get orders
+            const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
+            
+            // Find and update the order
+            const orderIndex = orders.findIndex(order => order.id === orderId);
+            
+            if (orderIndex !== -1) {
+                orders[orderIndex].status = 'completed';
+                
+                // Save to localStorage
+                localStorage.setItem('egyptGameStoreOrders', JSON.stringify(orders));
+                
+                // Reload table
+                loadOrdersTable();
+                
+                // Update stats
+                loadAdminData();
+                
+                showNotification('Order marked as completed', 'success');
+            }
+        }
+        
+        function deleteOrder(orderId) {
+            if (confirm('Are you sure you want to delete this order?')) {
+                // Get orders
+                const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
+                
+                // Filter out the order
+                const updatedOrders = orders.filter(order => order.id !== orderId);
+                
+                // Save to localStorage
+                localStorage.setItem('egyptGameStoreOrders', JSON.stringify(updatedOrders));
+                
+                // Reload table
+                loadOrdersTable();
+                
+                // Update stats
+                loadAdminData();
+                
+                showNotification('Order deleted successfully', 'success');
+            }
+        }
+        
+        function closeAccountDetails() {
+            document.getElementById('accountDetails').classList.remove('active');
+            
+            // Show orders section again
+            document.querySelector('.orders-section').style.display = 'block';
+        }
+        
+        // Webhook Functions
+        function loadWebhookSettings() {
+            const webhookUrl = localStorage.getItem('egyptGameStoreWebhookUrl');
+            
+            if (webhookUrl) {
+                document.getElementById('webhookUrl').value = webhookUrl;
+                document.getElementById('webhookStatus').textContent = 'Webhook configured';
+            }
+        }
+        
+        function saveWebhookSettings() {
+            const webhookUrl = document.getElementById('webhookUrl').value;
+            
+            if (webhookUrl) {
+                localStorage.setItem('egyptGameStoreWebhookUrl', webhookUrl);
+                document.getElementById('webhookStatus').textContent = 'Webhook configured';
+                showNotification('Webhook settings saved', 'success');
+            } else {
+                localStorage.removeItem('egyptGameStoreWebhookUrl');
+                document.getElementById('webhookStatus').textContent = 'Webhook not configured';
+                showNotification('Webhook settings cleared', 'info');
+            }
+        }
+        
+        function sendDiscordWebhook(order) {
+            const webhookUrl = localStorage.getItem('egyptGameStoreWebhookUrl');
+            
+            if (webhookUrl) {
+                // Create webhook payload
+                const payload = {
+                    embeds: [{
+                        title: 'New Order Received',
+                        color: 0x6a11cb,
+                        fields: [
+                            { name: 'Order ID', value: order.id, inline: true },
+                            { name: 'Product', value: order.product, inline: true },
+                            { name: 'Price', value: `${order.price} EGP`, inline: true },
+                            { name: 'Customer', value: order.username, inline: true },
+                            { name: 'Email', value: order.email, inline: true },
+                            { name: 'Payment Method', value: order.paymentMethod === 'instapay' ? 'InstaPay' : 'Vodafone Cash', inline: true },
+                            { name: 'Status', value: order.status, inline: true }
+                        ],
+                        timestamp: new Date().toISOString()
+                    }]
+                };
+                
+                // Send webhook
+                fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                })
+                .then(response => {
+                    if (response.ok) {
+                        console.log('Webhook sent successfully');
+                    } else {
+                        console.error('Failed to send webhook');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error sending webhook:', error);
+                });
+            }
+        }
+        
+        // Forgot Password Functions
+        function showForgotPassword() {
+            // Close auth dropdown
+            toggleAuthDropdown();
+            
+            // Show forgot password modal
+            document.getElementById('forgotPasswordModal').classList.add('active');
+        }
+        
+        function closeForgotPassword() {
+            document.getElementById('forgotPasswordModal').classList.remove('active');
+        }
+        
+        function showLoginFromForgotPassword() {
+            closeForgotPassword();
+            toggleAuthDropdown();
+        }
+        
+        function resetPassword() {
+            const email = document.getElementById('forgotEmail').value;
+            
+            if (!email) {
+                showNotification('Please enter your email address', 'error');
+                return;
+            }
+            
+            // Get users
+            const users = JSON.parse(localStorage.getItem('egyptGameStoreUsers')) || [];
+            
+            // Find user with matching email
+            const user = users.find(u => u.email === email);
+            
+            if (!user) {
+                showNotification('No account found with that email address', 'error');
+                return;
+            }
+            
+            // In a real app, you would send a password reset email
+            // For this demo, we'll just show a success message
+            showNotification('Password reset instructions have been sent to your email', 'success');
+            
+            // Close modal
+            closeForgotPassword();
+            
+            // Reset form
+            document.getElementById('forgotEmail').value = '';
+        }
+    </script>
+</body>
+</html>
