@@ -15,9 +15,9 @@
         }
         
         :root {
-            --primary: #00b4d8;
-            --secondary: #0077b6;
-            --accent: #ff5722;
+            --primary: #8B5CF6; /* Changed to purple */
+            --secondary: #7C3AED; /* Darker purple */
+            --accent: #F59E0B; /* Amber accent */
             --discord: #5865F2;
             --light: #f8fafc;
             --dark: #1e293b;
@@ -47,9 +47,9 @@
             padding: 0 20px;
         }
         
-        /* Enhanced Header Styles - IMPROVED COLORS */
+        /* Enhanced Header Styles - CHANGED TO PURPLE */
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(135deg, #6D28D9 0%, #8B5CF6 100%);
             color: white;
             padding: 15px 0;
             position: sticky;
@@ -254,7 +254,7 @@
         .form-group input:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.1);
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
         }
         
         .btn-auth {
@@ -272,7 +272,7 @@
         
         .btn-auth:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 180, 216, 0.3);
+            box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
         }
         
         .forgot-password {
@@ -363,11 +363,11 @@
             background: var(--primary);
         }
         
-        /* Enhanced Hero Section - CHANGED TO CYAN/WHITE */
+        /* Enhanced Hero Section - CHANGED TO DARK PURPLE */
         .hero {
             text-align: center;
             padding: 100px 0;
-            background: linear-gradient(135deg, #00d4ff 0%, #ffffff 100%);
+            background: linear-gradient(135deg, #4C1D95 0%, #6D28D9 100%);
             position: relative;
             overflow: hidden;
         }
@@ -379,7 +379,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%);
+            background: linear-gradient(135deg, rgba(76, 29, 149, 0.9) 0%, rgba(109, 40, 217, 0.9) 100%);
             z-index: 0;
         }
         
@@ -391,7 +391,7 @@
         .hero h1 {
             font-size: 4rem;
             margin-bottom: 20px;
-            color: var(--darker);
+            color: white;
             font-weight: 800;
             animation: fadeInUp 0.8s ease forwards;
             opacity: 0;
@@ -400,7 +400,7 @@
         
         .hero p {
             font-size: 1.5rem;
-            color: var(--dark);
+            color: #E9D5FF;
             max-width: 700px;
             margin: 0 auto 40px;
             animation: fadeInUp 0.8s ease 0.2s forwards;
@@ -432,7 +432,7 @@
             border: none;
             cursor: pointer;
             margin: 8px;
-            box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
             position: relative;
             overflow: hidden;
             z-index: 1;
@@ -457,7 +457,7 @@
         
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 180, 216, 0.4);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
         }
         
         .btn i {
@@ -480,7 +480,7 @@
         }
         
         .btn-outline:hover {
-            background: rgba(0, 180, 216, 0.1);
+            background: rgba(139, 92, 246, 0.1);
         }
         
         .btn-small {
@@ -563,7 +563,7 @@
         .category-tab.active {
             color: white;
             border-color: transparent;
-            box-shadow: 0 5px 15px rgba(0, 180, 216, 0.2);
+            box-shadow: 0 5px 15px rgba(139, 92, 246, 0.2);
         }
         
         .category-tab.active::before {
@@ -600,7 +600,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(0, 180, 216, 0.05) 0%, rgba(0, 119, 182, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%);
             opacity: 0;
             transition: opacity 0.3s ease;
             pointer-events: none;
@@ -717,12 +717,12 @@
         
         .btn-buy {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            box-shadow: 0 4px 10px rgba(0, 180, 216, 0.25);
+            box-shadow: 0 4px 10px rgba(139, 92, 246, 0.25);
         }
         
         .btn-buy:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0, 180, 216, 0.35);
+            box-shadow: 0 6px 15px rgba(139, 92, 246, 0.35);
         }
         
         /* Order History Section */
@@ -947,7 +947,7 @@
         .settings-form input:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.1);
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
         }
         
         .btn-save {
@@ -963,7 +963,7 @@
         
         .btn-save:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 180, 216, 0.3);
+            box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
         }
         
         /* Features Section */
@@ -1050,7 +1050,7 @@
             font-weight: 700;
             margin: 0 auto 25px;
             position: relative;
-            box-shadow: 0 10px 20px rgba(0, 180, 216, 0.2);
+            box-shadow: 0 10px 20px rgba(139, 92, 246, 0.2);
             transition: transform 0.3s ease;
         }
         
@@ -1253,7 +1253,7 @@
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.1);
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
         }
         
         .payment-section {
@@ -1300,7 +1300,7 @@
         
         .payment-option.selected {
             border-color: var(--primary);
-            background: rgba(0, 180, 216, 0.05);
+            background: rgba(139, 92, 246, 0.05);
             position: relative;
         }
         
@@ -1593,7 +1593,7 @@
             padding: 20px;
             border-radius: 12px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 180, 216, 0.2);
+            box-shadow: 0 5px 15px rgba(139, 92, 246, 0.2);
             transition: transform 0.3s ease;
         }
         
@@ -1686,13 +1686,20 @@
         }
         
         .btn-small {
-            padding: 6px 12px;
+            padding: 8px 12px;
             font-size: 0.8rem;
             border-radius: 6px;
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
             color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn-small i {
+            margin-right: 4px;
         }
         
         .btn-edit {
@@ -1714,6 +1721,13 @@
         .btn-reset {
             background: var(--primary);
             margin-left: 10px;
+        }
+        
+        .data-management {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
         }
         
         .delete-confirmation {
@@ -1788,7 +1802,7 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0,0,0,0.7);
-            z-index: 2500;
+            z-index: 3000; /* Increased z-index to appear above admin panel */
             overflow: auto;
         }
         
@@ -1994,7 +2008,7 @@
         .admin-form-group input:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.1);
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
         }
         
         .admin-btn {
@@ -2012,7 +2026,7 @@
         
         .admin-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 180, 216, 0.3);
+            box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
         }
         
         /* Webhook Settings */
@@ -2130,7 +2144,7 @@
         .forgot-password-form input:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.1);
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
         }
         
         .back-to-login {
@@ -2402,7 +2416,7 @@
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">500 Robux</h3>
-                        <p class="product-desc">Instant delivery to your Roblox account. Perfect for upgrading your avatar or purchasing game passes.</p>
+                        <p class="product-desc">Instant delivery to your Roblox account.</p>
                         <div class="product-price">170</div>
                         <div class="product-actions">
                             <button class="btn-product btn-buy" onclick="openOrderModal('500 Robux', 170, 'Robux')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
@@ -2415,7 +2429,7 @@
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">1,000 Robux</h3>
-                        <p class="product-desc">Double the Robux for your gaming needs. Get more value with this popular package.</p>
+                        <p class="product-desc">Instant delivery to your Roblox account.</p>
                         <div class="product-price">320</div>
                         <div class="product-actions">
                             <button class="btn-product btn-buy" onclick="openOrderModal('1000 Robux', 320, 'Robux')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
@@ -2429,7 +2443,7 @@
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">2,000 Robux</h3>
-                        <p class="product-desc">Maximum value with our largest Robux package. Perfect for serious gamers and content creators.</p>
+                        <p class="product-desc">Instant delivery to your Roblox account.</p>
                         <div class="product-price">600</div>
                         <div class="product-actions">
                             <button class="btn-product btn-buy" onclick="openOrderModal('2000 Robux', 600, 'Robux')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
@@ -2825,7 +2839,6 @@
             <div class="admin-header">
                 <h2 class="admin-title"><i class="fas fa-user-shield"></i> Admin Panel</h2>
                 <div>
-                    <button class="btn btn-reset" onclick="resetDashboard()"><i class="fas fa-sync-alt"></i> Reset Dashboard</button>
                     <button class="btn btn-outline" onclick="logoutAdmin()">
                         <i class="fas fa-sign-out-alt"></i> Logout
                     </button>
@@ -2857,6 +2870,12 @@
                         <div class="stat-value" id="pendingOrders">0</div>
                         <div class="stat-label">Pending Orders</div>
                     </div>
+                </div>
+                
+                <div class="data-management">
+                    <button class="btn btn-delete" onclick="clearRevenueData()"><i class="fas fa-money-bill-wave"></i> Clear Revenue Data</button>
+                    <button class="btn btn-delete" onclick="clearPendingOrders()"><i class="fas fa-clock"></i> Clear Pending Orders</button>
+                    <button class="btn btn-delete" onclick="clearCompletedOrders()"><i class="fas fa-check-circle"></i> Clear Completed Orders</button>
                 </div>
             </div>
             
@@ -3056,6 +3075,7 @@
         let isAdminLoggedIn = false;
         let deleteTarget = null;
         let deleteType = null;
+        let activeCategory = 'robux'; // Track active category
         
         // Load user from localStorage on page load
         document.addEventListener('DOMContentLoaded', function() {
@@ -3079,6 +3099,9 @@
         
         categoryTabs.forEach(tab => {
             tab.addEventListener('click', () => {
+                const category = tab.dataset.category;
+                activeCategory = category; // Update active category
+                
                 categoryTabs.forEach(t => t.classList.remove('active'));
                 tab.classList.add('active');
                 
@@ -3088,7 +3111,6 @@
                 });
                 
                 // Show selected category
-                const category = tab.dataset.category;
                 const productsContainer = document.getElementById(category + '-products');
                 
                 if (productsContainer) {
@@ -3828,26 +3850,75 @@
             document.getElementById('pendingOrders').textContent = pendingOrders;
         }
         
-        function resetDashboard() {
-            // Clear all data
-            if (confirm('Are you sure you want to reset all data? This action cannot be undone.')) {
-                localStorage.removeItem('egyptGameStoreUsers');
-                localStorage.removeItem('egyptGameStoreOrders');
-                localStorage.removeItem('egyptGameStoreWebhookUrl');
+        function clearRevenueData() {
+            if (confirm('Are you sure you want to clear all revenue data? This will reset the total revenue to 0 but keep all orders.')) {
+                // Get orders
+                const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
+                
+                // Reset all order prices to 0
+                const updatedOrders = orders.map(order => ({
+                    ...order,
+                    price: 0
+                }));
+                
+                // Save to localStorage
+                localStorage.setItem('egyptGameStoreOrders', JSON.stringify(updatedOrders));
                 
                 // Reload admin data
                 loadAdminData();
                 
-                // Reload tables if they're visible
-                if (document.getElementById('users-content').classList.contains('active')) {
-                    loadUsersTable();
-                }
-                
+                // Reload orders table if visible
                 if (document.getElementById('orders-content').classList.contains('active')) {
                     loadOrdersTable();
                 }
                 
-                showNotification('Dashboard reset successfully', 'success');
+                showNotification('Revenue data cleared successfully', 'success');
+            }
+        }
+        
+        function clearPendingOrders() {
+            if (confirm('Are you sure you want to delete all pending orders? This action cannot be undone.')) {
+                // Get orders
+                const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
+                
+                // Filter out pending orders
+                const updatedOrders = orders.filter(order => order.status !== 'pending');
+                
+                // Save to localStorage
+                localStorage.setItem('egyptGameStoreOrders', JSON.stringify(updatedOrders));
+                
+                // Reload admin data
+                loadAdminData();
+                
+                // Reload orders table if visible
+                if (document.getElementById('orders-content').classList.contains('active')) {
+                    loadOrdersTable();
+                }
+                
+                showNotification('Pending orders cleared successfully', 'success');
+            }
+        }
+        
+        function clearCompletedOrders() {
+            if (confirm('Are you sure you want to delete all completed orders? This action cannot be undone.')) {
+                // Get orders
+                const orders = JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [];
+                
+                // Filter out completed orders
+                const updatedOrders = orders.filter(order => order.status !== 'completed');
+                
+                // Save to localStorage
+                localStorage.setItem('egyptGameStoreOrders', JSON.stringify(updatedOrders));
+                
+                // Reload admin data
+                loadAdminData();
+                
+                // Reload orders table if visible
+                if (document.getElementById('orders-content').classList.contains('active')) {
+                    loadOrdersTable();
+                }
+                
+                showNotification('Completed orders cleared successfully', 'success');
             }
         }
         
@@ -3876,10 +3947,10 @@
                     <td>
                         <div class="admin-actions">
                             <button class="btn-small btn-view" onclick="viewUser(${user.id})">
-                                <i class="fas fa-eye"></i>
+                                <i class="fas fa-eye"></i> View
                             </button>
                             <button class="btn-small btn-delete" onclick="deleteUser(${user.id})">
-                                <i class="fas fa-trash"></i>
+                                <i class="fas fa-trash"></i> Delete
                             </button>
                         </div>
                     </td>
@@ -3918,15 +3989,15 @@
                     <td>
                         <div class="admin-actions">
                             <button class="btn-small btn-view" onclick="viewOrder('${order.id}')">
-                                <i class="fas fa-eye"></i>
+                                <i class="fas fa-eye"></i> View
                             </button>
                             ${order.status === 'pending' ? `
                                 <button class="btn-small btn-complete" onclick="completeOrder('${order.id}')">
-                                    <i class="fas fa-check"></i>
+                                    <i class="fas fa-check"></i> Complete
                                 </button>
                             ` : ''}
                             <button class="btn-small btn-delete" onclick="deleteOrder('${order.id}')">
-                                <i class="fas fa-trash"></i>
+                                <i class="fas fa-trash"></i> Delete
                             </button>
                         </div>
                     </td>
@@ -4013,6 +4084,10 @@
             const order = orders.find(o => o.id === orderId);
             
             if (order) {
+                // Hide admin panel temporarily
+                const adminPanel = document.getElementById('adminPanel');
+                adminPanel.style.display = 'none';
+                
                 // Show order details in a modal
                 document.getElementById('orderDetailsModal').classList.add('active');
                 
@@ -4140,6 +4215,11 @@
         
         function closeOrderDetailsModal() {
             document.getElementById('orderDetailsModal').classList.remove('active');
+            
+            // Show admin panel again if it was open
+            if (isAdminLoggedIn) {
+                document.getElementById('adminPanel').style.display = 'block';
+            }
         }
         
         // Webhook Functions
@@ -4174,7 +4254,7 @@
                 const payload = {
                     embeds: [{
                         title: 'New Order Received',
-                        color: 0x00b4d8,
+                        color: 0x8B5CF6, // Updated to match new purple theme
                         fields: [
                             { name: 'Order ID', value: order.id, inline: true },
                             { name: 'Product', value: order.product, inline: true },
