@@ -15,7 +15,7 @@
         }
         
         :root {
-            --primary: #4285f4; /* Changed to lighter blue */
+            --primary: #4285f4; /* Lighter blue */
             --secondary: #6fa8f5; /* Lighter blue */
             --accent: #ff5722; /* Amber accent */
             --discord: #5865F2;
@@ -1731,6 +1731,98 @@
             flex-wrap: wrap;
         }
         
+        .export-import-container {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .export-import-container h3 {
+            margin-bottom: 15px;
+            color: var(--darker);
+            font-weight: 600;
+        }
+        
+        .export-import-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .file-input-container {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+        
+        .file-input-container input[type=file] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .data-status {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        
+        .data-status.success {
+            background: #d1fae5;
+            color: #065f46;
+            border-left: 4px solid var(--success);
+        }
+        
+        .data-status.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border-left: 4px solid var(--error);
+        }
+        
+        .user-info-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--primary);
+        }
+        
+        .user-info-card h4 {
+            margin-bottom: 15px;
+            color: var(--darker);
+            font-weight: 600;
+        }
+        
+        .user-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .user-info-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .user-info-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-bottom: 5px;
+        }
+        
+        .user-info-value {
+            font-weight: 500;
+            color: var(--darker);
+        }
+        
         .delete-confirmation {
             position: fixed;
             top: 0;
@@ -2806,6 +2898,7 @@
                 <div class="admin-tab" onclick="switchAdminTab('users')">Users</div>
                 <div class="admin-tab" onclick="switchAdminTab('orders')">Orders</div>
                 <div class="admin-tab" onclick="switchAdminTab('webhook')">Webhook</div>
+                <div class="admin-tab" onclick="switchAdminTab('data')">Data Management</div>
             </div>
             
             <div id="dashboard-content" class="admin-content active">
@@ -2837,21 +2930,9 @@
             
             <div id="users-content" class="admin-content">
                 <h3 style="margin-bottom: 20px; color: var(--darker);">User Accounts</h3>
-                <table class="admin-table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th>Registered</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody id="usersTableBody">
-                        <!-- Users will be populated here -->
-                    </tbody>
-                </table>
+                <div id="usersList">
+                    <!-- Users will be populated here -->
+                </div>
             </div>
             
             <div id="orders-content" class="admin-content">
@@ -2886,6 +2967,38 @@
                         <button class="webhook-btn" onclick="saveWebhookSettings()">Save</button>
                     </div>
                     <div class="webhook-status" id="webhookStatus">Webhook not configured</div>
+                </div>
+            </div>
+            
+            <div id="data-content" class="admin-content">
+                <div class="export-import-container">
+                    <h3>Data Management</h3>
+                    <p>Export your data to backup or import data from another browser/device.</p>
+                    
+                    <div class="export-import-buttons">
+                        <button class="btn" onclick="exportData()"><i class="fas fa-download"></i> Export All Data</button>
+                        
+                        <div class="file-input-container">
+                            <button class="btn btn-outline"><i class="fas fa-upload"></i> Import Data</button>
+                            <input type="file" id="importFile" accept=".json" onchange="importData(event)">
+                        </div>
+                        
+                        <button class="btn btn-delete" onclick="clearAllData()"><i class="fas fa-trash-alt"></i> Clear All Data</button>
+                    </div>
+                    
+                    <div id="dataStatus"></div>
+                </div>
+                
+                <div class="export-import-container">
+                    <h3>Sync Data</h3>
+                    <p>Use this feature to simulate sharing data across browsers. Copy the data from one browser and paste it into another.</p>
+                    
+                    <div class="export-import-buttons">
+                        <button class="btn" onclick="copyDataToClipboard()"><i class="fas fa-copy"></i> Copy Data to Clipboard</button>
+                        <button class="btn btn-outline" onclick="pasteDataFromClipboard()"><i class="fas fa-paste"></i> Paste Data from Clipboard</button>
+                    </div>
+                    
+                    <div id="syncStatus"></div>
                 </div>
             </div>
         </div>
@@ -3760,6 +3873,7 @@
             const usersContent = document.getElementById('users-content');
             const ordersContent = document.getElementById('orders-content');
             const webhookContent = document.getElementById('webhook-content');
+            const dataContent = document.getElementById('data-content');
             const adminTabs = document.querySelectorAll('.admin-tab');
             
             adminTabs.forEach(t => t.classList.remove('active'));
@@ -3769,6 +3883,7 @@
             usersContent.classList.remove('active');
             ordersContent.classList.remove('active');
             webhookContent.classList.remove('active');
+            dataContent.classList.remove('active');
             
             // Show selected content
             if (tab === 'dashboard') {
@@ -3785,6 +3900,9 @@
             } else if (tab === 'webhook') {
                 adminTabs[3].classList.add('active');
                 webhookContent.classList.add('active');
+            } else if (tab === 'data') {
+                adminTabs[4].classList.add('active');
+                dataContent.classList.add('active');
             }
         }
         
@@ -3878,37 +3996,50 @@
         
         function loadUsersTable() {
             const users = JSON.parse(localStorage.getItem('egyptGameStoreUsers')) || [];
-            const usersTableBody = document.getElementById('usersTableBody');
+            const usersList = document.getElementById('usersList');
             
             if (users.length === 0) {
-                usersTableBody.innerHTML = `
-                    <tr>
-                        <td colspan="6" style="text-align: center; padding: 30px; color: var(--gray);">
-                            No users found
-                        </td>
-                    </tr>
+                usersList.innerHTML = `
+                    <div class="empty-orders">
+                        <i class="fas fa-users"></i>
+                        <h3>No users found</h3>
+                        <p>No users have registered yet.</p>
+                    </div>
                 `;
                 return;
             }
             
-            usersTableBody.innerHTML = users.map(user => `
-                <tr>
-                    <td>${user.id}</td>
-                    <td>${user.name}</td>
-                    <td>${user.email}</td>
-                    <td>${user.phone || 'N/A'}</td>
-                    <td>${new Date(user.registeredAt).toLocaleDateString()}</td>
-                    <td>
-                        <div class="admin-actions">
-                            <button class="btn-small btn-view" onclick="viewUser(${user.id})">
-                                <i class="fas fa-eye"></i> View
-                            </button>
-                            <button class="btn-small btn-delete" onclick="deleteUser(${user.id})">
-                                <i class="fas fa-trash"></i> Delete
-                            </button>
+            usersList.innerHTML = users.map(user => `
+                <div class="user-info-card">
+                    <h4>${user.name} (${user.email})</h4>
+                    <div class="user-info-grid">
+                        <div class="user-info-item">
+                            <div class="user-info-label">User ID</div>
+                            <div class="user-info-value">${user.id}</div>
                         </div>
-                    </td>
-                </tr>
+                        <div class="user-info-item">
+                            <div class="user-info-label">Phone</div>
+                            <div class="user-info-value">${user.phone || 'N/A'}</div>
+                        </div>
+                        <div class="user-info-item">
+                            <div class="user-info-label">Registered</div>
+                            <div class="user-info-value">${new Date(user.registeredAt).toLocaleDateString()}</div>
+                        </div>
+                        <div class="user-info-item">
+                            <div class="user-info-label">Actions</div>
+                            <div class="user-info-value">
+                                <div class="admin-actions">
+                                    <button class="btn-small btn-view" onclick="viewUser(${user.id})">
+                                        <i class="fas fa-eye"></i> View
+                                    </button>
+                                    <button class="btn-small btn-delete" onclick="deleteUser(${user.id})">
+                                        <i class="fas fa-trash"></i> Delete
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             `).join('');
         }
         
@@ -4174,6 +4305,156 @@
             if (isAdminLoggedIn) {
                 document.getElementById('adminPanel').style.display = 'block';
             }
+        }
+        
+        // Data Management Functions
+        function exportData() {
+            const data = {
+                users: JSON.parse(localStorage.getItem('egyptGameStoreUsers')) || [],
+                orders: JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [],
+                webhookUrl: localStorage.getItem('egyptGameStoreWebhookUrl') || '',
+                exportDate: new Date().toISOString()
+            };
+            
+            const dataStr = JSON.stringify(data, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+            
+            const exportFileDefaultName = 'egyptgamestore_data_' + new Date().toISOString().slice(0,10) + '.json';
+            
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileDefaultName);
+            linkElement.click();
+            
+            showDataStatus('Data exported successfully!', 'success');
+        }
+        
+        function importData(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    
+                    // Validate data structure
+                    if (data.users && Array.isArray(data.users)) {
+                        localStorage.setItem('egyptGameStoreUsers', JSON.stringify(data.users));
+                    }
+                    
+                    if (data.orders && Array.isArray(data.orders)) {
+                        localStorage.setItem('egyptGameStoreOrders', JSON.stringify(data.orders));
+                    }
+                    
+                    if (data.webhookUrl) {
+                        localStorage.setItem('egyptGameStoreWebhookUrl', data.webhookUrl);
+                    }
+                    
+                    // Reload data
+                    loadAdminData();
+                    loadUsersTable();
+                    loadOrdersTable();
+                    loadWebhookSettings();
+                    
+                    showDataStatus('Data imported successfully!', 'success');
+                } catch (error) {
+                    showDataStatus('Error importing data: ' + error.message, 'error');
+                }
+            };
+            
+            reader.readAsText(file);
+            
+            // Reset file input
+            event.target.value = '';
+        }
+        
+        function copyDataToClipboard() {
+            const data = {
+                users: JSON.parse(localStorage.getItem('egyptGameStoreUsers')) || [],
+                orders: JSON.parse(localStorage.getItem('egyptGameStoreOrders')) || [],
+                webhookUrl: localStorage.getItem('egyptGameStoreWebhookUrl') || '',
+                copyDate: new Date().toISOString()
+            };
+            
+            const dataStr = JSON.stringify(data);
+            
+            navigator.clipboard.writeText(dataStr).then(function() {
+                showSyncStatus('Data copied to clipboard! Paste it in another browser to sync.', 'success');
+            }, function(err) {
+                showSyncStatus('Error copying data: ' + err, 'error');
+            });
+        }
+        
+        function pasteDataFromClipboard() {
+            navigator.clipboard.readText().then(function(text) {
+                try {
+                    const data = JSON.parse(text);
+                    
+                    // Validate data structure
+                    if (data.users && Array.isArray(data.users)) {
+                        localStorage.setItem('egyptGameStoreUsers', JSON.stringify(data.users));
+                    }
+                    
+                    if (data.orders && Array.isArray(data.orders)) {
+                        localStorage.setItem('egyptGameStoreOrders', JSON.stringify(data.orders));
+                    }
+                    
+                    if (data.webhookUrl) {
+                        localStorage.setItem('egyptGameStoreWebhookUrl', data.webhookUrl);
+                    }
+                    
+                    // Reload data
+                    loadAdminData();
+                    loadUsersTable();
+                    loadOrdersTable();
+                    loadWebhookSettings();
+                    
+                    showSyncStatus('Data pasted successfully! All data has been synced.', 'success');
+                } catch (error) {
+                    showSyncStatus('Error pasting data: ' + error.message, 'error');
+                }
+            }).catch(function(err) {
+                showSyncStatus('Error reading clipboard: ' + err, 'error');
+            });
+        }
+        
+        function clearAllData() {
+            if (confirm('Are you sure you want to clear all data? This will delete all users, orders, and settings. This action cannot be undone.')) {
+                localStorage.removeItem('egyptGameStoreUsers');
+                localStorage.removeItem('egyptGameStoreOrders');
+                localStorage.removeItem('egyptGameStoreWebhookUrl');
+                
+                // Reload data
+                loadAdminData();
+                loadUsersTable();
+                loadOrdersTable();
+                loadWebhookSettings();
+                
+                showDataStatus('All data cleared successfully!', 'success');
+            }
+        }
+        
+        function showDataStatus(message, type) {
+            const statusElement = document.getElementById('dataStatus');
+            statusElement.className = 'data-status ' + type;
+            statusElement.textContent = message;
+            statusElement.style.display = 'block';
+            
+            setTimeout(() => {
+                statusElement.style.display = 'none';
+            }, 5000);
+        }
+        
+        function showSyncStatus(message, type) {
+            const statusElement = document.getElementById('syncStatus');
+            statusElement.className = 'data-status ' + type;
+            statusElement.textContent = message;
+            statusElement.style.display = 'block';
+            
+            setTimeout(() => {
+                statusElement.style.display = 'none';
+            }, 5000);
         }
         
         // Webhook Functions
