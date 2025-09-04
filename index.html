@@ -289,6 +289,63 @@
             text-decoration: underline;
         }
         
+        .google-login {
+            margin-top: 15px;
+            text-align: center;
+        }
+        
+        .google-login p {
+            font-size: 14px;
+            color: var(--gray);
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        .google-login p::before,
+        .google-login p::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 1px;
+            background: #e2e8f0;
+        }
+        
+        .google-login p::before {
+            left: 0;
+        }
+        
+        .google-login p::after {
+            right: 0;
+        }
+        
+        .btn-google {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            background: white;
+            color: var(--dark);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .btn-google:hover {
+            border-color: #dadce0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .btn-google i {
+            color: #4285f4;
+            font-size: 18px;
+        }
+        
         .discord-banner {
             background: linear-gradient(90deg, var(--discord) 0%, #7983f5 100%);
             color: white;
@@ -3077,12 +3134,10 @@
             </div>
         </div>
     </footer>
-
     <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore-compat.js"></script>
-
     <script>
         // Set current year in footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
@@ -3097,7 +3152,6 @@
             appId: "1:945330365902:web:51be4549fa54cd7702379f",
             measurementId: "G-1M7Z20E2T4"
         };
-
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         const auth = firebase.auth();
@@ -3123,7 +3177,6 @@
             // Load webhook settings
             loadWebhookSettings();
         });
-
         // Check authentication state
         function checkAuthState() {
             auth.onAuthStateChanged(user => {
@@ -3265,6 +3318,39 @@
                 });
         }
         
+        function loginWithGoogle() {
+            const provider = new firebase.auth.GoogleAuthProvider();
+            auth.signInWithPopup(provider)
+                .then(result => {
+                    // Check if user exists in Firestore
+                    const user = result.user;
+                    db.collection('users').doc(user.uid).get()
+                        .then(doc => {
+                            if (!doc.exists) {
+                                // Create new user in Firestore
+                                return db.collection('users').doc(user.uid).set({
+                                    name: user.displayName,
+                                    email: user.email,
+                                    phone: '',
+                                    registeredAt: firebase.firestore.FieldValue.serverTimestamp()
+                                });
+                            }
+                        })
+                        .then(() => {
+                            showNotification('Google login successful!', 'success');
+                            toggleAuthDropdown();
+                        })
+                        .catch(error => {
+                            console.error('Error creating user in Firestore:', error);
+                            showNotification('Error creating user profile', 'error');
+                        });
+                })
+                .catch(error => {
+                    console.error('Google login error:', error);
+                    showNotification('Google login failed: ' + error.message, 'error');
+                });
+        }
+        
         function logoutUser() {
             auth.signOut()
                 .then(() => {
@@ -3322,6 +3408,13 @@
                             <div class="forgot-password">
                                 <a href="#" onclick="showForgotPassword()">Forgot Password?</a>
                             </div>
+                            
+                            <div class="google-login">
+                                <p>Or continue with</p>
+                                <button type="button" class="btn-google" onclick="loginWithGoogle()">
+                                    <i class="fab fa-google"></i> Sign in with Google
+                                </button>
+                            </div>
                         </form>
                         
                         <form id="registerForm" class="auth-form" onsubmit="return false;">
@@ -3346,6 +3439,13 @@
                             </div>
                             
                             <button type="button" class="btn-auth" onclick="registerUser()">Register</button>
+                            
+                            <div class="google-login">
+                                <p>Or register with</p>
+                                <button type="button" class="btn-google" onclick="loginWithGoogle()">
+                                    <i class="fab fa-google"></i> Sign up with Google
+                                </button>
+                            </div>
                         </form>
                     </div>
                 `;
