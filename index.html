@@ -4778,3 +4778,42 @@
     </script>
 </body>
 </html>
+
+<!-- 
+FIREBASE CONFIGURATION FILES (Create these files in the same directory as your HTML file):
+
+1. firebase.json:
+{
+  "hosting": {
+    "site": "egyptgameshop",
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
+
+2. .firebaserc:
+{
+  "projects": {
+    "default": "egyptstore-f5201"
+  }
+}
+
+DEPLOYMENT INSTRUCTIONS:
+1. Install Firebase CLI: npm install -g firebase-tools
+2. Login to Firebase: firebase login
+3. Deploy: firebase deploy
+
+Your site will be available at:
+- https://egyptgameshop.web.app
+- https://egyptgameshop.firebaseapp.com
+-->
