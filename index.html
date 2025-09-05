@@ -255,6 +255,13 @@
             box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.1);
         }
         
+        .form-note {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-top: 5px;
+            font-style: italic;
+        }
+        
         .btn-auth {
             width: 100%;
             padding: 12px;
@@ -737,7 +744,7 @@
             font-size: 1.8rem;
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
         }
@@ -753,7 +760,6 @@
         .product-tax-note {
             font-size: 0.8rem;
             color: var(--gray);
-            margin-top: -10px;
             margin-bottom: 15px;
             font-style: italic;
         }
@@ -2533,7 +2539,7 @@
                         <h3 class="product-title">500 Robux</h3>
                         <p class="product-desc">Instant delivery to your Roblox account.</p>
                         <div class="product-price">170</div>
-                        <div class="product-tax-note">NOT INCLUDED TAX</div>
+                        <div class="product-tax-note">WE DO NOT COVER ROBLOX FEES</div>
                         <div class="product-actions">
                             <button class="btn-product btn-buy" onclick="openOrderModal('500 Robux', 170, 'Robux')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                         </div>
@@ -2548,7 +2554,7 @@
                         <h3 class="product-title">1,000 Robux</h3>
                         <p class="product-desc">Instant delivery to your Roblox account.</p>
                         <div class="product-price">320</div>
-                        <div class="product-tax-note">NOT INCLUDED TAX</div>
+                        <div class="product-tax-note">WE DO NOT COVER ROBLOX FEES</div>
                         <div class="product-actions">
                             <button class="btn-product btn-buy" onclick="openOrderModal('1000 Robux', 320, 'Robux')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                         </div>
@@ -2563,7 +2569,7 @@
                         <h3 class="product-title">2,000 Robux</h3>
                         <p class="product-desc">Instant delivery to your Roblox account.</p>
                         <div class="product-price">600</div>
-                        <div class="product-tax-note">NOT INCLUDED TAX</div>
+                        <div class="product-tax-note">WE DO NOT COVER ROBLOX FEES</div>
                         <div class="product-actions">
                             <button class="btn-product btn-buy" onclick="openOrderModal('2000 Robux', 600, 'Robux')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                         </div>
@@ -2579,7 +2585,7 @@
                         <h3 class="product-title">5,000 Robux</h3>
                         <p class="product-desc">Instant delivery to your Roblox account.</p>
                         <div class="product-price">1400</div>
-                        <div class="product-tax-note">NOT INCLUDED TAX</div>
+                        <div class="product-tax-note">WE DO NOT COVER ROBLOX FEES</div>
                         <div class="product-actions">
                             <button class="btn-product btn-buy" onclick="openOrderModal('5000 Robux', 1400, 'Robux')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                         </div>
@@ -2741,7 +2747,7 @@
                     <span id="modal-item-name" class="order-item-name">Product Name</span>
                     <span id="modal-item-price" class="order-item-price">0 EGP</span>
                 </div>
-                <div class="order-tax-note">NOT INCLUDED TAX</div>
+                <div class="order-tax-note">WE DO NOT COVER ROBLOX FEES</div>
                 <div class="order-total">
                     <span>Total:</span>
                     <span id="modal-total-price">0 EGP</span>
@@ -2767,6 +2773,7 @@
                 <div class="form-group">
                     <label><i class="fas fa-link"></i> Gamepass Link *</label>
                     <input type="url" id="gamepassLinkInput" name="gamepassLink" placeholder="Paste your gamepass link here" required>
+                    <div class="form-note">MAKE SURE THE PRICE = TO THE ORDER YOU MADE</div>
                 </div>
                 
                 <button type="button" class="btn" onclick="showPaymentOptions()"><i class="fas fa-arrow-right"></i> Continue to Payment</button>
