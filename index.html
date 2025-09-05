@@ -2596,14 +2596,88 @@
             
             <div class="product-grid" id="bloxfruits-products" style="display: none;">
                 <div class="product-card">
-                    <div class="product-image">
-                        <i class="fas fa-apple-alt"></i>
+                    <div class="product-image" style="background-image: url('https://i.imgur.com/1A2b3C4.png'); background-size: cover; background-position: center;">
+                        <div class="product-badge">Popular</div>
                     </div>
                     <div class="product-content">
-                        <h3 class="product-title">Coming Soon</h3>
-                        <p class="product-desc">Blox Fruits items will be available soon. Stay tuned!</p>
+                        <h3 class="product-title">2x Mastery</h3>
+                        <p class="product-desc">Double mastery gain in Blox Fruits</p>
+                        <div class="product-price">155</div>
+                        <div class="product-tax-note">WE DO NOT COVER ROBLOX FEES</div>
                         <div class="product-actions">
-                            <button class="btn-product btn-buy" disabled><i class="fas fa-clock"></i> Coming Soon</button>
+                            <button class="btn-product btn-buy" onclick="openOrderModal('2x Mastery', 155, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://i.imgur.com/5E6f7G8.png'); background-size: cover; background-position: center;">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">2x Money</h3>
+                        <p class="product-desc">Double money gain in Blox Fruits</p>
+                        <div class="product-price">155</div>
+                        <div class="product-tax-note">WE DO NOT COVER ROBLOX FEES</div>
+                        <div class="product-actions">
+                            <button class="btn-product btn-buy" onclick="openOrderModal('2x Money', 155, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://i.imgur.com/9H0i1J2.png'); background-size: cover; background-position: center;">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Fast Boats</h3>
+                        <p class="product-desc">Get fast boats for quick travel</p>
+                        <div class="product-price">120</div>
+                        <div class="product-tax-note">WE DO NOT COVER ROBLOX FEES</div>
+                        <div class="product-actions">
+                            <button class="btn-product btn-buy" onclick="openOrderModal('Fast Boats', 120, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://i.imgur.com/K3L4M5N.png'); background-size: cover; background-position: center;">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">2x Boss Drops</h3>
+                        <p class="product-desc">Double drops from bosses</p>
+                        <div class="product-price">120</div>
+                        <div class="product-tax-note">WE DO NOT COVER ROBLOX FEES</div>
+                        <div class="product-actions">
+                            <button class="btn-product btn-buy" onclick="openOrderModal('2x Boss Drops', 120, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://i.imgur.com/O6P7Q8R.png'); background-size: cover; background-position: center;">
+                        <div class="product-badge">Popular</div>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Dark Blade</h3>
+                        <p class="product-desc">Powerful Dark Blade weapon</p>
+                        <div class="product-price">410</div>
+                        <div class="product-tax-note">WE DO NOT COVER ROBLOX FEES</div>
+                        <div class="product-actions">
+                            <button class="btn-product btn-buy" onclick="openOrderModal('Dark Blade', 410, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://i.imgur.com/S9T0U1V.png'); background-size: cover; background-position: center;">
+                        <div class="product-badge">Premium</div>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Fruit Notifier</h3>
+                        <p class="product-desc">Get notified when fruits spawn</p>
+                        <div class="product-price">940</div>
+                        <div class="product-tax-note">WE DO NOT COVER ROBLOX FEES</div>
+                        <div class="product-actions">
+                            <button class="btn-product btn-buy" onclick="openOrderModal('Fruit Notifier', 940, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                         </div>
                     </div>
                 </div>
@@ -3782,6 +3856,12 @@
                 return;
             }
             
+            // Show loading state
+            orderList.innerHTML = `
+                <div class="spinner"></div>
+                <p style="text-align: center; margin-top: 20px;">Loading your orders...</p>
+            `;
+            
             // Get orders from Firestore
             db.collection('orders')
                 .where('userId', '==', currentUser.uid)
@@ -3802,11 +3882,14 @@
                     // Display orders
                     orderList.innerHTML = snapshot.docs.map(doc => {
                         const order = doc.data();
+                        const orderDate = order.createdAt ? new Date(order.createdAt.toDate()).toLocaleDateString() : 'N/A';
+                        const orderTime = order.createdAt ? new Date(order.createdAt.toDate()).toLocaleTimeString() : '';
+                        
                         return `
                             <div class="order-item">
                                 <div class="order-header">
                                     <div class="order-id">${doc.id}</div>
-                                    <div class="order-date">${order.createdAt ? new Date(order.createdAt.toDate()).toLocaleDateString() : 'N/A'}</div>
+                                    <div class="order-date">${orderDate} ${orderTime}</div>
                                     <div class="order-status ${order.status === 'completed' ? 'status-completed' : 'status-pending'}">
                                         ${order.status === 'completed' ? 'Completed' : 'Pending'}
                                     </div>
@@ -3839,7 +3922,7 @@
                         <div class="empty-orders">
                             <i class="fas fa-exclamation-triangle"></i>
                             <h3>Error loading orders</h3>
-                            <p>Please try again later.</p>
+                            <p>${error.message}</p>
                         </div>
                     `;
                 });
@@ -3886,6 +3969,12 @@
                 return;
             }
             
+            // Show loading state
+            const saveButton = document.querySelector('.btn-save');
+            const originalText = saveButton.textContent;
+            saveButton.textContent = 'Saving...';
+            saveButton.disabled = true;
+            
             // Update user in Firestore
             db.collection('users').doc(currentUser.uid).update({
                 name: name,
@@ -3907,11 +3996,19 @@
                 // Update UI
                 updateUserMenu();
                 
+                // Close settings modal
+                closeUserSettings();
+                
                 showNotification('Profile updated successfully', 'success');
             })
             .catch(error => {
                 console.error('Error updating profile:', error);
                 showNotification('Error updating profile: ' + error.message, 'error');
+            })
+            .finally(() => {
+                // Reset button state
+                saveButton.textContent = originalText;
+                saveButton.disabled = false;
             });
         }
         
@@ -4161,10 +4258,23 @@
         function loadUsersTable() {
             if (!currentUser || !currentUser.isAdmin) {
                 console.log('Access denied: User is not an admin');
+                document.getElementById('usersList').innerHTML = `
+                    <div class="empty-orders">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>Access Denied</h3>
+                        <p>You don't have permission to view this page.</p>
+                    </div>
+                `;
                 return;
             }
             
             const usersList = document.getElementById('usersList');
+            
+            // Show loading state
+            usersList.innerHTML = `
+                <div class="spinner"></div>
+                <p style="text-align: center; margin-top: 20px;">Loading users...</p>
+            `;
             
             db.collection('users').get()
                 .then(snapshot => {
@@ -4221,7 +4331,7 @@
                         <div class="empty-orders">
                             <i class="fas fa-exclamation-triangle"></i>
                             <h3>Error loading users</h3>
-                            <p>Please try again later.</p>
+                            <p>${error.message}</p>
                         </div>
                     `;
                 });
@@ -4230,10 +4340,27 @@
         function loadOrdersTable() {
             if (!currentUser || !currentUser.isAdmin) {
                 console.log('Access denied: User is not an admin');
+                document.getElementById('ordersTableBody').innerHTML = `
+                    <tr>
+                        <td colspan="8" style="text-align: center; padding: 30px; color: var(--gray);">
+                            Access Denied
+                        </td>
+                    </tr>
+                `;
                 return;
             }
             
             const ordersTableBody = document.getElementById('ordersTableBody');
+            
+            // Show loading state
+            ordersTableBody.innerHTML = `
+                <tr>
+                    <td colspan="8" style="text-align: center; padding: 30px;">
+                        <div class="spinner"></div>
+                        <p style="margin-top: 10px;">Loading orders...</p>
+                    </td>
+                </tr>
+            `;
             
             db.collection('orders')
                 .orderBy('createdAt', 'desc')
@@ -4252,6 +4379,9 @@
                     
                     ordersTableBody.innerHTML = snapshot.docs.map(doc => {
                         const order = doc.data();
+                        const orderDate = order.createdAt ? new Date(order.createdAt.toDate()).toLocaleDateString() : 'N/A';
+                        const orderTime = order.createdAt ? new Date(order.createdAt.toDate()).toLocaleTimeString() : '';
+                        
                         return `
                             <tr>
                                 <td>${doc.id}</td>
@@ -4259,7 +4389,7 @@
                                 <td>${order.product}</td>
                                 <td>${order.price} EGP</td>
                                 <td>${order.paymentMethod === 'instapay' ? 'InstaPay' : 'Vodafone Cash'}</td>
-                                <td>${order.createdAt ? new Date(order.createdAt.toDate()).toLocaleDateString() : 'N/A'}</td>
+                                <td>${orderDate} ${orderTime}</td>
                                 <td>
                                     <span class="order-status ${order.status === 'completed' ? 'status-completed' : 'status-pending'}">
                                         ${order.status === 'completed' ? 'Completed' : 'Pending'}
@@ -4289,7 +4419,7 @@
                     ordersTableBody.innerHTML = `
                         <tr>
                             <td colspan="8" style="text-align: center; padding: 30px; color: var(--gray);">
-                                Error loading orders
+                                Error loading orders: ${error.message}
                             </td>
                         </tr>
                     `;
@@ -4336,6 +4466,9 @@
                             return '';
                         }
                         
+                        const orderDate = order.createdAt ? new Date(order.createdAt.toDate()).toLocaleDateString() : 'N/A';
+                        const orderTime = order.createdAt ? new Date(order.createdAt.toDate()).toLocaleTimeString() : '';
+                        
                         return `
                             <tr>
                                 <td>${doc.id}</td>
@@ -4343,7 +4476,7 @@
                                 <td>${order.product}</td>
                                 <td>${order.price} EGP</td>
                                 <td>${order.paymentMethod === 'instapay' ? 'InstaPay' : 'Vodafone Cash'}</td>
-                                <td>${order.createdAt ? new Date(order.createdAt.toDate()).toLocaleDateString() : 'N/A'}</td>
+                                <td>${orderDate} ${orderTime}</td>
                                 <td>
                                     <span class="order-status ${order.status === 'completed' ? 'status-completed' : 'status-pending'}">
                                         ${order.status === 'completed' ? 'Completed' : 'Pending'}
@@ -4373,7 +4506,7 @@
                     ordersTableBody.innerHTML = `
                         <tr>
                             <td colspan="8" style="text-align: center; padding: 30px; color: var(--gray);">
-                                Error loading orders
+                                Error loading orders: ${error.message}
                             </td>
                         </tr>
                     `;
@@ -4444,12 +4577,15 @@
                     
                     userOrdersTable.innerHTML = snapshot.docs.map(doc => {
                         const order = doc.data();
+                        const orderDate = order.createdAt ? new Date(order.createdAt.toDate()).toLocaleDateString() : 'N/A';
+                        const orderTime = order.createdAt ? new Date(order.createdAt.toDate()).toLocaleTimeString() : '';
+                        
                         return `
                             <tr>
                                 <td>${doc.id}</td>
                                 <td>${order.product}</td>
                                 <td>${order.price} EGP</td>
-                                <td>${order.createdAt ? new Date(order.createdAt.toDate()).toLocaleDateString() : 'N/A'}</td>
+                                <td>${orderDate} ${orderTime}</td>
                                 <td>
                                     <span class="order-status ${order.status === 'completed' ? 'status-completed' : 'status-pending'}">
                                         ${order.status === 'completed' ? 'Completed' : 'Pending'}
@@ -4464,7 +4600,7 @@
                     document.getElementById('userOrdersTable').innerHTML = `
                         <tr>
                             <td colspan="5" style="text-align: center; padding: 30px; color: var(--gray);">
-                                Error loading orders
+                                Error loading orders: ${error.message}
                             </td>
                         </tr>
                     `;
