@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* All existing CSS styles remain the same */
         * {
             margin: 0;
             padding: 0;
@@ -2496,7 +2497,7 @@
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#products">Products</a></li>
-                        <li><a href="#order-history">Order History</a></li>
+                        <li><a href="#order-history" onclick="loadOrderHistory()">Order History</a></li>
                         <li><a href="#how-it-works">How It Works</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
@@ -3190,17 +3191,19 @@
             // Load webhook settings
             loadWebhookSettings();
         });
+        
         // Check authentication state
         function checkAuthState() {
             auth.onAuthStateChanged(user => {
                 if (user) {
-                    currentUser = user;
                     // Get additional user data from Firestore
                     db.collection('users').doc(user.uid).get()
                         .then(doc => {
                             if (doc.exists) {
                                 const userData = doc.data();
                                 currentUser = { ...user, ...userData };
+                            } else {
+                                currentUser = user;
                             }
                             // Check if user is admin
                             checkAdminStatus(user);
@@ -3209,6 +3212,7 @@
                         })
                         .catch(error => {
                             console.error('Error getting user data:', error);
+                            currentUser = user;
                             updateUserMenu();
                             loadOrderHistory();
                         });
@@ -3222,6 +3226,8 @@
         
         // Check if user is admin
         function checkAdminStatus(user) {
+            if (!user) return;
+            
             db.collection('admins').doc(user.email).get()
                 .then(doc => {
                     const isAdmin = doc.exists;
@@ -3729,7 +3735,7 @@
                     // Add the ID to the order object for webhook and confirmation
                     order.id = docRef.id;
                     
-                    // Send Discord webhook notification if configured
+                    // Send Discord webhook notification
                     sendDiscordWebhook(order);
                     
                     // Update UI
@@ -3887,7 +3893,13 @@
                 phone: phone
             })
             .then(() => {
-                // Update current user object
+                // Update Firebase Auth user profile (display name)
+                return currentUser.updateProfile({
+                    displayName: name
+                });
+            })
+            .then(() => {
+                // Update the local currentUser object
                 currentUser.name = name;
                 currentUser.email = email;
                 currentUser.phone = phone;
@@ -4031,7 +4043,7 @@
                 console.log('Access denied: User is not an admin');
                 return;
             }
-
+            
             // Get data from Firestore
             Promise.all([
                 db.collection('users').get(),
@@ -4041,7 +4053,7 @@
                 const orders = ordersSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
                 
                 // Calculate stats
-                const totalRevenue = orders.reduce((sum, order) => sum + parseInt(order.price), 0);
+                const totalRevenue = orders.reduce((sum, order) => sum + parseInt(order.price || 0), 0);
                 const pendingOrders = orders.filter(order => order.status === 'pending').length;
                 
                 // Update stats
@@ -4051,7 +4063,7 @@
                 document.getElementById('pendingOrders').textContent = pendingOrders;
             }).catch(error => {
                 console.error('Error loading admin data:', error);
-                showNotification('Error loading admin data', 'error');
+                showNotification('Error loading admin data: ' + error.message, 'error');
             });
         }
         
@@ -4151,7 +4163,7 @@
                 console.log('Access denied: User is not an admin');
                 return;
             }
-
+            
             const usersList = document.getElementById('usersList');
             
             db.collection('users').get()
@@ -4220,7 +4232,7 @@
                 console.log('Access denied: User is not an admin');
                 return;
             }
-
+            
             const ordersTableBody = document.getElementById('ordersTableBody');
             
             db.collection('orders')
@@ -4292,7 +4304,7 @@
                 console.log('Access denied: User is not an admin');
                 return;
             }
-
+            
             const ordersTableBody = document.getElementById('ordersTableBody');
             
             let query = db.collection('orders').orderBy('createdAt', 'desc');
@@ -4608,12 +4620,16 @@
         
         // Webhook Functions
         function loadWebhookSettings() {
-            const webhookUrl = localStorage.getItem('egyptGameStoreWebhookUrl');
+            let webhookUrl = localStorage.getItem('egyptGameStoreWebhookUrl');
             
-            if (webhookUrl) {
-                document.getElementById('webhookUrl').value = webhookUrl;
-                document.getElementById('webhookStatus').textContent = 'Webhook configured';
+            if (!webhookUrl) {
+                // Set the default webhook URL
+                webhookUrl = "https://discord.com/api/webhooks/1412244202024075485/kXO3zpjgJBaz4sXzqKN_pue4BAiyumGJPMuz-Ra2S4m-f79D5VPS5ytggnIv3iI4mA68";
+                localStorage.setItem('egyptGameStoreWebhookUrl', webhookUrl);
             }
+            
+            document.getElementById('webhookUrl').value = webhookUrl;
+            document.getElementById('webhookStatus').textContent = 'Webhook configured';
         }
         
         function saveWebhookSettings() {
@@ -4632,45 +4648,48 @@
         
         function sendDiscordWebhook(order) {
             const webhookUrl = localStorage.getItem('egyptGameStoreWebhookUrl');
-            
             if (webhookUrl) {
-                // Create webhook payload
-                const payload = {
-                    embeds: [{
-                        title: 'New Order Received',
-                        color: 0x4285f4,
-                        fields: [
-                            { name: 'Order ID', value: order.id, inline: true },
-                            { name: 'Product', value: order.product, inline: true },
-                            { name: 'Price', value: `${order.price} EGP`, inline: true },
-                            { name: 'Customer', value: order.username, inline: true },
-                            { name: 'Email', value: order.email, inline: true },
-                            { name: 'Payment Method', value: order.paymentMethod === 'instapay' ? 'InstaPay' : 'Vodafone Cash', inline: true },
-                            { name: 'Status', value: order.status, inline: true }
-                        ],
-                        timestamp: new Date().toISOString()
-                    }]
-                };
-                
-                // Send webhook
-                fetch(webhookUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(payload)
-                })
-                .then(response => {
-                    if (response.ok) {
-                        console.log('Webhook sent successfully');
-                    } else {
-                        console.error('Failed to send webhook');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error sending webhook:', error);
-                });
+                sendToWebhook(webhookUrl, order);
             }
+        }
+        
+        function sendToWebhook(webhookUrl, order) {
+            // Create webhook payload
+            const payload = {
+                embeds: [{
+                    title: 'New Order Received',
+                    color: 0x4285f4,
+                    fields: [
+                        { name: 'Order ID', value: order.id, inline: true },
+                        { name: 'Product', value: order.product, inline: true },
+                        { name: 'Price', value: `${order.price} EGP`, inline: true },
+                        { name: 'Customer', value: order.username, inline: true },
+                        { name: 'Email', value: order.email, inline: true },
+                        { name: 'Payment Method', value: order.paymentMethod === 'instapay' ? 'InstaPay' : 'Vodafone Cash', inline: true },
+                        { name: 'Status', value: order.status, inline: true }
+                    ],
+                    timestamp: new Date().toISOString()
+                }]
+            };
+            
+            // Send webhook
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Webhook sent successfully');
+                } else {
+                    console.error('Failed to send webhook');
+                }
+            })
+            .catch(error => {
+                console.error('Error sending webhook:', error);
+            });
         }
         
         function testWebhook() {
