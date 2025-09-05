@@ -750,6 +750,14 @@
             font-weight: 500;
         }
         
+        .product-tax-note {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-top: -10px;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
         .product-actions {
             display: flex;
             gap: 12px;
@@ -1254,6 +1262,14 @@
             color: var(--primary) !important;
             font-weight: 600 !important;
             font-size: 1.1rem !important;
+        }
+        
+        .order-tax-note {
+            font-size: 0.8rem;
+            color: var(--gray);
+            font-style: italic;
+            text-align: right;
+            margin-top: 5px;
         }
         
         .order-total {
@@ -2268,7 +2284,7 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            display: flex;
+            display: none;
             align-items: center;
             justify-content: center;
             font-size: 24px;
@@ -2276,6 +2292,10 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
             transition: all 0.3s ease;
             z-index: 999;
+        }
+        
+        .admin-access.active {
+            display: flex;
         }
         
         .admin-access:hover {
@@ -2513,6 +2533,7 @@
                         <h3 class="product-title">500 Robux</h3>
                         <p class="product-desc">Instant delivery to your Roblox account.</p>
                         <div class="product-price">170</div>
+                        <div class="product-tax-note">NOT INCLUDED TAX</div>
                         <div class="product-actions">
                             <button class="btn-product btn-buy" onclick="openOrderModal('500 Robux', 170, 'Robux')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                         </div>
@@ -2527,6 +2548,7 @@
                         <h3 class="product-title">1,000 Robux</h3>
                         <p class="product-desc">Instant delivery to your Roblox account.</p>
                         <div class="product-price">320</div>
+                        <div class="product-tax-note">NOT INCLUDED TAX</div>
                         <div class="product-actions">
                             <button class="btn-product btn-buy" onclick="openOrderModal('1000 Robux', 320, 'Robux')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                         </div>
@@ -2541,6 +2563,7 @@
                         <h3 class="product-title">2,000 Robux</h3>
                         <p class="product-desc">Instant delivery to your Roblox account.</p>
                         <div class="product-price">600</div>
+                        <div class="product-tax-note">NOT INCLUDED TAX</div>
                         <div class="product-actions">
                             <button class="btn-product btn-buy" onclick="openOrderModal('2000 Robux', 600, 'Robux')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                         </div>
@@ -2556,6 +2579,7 @@
                         <h3 class="product-title">5,000 Robux</h3>
                         <p class="product-desc">Instant delivery to your Roblox account.</p>
                         <div class="product-price">1400</div>
+                        <div class="product-tax-note">NOT INCLUDED TAX</div>
                         <div class="product-actions">
                             <button class="btn-product btn-buy" onclick="openOrderModal('5000 Robux', 1400, 'Robux')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                         </div>
@@ -2717,6 +2741,7 @@
                     <span id="modal-item-name" class="order-item-name">Product Name</span>
                     <span id="modal-item-price" class="order-item-price">0 EGP</span>
                 </div>
+                <div class="order-tax-note">NOT INCLUDED TAX</div>
                 <div class="order-total">
                     <span>Total:</span>
                     <span id="modal-total-price">0 EGP</span>
@@ -2899,7 +2924,6 @@
                 <div class="admin-tab" onclick="switchAdminTab('users')">Users</div>
                 <div class="admin-tab" onclick="switchAdminTab('orders')">Orders</div>
                 <div class="admin-tab" onclick="switchAdminTab('webhook')">Webhook</div>
-                <div class="admin-tab" onclick="switchAdminTab('data')">Data Management</div>
             </div>
             
             <div id="dashboard-content" class="admin-content active">
@@ -2938,6 +2962,15 @@
             
             <div id="orders-content" class="admin-content">
                 <h3 style="margin-bottom: 20px; color: var(--darker);">Order Management</h3>
+                <div class="admin-controls" style="margin-bottom: 20px;">
+                    <input type="text" id="orderSearch" placeholder="Search orders..." style="padding: 10px; border: 1px solid #e2e8f0; border-radius: 8px; width: 300px;">
+                    <select id="orderFilter" style="padding: 10px; border: 1px solid #e2e8f0; border-radius: 8px; margin-left: 10px;">
+                        <option value="all">All Orders</option>
+                        <option value="pending">Pending</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                    <button class="btn btn-small" style="margin-left: 10px;" onclick="filterOrders()"><i class="fas fa-filter"></i> Filter</button>
+                </div>
                 <table class="admin-table">
                     <thead>
                         <tr>
@@ -2969,37 +3002,11 @@
                     </div>
                     <div class="webhook-status" id="webhookStatus">Webhook not configured</div>
                 </div>
-            </div>
-            
-            <div id="data-content" class="admin-content">
-                <div class="export-import-container">
-                    <h3>Data Management</h3>
-                    <p>Export your data to backup or import data from another browser/device.</p>
-                    
-                    <div class="export-import-buttons">
-                        <button class="btn" onclick="exportData()"><i class="fas fa-download"></i> Export All Data</button>
-                        
-                        <div class="file-input-container">
-                            <button class="btn btn-outline"><i class="fas fa-upload"></i> Import Data</button>
-                            <input type="file" id="importFile" accept=".json" onchange="importData(event)">
-                        </div>
-                        
-                        <button class="btn btn-delete" onclick="clearAllData()"><i class="fas fa-trash-alt"></i> Clear All Data</button>
-                    </div>
-                    
-                    <div id="dataStatus"></div>
-                </div>
                 
-                <div class="export-import-container">
-                    <h3>Sync Data</h3>
-                    <p>Use this feature to simulate sharing data across browsers. Copy the data from one browser and paste it into another.</p>
-                    
-                    <div class="export-import-buttons">
-                        <button class="btn" onclick="copyDataToClipboard()"><i class="fas fa-copy"></i> Copy Data to Clipboard</button>
-                        <button class="btn btn-outline" onclick="pasteDataFromClipboard()"><i class="fas fa-paste"></i> Paste Data from Clipboard</button>
-                    </div>
-                    
-                    <div id="syncStatus"></div>
+                <div class="webhook-settings">
+                    <h3>Test Webhook</h3>
+                    <p>Send a test notification to your Discord server to verify the webhook is working.</p>
+                    <button class="btn" onclick="testWebhook()" style="margin-top: 10px;">Send Test Notification</button>
                 </div>
             </div>
         </div>
@@ -3099,7 +3106,7 @@
     </div>
     
     <!-- Admin Access Button -->
-    <div class="admin-access" onclick="showAdminLogin()" title="Admin Access">
+    <div class="admin-access" id="adminAccess" onclick="showAdminLogin()" title="Admin Access">
         <i class="fas fa-user-shield"></i>
     </div>
     
@@ -3167,7 +3174,6 @@
         // Load user from Firebase on page load
         document.addEventListener('DOMContentLoaded', function() {
             checkAuthState();
-            addDataManagementButtons();
             
             // Check admin login status
             if (localStorage.getItem('egyptGameStoreAdminLoggedIn') === 'true') {
@@ -3189,6 +3195,8 @@
                                 const userData = doc.data();
                                 currentUser = { ...user, ...userData };
                             }
+                            // Check if user is admin
+                            checkAdminStatus(user);
                             updateUserMenu();
                             loadOrderHistory();
                         })
@@ -3203,6 +3211,35 @@
                     loadOrderHistory();
                 }
             });
+        }
+        
+        // Check if user is admin
+        function checkAdminStatus(user) {
+            db.collection('admins').doc(user.email).get()
+                .then(doc => {
+                    const isAdmin = doc.exists;
+                    currentUser.isAdmin = isAdmin;
+                    
+                    // Update admin UI
+                    updateAdminUI();
+                })
+                .catch(error => {
+                    console.error('Error checking admin status:', error);
+                    currentUser.isAdmin = false;
+                    updateAdminUI();
+                });
+        }
+        
+        // Update admin UI
+        function updateAdminUI() {
+            const adminAccessBtn = document.getElementById('adminAccess');
+            if (adminAccessBtn) {
+                if (currentUser && currentUser.isAdmin) {
+                    adminAccessBtn.classList.add('active');
+                } else {
+                    adminAccessBtn.classList.remove('active');
+                }
+            }
         }
         
         // Category tabs functionality
@@ -3368,10 +3405,12 @@
             if (currentUser) {
                 // User is logged in
                 const initials = currentUser.name ? currentUser.name.split(' ').map(n => n[0]).join('').toUpperCase() : 'U';
+                const adminBadge = currentUser.isAdmin ? '<span style="background: var(--accent); color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.7rem; margin-left: 5px;">ADMIN</span>' : '';
+                
                 userMenu.innerHTML = `
                     <div class="user-info">
                         <div class="user-avatar">${initials}</div>
-                        <span>${currentUser.name || currentUser.email}</span>
+                        <span>${currentUser.name || currentUser.email}${adminBadge}</span>
                     </div>
                     <button class="btn btn-outline btn-small" onclick="openUserSettings()">
                         <i class="fas fa-cog"></i> Settings
@@ -3624,7 +3663,25 @@
         }
         
         function submitOrder() {
+            console.log("=== SUBMIT ORDER DEBUG ===");
+            console.log("currentUser:", currentUser);
+            console.log("currentUser.uid:", currentUser ? currentUser.uid : "NO USER");
+            
+            // Check if user is authenticated
+            if (!currentUser) {
+                console.log("ERROR: No current user");
+                showNotification('Please login to place an order', 'error');
+                return;
+            }
+            
+            if (!currentUser.uid) {
+                console.log("ERROR: User has no UID");
+                showNotification('Authentication error. Please login again.', 'error');
+                return;
+            }
+            
             if (!selectedPaymentMethod) {
+                console.log("ERROR: No payment method selected");
                 showNotification('Please select a payment method', 'error');
                 return;
             }
@@ -3634,69 +3691,68 @@
             const phone = document.getElementById('phone').value;
             const gamepassLink = document.getElementById('gamepassLinkInput').value;
             
+            console.log("Form data:", { username, email, phone, gamepassLink });
+            
             // Show spinner
             document.getElementById('submitSpinner').style.display = 'block';
             document.getElementById('submitOrderBtn').disabled = true;
             
-            // Simulate order processing
-            setTimeout(() => {
-                // Create order object
-                const order = {
-                    id: 'EGS-' + Date.now(),
-                    product: currentItem.name,
-                    price: currentItem.price,
-                    category: currentItem.category,
-                    username,
-                    email,
-                    phone,
-                    gamepassLink,
-                    paymentMethod: selectedPaymentMethod,
-                    status: 'pending',
-                    createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-                    userId: currentUser.uid
-                };
-                
-                // Add order to Firestore
-                db.collection('orders').add(order)
-                    .then(docRef => {
-                        // Update order with Firestore ID
-                        return db.collection('orders').doc(docRef.id).update({
-                            id: docRef.id
-                        });
-                    })
-                    .then(() => {
-                        // Send Discord webhook notification if configured
-                        sendDiscordWebhook(order);
-                        
-                        // Update UI
-                        document.getElementById('submitSpinner').style.display = 'none';
-                        document.getElementById('submitOrderBtn').disabled = false;
-                        
-                        // Show confirmation
-                        document.getElementById('paymentSection').style.display = 'none';
-                        document.getElementById('orderConfirmation').style.display = 'block';
-                        
-                        // Update confirmation details
-                        document.getElementById('conf-product').textContent = currentItem.name;
-                        document.getElementById('conf-price').textContent = currentItem.price + ' EGP';
-                        document.getElementById('conf-username').textContent = username;
-                        document.getElementById('conf-email').textContent = email;
-                        document.getElementById('conf-phone').textContent = phone;
-                        document.getElementById('conf-gamepass').textContent = gamepassLink;
-                        
-                        // Load updated order history
-                        loadOrderHistory();
-                        
-                        // Show notification
-                        showNotification('Order placed successfully!', 'success');
-                    })
-                    .catch(error => {
-                        console.error('Error submitting order:', error);
-                        document.getElementById('submitSpinner').style.display = 'none';
-                        document.getElementById('submitOrderBtn').disabled = false;
-                        showNotification('Error placing order: ' + error.message, 'error');
-                    });
-            }, 1500);
+            // Create order object
+            const order = {
+                product: currentItem.name,
+                price: currentItem.price,
+                category: currentItem.category,
+                username,
+                email,
+                phone,
+                gamepassLink,
+                paymentMethod: selectedPaymentMethod,
+                status: 'pending',
+                createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                userId: currentUser.uid
+            };
+            
+            console.log("Order object to save:", order);
+            
+            // Add order to Firestore
+            db.collection('orders').add(order)
+                .then(docRef => {
+                    console.log("SUCCESS: Order created with ID:", docRef.id);
+                    
+                    // Add the ID to the order object for webhook and confirmation
+                    order.id = docRef.id;
+                    
+                    // Send Discord webhook notification if configured
+                    sendDiscordWebhook(order);
+                    
+                    // Update UI
+                    document.getElementById('submitSpinner').style.display = 'none';
+                    document.getElementById('submitOrderBtn').disabled = false;
+                    
+                    // Show confirmation
+                    document.getElementById('paymentSection').style.display = 'none';
+                    document.getElementById('orderConfirmation').style.display = 'block';
+                    
+                    // Update confirmation details
+                    document.getElementById('conf-product').textContent = currentItem.name;
+                    document.getElementById('conf-price').textContent = currentItem.price + ' EGP';
+                    document.getElementById('conf-username').textContent = username;
+                    document.getElementById('conf-email').textContent = email;
+                    document.getElementById('conf-phone').textContent = phone;
+                    document.getElementById('conf-gamepass').textContent = gamepassLink;
+                    
+                    // Load updated order history
+                    loadOrderHistory();
+                    
+                    // Show notification
+                    showNotification('Order placed successfully!', 'success');
+                })
+                .catch(error => {
+                    console.error("ERROR: Submitting order:", error);
+                    document.getElementById('submitSpinner').style.display = 'none';
+                    document.getElementById('submitOrderBtn').disabled = false;
+                    showNotification('Error placing order: ' + error.message, 'error');
+                });
         }
         
         function loadOrderHistory() {
@@ -3736,7 +3792,7 @@
                         return `
                             <div class="order-item">
                                 <div class="order-header">
-                                    <div class="order-id">${order.id}</div>
+                                    <div class="order-id">${doc.id}</div>
                                     <div class="order-date">${order.createdAt ? new Date(order.createdAt.toDate()).toLocaleDateString() : 'N/A'}</div>
                                     <div class="order-status ${order.status === 'completed' ? 'status-completed' : 'status-pending'}">
                                         ${order.status === 'completed' ? 'Completed' : 'Pending'}
@@ -3883,14 +3939,14 @@
                 });
         }
         
-        function addDataManagementButtons() {
-            // This function is for future data management features
-            console.log('Data management buttons would be added here');
-        }
-        
         // Admin Panel Functions
         function showAdminLogin() {
-            document.getElementById('adminLogin').classList.add('active');
+            if (currentUser && currentUser.isAdmin) {
+                document.getElementById('adminPanel').classList.add('active');
+                loadAdminData();
+            } else {
+                showNotification('You are not authorized to access the admin panel', 'error');
+            }
         }
         
         function closeAdminLogin() {
@@ -3935,7 +3991,6 @@
             const usersContent = document.getElementById('users-content');
             const ordersContent = document.getElementById('orders-content');
             const webhookContent = document.getElementById('webhook-content');
-            const dataContent = document.getElementById('data-content');
             const adminTabs = document.querySelectorAll('.admin-tab');
             
             adminTabs.forEach(t => t.classList.remove('active'));
@@ -3945,7 +4000,6 @@
             usersContent.classList.remove('active');
             ordersContent.classList.remove('active');
             webhookContent.classList.remove('active');
-            dataContent.classList.remove('active');
             
             // Show selected content
             if (tab === 'dashboard') {
@@ -3962,13 +4016,15 @@
             } else if (tab === 'webhook') {
                 adminTabs[3].classList.add('active');
                 webhookContent.classList.add('active');
-            } else if (tab === 'data') {
-                adminTabs[4].classList.add('active');
-                dataContent.classList.add('active');
             }
         }
         
         function loadAdminData() {
+            if (!currentUser || !currentUser.isAdmin) {
+                console.log('Access denied: User is not an admin');
+                return;
+            }
+
             // Get data from Firestore
             Promise.all([
                 db.collection('users').get(),
@@ -4084,6 +4140,11 @@
         }
         
         function loadUsersTable() {
+            if (!currentUser || !currentUser.isAdmin) {
+                console.log('Access denied: User is not an admin');
+                return;
+            }
+
             const usersList = document.getElementById('usersList');
             
             db.collection('users').get()
@@ -4148,6 +4209,11 @@
         }
         
         function loadOrdersTable() {
+            if (!currentUser || !currentUser.isAdmin) {
+                console.log('Access denied: User is not an admin');
+                return;
+            }
+
             const ordersTableBody = document.getElementById('ordersTableBody');
             
             db.collection('orders')
@@ -4166,10 +4232,10 @@
                     }
                     
                     ordersTableBody.innerHTML = snapshot.docs.map(doc => {
-                        const order = { id: doc.id, ...doc.data() };
+                        const order = doc.data();
                         return `
                             <tr>
-                                <td>${order.id}</td>
+                                <td>${doc.id}</td>
                                 <td>${order.username}</td>
                                 <td>${order.product}</td>
                                 <td>${order.price} EGP</td>
@@ -4182,15 +4248,99 @@
                                 </td>
                                 <td>
                                     <div class="admin-actions">
-                                        <button class="btn-small btn-view" onclick="viewOrder('${order.id}')">
+                                        <button class="btn-small btn-view" onclick="viewOrder('${doc.id}')">
                                             <i class="fas fa-eye"></i> View
                                         </button>
                                         ${order.status === 'pending' ? `
-                                            <button class="btn-small btn-complete" onclick="completeOrder('${order.id}')">
+                                            <button class="btn-small btn-complete" onclick="completeOrder('${doc.id}')">
                                                 <i class="fas fa-check"></i> Complete
                                             </button>
                                         ` : ''}
-                                        <button class="btn-small btn-delete" onclick="deleteOrder('${order.id}')">
+                                        <button class="btn-small btn-delete" onclick="deleteOrder('${doc.id}')">
+                                            <i class="fas fa-trash"></i> Delete
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        `;
+                    }).join('');
+                })
+                .catch(error => {
+                    console.error('Error loading orders:', error);
+                    ordersTableBody.innerHTML = `
+                        <tr>
+                            <td colspan="8" style="text-align: center; padding: 30px; color: var(--gray);">
+                                Error loading orders
+                            </td>
+                        </tr>
+                    `;
+                });
+        }
+        
+        function filterOrders() {
+            const searchTerm = document.getElementById('orderSearch').value.toLowerCase();
+            const filterStatus = document.getElementById('orderFilter').value;
+            
+            if (!currentUser || !currentUser.isAdmin) {
+                console.log('Access denied: User is not an admin');
+                return;
+            }
+
+            const ordersTableBody = document.getElementById('ordersTableBody');
+            
+            let query = db.collection('orders').orderBy('createdAt', 'desc');
+            
+            if (filterStatus !== 'all') {
+                query = query.where('status', '==', filterStatus);
+            }
+            
+            query.get()
+                .then(snapshot => {
+                    if (snapshot.empty) {
+                        ordersTableBody.innerHTML = `
+                            <tr>
+                                <td colspan="8" style="text-align: center; padding: 30px; color: var(--gray);">
+                                    No orders found
+                                </td>
+                            </tr>
+                        `;
+                        return;
+                    }
+                    
+                    ordersTableBody.innerHTML = snapshot.docs.map(doc => {
+                        const order = doc.data();
+                        
+                        // Apply search filter
+                        if (searchTerm && !order.username.toLowerCase().includes(searchTerm) && 
+                            !order.product.toLowerCase().includes(searchTerm) &&
+                            !order.email.toLowerCase().includes(searchTerm)) {
+                            return '';
+                        }
+                        
+                        return `
+                            <tr>
+                                <td>${doc.id}</td>
+                                <td>${order.username}</td>
+                                <td>${order.product}</td>
+                                <td>${order.price} EGP</td>
+                                <td>${order.paymentMethod === 'instapay' ? 'InstaPay' : 'Vodafone Cash'}</td>
+                                <td>${order.createdAt ? new Date(order.createdAt.toDate()).toLocaleDateString() : 'N/A'}</td>
+                                <td>
+                                    <span class="order-status ${order.status === 'completed' ? 'status-completed' : 'status-pending'}">
+                                        ${order.status === 'completed' ? 'Completed' : 'Pending'}
+                                    </span>
+                                </td>
+                                <td>
+                                    <div class="admin-actions">
+                                        <button class="btn-small btn-view" onclick="viewOrder('${doc.id}')">
+                                            <i class="fas fa-eye"></i> View
+                                        </button>
+                                        ${order.status === 'pending' ? `
+                                            <button class="btn-small btn-complete" onclick="completeOrder('${doc.id}')">
+                                                <i class="fas fa-check"></i> Complete
+                                            </button>
+                                        ` : ''}
+                                        <button class="btn-small btn-delete" onclick="deleteOrder('${doc.id}')">
                                             <i class="fas fa-trash"></i> Delete
                                         </button>
                                     </div>
@@ -4274,10 +4424,10 @@
                     }
                     
                     userOrdersTable.innerHTML = snapshot.docs.map(doc => {
-                        const order = { id: doc.id, ...doc.data() };
+                        const order = doc.data();
                         return `
                             <tr>
-                                <td>${order.id}</td>
+                                <td>${doc.id}</td>
                                 <td>${order.product}</td>
                                 <td>${order.price} EGP</td>
                                 <td>${order.createdAt ? new Date(order.createdAt.toDate()).toLocaleDateString() : 'N/A'}</td>
@@ -4449,227 +4599,6 @@
             }
         }
         
-        // Data Management Functions
-        function exportData() {
-            Promise.all([
-                db.collection('users').get(),
-                db.collection('orders').get()
-            ]).then(([usersSnapshot, ordersSnapshot]) => {
-                const users = usersSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                const orders = ordersSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                
-                const data = {
-                    users,
-                    orders,
-                    webhookUrl: localStorage.getItem('egyptGameStoreWebhookUrl') || '',
-                    exportDate: new Date().toISOString()
-                };
-                
-                const dataStr = JSON.stringify(data, null, 2);
-                const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
-                
-                const exportFileDefaultName = 'egyptgamestore_data_' + new Date().toISOString().slice(0,10) + '.json';
-                
-                const linkElement = document.createElement('a');
-                linkElement.setAttribute('href', dataUri);
-                linkElement.setAttribute('download', exportFileDefaultName);
-                linkElement.click();
-                
-                showDataStatus('Data exported successfully!', 'success');
-            }).catch(error => {
-                console.error('Error exporting data:', error);
-                showDataStatus('Error exporting data', 'error');
-            });
-        }
-        
-        function importData(event) {
-            const file = event.target.files[0];
-            if (!file) return;
-            
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                try {
-                    const data = JSON.parse(e.target.result);
-                    
-                    // Import users
-                    if (data.users && Array.isArray(data.users)) {
-                        const batch = db.batch();
-                        data.users.forEach(user => {
-                            const userRef = db.collection('users').doc(user.id);
-                            batch.set(userRef, user);
-                        });
-                        batch.commit();
-                    }
-                    
-                    // Import orders
-                    if (data.orders && Array.isArray(data.orders)) {
-                        const batch = db.batch();
-                        data.orders.forEach(order => {
-                            const orderRef = db.collection('orders').doc(order.id);
-                            batch.set(orderRef, order);
-                        });
-                        batch.commit();
-                    }
-                    
-                    if (data.webhookUrl) {
-                        localStorage.setItem('egyptGameStoreWebhookUrl', data.webhookUrl);
-                    }
-                    
-                    // Reload data
-                    loadAdminData();
-                    loadUsersTable();
-                    loadOrdersTable();
-                    loadWebhookSettings();
-                    
-                    showDataStatus('Data imported successfully!', 'success');
-                } catch (error) {
-                    console.error('Error importing data:', error);
-                    showDataStatus('Error importing data: ' + error.message, 'error');
-                }
-            };
-            
-            reader.readAsText(file);
-            
-            // Reset file input
-            event.target.value = '';
-        }
-        
-        function copyDataToClipboard() {
-            Promise.all([
-                db.collection('users').get(),
-                db.collection('orders').get()
-            ]).then(([usersSnapshot, ordersSnapshot]) => {
-                const users = usersSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                const orders = ordersSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                
-                const data = {
-                    users,
-                    orders,
-                    webhookUrl: localStorage.getItem('egyptGameStoreWebhookUrl') || '',
-                    copyDate: new Date().toISOString()
-                };
-                
-                const dataStr = JSON.stringify(data);
-                
-                navigator.clipboard.writeText(dataStr).then(function() {
-                    showSyncStatus('Data copied to clipboard! Paste it in another browser to sync.', 'success');
-                }, function(err) {
-                    showSyncStatus('Error copying data: ' + err, 'error');
-                });
-            }).catch(error => {
-                console.error('Error copying data:', error);
-                showSyncStatus('Error copying data', 'error');
-            });
-        }
-        
-        function pasteDataFromClipboard() {
-            navigator.clipboard.readText().then(function(text) {
-                try {
-                    const data = JSON.parse(text);
-                    
-                    // Import users
-                    if (data.users && Array.isArray(data.users)) {
-                        const batch = db.batch();
-                        data.users.forEach(user => {
-                            const userRef = db.collection('users').doc(user.id);
-                            batch.set(userRef, user);
-                        });
-                        batch.commit();
-                    }
-                    
-                    // Import orders
-                    if (data.orders && Array.isArray(data.orders)) {
-                        const batch = db.batch();
-                        data.orders.forEach(order => {
-                            const orderRef = db.collection('orders').doc(order.id);
-                            batch.set(orderRef, order);
-                        });
-                        batch.commit();
-                    }
-                    
-                    if (data.webhookUrl) {
-                        localStorage.setItem('egyptGameStoreWebhookUrl', data.webhookUrl);
-                    }
-                    
-                    // Reload data
-                    loadAdminData();
-                    loadUsersTable();
-                    loadOrdersTable();
-                    loadWebhookSettings();
-                    
-                    showSyncStatus('Data pasted successfully! All data has been synced.', 'success');
-                } catch (error) {
-                    console.error('Error pasting data:', error);
-                    showSyncStatus('Error pasting data: ' + error.message, 'error');
-                }
-            }).catch(function(err) {
-                showSyncStatus('Error reading clipboard: ' + err, 'error');
-            });
-        }
-        
-        function clearAllData() {
-            if (confirm('Are you sure you want to clear all data? This will delete all users, orders, and settings. This action cannot be undone.')) {
-                // Clear users
-                db.collection('users').get()
-                    .then(snapshot => {
-                        const batch = db.batch();
-                        snapshot.docs.forEach(doc => {
-                            batch.delete(doc.ref);
-                        });
-                        return batch.commit();
-                    })
-                    .then(() => {
-                        // Clear orders
-                        return db.collection('orders').get();
-                    })
-                    .then(snapshot => {
-                        const batch = db.batch();
-                        snapshot.docs.forEach(doc => {
-                            batch.delete(doc.ref);
-                        });
-                        return batch.commit();
-                    })
-                    .then(() => {
-                        // Clear webhook settings
-                        localStorage.removeItem('egyptGameStoreWebhookUrl');
-                        
-                        // Reload data
-                        loadAdminData();
-                        loadUsersTable();
-                        loadOrdersTable();
-                        loadWebhookSettings();
-                        
-                        showDataStatus('All data cleared successfully!', 'success');
-                    })
-                    .catch(error => {
-                        console.error('Error clearing data:', error);
-                        showDataStatus('Error clearing data', 'error');
-                    });
-            }
-        }
-        
-        function showDataStatus(message, type) {
-            const statusElement = document.getElementById('dataStatus');
-            statusElement.className = 'data-status ' + type;
-            statusElement.textContent = message;
-            statusElement.style.display = 'block';
-            
-            setTimeout(() => {
-                statusElement.style.display = 'none';
-            }, 5000);
-        }
-        
-        function showSyncStatus(message, type) {
-            const statusElement = document.getElementById('syncStatus');
-            statusElement.className = 'data-status ' + type;
-            statusElement.textContent = message;
-            statusElement.style.display = 'block';
-            
-            setTimeout(() => {
-                statusElement.style.display = 'none';
-            }, 5000);
-        }
-        
         // Webhook Functions
         function loadWebhookSettings() {
             const webhookUrl = localStorage.getItem('egyptGameStoreWebhookUrl');
@@ -4737,6 +4666,45 @@
             }
         }
         
+        function testWebhook() {
+            const webhookUrl = localStorage.getItem('egyptGameStoreWebhookUrl');
+            
+            if (!webhookUrl) {
+                showNotification('Please configure a webhook URL first', 'error');
+                return;
+            }
+            
+            // Create test webhook payload
+            const payload = {
+                embeds: [{
+                    title: 'Test Notification',
+                    description: 'This is a test notification from EgyptGameStore',
+                    color: 0x4285f4,
+                    timestamp: new Date().toISOString()
+                }]
+            };
+            
+            // Send webhook
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(response => {
+                if (response.ok) {
+                    showNotification('Test notification sent successfully', 'success');
+                } else {
+                    showNotification('Failed to send test notification', 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Error sending test webhook:', error);
+                showNotification('Error sending test notification', 'error');
+            });
+        }
+        
         // Forgot Password Functions
         function showForgotPassword() {
             // Close auth dropdown
@@ -4778,42 +4746,3 @@
     </script>
 </body>
 </html>
-
-<!-- 
-FIREBASE CONFIGURATION FILES (Create these files in the same directory as your HTML file):
-
-1. firebase.json:
-{
-  "hosting": {
-    "site": "egyptgameshop",
-    "public": ".",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
-  }
-}
-
-2. .firebaserc:
-{
-  "projects": {
-    "default": "egyptstore-f5201"
-  }
-}
-
-DEPLOYMENT INSTRUCTIONS:
-1. Install Firebase CLI: npm install -g firebase-tools
-2. Login to Firebase: firebase login
-3. Deploy: firebase deploy
-
-Your site will be available at:
-- https://egyptgameshop.web.app
-- https://egyptgameshop.firebaseapp.com
--->
