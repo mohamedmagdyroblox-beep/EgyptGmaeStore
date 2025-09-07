@@ -2404,6 +2404,36 @@
             cursor: pointer;
         }
         
+        /* Sub-category tabs for Blox Fruits */
+        .sub-category-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 15px;
+        }
+        
+        .sub-category-tab {
+            padding: 10px 20px;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            color: var(--gray);
+        }
+        
+        .sub-category-tab.active {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border-color: transparent;
+        }
+        
+        .sub-category-tab:hover:not(.active) {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        
         /* Mobile Responsive Styles */
         @media (max-width: 768px) {
             body {
@@ -2560,6 +2590,11 @@
                 max-width: 400px;
                 margin: 0 auto;
             }
+            
+            .sub-category-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
         }
         
         /* Medium Screen Responsive Styles */
@@ -2594,8 +2629,7 @@
         }
         
         /* Fix for Blox Fruits product images */
-        #bloxfruits-products .product-image,
-        #bloxfruits-permanent-fruits .product-image {
+        #bloxfruits-products .product-image {
             height: 250px;
             background-size: contain;
             background-repeat: no-repeat;
@@ -2770,55 +2804,6 @@
         .rules-display .btn:hover {
             background: var(--secondary);
         }
-        
-        /* Blox Fruits Toggle Button */
-        .bloxfruits-toggle {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 30px;
-            gap: 15px;
-        }
-        
-        .toggle-btn {
-            padding: 12px 25px;
-            background: white;
-            border: 2px solid #e2e8f0;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            color: var(--gray);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .toggle-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 100%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            transition: width 0.3s ease;
-            z-index: -1;
-        }
-        
-        .toggle-btn.active {
-            color: white;
-            border-color: transparent;
-            box-shadow: 0 5px 15px rgba(66, 133, 244, 0.2);
-        }
-        
-        .toggle-btn.active::before {
-            width: 100%;
-        }
-        
-        .toggle-btn:hover:not(.active) {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
     </style>
 </head>
 <body>
@@ -2935,13 +2920,15 @@
                 </div>
             </div>
             
-            <div id="bloxfruits-container" style="display: none;">
-                <div class="bloxfruits-toggle">
-                    <button class="toggle-btn active" id="gamepasses-btn" onclick="showBloxfruitsGamepasses()">Gamepasses</button>
-                    <button class="toggle-btn" id="permanent-fruits-btn" onclick="showBloxfruitsPermanentFruits()">Permanent Fruit Shop</button>
+            <div class="product-grid" id="bloxfruits-products" style="display: none;">
+                <!-- Sub-category tabs for Blox Fruits -->
+                <div class="sub-category-tabs">
+                    <button class="sub-category-tab active" onclick="showBloxSubCategory('gamepasses')">Gamepasses</button>
+                    <button class="sub-category-tab" onclick="showBloxSubCategory('fruits')">Permanent Fruit Shop</button>
                 </div>
                 
-                <div class="product-grid" id="bloxfruits-products">
+                <!-- Gamepasses Grid -->
+                <div class="product-grid" id="bloxfruits-gamepasses-products">
                     <div class="product-card">
                         <div class="product-image" style="background-image: url('https://tr.rbxcdn.com/180DAY-acf0a1f1983c30f7ccded0c756845f36/150/150/Image/Webp/noFilter');">
                             <div class="product-badge">Popular</div>
@@ -3030,287 +3017,9 @@
                     </div>
                 </div>
                 
-                <div class="product-grid" id="bloxfruits-permanent-fruits" style="display: none;">
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414022542523502602/image.png?ex=68be0e9d&is=68bcbd1d&hm=b0e731eab875c077571e7693ad2c2a3a13e422d270c7cc70405be0059be89156&=&format=webp&quality=lossless&width=234&height=226');">
-                            <div class="product-badge">Premium</div>
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">Dragon Fruit</h3>
-                            <p class="product-desc">Permanent Dragon Fruit for Blox Fruits</p>
-                            <div class="product-price">1750</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
-                            <div class="product-actions">
-                                <button class="btn-product btn-buy" onclick="openOrderModal('Dragon Fruit', 1750, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414022702150320300/image.png?ex=68be0ec3&is=68bcbd43&hm=1226c8716604948dae90351672a4fafbebaa1317ed9e105f2e328bac867b69d3&=&format=webp&quality=lossless&width=231&height=216');">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">Kitsune Fruit</h3>
-                            <p class="product-desc">Permanent Kitsune Fruit for Blox Fruits</p>
-                            <div class="product-price">1400</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
-                            <div class="product-actions">
-                                <button class="btn-product btn-buy" onclick="openOrderModal('Kitsune Fruit', 1400, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414022803119935588/image.png?ex=68be0edb&is=68bcbd5b&hm=054dbdf8eef2ab8e7ecc2fef69cabd1a0ed149bd32cd671d953d4a3f4aa66b4e&=&format=webp&quality=lossless&width=229&height=221');">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">Yeti Fruit</h3>
-                            <p class="product-desc">Permanent Yeti Fruit for Blox Fruits</p>
-                            <div class="product-price">1050</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
-                            <div class="product-actions">
-                                <button class="btn-product btn-buy" onclick="openOrderModal('Yeti Fruit', 1050, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414022916445704262/image.png?ex=68be0ef6&is=68bcbd76&hm=696a2eb7daed5a7ffabded6c071fb552aee816fb2a0e463bd79f0638312f827&=&format=webp&quality=lossless&width=225&height=221');">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">Leopard Fruit</h3>
-                            <p class="product-desc">Permanent Leopard Fruit for Blox Fruits</p>
-                            <div class="product-price">1050</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
-                            <div class="product-actions">
-                                <button class="btn-product btn-buy" onclick="openOrderModal('Leopard Fruit', 1050, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414023041373175968/image.png?ex=68be0f14&is=68bcbd94&hm=c5675ccf501b57157ede960a9c09659cac9b5472887caca631c1c9830e89503351&=&format=webp&quality=lossless&width=221&height=216');">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">Spirit Fruit</h3>
-                            <p class="product-desc">Permanent Spirit Fruit for Blox Fruits</p>
-                            <div class="product-price">893</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
-                            <div class="product-actions">
-                                <button class="btn-product btn-buy" onclick="openOrderModal('Spirit Fruit', 893, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414023126106243162/image.png?ex=68be0f28&is=68bcbda8&hm=e8d94a5089ebea5ee59801bc102c2b192b4877634e51345c2887cbd6f26e66fa&=&format=webp&quality=lossless&width=226&height=216');">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">Control Fruit</h3>
-                            <p class="product-desc">Permanent Control Fruit for Blox Fruits</p>
-                            <div class="product-price">875</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
-                            <div class="product-actions">
-                                <button class="btn-product btn-buy" onclick="openOrderModal('Control Fruit', 875, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414023194288848956/image.png?ex=68be0f38&is=68bcbdb8&hm=b9baaeafeb01049b8181e82efa51f37c864eab38c195fbede4afe5d1bad15b9b&=&format=webp&quality=lossless&width=226&height=220');">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">Gas Fruit</h3>
-                            <p class="product-desc">Permanent Gas Fruit for Blox Fruits</p>
-                            <div class="product-price">875</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
-                            <div class="product-actions">
-                                <button class="btn-product btn-buy" onclick="openOrderModal('Gas Fruit', 875, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414023278577844224/image.png?ex=68be0f4c&is=68bcbdcc&hm=68c22723c92778d719e007ba540241bd61b2eb785caca631c1c9830e89503351&=&format=webp&quality=lossless&width=231&height=220');">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">Venom Fruit</h3>
-                            <p class="product-desc">Permanent Venom Fruit for Blox Fruits</p>
-                            <div class="product-price">858</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
-                            <div class="product-actions">
-                                <button class="btn-product btn-buy" onclick="openOrderModal('Venom Fruit', 858, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414023396618145814/image.png?ex=68be0f69&is=68bcbde9&hm=64a3d873f9f4186ac1c20e32066ac0867beec9ce7b92f43dc3fb60bfc417525c&=&format=webp&quality=lossless&width=221&height=215');">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">Shadow Fruit</h3>
-                            <p class="product-desc">Permanent Shadow Fruit for Blox Fruits</p>
-                            <div class="product-price">849</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
-                            <div class="product-actions">
-                                <button class="btn-product btn-buy" onclick="openOrderModal('Shadow Fruit', 849, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414023479929475122/image.png?ex=68be0f7c&is=68bcbdfc&hm=bd74939aac4ce7e3af5ce5902165ba274857983d79a36981795aadb283a1effb&=&format=webp&quality=lossless&width=226&height=220');">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">Dough Fruit</h3>
-                            <p class="product-desc">Permanent Dough Fruit for Blox Fruits</p>
-                            <div class="product-price">840</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
-                            <div class="product-actions">
-                                <button class="btn-product btn-buy" onclick="openOrderModal('Dough Fruit', 840, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414023561630318762/image.png?ex=68be0f90&is=68bcbe10&hm=f8670aeccc71e919ecadbd9587c76bc5cc3bde68700729b7f030cc087af0801c&=&format=webp&quality=lossless&width=233&height=223');">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">T-Rex Fruit</h3>
-                            <p class="product-desc">Permanent T-Rex Fruit for Blox Fruits</p>
-                            <div class="product-price">823</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
-                            <div class="product-actions">
-                                <button class="btn-product btn-buy" onclick="openOrderModal('T-Rex Fruit', 823, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414023991978360882/image.png?ex=68be0ff6&is=68bcbe76&hm=9753acaad3c5e1e5fc88231021eab2f0071e6624222847b38c6b902c846efae2&=&format=webp&quality=lossless&width=221&height=215');">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">Mammoth Fruit</h3>
-                            <p class="product-desc">Permanent Mammoth Fruit for Blox Fruits</p>
-                            <div class="product-price">823</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
-                            <div class="product-actions">
-                                <button class="btn-product btn-buy" onclick="openOrderModal('Mammoth Fruit', 823, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414024085218005012/image.png?ex=68be100d&is=68bcbe8d&hm=509c9647e314acf6ab5542ba3954b92e6f38b4b495928c6834a22bf343905c16&=&format=webp&quality=lossless&width=223&height=214');">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">Gravity Fruit</h3>
-                            <p class="product-desc">Permanent Gravity Fruit for Blox Fruits</p>
-                            <div class="product-price">805</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
-                            <div class="product-actions">
-                                <button class="btn-product btn-buy" onclick="openOrderModal('Gravity Fruit', 805, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414024224682541086/image.png?ex=68be102e&is=68bcbeae&hm=33614ed1352bfae44ba778410628b40933ba7b77ceef7da9c68f096ba8295779&=&format=webp&quality=lossless&width=220&height=214');">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">Blizzard Fruit</h3>
-                            <p class="product-desc">Permanent Blizzard Fruit for Blox Fruits</p>
-                            <div class="product-price">788</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
-                            <div class="product-actions">
-                                <button class="btn-product btn-buy" onclick="openOrderModal('Blizzard Fruit', 788, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414024290315014264/image.png?ex=68be103e&is=68bcbebe&hm=0943874d7a5529fa8dfba8f91edeb83c0a4367c90c752672efd88c8af2681e8b&=&format=webp&quality=lossless&width=228&height=225');">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">Pain Fruit</h3>
-                            <p class="product-desc">Permanent Pain Fruit for Blox Fruits</p>
-                            <div class="product-price">770</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
-                            <div class="product-actions">
-                                <button class="btn-product btn-buy" onclick="openOrderModal('Pain Fruit', 770, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414024345235230900/image.png?ex=68be104b&is=68bcbecb&hm=9611b88f14a474677000c7385601c024001a2d870baee74dac6b17070aba2138&=&format=webp&quality=lossless&width=225&height=215');">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">Lightning Fruit</h3>
-                            <p class="product-desc">Permanent Lightning Fruit for Blox Fruits</p>
-                            <div class="product-price">735</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
-                            <div class="product-actions">
-                                <button class="btn-product btn-buy" onclick="openOrderModal('Lightning Fruit', 735, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414024465721069608/image.png?ex=68be1067&is=68bcbee7&hm=2b431f7ff5d1c1cadf22f50adaf6faa9eb02cd087f1d89c0a607d272c0720c8a&=&format=webp&quality=lossless&width=226&height=225');">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">Portal Fruit</h3>
-                            <p class="product-desc">Permanent Portal Fruit for Blox Fruits</p>
-                            <div class="product-price">700</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
-                            <div class="product-actions">
-                                <button class="btn-product btn-buy" onclick="openOrderModal('Portal Fruit', 700, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414024573980115075/image.png?ex=68be1081&is=68bcbf01&hm=a0ff40c7f687331a7c9c13951fd94ccd6f8073f3b53696e341a6873474b9a1dd&=&format=webp&quality=lossless&width=228&height=215');">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">Phoenix Fruit</h3>
-                            <p class="product-desc">Permanent Phoenix Fruit for Blox Fruits</p>
-                            <div class="product-price">700</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
-                            <div class="product-actions">
-                                <button class="btn-product btn-buy" onclick="openOrderModal('Phoenix Fruit', 700, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414024665378062396/image.png?ex=68be1097&is=68bcbf17&hm=9fc53eb223b246d4f3ee2893f44604cb7eb3dde167b7b180f7085001d52351ea&=&format=webp&quality=lossless&width=226&height=210');">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">Sound Fruit</h3>
-                            <p class="product-desc">Permanent Sound Fruit for Blox Fruits</p>
-                            <div class="product-price">665</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
-                            <div class="product-actions">
-                                <button class="btn-product btn-buy" onclick="openOrderModal('Sound Fruit', 665, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414025178794561566/image.png?ex=68be1111&is=68bcbf91&hm=16ebb955ae1fc1882004451d804552cf6ede0e1501353d0d14b4631a77d0185a&=&format=webp&quality=lossless&width=226&height=213');">
-                        </div>
-                        <div class="product-content">
-                            <h3 class="product-title">Spider Fruit</h3>
-                            <p class="product-desc">Permanent Spider Fruit for Blox Fruits</p>
-                            <div class="product-price">630</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
-                            <div class="product-actions">
-                                <button class="btn-product btn-buy" onclick="openOrderModal('Spider Fruit', 630, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Fruits Grid -->
+                <div class="product-grid" id="bloxfruits-fruits-products" style="display: none;">
+                    <!-- Fruit products will be generated by JavaScript -->
                 </div>
             </div>
             
@@ -3934,7 +3643,6 @@ service cloud.firestore {
         let deleteTarget = null;
         let deleteType = null;
         let activeCategory = 'robux'; // Track active category
-        let activeBloxfruitsView = 'gamepasses'; // Track active Blox Fruits view
         
         // Load user from Firebase on page load
         document.addEventListener('DOMContentLoaded', function() {
@@ -3948,11 +3656,80 @@ service cloud.firestore {
             // Load webhook settings
             loadWebhookSettings();
             
+            // Generate fruit products
+            generateFruitProducts();
+            
             // Mobile menu toggle
             document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
                 document.getElementById('main-nav').classList.toggle('active');
             });
         });
+        
+        // Function to generate fruit products
+        function generateFruitProducts() {
+            const fruits = [
+                { name: 'Dragon', robux: 5000 },
+                { name: 'Kitsune', robux: 4000 },
+                { name: 'Yeti', robux: 3000 },
+                { name: 'Leopard', robux: 3000 },
+                { name: 'Spirit', robux: 2550 },
+                { name: 'Control', robux: 2500 },
+                { name: 'Gas', robux: 2500 },
+                { name: 'Venom', robux: 2450 },
+                { name: 'Shadow', robux: 2425 },
+                { name: 'Dough', robux: 2400 },
+                { name: 'T-Rex', robux: 2350 },
+                { name: 'Mammoth', robux: 2350 },
+                { name: 'Gravity', robux: 2300 },
+                { name: 'Blizzard', robux: 2250 },
+                { name: 'Pain', robux: 2200 },
+                { name: 'Lightning', robux: 2100 },
+                { name: 'Portal', robux: 2000 },
+                { name: 'Phoenix', robux: 2000 },
+                { name: 'Sound', robux: 1900 },
+                { name: 'Spider', robux: 1800 }
+            ];
+            
+            const container = document.getElementById('bloxfruits-fruits-products');
+            container.innerHTML = fruits.map(fruit => {
+                const price = Math.round(fruit.robux * 0.35);
+                return `
+                    <div class="product-card">
+                        <div class="product-image">
+                            <i class="fas fa-apple-alt"></i>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">${fruit.name}</h3>
+                            <p class="product-desc">Permanent fruit for Blox Fruits</p>
+                            <div class="product-price">${price}</div>
+                            <div class="product-tax-note">Gifting Though Username</div>
+                            <div class="product-actions">
+                                <button class="btn-product btn-buy" onclick="openOrderModal('${fruit.name}', ${price}, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        // Function to switch between Blox Fruits sub-categories
+        function showBloxSubCategory(category) {
+            const gamepassesGrid = document.getElementById('bloxfruits-gamepasses-products');
+            const fruitsGrid = document.getElementById('bloxfruits-fruits-products');
+            const tabs = document.querySelectorAll('.sub-category-tab');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            if (category === 'gamepasses') {
+                gamepassesGrid.style.display = 'grid';
+                fruitsGrid.style.display = 'none';
+                tabs[0].classList.add('active');
+            } else if (category === 'fruits') {
+                gamepassesGrid.style.display = 'none';
+                fruitsGrid.style.display = 'grid';
+                tabs[1].classList.add('active');
+            }
+        }
         
         // Check authentication state
         function checkAuthState() {
@@ -4054,44 +3831,19 @@ service cloud.firestore {
                     grid.style.display = 'none';
                 });
                 
-                // Hide Blox Fruits container
-                document.getElementById('bloxfruits-container').style.display = 'none';
-                
                 // Show selected category
-                if (category === 'robux') {
-                    document.getElementById('robux-products').style.display = 'grid';
-                } else if (category === 'bloxfruits') {
-                    document.getElementById('bloxfruits-container').style.display = 'block';
-                    // Show the active Blox Fruits view
-                    if (activeBloxfruitsView === 'gamepasses') {
-                        showBloxfruitsGamepasses();
-                    } else {
-                        showBloxfruitsPermanentFruits();
+                const productsContainer = document.getElementById(category + '-products');
+                
+                if (productsContainer) {
+                    productsContainer.style.display = 'grid';
+                    
+                    // If Blox Fruits is selected, reset to gamepasses
+                    if (category === 'bloxfruits') {
+                        showBloxSubCategory('gamepasses');
                     }
-                } else if (category === 'mm2') {
-                    document.getElementById('mm2-products').style.display = 'grid';
-                } else if (category === 'garden') {
-                    document.getElementById('garden-products').style.display = 'grid';
                 }
             });
         });
-        
-        // Blox Fruits toggle functionality
-        function showBloxfruitsGamepasses() {
-            activeBloxfruitsView = 'gamepasses';
-            document.getElementById('gamepasses-btn').classList.add('active');
-            document.getElementById('permanent-fruits-btn').classList.remove('active');
-            document.getElementById('bloxfruits-products').style.display = 'grid';
-            document.getElementById('bloxfruits-permanent-fruits').style.display = 'none';
-        }
-        
-        function showBloxfruitsPermanentFruits() {
-            activeBloxfruitsView = 'permanent-fruits';
-            document.getElementById('gamepasses-btn').classList.remove('active');
-            document.getElementById('permanent-fruits-btn').classList.add('active');
-            document.getElementById('bloxfruits-products').style.display = 'none';
-            document.getElementById('bloxfruits-permanent-fruits').style.display = 'grid';
-        }
         
         let currentItem = {};
         let selectedPaymentMethod = null;
