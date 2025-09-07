@@ -2950,6 +2950,10 @@
             display: none;
         }
         
+        .submit-upload-btn.active {
+            display: block;
+        }
+        
         .submit-upload-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(34, 197, 94, 0.3);
@@ -3247,7 +3251,7 @@
                     </div>
                     
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414023194288848956/image.png?ex=68be0f38&is=68bcbdb8&hm=b9baaeafeb01049b8181e82efa51f37c864eab38c195fbede4afe5d1bad15b9b&=&format=webp&quality=lossless&width=226&height=220');">
+                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414023194288848956/image.png?ex=68be0f38&is=68bcbdbe&hm=b9baaeafeb01049b8181e82efa51f37c864eab38c195fbede4afe5d1bad15b9b&=&format=webp&quality=lossless&width=226&height=220');">
                         </div>
                         <div class="product-content">
                             <h3 class="product-title">Gas Fruit</h3>
@@ -3312,7 +3316,7 @@
                     </div>
                     
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414023991978360882/image.png?ex=68be0ff6&is=68bcbe76&hm=9753acaad3c5e1e5fc88231021eab2f0071e6624222847b38c6b902c846efae2&=&format=webp&quality=lossless&width=221&height=215');">
+                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414023991978360882/image.png?ex=68be0ff6&is=68bcbf91&hm=9753acaad3c5e1e5fc88231021eab2f0071e6624222847b38c6b902c846efae2&=&format=webp&quality=lossless&width=221&height=215');">
                         </div>
                         <div class="product-content">
                             <h3 class="product-title">Mammoth Fruit</h3>
@@ -3338,7 +3342,7 @@
                     </div>
                     
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414024224682541086/image.png?ex=68be102e&is=68bcbeae&hm=33614ed1352bfae44ba778410628b40933ba7b77ceef7da9c68f096ba8295779&=&format=webp&quality=lossless&width=220&height=214');">
+                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414024224682541086/image.png?ex=68be102e&is=68bcbdae&hm=33614ed1352bfae44ba778410628b40933ba7b77ceef7da9c68f096ba8295779&=&format=webp&quality=lossless&width=220&height=214');">
                         </div>
                         <div class="product-content">
                             <h3 class="product-title">Blizzard Fruit</h3>
@@ -3377,7 +3381,7 @@
                     </div>
                     
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414024465721069608/image.png?ex=68be1067&is=68bcbee7&hm=2b431f7ff5d1c1cadf22f50adaf6faa9eb02cd087f1d89c0a607d272c0720c8a&=&format=webp&quality=lossless&width=226&height=225');">
+                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414024465721069608/image.png?ex=68be1067&is=68bcbdbe&hm=2b431f7ff5d1c1cadf22f50adaf6faa9eb02cd087f1d89c0a607d272c0720c8a&=&format=webp&quality=lossless&width=226&height=225');">
                         </div>
                         <div class="product-content">
                             <h3 class="product-title">Portal Fruit</h3>
@@ -3686,7 +3690,7 @@
                     
                     <div class="spinner" id="uploadSpinner"></div>
                     
-                    <button type="button" class="submit-upload-btn" id="submitUploadBtn" onclick="submitOrderWithReceipt()" disabled>
+                    <button type="button" class="submit-upload-btn" id="submitUploadBtn" onclick="submitOrderWithReceipt()">
                         <i class="fas fa-check-circle"></i> Submit Order
                     </button>
                 </div>
@@ -4622,7 +4626,7 @@ service cloud.firestore {
             // Reset upload state
             uploadedImageFile = null;
             document.getElementById('uploadPreview').style.display = 'none';
-            document.getElementById('submitUploadBtn').disabled = true;
+            document.getElementById('submitUploadBtn').classList.remove('active');
         }
         
         function closeOrderModal() {
@@ -4748,7 +4752,7 @@ service cloud.firestore {
             reader.onload = function(e) {
                 document.getElementById('previewImage').src = e.target.result;
                 document.getElementById('uploadPreview').style.display = 'block';
-                document.getElementById('submitUploadBtn').disabled = false;
+                document.getElementById('submitUploadBtn').classList.add('active');
             };
             reader.readAsDataURL(file);
         }
