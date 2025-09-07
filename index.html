@@ -2819,6 +2819,148 @@
             border-color: var(--primary);
             color: var(--primary);
         }
+        
+        /* Payment Upload Section */
+        .payment-upload-section {
+            display: none;
+            margin-top: 25px;
+        }
+        
+        .payment-upload-section h3 {
+            margin-bottom: 20px;
+            color: var(--darker);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+        
+        .payment-upload-section h3 i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+        
+        .payment-upload-instructions {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        
+        .payment-upload-instructions h4 {
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-size: 1.3rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .payment-upload-instructions h4 i {
+            margin-right: 10px;
+        }
+        
+        .payment-upload-instructions p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+        
+        .upload-area {
+            border: 2px dashed #e2e8f0;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .upload-area:hover {
+            border-color: var(--primary);
+            background: rgba(66, 133, 244, 0.05);
+        }
+        
+        .upload-area i {
+            font-size: 48px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .upload-area p {
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+        
+        .upload-btn {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+        
+        .upload-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(66, 133, 244, 0.3);
+        }
+        
+        .upload-preview {
+            margin-top: 20px;
+            text-align: center;
+            display: none;
+        }
+        
+        .upload-preview img {
+            max-width: 100%;
+            max-height: 300px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+        }
+        
+        .upload-preview p {
+            color: var(--success);
+            font-weight: 500;
+        }
+        
+        .file-input {
+            display: none;
+        }
+        
+        .submit-upload-btn {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--success) 0%, #34d399 100%);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        .submit-upload-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(34, 197, 94, 0.3);
+        }
+        
+        .submit-upload-btn:disabled {
+            background: var(--gray);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
     </style>
 </head>
 <body>
@@ -2950,7 +3092,6 @@
                             <h3 class="product-title">2x Mastery</h3>
                             <p class="product-desc">Double mastery gain in Blox Fruits</p>
                             <div class="product-price">155</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
                             <div class="product-actions">
                                 <button class="btn-product btn-buy" onclick="openOrderModal('2x Mastery', 155, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                             </div>
@@ -2964,7 +3105,6 @@
                             <h3 class="product-title">2x Money</h3>
                             <p class="product-desc">Double money gain in Blox Fruits</p>
                             <div class="product-price">155</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
                             <div class="product-actions">
                                 <button class="btn-product btn-buy" onclick="openOrderModal('2x Money', 155, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                             </div>
@@ -2978,7 +3118,6 @@
                             <h3 class="product-title">Fast Boats</h3>
                             <p class="product-desc">Get fast boats for quick travel</p>
                             <div class="product-price">120</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
                             <div class="product-actions">
                                 <button class="btn-product btn-buy" onclick="openOrderModal('Fast Boats', 120, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                             </div>
@@ -2992,7 +3131,6 @@
                             <h3 class="product-title">2x Boss Drops</h3>
                             <p class="product-desc">Double drops from bosses</p>
                             <div class="product-price">120</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
                             <div class="product-actions">
                                 <button class="btn-product btn-buy" onclick="openOrderModal('2x Boss Drops', 120, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                             </div>
@@ -3007,7 +3145,6 @@
                             <h3 class="product-title">Dark Blade</h3>
                             <p class="product-desc">Powerful Dark Blade weapon</p>
                             <div class="product-price">410</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
                             <div class="product-actions">
                                 <button class="btn-product btn-buy" onclick="openOrderModal('Dark Blade', 410, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                             </div>
@@ -3022,7 +3159,6 @@
                             <h3 class="product-title">Fruit Notifier</h3>
                             <p class="product-desc">Get notified when fruits spawn</p>
                             <div class="product-price">940</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
                             <div class="product-actions">
                                 <button class="btn-product btn-buy" onclick="openOrderModal('Fruit Notifier', 940, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                             </div>
@@ -3039,7 +3175,6 @@
                             <h3 class="product-title">Dragon Fruit</h3>
                             <p class="product-desc">Permanent Dragon Fruit for Blox Fruits</p>
                             <div class="product-price">1750</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
                             <div class="product-actions">
                                 <button class="btn-product btn-buy" onclick="openOrderModal('Dragon Fruit', 1750, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                             </div>
@@ -3053,7 +3188,6 @@
                             <h3 class="product-title">Kitsune Fruit</h3>
                             <p class="product-desc">Permanent Kitsune Fruit for Blox Fruits</p>
                             <div class="product-price">1400</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
                             <div class="product-actions">
                                 <button class="btn-product btn-buy" onclick="openOrderModal('Kitsune Fruit', 1400, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                             </div>
@@ -3067,7 +3201,6 @@
                             <h3 class="product-title">Yeti Fruit</h3>
                             <p class="product-desc">Permanent Yeti Fruit for Blox Fruits</p>
                             <div class="product-price">1050</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
                             <div class="product-actions">
                                 <button class="btn-product btn-buy" onclick="openOrderModal('Yeti Fruit', 1050, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                             </div>
@@ -3081,7 +3214,6 @@
                             <h3 class="product-title">Leopard Fruit</h3>
                             <p class="product-desc">Permanent Leopard Fruit for Blox Fruits</p>
                             <div class="product-price">1050</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
                             <div class="product-actions">
                                 <button class="btn-product btn-buy" onclick="openOrderModal('Leopard Fruit', 1050, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                             </div>
@@ -3095,7 +3227,6 @@
                             <h3 class="product-title">Spirit Fruit</h3>
                             <p class="product-desc">Permanent Spirit Fruit for Blox Fruits</p>
                             <div class="product-price">893</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
                             <div class="product-actions">
                                 <button class="btn-product btn-buy" onclick="openOrderModal('Spirit Fruit', 893, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                             </div>
@@ -3103,13 +3234,12 @@
                     </div>
                     
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414023126106243162/image.png?ex=68be0f28&is=68bcbda8&hm=e8d94a5089ebea5ee59801bc102c2b192b4877634e51345c2887cbd6f26e66fa&=&format=webp&quality=lossless&width=226&height=220');">
+                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414023126106243162/image.png?ex=68be0f28&is=68bcbda8&hm=e8d94a5089ebea5ee59801bc102c2b192b4877634e51345c2887cbd6f26e66fa&=&format=webp&quality=lossless&width=226&height=216');">
                         </div>
                         <div class="product-content">
                             <h3 class="product-title">Control Fruit</h3>
                             <p class="product-desc">Permanent Control Fruit for Blox Fruits</p>
                             <div class="product-price">875</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
                             <div class="product-actions">
                                 <button class="btn-product btn-buy" onclick="openOrderModal('Control Fruit', 875, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                             </div>
@@ -3123,7 +3253,6 @@
                             <h3 class="product-title">Gas Fruit</h3>
                             <p class="product-desc">Permanent Gas Fruit for Blox Fruits</p>
                             <div class="product-price">875</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
                             <div class="product-actions">
                                 <button class="btn-product btn-buy" onclick="openOrderModal('Gas Fruit', 875, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                             </div>
@@ -3137,7 +3266,6 @@
                             <h3 class="product-title">Venom Fruit</h3>
                             <p class="product-desc">Permanent Venom Fruit for Blox Fruits</p>
                             <div class="product-price">858</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
                             <div class="product-actions">
                                 <button class="btn-product btn-buy" onclick="openOrderModal('Venom Fruit', 858, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                             </div>
@@ -3151,7 +3279,6 @@
                             <h3 class="product-title">Shadow Fruit</h3>
                             <p class="product-desc">Permanent Shadow Fruit for Blox Fruits</p>
                             <div class="product-price">849</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
                             <div class="product-actions">
                                 <button class="btn-product btn-buy" onclick="openOrderModal('Shadow Fruit', 849, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                             </div>
@@ -3165,7 +3292,6 @@
                             <h3 class="product-title">Dough Fruit</h3>
                             <p class="product-desc">Permanent Dough Fruit for Blox Fruits</p>
                             <div class="product-price">840</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
                             <div class="product-actions">
                                 <button class="btn-product btn-buy" onclick="openOrderModal('Dough Fruit', 840, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                             </div>
@@ -3179,7 +3305,6 @@
                             <h3 class="product-title">T-Rex Fruit</h3>
                             <p class="product-desc">Permanent T-Rex Fruit for Blox Fruits</p>
                             <div class="product-price">823</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
                             <div class="product-actions">
                                 <button class="btn-product btn-buy" onclick="openOrderModal('T-Rex Fruit', 823, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                             </div>
@@ -3193,7 +3318,6 @@
                             <h3 class="product-title">Mammoth Fruit</h3>
                             <p class="product-desc">Permanent Mammoth Fruit for Blox Fruits</p>
                             <div class="product-price">823</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
                             <div class="product-actions">
                                 <button class="btn-product btn-buy" onclick="openOrderModal('Mammoth Fruit', 823, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                             </div>
@@ -3201,13 +3325,12 @@
                     </div>
                     
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414024085218005012/image.png?ex=68be100d&is=68bcbe8d&hm=509c9647e314acf6ab5542ba3954b92e6f38b4b495928c6834a22bf343905c16&=&format=webp&quality=lossless&width=223&height=214');">
+                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414024085218005012/image.png?ex=68be100d&is=68bcbf01&hm=509c9647e314acf6ab5542ba3954b92e6f38b4b495928c6834a22bf343905c16&=&format=webp&quality=lossless&width=223&height=214');">
                         </div>
                         <div class="product-content">
                             <h3 class="product-title">Gravity Fruit</h3>
                             <p class="product-desc">Permanent Gravity Fruit for Blox Fruits</p>
                             <div class="product-price">805</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
                             <div class="product-actions">
                                 <button class="btn-product btn-buy" onclick="openOrderModal('Gravity Fruit', 805, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                             </div>
@@ -3221,7 +3344,6 @@
                             <h3 class="product-title">Blizzard Fruit</h3>
                             <p class="product-desc">Permanent Blizzard Fruit for Blox Fruits</p>
                             <div class="product-price">788</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
                             <div class="product-actions">
                                 <button class="btn-product btn-buy" onclick="openOrderModal('Blizzard Fruit', 788, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                             </div>
@@ -3229,13 +3351,12 @@
                     </div>
                     
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414024290315014264/image.png?ex=68be103e&is=68bcbecb&hm=0943874d7a5529fa8dfba8f91edeb83c0a4367c90c752672efd88c8af2681e8b&=&format=webp&quality=lossless&width=228&height=225');">
+                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414024290315014264/image.png?ex=68be103e&is=68bcbdbe&hm=0943874d7a5529fa8dfba8f91edeb83c0a4367c90c752672efd88c8af2681e8b&=&format=webp&quality=lossless&width=228&height=225');">
                         </div>
                         <div class="product-content">
                             <h3 class="product-title">Pain Fruit</h3>
                             <p class="product-desc">Permanent Pain Fruit for Blox Fruits</p>
                             <div class="product-price">770</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
                             <div class="product-actions">
                                 <button class="btn-product btn-buy" onclick="openOrderModal('Pain Fruit', 770, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                             </div>
@@ -3249,7 +3370,6 @@
                             <h3 class="product-title">Lightning Fruit</h3>
                             <p class="product-desc">Permanent Lightning Fruit for Blox Fruits</p>
                             <div class="product-price">735</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
                             <div class="product-actions">
                                 <button class="btn-product btn-buy" onclick="openOrderModal('Lightning Fruit', 735, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                             </div>
@@ -3263,7 +3383,6 @@
                             <h3 class="product-title">Portal Fruit</h3>
                             <p class="product-desc">Permanent Portal Fruit for Blox Fruits</p>
                             <div class="product-price">700</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
                             <div class="product-actions">
                                 <button class="btn-product btn-buy" onclick="openOrderModal('Portal Fruit', 700, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                             </div>
@@ -3277,7 +3396,6 @@
                             <h3 class="product-title">Phoenix Fruit</h3>
                             <p class="product-desc">Permanent Phoenix Fruit for Blox Fruits</p>
                             <div class="product-price">700</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
                             <div class="product-actions">
                                 <button class="btn-product btn-buy" onclick="openOrderModal('Phoenix Fruit', 700, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                             </div>
@@ -3291,7 +3409,6 @@
                             <h3 class="product-title">Sound Fruit</h3>
                             <p class="product-desc">Permanent Sound Fruit for Blox Fruits</p>
                             <div class="product-price">665</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
                             <div class="product-actions">
                                 <button class="btn-product btn-buy" onclick="openOrderModal('Sound Fruit', 665, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                             </div>
@@ -3299,13 +3416,12 @@
                     </div>
                     
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414025178794561566/image.png?ex=68be1111&is=68bcbf91&hm=16ebb955ae1fc1882004451d804552cf6ede0e1501353d0d14b4631a77d0185a&=&format=webp&quality=lossless&width=221&height=215');">
+                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414025178794561566/image.png?ex=68be1111&is=68bcbf91&hm=16ebb955ae1fc1882004451d804552cf6ede0e1501353d0d14b4631a77d0185a&=&format=webp&quality=lossless&width=226&height=213');">
                         </div>
                         <div class="product-content">
                             <h3 class="product-title">Spider Fruit</h3>
                             <p class="product-desc">Permanent Spider Fruit for Blox Fruits</p>
                             <div class="product-price">630</div>
-                            <div class="product-tax-note">Gifting Though Username</div>
                             <div class="product-actions">
                                 <button class="btn-product btn-buy" onclick="openOrderModal('Spider Fruit', 630, 'bloxfruits')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                             </div>
@@ -3453,7 +3569,7 @@
                     <span id="modal-item-name" class="order-item-name">Product Name</span>
                     <span id="modal-item-price" class="order-item-price">0 EGP</span>
                 </div>
-                <div class="order-tax-note">WE DO NOT COVER ROBLOX FEES</div>
+                <div class="product-tax-note" id="taxNote">WE DO NOT COVER ROBLOX FEES</div>
                 <div class="order-total">
                     <span>Total:</span>
                     <span id="modal-total-price">0 EGP</span>
@@ -3542,8 +3658,36 @@
                     
                     <div class="spinner" id="submitSpinner"></div>
                     
-                    <button type="button" class="btn" style="margin-top: 15px; width: 100%; padding: 16px;" onclick="submitOrder()" id="submitOrderBtn">
+                    <button type="button" class="btn" style="margin-top: 15px; width: 100%; padding: 16px;" onclick="showPaymentUpload()" id="submitOrderBtn">
                         <i class="fas fa-check-circle"></i> I've Made the Payment
+                    </button>
+                </div>
+            </div>
+            
+            <div id="paymentUploadSection" class="payment-upload-section">
+                <h3><i class="fas fa-upload"></i> Upload Payment Receipt</h3>
+                
+                <div class="payment-upload-instructions">
+                    <h4 id="upload-title"><i class="fas fa-camera"></i> Upload Picture Of The Payment</h4>
+                    <p id="upload-message">Please upload a clear picture of your payment confirmation to verify your order.</p>
+                    
+                    <div class="upload-area" onclick="document.getElementById('paymentReceipt').click()">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Click to upload or drag and drop</p>
+                        <p>PNG, JPG, GIF up to 10MB</p>
+                    </div>
+                    
+                    <input type="file" id="paymentReceipt" class="file-input" accept="image/*" onchange="handlePaymentReceiptUpload(event)">
+                    
+                    <div class="upload-preview" id="uploadPreview">
+                        <img id="previewImage" src="" alt="Payment Receipt">
+                        <p>Receipt uploaded successfully</p>
+                    </div>
+                    
+                    <div class="spinner" id="uploadSpinner"></div>
+                    
+                    <button type="button" class="submit-upload-btn" id="submitUploadBtn" onclick="submitOrderWithReceipt()" disabled>
+                        <i class="fas fa-check-circle"></i> Submit Order
                     </button>
                 </div>
             </div>
@@ -3935,6 +4079,7 @@ service cloud.firestore {
         let deleteType = null;
         let activeCategory = 'robux'; // Track active category
         let activeBloxfruitsView = 'gamepasses'; // Track active Blox Fruits view
+        let uploadedImageFile = null; // Store uploaded image file
         
         // Load user from Firebase on page load
         document.addEventListener('DOMContentLoaded', function() {
@@ -4434,6 +4579,14 @@ service cloud.firestore {
             priceElement.style.display = 'inline';
             priceElement.style.fontSize = '1.1rem';
             
+            // Show/hide tax note based on category
+            const taxNote = document.getElementById('taxNote');
+            if (category === 'robux') {
+                taxNote.style.display = 'block';
+            } else {
+                taxNote.style.display = 'none';
+            }
+            
             // Adjust form based on category
             if (category === 'bloxfruits') {
                 // Change the username field label
@@ -4456,6 +4609,7 @@ service cloud.firestore {
             // Reset form and payment selection
             document.getElementById('orderForm').style.display = 'block';
             document.getElementById('paymentSection').style.display = 'none';
+            document.getElementById('paymentUploadSection').style.display = 'none';
             document.getElementById('orderConfirmation').style.display = 'none';
             
             selectedPaymentMethod = null;
@@ -4464,6 +4618,11 @@ service cloud.firestore {
             });
             document.getElementById('paymentDetails').style.display = 'none';
             document.getElementById('orderForm').reset();
+            
+            // Reset upload state
+            uploadedImageFile = null;
+            document.getElementById('uploadPreview').style.display = 'none';
+            document.getElementById('submitUploadBtn').disabled = true;
         }
         
         function closeOrderModal() {
@@ -4541,7 +4700,65 @@ service cloud.firestore {
             }
         }
         
-        function submitOrder() {
+        function showPaymentUpload() {
+            if (!selectedPaymentMethod) {
+                showNotification('Please select a payment method', 'error');
+                return;
+            }
+            
+            // Hide payment instructions and show upload section
+            document.getElementById('paymentSection').style.display = 'none';
+            document.getElementById('paymentUploadSection').style.display = 'block';
+            
+            // Update upload message based on payment method
+            const uploadTitle = document.getElementById('upload-title');
+            const uploadMessage = document.getElementById('upload-message');
+            
+            if (selectedPaymentMethod === 'instapay') {
+                uploadTitle.innerHTML = '<i class="fas fa-camera"></i> Upload Picture Of The Payment In InstaPay';
+                uploadMessage.textContent = 'Please upload a clear picture of your InstaPay payment confirmation to verify your order.';
+            } else if (selectedPaymentMethod === 'vodafone_cash') {
+                uploadTitle.innerHTML = '<i class="fas fa-camera"></i> Upload Picture Of The Payment In Vodafone Cash';
+                uploadMessage.textContent = 'Please upload a clear picture of your Vodafone Cash payment confirmation to verify your order.';
+            }
+        }
+        
+        function handlePaymentReceiptUpload(event) {
+            const file = event.target.files[0];
+            
+            if (!file) return;
+            
+            // Check if file is an image
+            if (!file.type.match('image.*')) {
+                showNotification('Please select an image file', 'error');
+                return;
+            }
+            
+            // Check file size (max 10MB)
+            if (file.size > 10 * 1024 * 1024) {
+                showNotification('Image size must be less than 10MB', 'error');
+                return;
+            }
+            
+            // Store the file
+            uploadedImageFile = file;
+            
+            // Show preview
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('previewImage').src = e.target.result;
+                document.getElementById('uploadPreview').style.display = 'block';
+                document.getElementById('submitUploadBtn').disabled = false;
+            };
+            reader.readAsDataURL(file);
+        }
+        
+        function submitOrderWithReceipt() {
+            if (!uploadedImageFile) {
+                showNotification('Please upload a payment receipt', 'error');
+                return;
+            }
+            
             console.log("=== SUBMIT ORDER DEBUG ===");
             console.log("currentUser:", currentUser);
             console.log("currentUser.uid:", currentUser ? currentUser.uid : "NO USER");
@@ -4559,12 +4776,6 @@ service cloud.firestore {
                 return;
             }
             
-            if (!selectedPaymentMethod) {
-                console.log("ERROR: No payment method selected");
-                showNotification('Please select a payment method', 'error');
-                return;
-            }
-            
             const username = document.getElementById('username').value;
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
@@ -4573,80 +4784,86 @@ service cloud.firestore {
             console.log("Form data:", { username, email, phone, gamepassLink });
             
             // Show spinner
-            document.getElementById('submitSpinner').style.display = 'block';
-            document.getElementById('submitOrderBtn').disabled = true;
+            document.getElementById('uploadSpinner').style.display = 'block';
+            document.getElementById('submitUploadBtn').disabled = true;
             
-            // Create order object
-            const order = {
-                product: currentItem.name,
-                price: currentItem.price,
-                category: currentItem.category,
-                username,
-                email,
-                phone,
-                gamepassLink,
-                paymentMethod: selectedPaymentMethod,
-                status: 'pending',
-                createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-                userId: currentUser.uid
-            };
-            
-            console.log("Order object to save:", order);
-            
-            // Add order to Firestore
-            db.collection('orders').add(order)
-                .then(docRef => {
-                    console.log("SUCCESS: Order created with ID:", docRef.id);
-                    
-                    // Add the ID to the order object for webhook and confirmation
-                    order.id = docRef.id;
-                    
-                    // Send Discord webhook notification
-                    sendDiscordWebhook(order);
-                    
-                    // Update UI
-                    document.getElementById('submitSpinner').style.display = 'none';
-                    document.getElementById('submitOrderBtn').disabled = false;
-                    
-                    // Show confirmation
-                    document.getElementById('paymentSection').style.display = 'none';
-                    document.getElementById('orderConfirmation').style.display = 'block';
-                    
-                    // Update confirmation details
-                    document.getElementById('conf-product').textContent = currentItem.name;
-                    document.getElementById('conf-price').textContent = currentItem.price + ' EGP';
-                    document.getElementById('conf-username').textContent = username;
-                    document.getElementById('conf-email').textContent = email;
-                    document.getElementById('conf-phone').textContent = phone;
-                    document.getElementById('conf-gamepass').textContent = gamepassLink || 'N/A';
-                    
-                    // Load updated order history
-                    loadOrderHistory();
-                    
-                    // Show notification
-                    showNotification('Order placed successfully!', 'success');
-                })
-                .catch(error => {
-                    console.error("ERROR: Submitting order:", error);
-                    document.getElementById('submitSpinner').style.display = 'none';
-                    document.getElementById('submitOrderBtn').disabled = false;
-                    
-                    // Check if it's a permission error
-                    if (error.message.includes('Missing or insufficient permissions')) {
-                        showNotification('Permission error. Please check Firestore security rules.', 'error');
+            // Convert image to base64 for storage
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const base64Image = e.target.result;
+                
+                // Create order object
+                const order = {
+                    product: currentItem.name,
+                    price: currentItem.price,
+                    category: currentItem.category,
+                    username,
+                    email,
+                    phone,
+                    gamepassLink,
+                    paymentMethod: selectedPaymentMethod,
+                    status: 'pending',
+                    createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                    userId: currentUser.uid,
+                    paymentReceipt: base64Image
+                };
+                
+                console.log("Order object to save:", order);
+                
+                // Add order to Firestore
+                db.collection('orders').add(order)
+                    .then(docRef => {
+                        console.log("SUCCESS: Order created with ID:", docRef.id);
                         
-                        // Show a more detailed error message with instructions
-                        const dashboardContent = document.getElementById('dashboard-content');
-                        const existingError = dashboardContent.querySelector('.error-box');
-                        if (!existingError) {
-                            const errorDiv = document.createElement('div');
-                            errorDiv.className = 'error-box';
-                            errorDiv.innerHTML = `
-                                <h3><i class="fas fa-exclamation-triangle"></i> Firebase Security Rules Error</h3>
-                                <p>Your Firebase security rules are preventing write operations to the database.</p>
-                                <p>Please update your Firestore security rules to allow write access for authenticated users.</p>
-                                <p>You can use these rules for testing:</p>
-                                <pre>rules_version = '2';
+                        // Add the ID to the order object for webhook and confirmation
+                        order.id = docRef.id;
+                        
+                        // Send Discord webhook notification
+                        sendDiscordWebhook(order);
+                        
+                        // Update UI
+                        document.getElementById('uploadSpinner').style.display = 'none';
+                        document.getElementById('submitUploadBtn').disabled = false;
+                        
+                        // Show confirmation
+                        document.getElementById('paymentUploadSection').style.display = 'none';
+                        document.getElementById('orderConfirmation').style.display = 'block';
+                        
+                        // Update confirmation details
+                        document.getElementById('conf-product').textContent = currentItem.name;
+                        document.getElementById('conf-price').textContent = currentItem.price + ' EGP';
+                        document.getElementById('conf-username').textContent = username;
+                        document.getElementById('conf-email').textContent = email;
+                        document.getElementById('conf-phone').textContent = phone;
+                        document.getElementById('conf-gamepass').textContent = gamepassLink || 'N/A';
+                        
+                        // Load updated order history
+                        loadOrderHistory();
+                        
+                        // Show notification
+                        showNotification('Order placed successfully!', 'success');
+                    })
+                    .catch(error => {
+                        console.error("ERROR: Submitting order:", error);
+                        document.getElementById('uploadSpinner').style.display = 'none';
+                        document.getElementById('submitUploadBtn').disabled = false;
+                        
+                        // Check if it's a permission error
+                        if (error.message.includes('Missing or insufficient permissions')) {
+                            showNotification('Permission error. Please check Firestore security rules.', 'error');
+                            
+                            // Show a more detailed error message with instructions
+                            const dashboardContent = document.getElementById('dashboard-content');
+                            const existingError = dashboardContent.querySelector('.error-box');
+                            if (!existingError) {
+                                const errorDiv = document.createElement('div');
+                                errorDiv.className = 'error-box';
+                                errorDiv.innerHTML = `
+                                    <h3><i class="fas fa-exclamation-triangle"></i> Firebase Security Rules Error</h3>
+                                    <p>Your Firebase security rules are preventing write operations to the database.</p>
+                                    <p>Please update your Firestore security rules to allow write access for authenticated users.</p>
+                                    <p>You can use these rules for testing:</p>
+                                    <pre>rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     match /{document=**} {
@@ -4654,15 +4871,17 @@ service cloud.firestore {
     }
   }
 }</pre>
-                                <p>For production, you should implement more restrictive rules.</p>
-                                <button class="btn" onclick="window.open('https://console.firebase.google.com/project/egyptstore-f5201/firestore/rules', '_blank')">Open Firebase Console</button>
-                            `;
-                            dashboardContent.insertBefore(errorDiv, dashboardContent.firstChild);
+                                    <p>For production, you should implement more restrictive rules.</p>
+                                    <button class="btn" onclick="window.open('https://console.firebase.google.com/project/egyptstore-f5201/firestore/rules', '_blank')">Open Firebase Console</button>
+                                `;
+                                dashboardContent.insertBefore(errorDiv, dashboardContent.firstChild);
+                            }
+                        } else {
+                            showNotification('Error placing order: ' + error.message, 'error');
                         }
-                    } else {
-                        showNotification('Error placing order: ' + error.message, 'error');
-                    }
-                });
+                    });
+            };
+            reader.readAsDataURL(uploadedImageFile);
         }
         
         function loadOrderHistory() {
@@ -5727,6 +5946,15 @@ service cloud.firestore {
                                 <div class="order-info-label">Date</div>
                                 <div class="order-info-value">${order.createdAt ? new Date(order.createdAt.toDate()).toLocaleDateString() : 'N/A'}</div>
                             </div>
+                            
+                            ${order.paymentReceipt ? `
+                            <div class="order-info-item">
+                                <div class="order-info-label">Payment Receipt</div>
+                                <div class="order-info-value">
+                                    <img src="${order.paymentReceipt}" alt="Payment Receipt" style="max-width: 200px; max-height: 150px; border-radius: 8px; cursor: pointer;" onclick="window.open('${order.paymentReceipt}', '_blank')">
+                                </div>
+                            </div>
+                            ` : ''}
                         `;
                     }
                 })
@@ -5963,6 +6191,13 @@ service cloud.firestore {
                     timestamp: new Date().toISOString()
                 }]
             };
+            
+            // Add image if available
+            if (order.paymentReceipt) {
+                payload.embeds[0].image = {
+                    url: order.paymentReceipt
+                };
+            }
             
             // Send webhook
             fetch(webhookUrl, {
