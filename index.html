@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
     <style>
-        /* Keep all your existing CSS styles here */
+        /* CSS styles remain the same as in your original file */
         * {
             margin: 0;
             padding: 0;
@@ -31,8 +31,6 @@
             --card-shadow: 0 10px 30px rgba(0,0,0,0.08);
             --hover-transform: translateY(-10px);
         }
-        
-        /* Keep all your existing CSS here - no changes needed */
         
         html {
             scroll-behavior: smooth;
@@ -439,6 +437,10 @@
             background: var(--primary);
         }
         
+        .notification.warning {
+            background: var(--warning);
+        }
+        
         .hero {
             text-align: center;
             padding: 100px 0;
@@ -702,8 +704,10 @@
             font-size: 70px;
             position: relative;
             overflow: hidden;
-            background-size: cover;
+            background-size: contain;
             background-position: center;
+            background-repeat: no-repeat;
+            background-color: #f0f9ff;
         }
         
         .product-image::before {
@@ -1438,18 +1442,56 @@
             border: 2px dashed #e2e8f0;
         }
         
-        .payment-number {
-            font-size: 1.6rem;
-            font-weight: 700;
-            background: var(--darker);
-            color: white;
-            padding: 15px 25px;
-            border-radius: 12px;
-            display: inline-block;
+        .payment-qr-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .payment-qr {
+            max-width: 200px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 10px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .payment-qr img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .payment-email {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--darker);
             margin: 15px 0;
             text-align: center;
-            width: 100%;
-            letter-spacing: 1px;
+            padding: 10px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .payment-link {
+            display: block;
+            text-align: center;
+            margin: 15px 0;
+            padding: 12px;
+            background: var(--primary);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .payment-link:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(66, 133, 244, 0.2);
         }
         
         .instruction-steps {
@@ -2748,6 +2790,7 @@
             color: var(--primary);
             margin-bottom: 15px;
             font-size: 1.2rem;
+            font-weight: 600;
         }
         
         .rules-display pre {
@@ -2877,6 +2920,7 @@
             background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
             margin-bottom: 20px;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
         
         .upload-area:hover {
@@ -2965,6 +3009,46 @@
             transform: none;
             box-shadow: none;
         }
+        
+        /* Mobile file input fix */
+        .mobile-file-input {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .mobile-file-input input[type=file] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        /* Image fallback styling */
+        .product-image::after {
+            content: attr(data-fallback-text);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #333;
+            font-weight: bold;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            font-size: 1.2rem;
+        }
+        
+        .product-image:not([style*="background-image"])::after,
+        .product-image[style*="background-image: none"]::after,
+        .product-image[style*="background-image: url('')"]::after {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -3026,10 +3110,10 @@
                     <div class="product-content">
                         <h3 class="product-title">500 Robux</h3>
                         <p class="product-desc">Instant delivery to your Roblox account.</p>
-                        <div class="product-price">170</div>
+                        <div class="product-price">140</div>
                         <div class="product-tax-note">WE DO NOT COVER ROBLOX FEES</div>
                         <div class="product-actions">
-                            <button class="btn-product btn-buy" onclick="openOrderModal('500 Robux', 170, 'Robux')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
+                            <button class="btn-product btn-buy" onclick="openOrderModal('500 Robux', 140, 'Robux')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                         </div>
                     </div>
                 </div>
@@ -3041,10 +3125,10 @@
                     <div class="product-content">
                         <h3 class="product-title">1,000 Robux</h3>
                         <p class="product-desc">Instant delivery to your Roblox account.</p>
-                        <div class="product-price">320</div>
+                        <div class="product-price">270</div>
                         <div class="product-tax-note">WE DO NOT COVER ROBLOX FEES</div>
                         <div class="product-actions">
-                            <button class="btn-product btn-buy" onclick="openOrderModal('1000 Robux', 320, 'Robux')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
+                            <button class="btn-product btn-buy" onclick="openOrderModal('1000 Robux', 270, 'Robux')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                         </div>
                     </div>
                 </div>
@@ -3056,10 +3140,10 @@
                     <div class="product-content">
                         <h3 class="product-title">2,000 Robux</h3>
                         <p class="product-desc">Instant delivery to your Roblox account.</p>
-                        <div class="product-price">600</div>
+                        <div class="product-price">510</div>
                         <div class="product-tax-note">WE DO NOT COVER ROBLOX FEES</div>
                         <div class="product-actions">
-                            <button class="btn-product btn-buy" onclick="openOrderModal('2000 Robux', 600, 'Robux')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
+                            <button class="btn-product btn-buy" onclick="openOrderModal('2000 Robux', 510, 'Robux')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                         </div>
                     </div>
                 </div>
@@ -3072,10 +3156,10 @@
                     <div class="product-content">
                         <h3 class="product-title">5,000 Robux</h3>
                         <p class="product-desc">Instant delivery to your Roblox account.</p>
-                        <div class="product-price">1400</div>
+                        <div class="product-price">1250</div>
                         <div class="product-tax-note">WE DO NOT COVER ROBLOX FEES</div>
                         <div class="product-actions">
-                            <button class="btn-product btn-buy" onclick="openOrderModal('5000 Robux', 1400, 'Robux')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
+                            <button class="btn-product btn-buy" onclick="openOrderModal('5000 Robux', 1250, 'Robux')"><i class="fas fa-shopping-cart"></i> Buy Now</button>
                         </div>
                     </div>
                 </div>
@@ -3172,7 +3256,7 @@
                 
                 <div class="product-grid" id="bloxfruits-permanent-fruits" style="display: none;">
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414022542523502602/image.png?ex=68be0e9d&is=68bcbd1d&hm=b0e731eab875c077571e7693ad2c2a3a13e422d270c7cc70405be0059be89156&=&format=webp&quality=lossless&width=234&height=226');">
+                        <div class="product-image" style="background-image: url('https://z-cdn-media.chatglm.cn/files/278b9668-95cb-4d08-9b81-071ac1c2b209_dragon.png?auth_key=1790150681-688b6327b39049a69d468fa96e2df565-0-f303a7012092b1ae0f6449215a8cdfbe');" data-fallback-text="Dragon Fruit">
                             <div class="product-badge">Premium</div>
                         </div>
                         <div class="product-content">
@@ -3186,7 +3270,7 @@
                     </div>
                     
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414022702150320300/image.png?ex=68be0ec3&is=68bcbd43&hm=1226c8716604948dae90351672a4fafbebaa1317ed9e105f2e328bac867b69d3&=&format=webp&quality=lossless&width=231&height=216');">
+                        <div class="product-image" style="background-image: url('https://z-cdn-media.chatglm.cn/files/90b68a3b-60ce-43c2-ac98-3c693c5a2c17_Kitsune.png?auth_key=1790150681-384b650b46e64c78b9db55bdf92f57d7-0-fa9dc4989fae9b9c722cd96ba6f71ff8');" data-fallback-text="Kitsune Fruit">
                         </div>
                         <div class="product-content">
                             <h3 class="product-title">Kitsune Fruit</h3>
@@ -3199,7 +3283,7 @@
                     </div>
                     
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414022803119935588/image.png?ex=68be0edb&is=68bcbd5b&hm=054dbdf8eef2ab8e7ecc2fef69cabd1a0ed149bd32cd671d953d4a3f4aa66b4e&=&format=webp&quality=lossless&width=229&height=221');">
+                        <div class="product-image" style="background-image: url('https://z-cdn-media.chatglm.cn/files/eecc57c7-0fd1-4295-a544-ed8cd706669d_Yeti.png?auth_key=1790150681-5ad9ed10838c4db7b2bb9fb6e571bdc7-0-a35aead469c4b85dc9bcbaf2283130c7');" data-fallback-text="Yeti Fruit">
                         </div>
                         <div class="product-content">
                             <h3 class="product-title">Yeti Fruit</h3>
@@ -3212,7 +3296,7 @@
                     </div>
                     
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414022916445704262/image.png?ex=68be0ef6&is=68bcbd76&hm=696a2eb7daed5a7ffabded6c071fb552aee816fb2a0e463bd79f0638312f827&=&format=webp&quality=lossless&width=225&height=221');">
+                        <div class="product-image" style="background-image: url('https://z-cdn-media.chatglm.cn/files/793f75ff-928b-41c6-848d-27a0d5e01058_Leopard.png?auth_key=1790150681-ec87fcd67bf5471f837be82156c3b057-0-cae762c2f8426586be874ff4b6cd56d0');" data-fallback-text="Leopard Fruit">
                         </div>
                         <div class="product-content">
                             <h3 class="product-title">Leopard Fruit</h3>
@@ -3225,7 +3309,7 @@
                     </div>
                     
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414023041373175968/image.png?ex=68be0f14&is=68bcbd94&hm=c5675ccf501b57157ede960a9c09659cac9b5472887caca631c1c9830e89503351&=&format=webp&quality=lossless&width=221&height=216');">
+                        <div class="product-image" style="background-image: url('https://z-cdn-media.chatglm.cn/files/7ddad68b-4f59-4db0-bf2d-281da68371b8_Spirit.png?auth_key=1790150681-d3be27cc03f546d5a77058de08af2616-0-76b068cfc1021428e260d1d28494501b');" data-fallback-text="Spirit Fruit">
                         </div>
                         <div class="product-content">
                             <h3 class="product-title">Spirit Fruit</h3>
@@ -3238,7 +3322,7 @@
                     </div>
                     
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414023126106243162/image.png?ex=68be0f28&is=68bcbda8&hm=e8d94a5089ebea5ee59801bc102c2b192b4877634e51345c2887cbd6f26e66fa&=&format=webp&quality=lossless&width=226&height=216');">
+                        <div class="product-image" style="background-image: url('https://z-cdn-media.chatglm.cn/files/08292248-506b-4d50-a48b-8f7ab9fa565c_Control.png?auth_key=1790150681-1a865e98c65847658642bb5e166880b7-0-9287257ff62bccf33effcc91d8f4090f');" data-fallback-text="Control Fruit">
                         </div>
                         <div class="product-content">
                             <h3 class="product-title">Control Fruit</h3>
@@ -3251,7 +3335,7 @@
                     </div>
                     
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414023194288848956/image.png?ex=68be0f38&is=68bcbdbe&hm=b9baaeafeb01049b8181e82efa51f37c864eab38c195fbede4afe5d1bad15b9b&=&format=webp&quality=lossless&width=226&height=220');">
+                        <div class="product-image" style="background-image: url('https://z-cdn-media.chatglm.cn/files/a222da23-05da-4700-8bd6-b3c24ca6c37e_Gas.png?auth_key=1790150681-15caae1b054441d48f028b2e1eb22dfc-0-4a572fc0d2f2e8a3d785b36dbd91a859');" data-fallback-text="Gas Fruit">
                         </div>
                         <div class="product-content">
                             <h3 class="product-title">Gas Fruit</h3>
@@ -3264,7 +3348,7 @@
                     </div>
                     
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414023278577844224/image.png?ex=68be0f4c&is=68bcbdcc&hm=68c22723c92778d719e007ba540241bd61b2eb785caca631c1c9830e89503351&=&format=webp&quality=lossless&width=231&height=220');">
+                        <div class="product-image" style="background-image: url('https://z-cdn-media.chatglm.cn/files/4c5edaa8-6c76-4302-9b1f-d91301dd2822_Venom.png?auth_key=1790150681-4b34d6c8ed554e3aa14a5334da3cdb8b-0-f640d91d207b4c652a9556a8b51e0bf9');" data-fallback-text="Venom Fruit">
                         </div>
                         <div class="product-content">
                             <h3 class="product-title">Venom Fruit</h3>
@@ -3277,7 +3361,7 @@
                     </div>
                     
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414023396618145814/image.png?ex=68be0f69&is=68bcbde9&hm=64a3d873f9f4186ac1c20e32066ac0867beec9ce7b92f43dc3fb60bfc417525c&=&format=webp&quality=lossless&width=221&height=215');">
+                        <div class="product-image" style="background-image: url('https://z-cdn-media.chatglm.cn/files/20158907-c861-4b1c-a150-2613e50d6b88_Shadow.png?auth_key=1790150681-41048c3b0bdc4120b409740e47ed7e0a-0-45ae636c0eafa83eb75ddb5d8680b4ab');" data-fallback-text="Shadow Fruit">
                         </div>
                         <div class="product-content">
                             <h3 class="product-title">Shadow Fruit</h3>
@@ -3290,7 +3374,7 @@
                     </div>
                     
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414023479929475122/image.png?ex=68be0f7c&is=68bcbdfc&hm=bd74939aac4ce7e3af5ce5902165ba274857983d79a36981795aadb283a1effb&=&format=webp&quality=lossless&width=226&height=220');">
+                        <div class="product-image" style="background-image: url('https://z-cdn-media.chatglm.cn/files/a4a7c594-6c1c-489e-bd47-bd773c71b38f_Dough.png?auth_key=1790150681-727c96eb1315454596c80e1595758492-0-910ffef631b662f340c5832ae99470e5');" data-fallback-text="Dough Fruit">
                         </div>
                         <div class="product-content">
                             <h3 class="product-title">Dough Fruit</h3>
@@ -3303,7 +3387,7 @@
                     </div>
                     
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414023561630318762/image.png?ex=68be0f90&is=68bcbe10&hm=f8670aeccc71e919ecadbd9587c76bc5cc3bde68700729b7f030cc087af0801c&=&format=webp&quality=lossless&width=233&height=223');">
+                        <div class="product-image" style="background-image: url('https://tr.rbxcdn.com/180DAY-021c08aab80ee2cbdba77de1fd128a7a/150/150/Image/Webp/noFilter');" data-fallback-text="T-Rex Fruit">
                         </div>
                         <div class="product-content">
                             <h3 class="product-title">T-Rex Fruit</h3>
@@ -3316,7 +3400,7 @@
                     </div>
                     
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414023991978360882/image.png?ex=68be0ff6&is=68bcbf91&hm=9753acaad3c5e1e5fc88231021eab2f0071e6624222847b38c6b902c846efae2&=&format=webp&quality=lossless&width=221&height=215');">
+                        <div class="product-image" style="background-image: url('https://tr.rbxcdn.com/180DAY-021c08aab80ee2cbdba77de1fd128a7a/150/150/Image/Webp/noFilter');" data-fallback-text="Mammoth Fruit">
                         </div>
                         <div class="product-content">
                             <h3 class="product-title">Mammoth Fruit</h3>
@@ -3329,7 +3413,7 @@
                     </div>
                     
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414024085218005012/image.png?ex=68be100d&is=68bcbf01&hm=509c9647e314acf6ab5542ba3954b92e6f38b4b495928c6834a22bf343905c16&=&format=webp&quality=lossless&width=223&height=214');">
+                        <div class="product-image" style="background-image: url('https://tr.rbxcdn.com/180DAY-ff811a03ac90fe123e7bb1789bf188f0/150/150/Image/Webp/noFilter');" data-fallback-text="Gravity Fruit">
                         </div>
                         <div class="product-content">
                             <h3 class="product-title">Gravity Fruit</h3>
@@ -3342,7 +3426,7 @@
                     </div>
                     
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414024224682541086/image.png?ex=68be102e&is=68bcbdae&hm=33614ed1352bfae44ba778410628b40933ba7b77ceef7da9c68f096ba8295779&=&format=webp&quality=lossless&width=220&height=214');">
+                        <div class="product-image" style="background-image: url('https://tr.rbxcdn.com/180DAY-63a5bf6ea7e029c50bd82024ac2beae4/150/150/Image/Webp/noFilter');" data-fallback-text="Blizzard Fruit">
                         </div>
                         <div class="product-content">
                             <h3 class="product-title">Blizzard Fruit</h3>
@@ -3355,7 +3439,7 @@
                     </div>
                     
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414024290315014264/image.png?ex=68be103e&is=68bcbdbe&hm=0943874d7a5529fa8dfba8f91edeb83c0a4367c90c752672efd88c8af2681e8b&=&format=webp&quality=lossless&width=228&height=225');">
+                        <div class="product-image" style="background-image: url('https://tr.rbxcdn.com/180DAY-d11805051612e36ad5b32c0b78459680/150/150/Image/Webp/noFilter');" data-fallback-text="Pain Fruit">
                         </div>
                         <div class="product-content">
                             <h3 class="product-title">Pain Fruit</h3>
@@ -3368,7 +3452,7 @@
                     </div>
                     
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414024345235230900/image.png?ex=68be104b&is=68bcbecb&hm=9611b88f14a474677000c7385601c024001a2d870baee74dac6b17070aba2138&=&format=webp&quality=lossless&width=225&height=215');">
+                        <div class="product-image" style="background-image: url('https://tr.rbxcdn.com/180DAY-ff811a03ac90fe123e7bb1789bf188f0/150/150/Image/Webp/noFilter');" data-fallback-text="Lightning Fruit">
                         </div>
                         <div class="product-content">
                             <h3 class="product-title">Lightning Fruit</h3>
@@ -3381,7 +3465,7 @@
                     </div>
                     
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414024465721069608/image.png?ex=68be1067&is=68bcbdbe&hm=2b431f7ff5d1c1cadf22f50adaf6faa9eb02cd087f1d89c0a607d272c0720c8a&=&format=webp&quality=lossless&width=226&height=225');">
+                        <div class="product-image" style="background-image: url('https://tr.rbxcdn.com/180DAY-d90e7a4dc5a82f0d8b0d22951c99bd63/150/150/Image/Webp/noFilter');" data-fallback-text="Portal Fruit">
                         </div>
                         <div class="product-content">
                             <h3 class="product-title">Portal Fruit</h3>
@@ -3394,7 +3478,7 @@
                     </div>
                     
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414024573980115075/image.png?ex=68be1081&is=68bcbf01&hm=a0ff40c7f687331a7c9c13951fd94ccd6f8073f3b53696e341a6873474b9a1dd&=&format=webp&quality=lossless&width=228&height=215');">
+                        <div class="product-image" style="background-image: url('https://tr.rbxcdn.com/180DAY-d11805051612e36ad5b32c0b78459680/150/150/Image/Webp/noFilter');" data-fallback-text="Phoenix Fruit">
                         </div>
                         <div class="product-content">
                             <h3 class="product-title">Phoenix Fruit</h3>
@@ -3407,7 +3491,7 @@
                     </div>
                     
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414024665378062396/image.png?ex=68be1097&is=68bcbf17&hm=9fc53eb223b246d4f3ee2893f44604cb7eb3dde167b7b180f7085001d52351ea&=&format=webp&quality=lossless&width=226&height=210');">
+                        <div class="product-image" style="background-image: url('https://tr.rbxcdn.com/180DAY-63a5bf6ea7e029c50bd82024ac2beae4/150/150/Image/Webp/noFilter');" data-fallback-text="Sound Fruit">
                         </div>
                         <div class="product-content">
                             <h3 class="product-title">Sound Fruit</h3>
@@ -3420,7 +3504,7 @@
                     </div>
                     
                     <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://media.discordapp.net/attachments/1382127080275447902/1414025178794561566/image.png?ex=68be1111&is=68bcbf91&hm=16ebb955ae1fc1882004451d804552cf6ede0e1501353d0d14b4631a77d0185a&=&format=webp&quality=lossless&width=226&height=213');">
+                        <div class="product-image" style="background-image: url('https://tr.rbxcdn.com/180DAY-d90e7a4dc5a82f0d8b0d22951c99bd63/150/150/Image/Webp/noFilter');" data-fallback-text="Spider Fruit">
                         </div>
                         <div class="product-content">
                             <h3 class="product-title">Spider Fruit</h3>
@@ -3635,23 +3719,48 @@
                 <div id="paymentDetails">
                     <div class="payment-instructions">
                         <h4 id="payment-method-title"><i class="fas fa-info-circle"></i> Payment Instructions</h4>
-                        <p>Please send the following amount to:</p>
+                        <p>Please send the following amount:</p>
                         <div class="payment-amount" id="paymentAmount">0 EGP</div>
-                        <div class="payment-number">01021336310</div>
-                        <p>Include your Roblox username in the payment message.</p>
+                        
+                        <!-- InstaPay Details -->
+                        <div id="instapay-details" style="display: none;">
+                            <div class="payment-email">amlelsaid2024@instapay</div>
+                            <div class="payment-qr-container">
+                                <div class="payment-qr">
+                                    <img src="https://z-cdn-media.chatglm.cn/files/ab579136-15b5-4f3e-9824-4c1049755903_InstaPay%20Qr.png?auth_key=1790145669-06885b72f2154bb3a163dbd89f635b55-0-092eab5d3c25a43510d8d17f76122bd7" alt="InstaPay QR Code">
+                                </div>
+                            </div>
+                            <a href="https://ipn.eg/S/amlelsaid2024/instapay/70vZoa" target="_blank" class="payment-link">
+                                <i class="fas fa-external-link-alt"></i> Open InstaPay Payment Link
+                            </a>
+                        </div>
+                        
+                        <!-- Vodafone Cash Details -->
+                        <div id="vodafone-details" style="display: none;">
+                            <div class="payment-qr-container">
+                                <div class="payment-qr">
+                                    <img src="https://z-cdn-media.chatglm.cn/files/4b5ecfc5-e871-493c-8f32-866a9eed7588_Vodafone%20Cash%20QR.png?auth_key=1790145669-3075f5b072fa484c94cbef4500e04c2e-0-b33c6f86d12a891c175f7a0d571f8023" alt="Vodafone Cash QR Code">
+                                </div>
+                            </div>
+                            <a href="http://vf.eg/vfcash?id=mt&qrId=ggZjEC" target="_blank" class="payment-link">
+                                <i class="fas fa-external-link-alt"></i> Open Vodafone Cash Payment Link
+                            </a>
+                        </div>
+                        
+                        <p>Include your Roblox username in the payment message/note.</p>
                         
                         <div class="instruction-steps">
                             <div class="instruction-step">
                                 <div class="step-number">1</div>
-                                <div>Open your banking app or Vodafone Cash</div>
+                                <div>Open your payment app (InstaPay or Vodafone Cash)</div>
                             </div>
                             <div class="instruction-step">
                                 <div class="step-number">2</div>
-                                <div>Send <span id="instruction-amount">0 EGP</span> to the number above</div>
+                                <div>Send <span id="instruction-amount">0 EGP</span> using the details above</div>
                             </div>
                             <div class="instruction-step">
                                 <div class="step-number">3</div>
-                                <div>Include your Roblox username in the message</div>
+                                <div>Include your Roblox username in the payment message/note</div>
                             </div>
                             <div class="instruction-step">
                                 <div class="step-number">4</div>
@@ -3675,13 +3784,14 @@
                     <h4 id="upload-title"><i class="fas fa-camera"></i> Upload Picture Of The Payment</h4>
                     <p id="upload-message">Please upload a clear picture of your payment confirmation to verify your order.</p>
                     
-                    <div class="upload-area" onclick="document.getElementById('paymentReceipt').click()">
-                        <i class="fas fa-cloud-upload-alt"></i>
-                        <p>Click to upload or drag and drop</p>
-                        <p>PNG, JPG, GIF up to 10MB</p>
+                    <div class="mobile-file-input">
+                        <div class="upload-area" onclick="document.getElementById('paymentReceipt').click()">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Click to upload or drag and drop</p>
+                            <p>PNG, JPG, GIF up to 10MB</p>
+                        </div>
+                        <input type="file" id="paymentReceipt" class="file-input" accept="image/*" onchange="handlePaymentReceiptUpload(event)">
                     </div>
-                    
-                    <input type="file" id="paymentReceipt" class="file-input" accept="image/*" onchange="handlePaymentReceiptUpload(event)">
                     
                     <div class="upload-preview" id="uploadPreview">
                         <img id="previewImage" src="" alt="Payment Receipt">
@@ -3879,28 +3989,41 @@
                     <pre>rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Allow users to read and write their own profile data
+    // Helper function to check if user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    // Helper function to check if user is admin
+    function isAdmin() {
+      return isAuthenticated() && 
+        exists(/databases/$(database)/documents/admins/$(request.auth.token.email));
+    }
+    
+    // Helper function to check if user owns the document
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+    
+    // Users collection rules
     match /users/{userId} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
-      allow list: if request.auth != null && 
-        exists(/databases/$(database)/documents/admins/$(request.auth.token.email));
+      allow read, write: if isOwner(userId) || isAdmin();
+      allow create: if isAuthenticated();
+      allow list: if isAdmin();
     }
     
-    // Allow users to create orders and read their own orders
+    // Orders collection rules
     match /orders/{orderId} {
-      allow create: if request.auth != null;
-      allow read: if request.auth != null && resource.data.userId == request.auth.uid;
-      allow update, delete: if request.auth != null && 
-        (resource.data.userId == request.auth.uid || 
-        exists(/databases/$(database)/documents/admins/$(request.auth.token.email)));
-      allow list: if request.auth != null && 
-        exists(/databases/$(database)/documents/admins/$(request.auth.token.email));
+      allow create: if isAuthenticated();
+      allow read: if isOwner(resource.data.userId) || isAdmin();
+      allow update, delete: if isOwner(resource.data.userId) || isAdmin();
+      allow list: if isAdmin();
     }
     
-    // Only allow admins to access the admin collection
+    // Admins collection rules
     match /admins/{adminEmail} {
-      allow read, write: if request.auth != null && 
-        exists(/databases/$(database)/documents/admins/$(request.auth.token.email));
+      allow read, write: if isAdmin();
+      allow list: if isAdmin();
     }
   }
 }</pre>
@@ -4094,7 +4217,7 @@ service cloud.firestore {
                 isAdminLoggedIn = true;
             }
             
-            // Load webhook settings
+            // Load webhook settings with the correct URL
             loadWebhookSettings();
             
             // Mobile menu toggle
@@ -4524,6 +4647,7 @@ service cloud.firestore {
             let icon = 'fa-info-circle';
             if (type === 'success') icon = 'fa-check-circle';
             if (type === 'error') icon = 'fa-exclamation-circle';
+            if (type === 'warning') icon = 'fa-exclamation-triangle';
             
             // Set notification content
             notification.innerHTML = `<i class="fas ${icon}"></i> ${message}`;
@@ -4699,8 +4823,12 @@ service cloud.firestore {
             const paymentTitle = document.getElementById('payment-method-title');
             if (method === 'instapay') {
                 paymentTitle.innerHTML = '<i class="fas fa-info-circle"></i> InstaPay Payment Instructions';
+                document.getElementById('instapay-details').style.display = 'block';
+                document.getElementById('vodafone-details').style.display = 'none';
             } else if (method === 'vodafone_cash') {
                 paymentTitle.innerHTML = '<i class="fas fa-info-circle"></i> Vodafone Cash Payment Instructions';
+                document.getElementById('instapay-details').style.display = 'none';
+                document.getElementById('vodafone-details').style.display = 'block';
             }
         }
         
@@ -4757,6 +4885,184 @@ service cloud.firestore {
             reader.readAsDataURL(file);
         }
         
+        // Fixed Discord webhook function with proper payload structure
+        function sendDiscordWebhook(order) {
+            return new Promise((resolve, reject) => {
+                // Get webhook URL from localStorage or use the hardcoded one as fallback
+                const webhookUrl = localStorage.getItem('egyptGameStoreWebhookUrl') || 
+                                  "https://discord.com/api/webhooks/1412244202024075485/kXO3zpjgJBaz4sXzqKN_pue4BAiyumGJPMuz-Ra2S4m-f79D5VPS5ytggnIv3iI4mA68";
+                
+                if (!webhookUrl) {
+                    console.error('Webhook URL not configured');
+                    reject(new Error('Webhook URL not configured'));
+                    return;
+                }
+                
+                // Safely convert Firestore timestamp to JavaScript Date
+                let orderDate = 'N/A';
+                try {
+                    if (order.createdAt) {
+                        // Check if it's a Firestore Timestamp object
+                        if (typeof order.createdAt.toDate === 'function') {
+                            orderDate = new Date(order.createdAt.toDate()).toLocaleDateString();
+                        } 
+                        // Check if it's already a JavaScript Date object
+                        else if (order.createdAt instanceof Date) {
+                            orderDate = order.createdAt.toLocaleDateString();
+                        }
+                        // Check if it's a timestamp number
+                        else if (typeof order.createdAt === 'number') {
+                            orderDate = new Date(order.createdAt).toLocaleDateString();
+                        }
+                        // Check if it's a string that can be parsed as a date
+                        else if (typeof order.createdAt === 'string') {
+                            const parsedDate = new Date(order.createdAt);
+                            if (!isNaN(parsedDate.getTime())) {
+                                orderDate = parsedDate.toLocaleDateString();
+                            }
+                        }
+                        // Check if it has seconds property (Firestore Timestamp format)
+                        else if (order.createdAt.seconds) {
+                            orderDate = new Date(order.createdAt.seconds * 1000).toLocaleDateString();
+                        }
+                    }
+                } catch (error) {
+                    console.error('Error converting order date:', error);
+                    orderDate = 'N/A';
+                }
+                
+                // Create a compact message to stay under 2000 characters
+                let message = `🛒 **New Order Received**\n\n`;
+                message += `**Order ID:** ${order.id}\n`;
+                message += `**Product:** ${order.product}\n`;
+                message += `**Price:** ${order.price} EGP\n`;
+                message += `**Customer:** ${order.username}\n`;
+                message += `**Email:** ${order.email}\n`;
+                message += `**Phone:** ${order.phone}\n`;
+                message += `**Payment Method:** ${order.paymentMethod === 'instapay' ? 'InstaPay' : 'Vodafone Cash'}\n`;
+                message += `**Status:** ${order.status}\n`;
+                message += `**Date:** ${orderDate}\n`;
+                
+                // Add payment receipt image if available
+                if (order.paymentReceipt) {
+                    // Create a simple embed with just the image
+                    const embed = {
+                        title: "Payment Receipt",
+                        image: {
+                            url: order.paymentReceipt
+                        },
+                        color: 0x4285f4
+                    };
+                    
+                    // Create webhook payload
+                    const payload = {
+                        content: message,
+                        embeds: [embed]
+                    };
+                    
+                    // Check if the total payload exceeds Discord's limits
+                    const payloadString = JSON.stringify(payload);
+                    if (payloadString.length > 2000) {
+                        // If it's too long, send without the image
+                        delete payload.embeds;
+                    }
+                    
+                    // Log the payload for debugging
+                    console.log('Webhook URL:', webhookUrl);
+                    console.log('Sending webhook payload length:', JSON.stringify(payload).length);
+                    
+                    // Validate payload before sending
+                    if (!payload.content) {
+                        console.error('Invalid payload: content is empty');
+                        reject(new Error('Invalid payload: content is empty'));
+                        return;
+                    }
+                    
+                    // Send webhook with better error handling
+                    fetch(webhookUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(payload)
+                    })
+                    .then(response => {
+                        console.log('Webhook response status:', response.status);
+                        
+                        if (response.ok) {
+                            console.log('Webhook sent successfully');
+                            resolve();
+                        } else {
+                            // Try to get more error details
+                            response.text().then(text => {
+                                console.error('Failed to send webhook. Status:', response.status, 'Response:', text);
+                                
+                                // Check if it's a character limit error
+                                if (text.includes('2000') || text.includes('character') || text.includes('too long')) {
+                                    reject(new Error('Discord message exceeds character limit (2000 chars).'));
+                                } else {
+                                    reject(new Error(`Webhook failed with status ${response.status}: ${text}`));
+                                }
+                            }).catch(textError => {
+                                console.error('Failed to read response text:', textError);
+                                reject(new Error(`Webhook failed with status ${response.status}`));
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error sending webhook:', error);
+                        reject(error);
+                    });
+                } else {
+                    // No image, send just the message
+                    const payload = {
+                        content: message
+                    };
+                    
+                    // Log the payload for debugging
+                    console.log('Webhook URL:', webhookUrl);
+                    console.log('Sending webhook payload length:', JSON.stringify(payload).length);
+                    
+                    // Send webhook with better error handling
+                    fetch(webhookUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(payload)
+                    })
+                    .then(response => {
+                        console.log('Webhook response status:', response.status);
+                        
+                        if (response.ok) {
+                            console.log('Webhook sent successfully');
+                            resolve();
+                        } else {
+                            // Try to get more error details
+                            response.text().then(text => {
+                                console.error('Failed to send webhook. Status:', response.status, 'Response:', text);
+                                
+                                // Check if it's a character limit error
+                                if (text.includes('2000') || text.includes('character') || text.includes('too long')) {
+                                    reject(new Error('Discord message exceeds character limit (2000 chars).'));
+                                } else {
+                                    reject(new Error(`Webhook failed with status ${response.status}: ${text}`));
+                                }
+                            }).catch(textError => {
+                                console.error('Failed to read response text:', textError);
+                                reject(new Error(`Webhook failed with status ${response.status}`));
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error sending webhook:', error);
+                        reject(error);
+                    });
+                }
+            });
+        }
+        
+        // Updated submit order function with better error handling
         function submitOrderWithReceipt() {
             if (!uploadedImageFile) {
                 showNotification('Please upload a payment receipt', 'error');
@@ -4796,7 +5102,7 @@ service cloud.firestore {
             reader.onload = function(e) {
                 const base64Image = e.target.result;
                 
-                // Create order object
+                // Create order object with proper timestamp
                 const order = {
                     product: currentItem.name,
                     price: currentItem.price,
@@ -4823,29 +5129,41 @@ service cloud.firestore {
                         order.id = docRef.id;
                         
                         // Send Discord webhook notification
-                        sendDiscordWebhook(order);
-                        
-                        // Update UI
-                        document.getElementById('uploadSpinner').style.display = 'none';
-                        document.getElementById('submitUploadBtn').disabled = false;
-                        
-                        // Show confirmation
-                        document.getElementById('paymentUploadSection').style.display = 'none';
-                        document.getElementById('orderConfirmation').style.display = 'block';
-                        
-                        // Update confirmation details
-                        document.getElementById('conf-product').textContent = currentItem.name;
-                        document.getElementById('conf-price').textContent = currentItem.price + ' EGP';
-                        document.getElementById('conf-username').textContent = username;
-                        document.getElementById('conf-email').textContent = email;
-                        document.getElementById('conf-phone').textContent = phone;
-                        document.getElementById('conf-gamepass').textContent = gamepassLink || 'N/A';
-                        
-                        // Load updated order history
-                        loadOrderHistory();
-                        
-                        // Show notification
-                        showNotification('Order placed successfully!', 'success');
+                        sendDiscordWebhook(order).then(() => {
+                            console.log("Webhook sent successfully");
+                            showNotification('Order placed successfully! Discord notification sent.', 'success');
+                        }).catch(error => {
+                            console.error("Error sending webhook:", error);
+                            // Show detailed error message
+                            const errorMessage = error.message || 'Unknown error';
+                            showNotification(`Order placed but notification failed to send: ${errorMessage}`, 'warning');
+                            
+                            // Show additional error details in console for debugging
+                            console.error('Webhook error details:', {
+                                name: error.name,
+                                message: error.message,
+                                stack: error.stack
+                            });
+                        }).finally(() => {
+                            // Update UI regardless of webhook status
+                            document.getElementById('uploadSpinner').style.display = 'none';
+                            document.getElementById('submitUploadBtn').disabled = false;
+                            
+                            // Show confirmation
+                            document.getElementById('paymentUploadSection').style.display = 'none';
+                            document.getElementById('orderConfirmation').style.display = 'block';
+                            
+                            // Update confirmation details
+                            document.getElementById('conf-product').textContent = currentItem.name;
+                            document.getElementById('conf-price').textContent = currentItem.price + ' EGP';
+                            document.getElementById('conf-username').textContent = username;
+                            document.getElementById('conf-email').textContent = email;
+                            document.getElementById('conf-phone').textContent = phone;
+                            document.getElementById('conf-gamepass').textContent = gamepassLink || 'N/A';
+                            
+                            // Load updated order history
+                            loadOrderHistory();
+                        });
                     })
                     .catch(error => {
                         console.error("ERROR: Submitting order:", error);
@@ -4855,31 +5173,6 @@ service cloud.firestore {
                         // Check if it's a permission error
                         if (error.message.includes('Missing or insufficient permissions')) {
                             showNotification('Permission error. Please check Firestore security rules.', 'error');
-                            
-                            // Show a more detailed error message with instructions
-                            const dashboardContent = document.getElementById('dashboard-content');
-                            const existingError = dashboardContent.querySelector('.error-box');
-                            if (!existingError) {
-                                const errorDiv = document.createElement('div');
-                                errorDiv.className = 'error-box';
-                                errorDiv.innerHTML = `
-                                    <h3><i class="fas fa-exclamation-triangle"></i> Firebase Security Rules Error</h3>
-                                    <p>Your Firebase security rules are preventing write operations to the database.</p>
-                                    <p>Please update your Firestore security rules to allow write access for authenticated users.</p>
-                                    <p>You can use these rules for testing:</p>
-                                    <pre>rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write: if true;
-    }
-  }
-}</pre>
-                                    <p>For production, you should implement more restrictive rules.</p>
-                                    <button class="btn" onclick="window.open('https://console.firebase.google.com/project/egyptstore-f5201/firestore/rules', '_blank')">Open Firebase Console</button>
-                                `;
-                                dashboardContent.insertBefore(errorDiv, dashboardContent.firstChild);
-                            }
                         } else {
                             showNotification('Error placing order: ' + error.message, 'error');
                         }
@@ -4999,6 +5292,7 @@ service cloud.firestore {
                         const userData = doc.data();
                         // Update the currentUser object with the latest data
                         currentUser = { ...currentUser, ...userData };
+                        
                         // Update localStorage
                         localStorage.setItem('egyptGameStoreUser', JSON.stringify(currentUser));
                         
@@ -5039,6 +5333,7 @@ service cloud.firestore {
             }
         }
         
+        // Fixed updateUserProfile function
         function updateUserProfile() {
             const name = document.getElementById('settingsName').value;
             const email = document.getElementById('settingsEmail').value;
@@ -5055,15 +5350,15 @@ service cloud.firestore {
             saveButton.textContent = 'Saving...';
             saveButton.disabled = true;
             
-            // Update user in Firestore
-            db.collection('users').doc(currentUser.uid).update({
+            // Use set with merge instead of update to create document if it doesn't exist
+            db.collection('users').doc(currentUser.uid).set({
                 name: name,
                 email: email,
                 phone: phone
-            })
+            }, { merge: true })
             .then(() => {
                 // Update Firebase Auth user profile (display name)
-                return currentUser.updateProfile({
+                return auth.currentUser.updateProfile({
                     displayName: name
                 });
             })
@@ -5107,31 +5402,6 @@ service cloud.firestore {
                 // Check if it's a permission error
                 if (error.message.includes('Missing or insufficient permissions')) {
                     showNotification('Permission error. Please check Firestore security rules.', 'error');
-                    
-                    // Show a more detailed error message with instructions
-                    const settingsForm = document.getElementById('profileForm');
-                    const existingError = settingsForm.querySelector('.error-box');
-                    if (!existingError) {
-                        const errorDiv = document.createElement('div');
-                        errorDiv.className = 'error-box';
-                        errorDiv.innerHTML = `
-                            <h3><i class="fas fa-exclamation-triangle"></i> Firebase Security Rules Error</h3>
-                            <p>Your Firebase security rules are preventing write operations to the database.</p>
-                            <p>Please update your Firestore security rules to allow write access for authenticated users.</p>
-                            <p>You can use these rules for testing:</p>
-                            <pre>rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write: if true;
-    }
-  }
-}</pre>
-                            <p>For production, you should implement more restrictive rules.</p>
-                            <button class="btn" onclick="window.open('https://console.firebase.google.com/project/egyptstore-f5201/firestore/rules', '_blank')">Open Firebase Console</button>
-                        `;
-                        settingsForm.insertBefore(errorDiv, settingsForm.firstChild);
-                    }
                 } else {
                     showNotification('Error updating profile: ' + error.message, 'error');
                 }
@@ -5188,11 +5458,18 @@ service cloud.firestore {
         
         // Admin Panel Functions
         function showAdminLogin() {
-            if (currentUser && currentUser.isAdmin) {
+            // Check if user is logged in and is admin
+            if (!currentUser) {
+                showNotification('Please login to access admin panel', 'error');
+                return;
+            }
+            
+            if (currentUser.isAdmin) {
                 document.getElementById('adminPanel').classList.add('active');
                 loadAdminData();
             } else {
-                showNotification('You are not authorized to access the admin panel', 'error');
+                // Show admin password modal
+                document.getElementById('adminLogin').classList.add('active');
             }
         }
         
@@ -5369,31 +5646,6 @@ service cloud.firestore {
                         // Check if it's a permission error
                         if (error.message.includes('Missing or insufficient permissions')) {
                             showNotification('Permission error. Please check Firestore security rules.', 'error');
-                            
-                            // Show a more detailed error message with instructions
-                            const dashboardContent = document.getElementById('dashboard-content');
-                            const existingError = dashboardContent.querySelector('.error-box');
-                            if (!existingError) {
-                                const errorDiv = document.createElement('div');
-                                errorDiv.className = 'error-box';
-                                errorDiv.innerHTML = `
-                                    <h3><i class="fas fa-exclamation-triangle"></i> Firebase Security Rules Error</h3>
-                                    <p>Your Firebase security rules are preventing write operations to the database.</p>
-                                    <p>Please update your Firestore security rules to allow write access for authenticated users.</p>
-                                    <p>You can use these rules for testing:</p>
-                                    <pre>rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write: if true;
-    }
-  }
-}</pre>
-                                    <p>For production, you should implement more restrictive rules.</p>
-                                    <button class="btn" onclick="window.open('https://console.firebase.google.com/project/egyptstore-f5201/firestore/rules', '_blank')">Open Firebase Console</button>
-                                `;
-                                dashboardContent.insertBefore(errorDiv, dashboardContent.firstChild);
-                            }
                         } else {
                             showNotification('Error clearing revenue data', 'error');
                         }
@@ -5435,33 +5687,8 @@ service cloud.firestore {
                         // Check if it's a permission error
                         if (error.message.includes('Missing or insufficient permissions')) {
                             showNotification('Permission error. Please check Firestore security rules.', 'error');
-                            
-                            // Show a more detailed error message with instructions
-                            const dashboardContent = document.getElementById('dashboard-content');
-                            const existingError = dashboardContent.querySelector('.error-box');
-                            if (!existingError) {
-                                const errorDiv = document.createElement('div');
-                                errorDiv.className = 'error-box';
-                                errorDiv.innerHTML = `
-                                    <h3><i class="fas fa-exclamation-triangle"></i> Firebase Security Rules Error</h3>
-                                    <p>Your Firebase security rules are preventing write operations to the database.</p>
-                                    <p>Please update your Firestore security rules to allow write access for authenticated users.</p>
-                                    <p>You can use these rules for testing:</p>
-                                    <pre>rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write: if true;
-    }
-  }
-}</pre>
-                                    <p>For production, you should implement more restrictive rules.</p>
-                                    <button class="btn" onclick="window.open('https://console.firebase.google.com/project/egyptstore-f5201/firestore/rules', '_blank')">Open Firebase Console</button>
-                                `;
-                                dashboardContent.insertBefore(errorDiv, dashboardContent.firstChild);
-                            }
                         } else {
-                            showNotification('Error clearing pending orders: ' + error.message, 'error');
+                            showNotification('Error clearing pending orders', 'error');
                         }
                     });
             }
@@ -5501,33 +5728,8 @@ service cloud.firestore {
                         // Check if it's a permission error
                         if (error.message.includes('Missing or insufficient permissions')) {
                             showNotification('Permission error. Please check Firestore security rules.', 'error');
-                            
-                            // Show a more detailed error message with instructions
-                            const dashboardContent = document.getElementById('dashboard-content');
-                            const existingError = dashboardContent.querySelector('.error-box');
-                            if (!existingError) {
-                                const errorDiv = document.createElement('div');
-                                errorDiv.className = 'error-box';
-                                errorDiv.innerHTML = `
-                                    <h3><i class="fas fa-exclamation-triangle"></i> Firebase Security Rules Error</h3>
-                                    <p>Your Firebase security rules are preventing write operations to the database.</p>
-                                    <p>Please update your Firestore security rules to allow write access for authenticated users.</p>
-                                    <p>You can use these rules for testing:</p>
-                                    <pre>rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write: if true;
-    }
-  }
-}</pre>
-                                    <p>For production, you should implement more restrictive rules.</p>
-                                    <button class="btn" onclick="window.open('https://console.firebase.google.com/project/egyptstore-f5201/firestore/rules', '_blank')">Open Firebase Console</button>
-                                `;
-                                dashboardContent.insertBefore(errorDiv, dashboardContent.firstChild);
-                            }
                         } else {
-                            showNotification('Error clearing completed orders: ' + error.message, 'error');
+                            showNotification('Error clearing completed orders', 'error');
                         }
                     });
             }
@@ -5987,31 +6189,6 @@ service cloud.firestore {
                 // Check if it's a permission error
                 if (error.message.includes('Missing or insufficient permissions')) {
                     showNotification('Permission error. Please check Firestore security rules.', 'error');
-                    
-                    // Show a more detailed error message with instructions
-                    const ordersContent = document.getElementById('orders-content');
-                    const existingError = ordersContent.querySelector('.error-box');
-                    if (!existingError) {
-                        const errorDiv = document.createElement('div');
-                        errorDiv.className = 'error-box';
-                        errorDiv.innerHTML = `
-                            <h3><i class="fas fa-exclamation-triangle"></i> Firebase Security Rules Error</h3>
-                            <p>Your Firebase security rules are preventing write operations to the database.</p>
-                            <p>Please update your Firestore security rules to allow write access for authenticated users.</p>
-                            <p>You can use these rules for testing:</p>
-                            <pre>rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write: if true;
-    }
-  }
-}</pre>
-                            <p>For production, you should implement more restrictive rules.</p>
-                            <button class="btn" onclick="window.open('https://console.firebase.google.com/project/egyptstore-f5201/firestore/rules', '_blank')">Open Firebase Console</button>
-                        `;
-                        ordersContent.insertBefore(errorDiv, ordersContent.firstChild);
-                    }
                 } else {
                     showNotification('Error completing order', 'error');
                 }
@@ -6048,31 +6225,6 @@ service cloud.firestore {
                         // Check if it's a permission error
                         if (error.message.includes('Missing or insufficient permissions')) {
                             showNotification('Permission error. Please check Firestore security rules.', 'error');
-                            
-                            // Show a more detailed error message with instructions
-                            const usersContent = document.getElementById('users-content');
-                            const existingError = usersContent.querySelector('.error-box');
-                            if (!existingError) {
-                                const errorDiv = document.createElement('div');
-                                errorDiv.className = 'error-box';
-                                errorDiv.innerHTML = `
-                                    <h3><i class="fas fa-exclamation-triangle"></i> Firebase Security Rules Error</h3>
-                                    <p>Your Firebase security rules are preventing write operations to the database.</p>
-                                    <p>Please update your Firestore security rules to allow write access for authenticated users.</p>
-                                    <p>You can use these rules for testing:</p>
-                                    <pre>rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write: if true;
-    }
-  }
-}</pre>
-                                    <p>For production, you should implement more restrictive rules.</p>
-                                    <button class="btn" onclick="window.open('https://console.firebase.google.com/project/egyptstore-f5201/firestore/rules', '_blank')">Open Firebase Console</button>
-                                `;
-                                usersContent.insertBefore(errorDiv, usersContent.firstChild);
-                            }
                         } else {
                             showNotification('Error deleting user: ' + error.message, 'error');
                         }
@@ -6094,31 +6246,6 @@ service cloud.firestore {
                         // Check if it's a permission error
                         if (error.message.includes('Missing or insufficient permissions')) {
                             showNotification('Permission error. Please check Firestore security rules.', 'error');
-                            
-                            // Show a more detailed error message with instructions
-                            const ordersContent = document.getElementById('orders-content');
-                            const existingError = ordersContent.querySelector('.error-box');
-                            if (!existingError) {
-                                const errorDiv = document.createElement('div');
-                                errorDiv.className = 'error-box';
-                                errorDiv.innerHTML = `
-                                    <h3><i class="fas fa-exclamation-triangle"></i> Firebase Security Rules Error</h3>
-                                    <p>Your Firebase security rules are preventing write operations to the database.</p>
-                                    <p>Please update your Firestore security rules to allow write access for authenticated users.</p>
-                                    <p>You can use these rules for testing:</p>
-                                    <pre>rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write: if true;
-    }
-  }
-}</pre>
-                                    <p>For production, you should implement more restrictive rules.</p>
-                                    <button class="btn" onclick="window.open('https://console.firebase.google.com/project/egyptstore-f5201/firestore/rules', '_blank')">Open Firebase Console</button>
-                                `;
-                                ordersContent.insertBefore(errorDiv, ordersContent.firstChild);
-                            }
                         } else {
                             showNotification('Error deleting order: ' + error.message, 'error');
                         }
@@ -6144,16 +6271,18 @@ service cloud.firestore {
         
         // Webhook Functions
         function loadWebhookSettings() {
-            let webhookUrl = localStorage.getItem('egyptGameStoreWebhookUrl');
+            // Use the correct webhook URL
+            const webhookUrl = "https://discord.com/api/webhooks/1412244202024075485/kXO3zpjgJBaz4sXzqKN_pue4BAiyumGJPMuz-Ra2S4m-f79D5VPS5ytggnIv3iI4mA68";
             
-            if (!webhookUrl) {
-                // Set the default webhook URL
-                webhookUrl = "https://discord.com/api/webhooks/1412244202024075485/kXO3zpjgJBaz4sXzqKN_pue4BAiyumGJPMuz-Ra2S4m-f79D5VPS5ytggnIv3iI4mA68";
-                localStorage.setItem('egyptGameStoreWebhookUrl', webhookUrl);
-            }
+            // Save to localStorage
+            localStorage.setItem('egyptGameStoreWebhookUrl', webhookUrl);
             
+            // Update UI
             document.getElementById('webhookUrl').value = webhookUrl;
             document.getElementById('webhookStatus').textContent = 'Webhook configured';
+            document.getElementById('webhookStatus').style.color = 'var(--success)';
+            
+            console.log('Webhook URL loaded:', webhookUrl);
         }
         
         function saveWebhookSettings() {
@@ -6162,84 +6291,47 @@ service cloud.firestore {
             if (webhookUrl) {
                 localStorage.setItem('egyptGameStoreWebhookUrl', webhookUrl);
                 document.getElementById('webhookStatus').textContent = 'Webhook configured';
+                document.getElementById('webhookStatus').style.color = 'var(--success)';
                 showNotification('Webhook settings saved', 'success');
             } else {
                 localStorage.removeItem('egyptGameStoreWebhookUrl');
                 document.getElementById('webhookStatus').textContent = 'Webhook not configured';
+                document.getElementById('webhookStatus').style.color = 'var(--gray)';
                 showNotification('Webhook settings cleared', 'info');
             }
         }
         
-        function sendDiscordWebhook(order) {
-            const webhookUrl = localStorage.getItem('egyptGameStoreWebhookUrl');
-            if (webhookUrl) {
-                sendToWebhook(webhookUrl, order);
-            }
-        }
-        
-        function sendToWebhook(webhookUrl, order) {
-            // Create webhook payload
-            const payload = {
-                embeds: [{
-                    title: 'New Order Received',
-                    color: 0x4285f4,
-                    fields: [
-                        { name: 'Order ID', value: order.id, inline: true },
-                        { name: 'Product', value: order.product, inline: true },
-                        { name: 'Price', value: `${order.price} EGP`, inline: true },
-                        { name: 'Customer', value: order.username, inline: true },
-                        { name: 'Email', value: order.email, inline: true },
-                        { name: 'Payment Method', value: order.paymentMethod === 'instapay' ? 'InstaPay' : 'Vodafone Cash', inline: true },
-                        { name: 'Status', value: order.status, inline: true }
-                    ],
-                    timestamp: new Date().toISOString()
-                }]
-            };
-            
-            // Add image if available
-            if (order.paymentReceipt) {
-                payload.embeds[0].image = {
-                    url: order.paymentReceipt
-                };
-            }
-            
-            // Send webhook
-            fetch(webhookUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(payload)
-            })
-            .then(response => {
-                if (response.ok) {
-                    console.log('Webhook sent successfully');
-                } else {
-                    console.error('Failed to send webhook');
-                }
-            })
-            .catch(error => {
-                console.error('Error sending webhook:', error);
-            });
-        }
-        
         function testWebhook() {
-            const webhookUrl = localStorage.getItem('egyptGameStoreWebhookUrl');
+            const webhookUrl = localStorage.getItem('egyptGameStoreWebhookUrl') || 
+                              "https://discord.com/api/webhooks/1412244202024075485/kXO3zpjgJBaz4sXzqKN_pue4BAiyumGJPMuz-Ra2S4m-f79D5VPS5ytggnIv3iI4mA68";
             
             if (!webhookUrl) {
                 showNotification('Please configure a webhook URL first', 'error');
                 return;
             }
             
+            // Create test embed object
+            const embed = {
+                title: "EgyptGameStore - Test",
+                description: "This is a test notification from EgyptGameStore",
+                color: 0x4285f4,
+                timestamp: new Date().toISOString()
+            };
+            
             // Create test webhook payload
             const payload = {
-                embeds: [{
-                    title: 'Test Notification',
-                    description: 'This is a test notification from EgyptGameStore',
-                    color: 0x4285f4,
-                    timestamp: new Date().toISOString()
-                }]
+                content: "🔔 **Test Notification**",
+                embeds: [embed]
             };
+            
+            // Show loading state
+            const testBtn = event.target;
+            const originalText = testBtn.textContent;
+            testBtn.textContent = 'Sending...';
+            testBtn.disabled = true;
+            
+            console.log('Testing webhook with URL:', webhookUrl);
+            console.log('Test payload:', JSON.stringify(payload));
             
             // Send webhook
             fetch(webhookUrl, {
@@ -6250,15 +6342,75 @@ service cloud.firestore {
                 body: JSON.stringify(payload)
             })
             .then(response => {
+                console.log('Webhook response status:', response.status);
+                
                 if (response.ok) {
-                    showNotification('Test notification sent successfully', 'success');
+                    showNotification('Test notification sent successfully!', 'success');
                 } else {
-                    showNotification('Failed to send test notification', 'error');
+                    response.text().then(text => {
+                        console.error('Failed to send test webhook. Status:', response.status, 'Response:', text);
+                        showNotification(`Failed to send test notification: ${text}`, 'error');
+                    });
                 }
             })
             .catch(error => {
                 console.error('Error sending test webhook:', error);
-                showNotification('Error sending test notification', 'error');
+                showNotification('Error sending test notification: ' + error.message, 'error');
+            })
+            .finally(() => {
+                // Reset button state
+                testBtn.textContent = originalText;
+                testBtn.disabled = false;
+            });
+        }
+        
+        // Direct test function for webhook (can be run from console)
+        function testWebhookDirectly() {
+            const webhookUrl = "https://discord.com/api/webhooks/1412244202024075485/kXO3zpjgJBaz4sXzqKN_pue4BAiyumGJPMuz-Ra2S4m-f79D5VPS5ytggnIv3iI4mA68";
+            
+            const testPayload = {
+                content: "🔔 **Direct Test Notification from EgyptGameStore**",
+                embeds: [{
+                    title: "Direct Webhook Test",
+                    description: "This is a direct test notification to verify the webhook is working correctly.",
+                    color: 0x4285f4,
+                    fields: [
+                        { name: "Test Field 1", value: "Test Value 1", inline: true },
+                        { name: "Test Field 2", value: "Test Value 2", inline: true }
+                    ],
+                    footer: {
+                        text: "EgyptGameStore Direct Test"
+                    },
+                    timestamp: new Date().toISOString()
+                }]
+            };
+            
+            console.log('Testing webhook with URL:', webhookUrl);
+            console.log('Test payload:', JSON.stringify(testPayload));
+            
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(testPayload)
+            })
+            .then(response => {
+                console.log('Webhook response status:', response.status);
+                
+                if (response.ok) {
+                    console.log('✅ Webhook test successful!');
+                    showNotification('Direct webhook test successful!', 'success');
+                } else {
+                    response.text().then(text => {
+                        console.error('❌ Webhook test failed. Status:', response.status, 'Response:', text);
+                        showNotification(`Webhook test failed: ${text}`, 'error');
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('❌ Error testing webhook:', error);
+                showNotification('Error testing webhook: ' + error.message, 'error');
             });
         }
         
