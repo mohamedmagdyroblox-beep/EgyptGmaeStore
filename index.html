@@ -184,6 +184,8 @@
             display: none;
             animation: slideDown 0.3s ease;
             border: 1px solid #e2e8f0;
+            max-height: 80vh;
+            overflow-y: auto;
         }
         
         @keyframes slideDown {
@@ -3049,6 +3051,403 @@
         .product-image[style*="background-image: url('')"]::after {
             opacity: 1;
         }
+        
+        /* Payment verification fields */
+        .payment-verification {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .payment-verification h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+        
+        .payment-verification h4 i {
+            margin-right: 10px;
+        }
+        
+        .verification-field {
+            margin-bottom: 15px;
+        }
+        
+        .verification-field label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--darker);
+        }
+        
+        .verification-field input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .verification-field input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.1);
+        }
+        
+        .verification-note {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 5px;
+            font-style: italic;
+        }
+        
+        /* SMS Verification Section */
+        .sms-verification {
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .sms-verification h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+        
+        .sms-verification h4 i {
+            margin-right: 10px;
+        }
+        
+        .sms-verification p {
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .sms-code-input {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .sms-code-input input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            text-align: center;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+        
+        .sms-code-input input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.1);
+        }
+        
+        .btn-verify {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+        
+        .btn-verify:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(66, 133, 244, 0.3);
+        }
+        
+        .btn-resend {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .btn-resend:hover {
+            background: rgba(66, 133, 244, 0.1);
+        }
+        
+        .timer {
+            color: var(--gray);
+            font-size: 14px;
+            margin-left: 10px;
+        }
+        
+        /* Arabic language styles */
+        .rtl {
+            direction: rtl;
+            text-align: right;
+        }
+        
+        .rtl .logo {
+            flex-direction: row-reverse;
+        }
+        
+        .rtl .logo i {
+            margin-right: 0;
+            margin-left: 12px;
+        }
+        
+        .rtl nav ul {
+            flex-direction: row-reverse;
+        }
+        
+        .rtl nav ul li {
+            margin-left: 0;
+            margin-right: 20px;
+        }
+        
+        .rtl .user-menu {
+            flex-direction: row-reverse;
+        }
+        
+        .rtl .user-info {
+            flex-direction: row-reverse;
+        }
+        
+        .rtl .user-info span {
+            margin-right: 0;
+            margin-left: 8px;
+        }
+        
+        .rtl .btn i {
+            margin-right: 0;
+            margin-left: 10px;
+        }
+        
+        .rtl .product-actions {
+            flex-direction: row-reverse;
+        }
+        
+        .rtl .product-actions .btn-product {
+            flex-direction: row-reverse;
+        }
+        
+        .rtl .product-actions .btn-product i {
+            margin-right: 0;
+            margin-left: 10px;
+        }
+        
+        .rtl .order-header {
+            flex-direction: row-reverse;
+        }
+        
+        .rtl .order-details-grid {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+        
+        .rtl .order-details p {
+            flex-direction: row-reverse;
+        }
+        
+        .rtl .order-details strong {
+            margin-right: 0;
+            margin-left: 10px;
+        }
+        
+        .rtl .feature-card {
+            text-align: right;
+        }
+        
+        .rtl .step {
+            text-align: right;
+        }
+        
+        .rtl .instruction-step {
+            text-align: right;
+        }
+        
+        .rtl .payment-option {
+            flex-direction: row-reverse;
+        }
+        
+        .rtl .payment-option i {
+            margin-right: 0;
+            margin-left: 15px;
+        }
+        
+        .rtl .payment-details {
+            text-align: right;
+        }
+        
+        .rtl .admin-table {
+            text-align: right;
+        }
+        
+        .rtl .admin-table th,
+        .rtl .admin-table td {
+            text-align: right;
+        }
+        
+        .rtl .admin-actions {
+            flex-direction: row-reverse;
+        }
+        
+        .rtl .admin-actions .btn-small {
+            flex-direction: row-reverse;
+        }
+        
+        .rtl .admin-actions .btn-small i {
+            margin-right: 0;
+            margin-left: 4px;
+        }
+        
+        .rtl .footer-content {
+            text-align: right;
+        }
+        
+        .rtl .social-icons {
+            justify-content: flex-start;
+        }
+        
+        .rtl .social-icons a {
+            margin-right: 0;
+            margin-left: 15px;
+        }
+        
+        .rtl .copyright {
+            text-align: right;
+        }
+        
+        .rtl .mobile-menu-toggle {
+            left: 20px;
+            right: auto;
+        }
+        
+        .rtl .auth-dropdown {
+            right: auto;
+            left: 0;
+        }
+        
+        .rtl .google-login .btn-google {
+            flex-direction: row-reverse;
+        }
+        
+        .rtl .google-login .btn-google i {
+            margin-right: 0;
+            margin-left: 10px;
+        }
+        
+        .rtl .settings-tabs {
+            flex-direction: row-reverse;
+        }
+        
+        .rtl .settings-tab {
+            text-align: right;
+        }
+        
+        .rtl .settings-form label {
+            text-align: right;
+        }
+        
+        .rtl .admin-tabs {
+            flex-direction: row-reverse;
+        }
+        
+        .rtl .admin-tab {
+            text-align: right;
+        }
+        
+        .rtl .webhook-form {
+            flex-direction: row-reverse;
+        }
+        
+        .rtl .webhook-form-group {
+            text-align: right;
+        }
+        
+        .rtl .webhook-form-group label {
+            text-align: right;
+        }
+        
+        .rtl .data-management {
+            flex-direction: row-reverse;
+        }
+        
+        .rtl .export-import-buttons {
+            flex-direction: row-reverse;
+        }
+        
+        .rtl .file-input-container {
+            text-align: right;
+        }
+        
+        .rtl .instruction-steps {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+        
+        .rtl .instruction-step {
+            text-align: right;
+        }
+        
+        .rtl .steps {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+        
+        .rtl .step {
+            text-align: right;
+        }
+        
+        .rtl .payment-upload-instructions {
+            text-align: right;
+        }
+        
+        .rtl .upload-area {
+            text-align: right;
+        }
+        
+        .rtl .upload-preview {
+            text-align: right;
+        }
+        
+        .rtl .verification-field label {
+            text-align: right;
+        }
+        
+        .rtl .sms-verification {
+            text-align: right;
+        }
+        
+        .rtl .sms-code-input {
+            flex-direction: row-reverse;
+        }
+        
+        .rtl .btn-verify i {
+            margin-right: 0;
+            margin-left: 10px;
+        }
+        
+        .rtl .btn-resend {
+            margin-right: 0;
+            margin-left: 10px;
+        }
+        
+        .rtl .timer {
+            margin-right: 0;
+            margin-left: 10px;
+        }
     </style>
 </head>
 <body>
@@ -3085,6 +3484,7 @@
             <p>Get the best deals on Robux and game items with instant delivery to your account. Pay with InstaPay or Vodafone Cash!</p>
             <a href="#products" class="btn"><i class="fas fa-shopping-cart"></i> Shop Now</a>
             <a href="https://discord.gg/pCYvMsmScW" class="btn btn-discord" target="_blank"><i class="fab fa-discord"></i> Support Server</a>
+            <a href="#" class="btn" onclick="switchLanguage()" style="background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);">العربية</a>
         </div>
     </section>
     <section class="products" id="products">
@@ -3769,6 +4169,39 @@
                         </div>
                     </div>
                     
+                    <!-- Payment Verification Fields -->
+                    <div class="payment-verification">
+                        <h4><i class="fas fa-shield-alt"></i> Payment Verification</h4>
+                        <p>To help us verify your payment faster, please provide the following information:</p>
+                        
+                        <div class="verification-field">
+                            <label>Transaction ID (Optional)</label>
+                            <input type="text" id="transactionId" placeholder="Enter transaction ID if available">
+                            <div class="verification-note">This helps us verify your payment faster</div>
+                        </div>
+                        
+                        <div class="verification-field">
+                            <label>Last 4 digits of sender's phone (Optional)</label>
+                            <input type="text" id="senderPhone" placeholder="Enter last 4 digits of sender's phone">
+                            <div class="verification-note">This helps us match your payment with our records</div>
+                        </div>
+                    </div>
+                    
+                    <!-- SMS Verification Section -->
+                    <div class="sms-verification">
+                        <h4><i class="fas fa-sms"></i> SMS Verification (Optional)</h4>
+                        <p>If you received an SMS confirmation of your payment, please enter the verification code below:</p>
+                        
+                        <div class="sms-code-input">
+                            <input type="text" id="smsCode" placeholder="Enter SMS verification code" maxlength="6">
+                            <button type="button" class="btn-verify" onclick="verifySMSCode()"><i class="fas fa-check"></i> Verify</button>
+                        </div>
+                        
+                        <div class="verification-note">
+                            If you haven't received an SMS, you can skip this step and proceed with uploading your payment receipt.
+                        </div>
+                    </div>
+                    
                     <div class="spinner" id="submitSpinner"></div>
                     
                     <button type="button" class="btn" style="margin-top: 15px; width: 100%; padding: 16px;" onclick="showPaymentUpload()" id="submitOrderBtn">
@@ -4151,6 +4584,7 @@ service cloud.firestore {
                 <div class="footer-section">
                     <h3>About EgyptGameStore</h3>
                     <p>Your trusted source for Robux and game items in Egypt. We provide fast delivery, secure payments, and excellent customer support.</p>
+                    <p>اشتري روبكس من خلال انستا باي و فودافون كاش</p>
                     <div class="social-icons">
                         <a href="https://discord.gg/pCYvMsmScW" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
                         <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -4207,6 +4641,579 @@ service cloud.firestore {
         let activeCategory = 'robux'; // Track active category
         let activeBloxfruitsView = 'gamepasses'; // Track active Blox Fruits view
         let uploadedImageFile = null; // Store uploaded image file
+        let currentLanguage = 'en'; // Track current language
+        
+        // Translation dictionary
+        const translations = {
+            en: {
+                "Premium Robux & Game Items": "Premium Robux & Game Items",
+                "Get the best deals on Robux and game items with instant delivery to your account. Pay with InstaPay or Vodafone Cash!": "Get the best deals on Robux and game items with instant delivery to your account. Pay with InstaPay or Vodafone Cash!",
+                "Shop Now": "Shop Now",
+                "Support Server": "Support Server",
+                "Arabic": "العربية",
+                "Our Products": "Our Products",
+                "Choose from our selection of gaming items and currencies": "Choose from our selection of gaming items and currencies",
+                "Robux": "Robux",
+                "Blox Fruits": "Blox Fruits",
+                "Murder Mystery 2": "Murder Mystery 2",
+                "Grow a Garden": "Grow a Garden",
+                "500 Robux": "500 Robux",
+                "Instant delivery to your Roblox account.": "Instant delivery to your Roblox account.",
+                "WE DO NOT COVER ROBLOX FEES": "WE DO NOT COVER ROBLOX FEES",
+                "Buy Now": "Buy Now",
+                "Popular": "Popular",
+                "Best Value": "Best Value",
+                "1,000 Robux": "1,000 Robux",
+                "2,000 Robux": "2,000 Robux",
+                "5,000 Robux": "5,000 Robux",
+                "Gamepasses": "Gamepasses",
+                "Permanent Fruit Shop": "Permanent Fruit Shop",
+                "2x Mastery": "2x Mastery",
+                "Double mastery gain in Blox Fruits": "Double mastery gain in Blox Fruits",
+                "2x Money": "2x Money",
+                "Double money gain in Blox Fruits": "Double money gain in Blox Fruits",
+                "Fast Boats": "Fast Boats",
+                "Get fast boats for quick travel": "Get fast boats for quick travel",
+                "2x Boss Drops": "2x Boss Drops",
+                "Double drops from bosses": "Double drops from bosses",
+                "Dark Blade": "Dark Blade",
+                "Powerful Dark Blade weapon": "Powerful Dark Blade weapon",
+                "Fruit Notifier": "Fruit Notifier",
+                "Get notified when fruits spawn": "Get notified when fruits spawn",
+                "Premium": "Premium",
+                "Coming Soon": "Coming Soon",
+                "Murder Mystery 2 items will be available soon. Stay tuned!": "Murder Mystery 2 items will be available soon. Stay tuned!",
+                "Grow a Garden items will be available soon. Stay tuned!": "Grow a Garden items will be available soon. Stay tuned!",
+                "Order History": "Order History",
+                "View your recent orders and their status": "View your recent orders and their status",
+                "No orders yet": "No orders yet",
+                "Your order history will appear here once you make a purchase.": "Your order history will appear here once you make a purchase.",
+                "Why Choose EgyptGameStore": "Why Choose EgyptGameStore",
+                "We provide the best service for Egyptian gamers": "We provide the best service for Egyptian gamers",
+                "Local Payment Methods": "Local Payment Methods",
+                "Pay easily with InstaPay or Vodafone Cash. No need for international credit cards.": "Pay easily with InstaPay or Vodafone Cash. No need for international credit cards.",
+                "Instant Delivery": "Instant Delivery",
+                "Receive your items within minutes after payment confirmation. No waiting required.": "Receive your items within minutes after payment confirmation. No waiting required.",
+                "Secure Transactions": "Secure Transactions",
+                "All transactions are protected with secure verification processes for your safety.": "All transactions are protected with secure verification processes for your safety.",
+                "How It Works": "How It Works",
+                "Simple process to purchase from our store": "Simple process to purchase from our store",
+                "Choose Your Item": "Choose Your Item",
+                "Select the Robux or game items you want from our products list.": "Select the Robux or game items you want from our products list.",
+                "Fill Order Details": "Fill Order Details",
+                "Provide your Roblox username and contact information in the order form.": "Provide your Roblox username and contact information in the order form.",
+                "Make Payment": "Make Payment",
+                "Pay easily using InstaPay or Vodafone Cash through our secure instructions.": "Pay easily using InstaPay or Vodafone Cash through our secure instructions.",
+                "Receive Items": "Receive Items",
+                "We'll verify your payment and deliver your items to your account instantly.": "We'll verify your payment and deliver your items to your account instantly.",
+                "Accepted Payment Methods": "Accepted Payment Methods",
+                "We accept popular Egyptian payment options for your convenience": "We accept popular Egyptian payment options for your convenience",
+                "Vodafone Cash": "Vodafone Cash",
+                "InstaPay": "InstaPay",
+                "About EgyptGameStore": "About EgyptGameStore",
+                "Your trusted source for Robux and game items in Egypt. We provide fast delivery, secure payments, and excellent customer support.": "Your trusted source for Robux and game items in Egypt. We provide fast delivery, secure payments, and excellent customer support.",
+                "اشتري روبكس من خلال انستا باي و فودافون كاش": "اشتري روبكس من خلال انستا باي و فودافون كاش",
+                "Quick Links": "Quick Links",
+                "Home": "Home",
+                "Products": "Products",
+                "Order History": "Order History",
+                "How It Works": "How It Works",
+                "Contact": "Contact",
+                "Contact Info": "Contact Info",
+                "shadowbr500@gmail.com": "shadowbr500@gmail.com",
+                "EgyptGameStore Support": "EgyptGameStore Support",
+                "Place Your Order": "Place Your Order",
+                "Order Summary": "Order Summary",
+                "Product Name": "Product Name",
+                "0 EGP": "0 EGP",
+                "Total:": "Total:",
+                "Your Roblox Username *": "Your Roblox Username *",
+                "Enter your Roblox username": "Enter your Roblox username",
+                "Your Email *": "Your Email *",
+                "your@email.com": "your@email.com",
+                "Your WhatsApp Number *": "Your WhatsApp Number *",
+                "01XXXXXXXXX": "01XXXXXXXXX",
+                "Gamepass Link *": "Gamepass Link *",
+                "Paste your gamepass link here": "Paste your gamepass link here",
+                "MAKE SURE THE PRICE = TO THE ORDER YOU MADE": "MAKE SURE THE PRICE = TO THE ORDER YOU MADE",
+                "Continue to Payment": "Continue to Payment",
+                "Select Payment Method": "Select Payment Method",
+                "InstaPay": "InstaPay",
+                "Secure bank transfer with InstaPay. Fast and reliable.": "Secure bank transfer with InstaPay. Fast and reliable.",
+                "Vodafone Cash": "Vodafone Cash",
+                "Pay instantly with your Vodafone Cash wallet.": "Pay instantly with your Vodafone Cash wallet.",
+                "Payment Instructions": "Payment Instructions",
+                "Please send the following amount:": "Please send the following amount:",
+                "amlelsaid2024@instapay": "amlelsaid2024@instapay",
+                "Open InstaPay Payment Link": "Open InstaPay Payment Link",
+                "Open Vodafone Cash Payment Link": "Open Vodafone Cash Payment Link",
+                "Include your Roblox username in the payment message/note.": "Include your Roblox username in the payment message/note.",
+                "Open your payment app (InstaPay or Vodafone Cash)": "Open your payment app (InstaPay or Vodafone Cash)",
+                "Send 0 EGP using the details above": "Send 0 EGP using the details above",
+                "Include your Roblox username in the payment message/note": "Include your Roblox username in the payment message/note",
+                "Click \"I've Made the Payment\" below": "Click \"I've Made the Payment\" below",
+                "Payment Verification": "Payment Verification",
+                "To help us verify your payment faster, please provide the following information:": "To help us verify your payment faster, please provide the following information:",
+                "Transaction ID (Optional)": "Transaction ID (Optional)",
+                "Enter transaction ID if available": "Enter transaction ID if available",
+                "This helps us verify your payment faster": "This helps us verify your payment faster",
+                "Last 4 digits of sender's phone (Optional)": "Last 4 digits of sender's phone (Optional)",
+                "Enter last 4 digits of sender's phone": "Enter last 4 digits of sender's phone",
+                "This helps us match your payment with our records": "This helps us match your payment with our records",
+                "SMS Verification (Optional)": "SMS Verification (Optional)",
+                "If you received an SMS confirmation of your payment, please enter the verification code below:": "If you received an SMS confirmation of your payment, please enter the verification code below:",
+                "Enter SMS verification code": "Enter SMS verification code",
+                "Verify": "Verify",
+                "If you haven't received an SMS, you can skip this step and proceed with uploading your payment receipt.": "If you haven't received an SMS, you can skip this step and proceed with uploading your payment receipt.",
+                "I've Made the Payment": "I've Made the Payment",
+                "Upload Payment Receipt": "Upload Payment Receipt",
+                "Upload Picture Of The Payment": "Upload Picture Of The Payment",
+                "Please upload a clear picture of your payment confirmation to verify your order.": "Please upload a clear picture of your payment confirmation to verify your order.",
+                "Click to upload or drag and drop": "Click to upload or drag and drop",
+                "PNG, JPG, GIF up to 10MB": "PNG, JPG, GIF up to 10MB",
+                "Receipt uploaded successfully": "Receipt uploaded successfully",
+                "Submit Order": "Submit Order",
+                "Order Received Successfully!": "Order Received Successfully!",
+                "Thank you for your order. We will verify your payment and deliver your items within 24 hours.": "Thank you for your order. We will verify your payment and deliver your items within 24 hours.",
+                "Remember to manually check your bank account to confirm the payment was received.": "Remember to manually check your bank account to confirm the payment was received.",
+                "Order Details:": "Order Details:",
+                "Product:": "Product:",
+                "Price:": "Price:",
+                "Username:": "Username:",
+                "Email:": "Email:",
+                "WhatsApp:": "WhatsApp:",
+                "Gamepass:": "Gamepass:",
+                "If you don't receive your items within 24 hours, contact us on Discord:": "If you don't receive your items within 24 hours, contact us on Discord:",
+                "Close": "Close",
+                "User Settings": "User Settings",
+                "Profile": "Profile",
+                "Security": "Security",
+                "Full Name": "Full Name",
+                "Your full name": "Your full name",
+                "Email Address": "Email Address",
+                "Your email address": "Your email address",
+                "Phone Number": "Phone Number",
+                "Your phone number": "Your phone number",
+                "Save Changes": "Save Changes",
+                "Current Password": "Current Password",
+                "Enter your current password": "Enter your current password",
+                "New Password": "New Password",
+                "Enter your new password": "Enter your new password",
+                "Confirm New Password": "Confirm New Password",
+                "Change Password": "Change Password",
+                "Admin Panel": "Admin Panel",
+                "Dashboard": "Dashboard",
+                "Users": "Users",
+                "Orders": "Orders",
+                "Webhook": "Webhook",
+                "Firestore Rules": "Firestore Rules",
+                "Total Users": "Total Users",
+                "Total Orders": "Total Orders",
+                "Total Revenue (EGP)": "Total Revenue (EGP)",
+                "Pending Orders": "Pending Orders",
+                "Clear Revenue Data": "Clear Revenue Data",
+                "Clear Pending Orders": "Clear Pending Orders",
+                "Clear Completed Orders": "Clear Completed Orders",
+                "User Accounts": "User Accounts",
+                "Order Management": "Order Management",
+                "Search orders...": "Search orders...",
+                "All Orders": "All Orders",
+                "Pending": "Pending",
+                "Completed": "Completed",
+                "Filter": "Filter",
+                "Order ID": "Order ID",
+                "Customer": "Customer",
+                "Product": "Product",
+                "Price": "Price",
+                "Payment Method": "Payment Method",
+                "Date": "Date",
+                "Status": "Status",
+                "Actions": "Actions",
+                "View": "View",
+                "Complete": "Complete",
+                "Delete": "Delete",
+                "Discord Webhook Settings": "Discord Webhook Settings",
+                "Webhook URL": "Webhook URL",
+                "https://discord.com/api/webhooks/...": "https://discord.com/api/webhooks/...",
+                "Save": "Save",
+                "Test Webhook": "Test Webhook",
+                "Send a test notification to your Discord server to verify the webhook is working.": "Send a test notification to your Discord server to verify the webhook is working.",
+                "Send Test Notification": "Send Test Notification",
+                "Firestore Security Rules": "Firestore Security Rules",
+                "These rules control access to your Firestore database. Copy and paste these into your Firebase Console under Firestore > Rules.": "These rules control access to your Firestore database. Copy and paste these into your Firebase Console under Firestore > Rules.",
+                "Open Firebase Console": "Open Firebase Console",
+                "Important Security Note": "Important Security Note",
+                "For these rules to work, you must create an admin document in the Firestore database.": "For these rules to work, you must create an admin document in the Firestore database.",
+                "Steps to set up admin access:": "Steps to set up admin access:",
+                "Go to your Firebase Console": "Go to your Firebase Console",
+                "Navigate to Firestore Database": "Navigate to Firestore Database",
+                "Create a new collection named \"admins\"": "Create a new collection named \"admins\"",
+                "Add a new document with the ID being the admin's email address": "Add a new document with the ID being the admin's email address",
+                "The document can be empty - it just needs to exist": "The document can be empty - it just needs to exist",
+                "After setting up the admin document, the security rules will work correctly.": "After setting up the admin document, the security rules will work correctly.",
+                "Order Details": "Order Details",
+                "Account Details": "Account Details",
+                "Admin Login": "Admin Login",
+                "Admin Password": "Admin Password",
+                "Enter admin password": "Enter admin password",
+                "Login": "Login",
+                "Forgot Password": "Forgot Password",
+                "Forgot Password": "Forgot Password",
+                "Email Address": "Email Address",
+                "Enter your email address": "Enter your email address",
+                "Reset Password": "Reset Password",
+                "Back to Login": "Back to Login",
+                "Please login to view your order history": "Please login to view your order history",
+                "Login to see your previous orders.": "Login to see your previous orders.",
+                "No orders found": "No orders found",
+                "Loading your orders...": "Loading your orders...",
+                "Loading users...": "Loading users...",
+                "No users found": "No users found",
+                "Access Denied": "Access Denied",
+                "You don't have permission to view this page.": "You don't have permission to view this page.",
+                "Error loading orders": "Error loading orders",
+                "Error loading users": "Error loading users",
+                "Order placed successfully! Discord notification sent.": "Order placed successfully! Discord notification sent.",
+                "Order placed but notification failed to send": "Order placed but notification failed to send",
+                "Profile updated successfully": "Profile updated successfully",
+                "Password changed successfully": "Password changed successfully",
+                "Admin login successful": "Admin login successful",
+                "Admin logged out": "Admin logged out",
+                "User deleted successfully": "User deleted successfully",
+                "Order deleted successfully": "Order deleted successfully",
+                "Order marked as completed": "Order marked as completed",
+                "Revenue data cleared successfully": "Revenue data cleared successfully",
+                "Pending orders cleared successfully": "Pending orders cleared successfully",
+                "Completed orders cleared successfully": "Completed orders cleared successfully",
+                "Webhook settings saved": "Webhook settings saved",
+                "Test notification sent successfully!": "Test notification sent successfully!",
+                "Payment verification successful": "Payment verification successful",
+                "Invalid verification code": "Invalid verification code",
+                "Please fill in all the required fields before continuing to payment.": "Please fill in all the required fields before continuing to payment.",
+                "Please enter a valid email address.": "Please enter a valid email address.",
+                "Please enter a valid Egyptian phone number (11 digits starting with 01).": "Please enter a valid Egyptian phone number (11 digits starting with 01).",
+                "Please enter a valid gamepass link.": "Please enter a valid gamepass link.",
+                "Please select a payment method": "Please select a payment method",
+                "Please upload a payment receipt": "Please upload a payment receipt",
+                "Please select an image file": "Please select an image file",
+                "Image size must be less than 10MB": "Image size must be less than 10MB",
+                "Please login to place an order": "Please login to place an order",
+                "Authentication error. Please login again.": "Authentication error. Please login again.",
+                "Permission error. Please check Firestore security rules.": "Permission error. Please check Firestore security rules.",
+                "Error placing order": "Error placing order",
+                "Error updating profile": "Error updating profile",
+                "Error changing password": "Error changing password",
+                "Error loading admin data": "Error loading admin data",
+                "Error clearing revenue data": "Error clearing revenue data",
+                "Error clearing pending orders": "Error clearing pending orders",
+                "Error clearing completed orders": "Error clearing completed orders",
+                "Error getting user details": "Error getting user details",
+                "Error getting order details": "Error getting order details",
+                "Error deleting user": "Error deleting user",
+                "Error deleting order": "Error deleting order",
+                "Error completing order": "Error completing order",
+                "Error sending password reset email": "Error sending password reset email",
+                "Error sending webhook": "Error sending webhook",
+                "Error sending test webhook": "Error sending test webhook",
+                "Error verifying SMS code": "Error verifying SMS code",
+                "Incorrect admin password": "Incorrect admin password",
+                "Passwords do not match": "Passwords do not match",
+                "Password must be at least 6 characters": "Password must be at least 6 characters",
+                "Username is already taken": "Username is already taken",
+                "No account found with this email address.": "No account found with this email address.",
+                "The email address is not valid.": "The email address is not valid.",
+                "Too many requests. Please try again later.": "Too many requests. Please try again later.",
+                "Webhook URL not configured": "Webhook URL not configured",
+                "Webhook configured": "Webhook configured",
+                "No pending orders to clear": "No pending orders to clear",
+                "No completed orders to clear": "No completed orders to clear",
+                "No orders found for this user": "No orders found for this user"
+            },
+            ar: {
+                "Premium Robux & Game Items": "روبوكس و عناصر اللعبة المتميزة",
+                "Get the best deals on Robux and game items with instant delivery to your account. Pay with InstaPay or Vodafone Cash!": "احصل على أفضل الصفقات على ربوكس وعناصر اللعبة مع توصيل فوري إلى حسابك. ادفع عن طريق انستا باي أو فودافون كاش!",
+                "Shop Now": "تسوق الآن",
+                "Support Server": "خادم الدعم",
+                "Arabic": "English",
+                "Our Products": "منتجاتنا",
+                "Choose from our selection of gaming items and currencies": "اختر من تشكيلتنا من عناصر اللعبة والعملات",
+                "Robux": "روبوكس",
+                "Blox Fruits": "بلوكس فروتس",
+                "Murder Mystery 2": "جريمة غامضة 2",
+                "Grow a Garden": "ازرع حديقة",
+                "500 Robux": "500 روبوكس",
+                "Instant delivery to your Roblox account.": "توصيل فوري إلى حساب روبلوكس الخاص بك.",
+                "WE DO NOT COVER ROBLOX FEES": "نحن لا نغطي رسوم روبلوكس",
+                "Buy Now": "اشتر الآن",
+                "Popular": "شائع",
+                "Best Value": "أفضل قيمة",
+                "1,000 Robux": "1000 روبوكس",
+                "2,000 Robux": "2000 روبوكس",
+                "5,000 Robux": "5000 روبوكس",
+                "Gamepasses": "تصاريح اللعب",
+                "Permanent Fruit Shop": "متجر الفواكه الدائم",
+                "2x Mastery": "مضاعفة الخبرة",
+                "Double mastery gain in Blox Fruits": "مضاعفة مكاسب الخبرة في بلوكس فروتس",
+                "2x Money": "مضاعفة المال",
+                "Double money gain in Blox Fruits": "مضاعفة مكاسب المال في بلوكس فروتس",
+                "Fast Boats": "قوارب سريعة",
+                "Get fast boats for quick travel": "احصل على قوارب سريعة للتنقل السريع",
+                "2x Boss Drops": "مضاعفة هدايا الزعماء",
+                "Double drops from bosses": "مضاعفة الهدايا من الزعماء",
+                "Dark Blade": "سيف الظلام",
+                "Powerful Dark Blade weapon": "سلاح سيف الظلام القوي",
+                "Fruit Notifier": "مُنبه الفواكه",
+                "Get notified when fruits spawn": "احصل على إشعار عندما تظهر الفواكه",
+                "Premium": "مميز",
+                "Coming Soon": "قريباً",
+                "Murder Mystery 2 items will be available soon. Stay tuned!": "عناصر جريمة غامضة 2 ستكون متاحة قريباً. ترقبوا!",
+                "Grow a Garden items will be available soon. Stay tuned!": "عناصر ازرع حديقة ستكون متاحة قريباً. ترقبوا!",
+                "Order History": "تاريخ الطلبات",
+                "View your recent orders and their status": "عرض طلباتك الحالية وحالتها",
+                "No orders yet": "لا توجد طلبات بعد",
+                "Your order history will appear here once you make a purchase.": "سيظهر تاريخ طلباتك هنا بمجرد إجراء عملية شراء.",
+                "Why Choose EgyptGameStore": "لماذا تختار مصر جيم ستور",
+                "We provide the best service for Egyptian gamers": "نوفر أفضل الخدمات للاعبين المصريين",
+                "Local Payment Methods": "طرق الدفع المحلية",
+                "Pay easily with InstaPay or Vodafone Cash. No need for international credit cards.": "ادفع بسهولة باستخدام انستا باي أو فودافون كاش. لا حاجة لبطاقات الائتمان الدولية.",
+                "Instant Delivery": "توصيل فوري",
+                "Receive your items within minutes after payment confirmation. No waiting required.": "استلم عناصرك في غضون دقائق بعد تأكيد الدفع. لا حاجة للانتظار.",
+                "Secure Transactions": "معاملات آمنة",
+                "All transactions are protected with secure verification processes for your safety.": "جميع المعاملات محمية بعمليات التحقق الآمنة لسلامتك.",
+                "How It Works": "كيف يعمل",
+                "Simple process to purchase from our store": "عملية بسيطة للشراء من متجرنا",
+                "Choose Your Item": "اختر عنصرك",
+                "Select the Robux or game items you want from our products list.": "اختر ربوكس أو عناصر اللعبة التي تريدها من قائمة منتجاتنا.",
+                "Fill Order Details": "املأ تفاصيل الطلب",
+                "Provide your Roblox username and contact information in the order form.": "قدم اسم مستخدم روبلوكس ومعلومات الاتصال الخاصة بك في نموذج الطلب.",
+                "Make Payment": "ادفع",
+                "Pay easily using InstaPay or Vodafone Cash through our secure instructions.": "ادفع بسهولة باستخدام انستا باي أو فودافون كاش من خلال إرشاداتنا الآمنة.",
+                "Receive Items": "استلم العناصر",
+                "We'll verify your payment and deliver your items to your account instantly.": "سوف نتحقق من دفعتك ونوفر عناصرك إلى حسابك على الفور.",
+                "Accepted Payment Methods": "طرق الدفع المقبولة",
+                "We accept popular Egyptian payment options for your convenience": "نقبل خيارات الدفع المصرية الشائعة لراحتك",
+                "Vodafone Cash": "فودافون كاش",
+                "InstaPay": "انستا باي",
+                "About EgyptGameStore": "معلومات عن مصر جيم ستور",
+                "Your trusted source for Robux and game items in Egypt. We provide fast delivery, secure payments, and excellent customer support.": "مصدر موثوق لروبوكس وعناصر اللعبة في مصر. نوفر توصيلاً سريعاً ودفعات آمنة ودعم عملاء ممتاز.",
+                "اشتري روبكس من خلال انستا باي و فودافون كاش": "اشتري روبكس من خلال انستا باي و فودافون كاش",
+                "Quick Links": "روابط سريعة",
+                "Home": "الرئيسية",
+                "Products": "المنتجات",
+                "Order History": "تاريخ الطلبات",
+                "How It Works": "كيف يعمل",
+                "Contact": "اتصل بنا",
+                "Contact Info": "معلومات الاتصال",
+                "shadowbr500@gmail.com": "shadowbr500@gmail.com",
+                "EgyptGameStore Support": "دعم مصر جيم ستور",
+                "Place Your Order": "ضع طلبك",
+                "Order Summary": "ملخص الطلب",
+                "Product Name": "اسم المنتج",
+                "0 EGP": "0 جنيه مصري",
+                "Total:": "المجموع:",
+                "Your Roblox Username *": "اسم مستخدم روبلوكس الخاص بك *",
+                "Enter your Roblox username": "أدخل اسم مستخدم روبلوكس الخاص بك",
+                "Your Email *": "بريدك الإلكتروني *",
+                "your@email.com": "بريدك@الإلكتروني.com",
+                "Your WhatsApp Number *": "رقم واتساب الخاص بك *",
+                "01XXXXXXXXX": "01XXXXXXXXX",
+                "Gamepass Link *": "رابط تصريح اللعب *",
+                "Paste your gamepass link here": "الصق رابط تصريح اللعب هنا",
+                "MAKE SURE THE PRICE = TO THE ORDER YOU MADE": "تأكد من أن السعر = للطلب الذي قمت به",
+                "Continue to Payment": "المتابعة إلى الدفع",
+                "Select Payment Method": "اختر طريقة الدفع",
+                "InstaPay": "انستا باي",
+                "Secure bank transfer with InstaPay. Fast and reliable.": "تحويل بنكي آمن مع انستا باي. سريع وموثوق.",
+                "Vodafone Cash": "فودافون كاش",
+                "Pay instantly with your Vodafone Cash wallet.": "ادفع على الفور باستخدام محفظة فودافون كاش الخاصة بك.",
+                "Payment Instructions": "تعليمات الدفع",
+                "Please send the following amount:": "يرجى إرسال المبلغ التالي:",
+                "amlelsaid2024@instapay": "amlelsaid2024@instapay",
+                "Open InstaPay Payment Link": "فتح رابط دفع انستا باي",
+                "Open Vodafone Cash Payment Link": "فتح رابط دفع فودافون كاش",
+                "Include your Roblox username in the payment message/note.": "تأكد من تضمين اسم مستخدم روبلوكس الخاص بك في رسالة/ملاحظة الدفع.",
+                "Open your payment app (InstaPay or Vodafone Cash)": "افتح تطبيق الدفع الخاص بك (انستا باي أو فودافون كاش)",
+                "Send 0 EGP using the details above": "أرسل 0 جنيه مصري باستخدام التفاصيل أعلاه",
+                "Include your Roblox username in the payment message/note": "تأكد من تضمين اسم مستخدم روبلوكس الخاص بك في رسالة/ملاحظة الدفع",
+                "Click \"I've Made the Payment\" below": "انقر على \"لقد قمت بالدفع\" أدناه",
+                "Payment Verification": "التحقق من الدفع",
+                "To help us verify your payment faster, please provide the following information:": "لمساعدتنا في التحقق من دفعتك بشكل أسرع، يرجى تقديم المعلومات التالية:",
+                "Transaction ID (Optional)": "معرّف المعاملة (اختياري)",
+                "Enter transaction ID if available": "أدخل معرّف المعاملة إذا كان متاحًا",
+                "This helps us verify your payment faster": "هذا يساعدنا في التحقق من دفعتك بشكل أسرع",
+                "Last 4 digits of sender's phone (Optional)": "آخر 4 أرقام من هاتف المرسل (اختياري)",
+                "Enter last 4 digits of sender's phone": "أدخل آخر 4 أرقام من هاتف المرسل",
+                "This helps us match your payment with our records": "هذا يساعدنا في مطابقة دفعتك مع سجلاتنا",
+                "SMS Verification (Optional)": "التحقق من الرسائل القصيرة (اختياري)",
+                "If you received an SMS confirmation of your payment, please enter the verification code below:": "إذا كنت قد تلقيت تأكيدًا بالرسائل القصيرة لدفعتك، يرجى إدخال رمز التحقق أدناه:",
+                "Enter SMS verification code": "أدخل رمز التحقق من الرسائل القصيرة",
+                "Verify": "تحقق",
+                "If you haven't received an SMS, you can skip this step and proceed with uploading your payment receipt.": "إذا لم تتلق رسالة قصيرة، يمكنك تخطي هذه الخطوة والمتابعة برفع إيصال الدفع الخاص بك.",
+                "I've Made the Payment": "لقد قمت بالدفع",
+                "Upload Payment Receipt": "رفع إيصال الدفع",
+                "Upload Picture Of The Payment": "رفع صورة الدفع",
+                "Please upload a clear picture of your payment confirmation to verify your order.": "يرجى رفع صورة واضحة لتأكيد الدفع للتحقق من طلبك.",
+                "Click to upload or drag and drop": "انقر للرفع أو اسحب وأفلت",
+                "PNG, JPG, GIF up to 10MB": "PNG، JPG، GIF حتى 10 ميجابايت",
+                "Receipt uploaded successfully": "تم رفع الإيصال بنجاح",
+                "Submit Order": "تقديم الطلب",
+                "Order Received Successfully!": "تم استلام الطلب بنجاح!",
+                "Thank you for your order. We will verify your payment and deliver your items within 24 hours.": "شكرًا لطلبك. سوف نتحقق من دفعتك ونوفر عناصرك في غضون 24 ساعة.",
+                "Remember to manually check your bank account to confirm the payment was received.": "تذكر التحقق يدويًا من حسابك البنكي لتأكد من استلام الدفع.",
+                "Order Details:": "تفاصيل الطلب:",
+                "Product:": "المنتج:",
+                "Price:": "السعر:",
+                "Username:": "اسم المستخدم:",
+                "Email:": "البريد الإلكتروني:",
+                "WhatsApp:": "واتساب:",
+                "Gamepass:": "تصريح اللعب:",
+                "If you don't receive your items within 24 hours, contact us on Discord:": "إذا لم تستلم عناصرك في غضون 24 ساعة، اتصل بنا على ديسكورد:",
+                "Close": "إغلاق",
+                "User Settings": "إعدادات المستخدم",
+                "Profile": "الملف الشخصي",
+                "Security": "الأمان",
+                "Full Name": "الاسم الكامل",
+                "Your full name": "اسمك الكامل",
+                "Email Address": "عنوان البريد الإلكتروني",
+                "Your email address": "عنوان بريدك الإلكتروني",
+                "Phone Number": "رقم الهاتف",
+                "Your phone number": "رقم هاتفك",
+                "Save Changes": "حفظ التغييرات",
+                "Current Password": "كلمة المرور الحالية",
+                "Enter your current password": "أدخل كلمة المرور الحالية",
+                "New Password": "كلمة المرور الجديدة",
+                "Enter your new password": "أدخل كلمة المرور الجديدة",
+                "Confirm New Password": "تأكيد كلمة المرور الجديدة",
+                "Change Password": "تغيير كلمة المرور",
+                "Admin Panel": "لوحة التحكم للمسؤول",
+                "Dashboard": "لوحة التحكم",
+                "Users": "المستخدمون",
+                "Orders": "الطلبات",
+                "Webhook": "ويب هوك",
+                "Firestore Rules": "قواعد فايرستور",
+                "Total Users": "إجمالي المستخدمين",
+                "Total Orders": "إجمالي الطلبات",
+                "Total Revenue (EGP)": "إجمالي الإيرادات (جنيه مصري)",
+                "Pending Orders": "الطلبات المعلقة",
+                "Clear Revenue Data": "مسح بيانات الإيرادات",
+                "Clear Pending Orders": "مسح الطلبات المعلقة",
+                "Clear Completed Orders": "مسح الطلبات المكتملة",
+                "User Accounts": "حسابات المستخدمين",
+                "Order Management": "إدارة الطلبات",
+                "Search orders...": "بحث في الطلبات...",
+                "All Orders": "جميع الطلبات",
+                "Pending": "معلق",
+                "Completed": "مكتمل",
+                "Filter": "تصفية",
+                "Order ID": "معرف الطلب",
+                "Customer": "العميل",
+                "Product": "المنتج",
+                "Price": "السعر",
+                "Payment Method": "طريقة الدفع",
+                "Date": "التاريخ",
+                "Status": "الحالة",
+                "Actions": "الإجراءات",
+                "View": "عرض",
+                "Complete": "إكمال",
+                "Delete": "حذف",
+                "Discord Webhook Settings": "إعدادات ويب هوك ديسكورد",
+                "Webhook URL": "رابط ويب هوك",
+                "https://discord.com/api/webhooks/...": "https://discord.com/api/webhooks/...",
+                "Save": "حفظ",
+                "Test Webhook": "اختبار ويب هوك",
+                "Send a test notification to your Discord server to verify the webhook is working.": "إرسال إشعار اختبار إلى خادم ديسكورد الخاص بك للتحقق من عمل ويب هوك.",
+                "Send Test Notification": "إرسال إشعار اختبار",
+                "Firestore Security Rules": "قواعد أمان فايرستور",
+                "These rules control access to your Firestore database. Copy and paste these into your Firebase Console under Firestore > Rules.": "هذه القواعد تتحكم في الوصول إلى قاعدة بيانات فايرستور. انسخ والصقها في وحدة تحكم فايربيو تحت فايرستور > القواعد.",
+                "Open Firebase Console": "فتح وحدة تحكم فايربيو",
+                "Important Security Note": "ملاحظة أمان مهمة",
+                "For these rules to work, you must create an admin document in the Firestore database.": "لكي تعمل هذه القواعد، يجب عليك إنشاء مستند مسؤول في قاعدة بيانات فايرستور.",
+                "Steps to set up admin access:": "خطوات إعداد الوصول للمسؤول:",
+                "Go to your Firebase Console": "اذهب إلى وحدة تحكم فايربيو",
+                "Navigate to Firestore Database": "انتقل إلى قاعدة بيانات فايرستور",
+                "Create a new collection named \"admins\"": "أنشئ مجموعة جديدة باسم \"المسؤولين\"",
+                "Add a new document with the ID being the admin's email address": "أضف مستندًا جديدًا يكون المعرف هو عنوان البريد الإلكتروني للمسؤول",
+                "The document can be empty - it just needs to exist": "يمكن أن يكون المستند فارغًا - يكفي أن يكون موجودًا",
+                "After setting up the admin document, the security rules will work correctly.": "بعد إعداد مستند المسؤول، ستعمل قواعد الأمان بشكل صحيح.",
+                "Order Details": "تفاصيل الطلب",
+                "Account Details": "تفاصيل الحساب",
+                "Admin Login": "تسجيل دخول المسؤول",
+                "Admin Password": "كلمة مرور المسؤول",
+                "Enter admin password": "أدخل كلمة مرور المسؤول",
+                "Login": "تسجيل الدخول",
+                "Forgot Password": "نسيت كلمة المرور",
+                "Forgot Password": "نسيت كلمة المرور",
+                "Email Address": "عنوان البريد الإلكتروني",
+                "Enter your email address": "أدخل عنوان بريدك الإلكتروني",
+                "Reset Password": "إعادة تعيين كلمة المرور",
+                "Back to Login": "العودة إلى تسجيل الدخول",
+                "Please login to view your order history": "يرجى تسجيل الدخول لعرض تاريخ طلباتك",
+                "Login to see your previous orders.": "سجل الدخول لرؤية طلباتك السابقة.",
+                "No orders found": "لم يتم العثور على طلبات",
+                "Loading your orders...": "جاري تحميل طلباتك...",
+                "Loading users...": "جاري تحميل المستخدمين...",
+                "No users found": "لم يتم العثور على مستخدمين",
+                "Access Denied": "الوصول مرفوض",
+                "You don't have permission to view this page.": "ليس لديك إذن لعرض هذه الصفحة.",
+                "Error loading orders": "خطأ في تحميل الطلبات",
+                "Error loading users": "خطأ في تحميل المستخدمين",
+                "Order placed successfully! Discord notification sent.": "تم وضع الطلب بنجاح! تم إرسال إشعار ديسكورد.",
+                "Order placed but notification failed to send": "تم وضع الطلب ولكن فشل إرسال الإشعار",
+                "Profile updated successfully": "تم تحديث الملف الشخصي بنجاح",
+                "Password changed successfully": "تم تغيير كلمة المرور بنجاح",
+                "Admin login successful": "تم تسجيل دخول المسؤول بنجاح",
+                "Admin logged out": "تم تسجيل خروج المسؤول",
+                "User deleted successfully": "تم حذف المستخدم بنجاح",
+                "Order deleted successfully": "تم حذف الطلب بنجاح",
+                "Order marked as completed": "تم وضع علامة مكتمل على الطلب",
+                "Revenue data cleared successfully": "تم مسح بيانات الإيرادات بنجاح",
+                "Pending orders cleared successfully": "تم مسح الطلبات المعلقة بنجاح",
+                "Completed orders cleared successfully": "تم مسح الطلبات المكتملة بنجاح",
+                "Webhook settings saved": "تم حفظ إعدادات ويب هوك",
+                "Test notification sent successfully!": "تم إرسال إشعار الاختبار بنجاح!",
+                "Payment verification successful": "تم التحقق من الدفع بنجاح",
+                "Invalid verification code": "رمز التحقق غير صالح",
+                "Please fill in all the required fields before continuing to payment.": "يرجى ملء جميع الحقول المطلوبة قبل المتابعة إلى الدفع.",
+                "Please enter a valid email address.": "يرجى إدخال عنوان بريد إلكتروني صالح.",
+                "Please enter a valid Egyptian phone number (11 digits starting with 01).": "يرجى إدخال رقم هاتف مصري صالح (11 رقمًا يبدأ بـ 01).",
+                "Please enter a valid gamepass link.": "يرجى إدخال رابط تصريح لعب صالح.",
+                "Please select a payment method": "يرجى اختيار طريقة دفع",
+                "Please upload a payment receipt": "يرجى رفع إيصال الدفع",
+                "Please select an image file": "يرجى اختيار ملف صورة",
+                "Image size must be less than 10MB": "يجب أن يكون حجم الصورة أقل من 10 ميجابايت",
+                "Please login to place an order": "يرجى تسجيل الدخول لوضع طلب",
+                "Authentication error. Please login again.": "خطأ في المصادقة. يرجى تسجيل الدخول مرة أخرى.",
+                "Permission error. Please check Firestore security rules.": "خطأ في الإذن. يرجى التحقق من قواعد أمان فايرستور.",
+                "Error placing order": "خطأ في وضع الطلب",
+                "Error updating profile": "خطأ في تحديث الملف الشخصي",
+                "Error changing password": "خطأ في تغيير كلمة المرور",
+                "Error loading admin data": "خطأ في تحميل بيانات المسؤول",
+                "Error clearing revenue data": "خطأ في مسح بيانات الإيرادات",
+                "Error clearing pending orders": "خطأ في مسح الطلبات المعلقة",
+                "Error clearing completed orders": "خطأ في مسح الطلبات المكتملة",
+                "Error getting user details": "خطأ في الحصول على تفاصيل المستخدم",
+                "Error getting order details": "خطأ في الحصول على تفاصيل الطلب",
+                "Error deleting user": "خطأ في حذف المستخدم",
+                "Error deleting order": "خطأ في حذف الطلب",
+                "Error completing order": "خطأ في إكمال الطلب",
+                "Error sending password reset email": "خطأ في إرسال بريد إعادة تعيين كلمة المرور",
+                "Error sending webhook": "خطأ في إرسال ويب هوك",
+                "Error sending test webhook": "خطأ في إرسال ويب هوك الاختباري",
+                "Error verifying SMS code": "خطأ في التحقق من رمز الرسائل القصيرة",
+                "Incorrect admin password": "كلمة مرور المسؤول غير صحيحة",
+                "Passwords do not match": "كلمات المرور غير متطابقة",
+                "Password must be at least 6 characters": "يجب أن تكون كلمة المرور 6 أحرف على الأقل",
+                "Username is already taken": "اسم المستخدم مستخدم بالفعل",
+                "No account found with this email address.": "لم يتم العثور على حساب بهذا العنوان.",
+                "The email address is not valid.": "عنوان البريد الإلكتروني غير صالح.",
+                "Too many requests. Please try again later.": "طلبات كثيرة جدًا. يرجى المحاولة مرة أخرى لاحقًا.",
+                "Webhook URL not configured": "لم يتم تكوين رابط ويب هوك",
+                "Webhook configured": "تم تكوين ويب هوك",
+                "No pending orders to clear": "لا توجد طلبات معلقة لمسحها",
+                "No completed orders to clear": "لا توجد طلبات مكتملة لمسحها",
+                "No orders found for this user": "لم يتم العثور على طلبات لهذا المستخدم"
+            }
+        };
         
         // Load user from Firebase on page load
         document.addEventListener('DOMContentLoaded', function() {
@@ -4395,17 +5402,17 @@ service cloud.firestore {
             const confirmPassword = document.getElementById('confirmPassword').value;
             
             if (!name || !username || !email || !password || !confirmPassword) {
-                showNotification('Please fill in all fields', 'error');
+                showNotification(translations[currentLanguage]['Please fill in all the required fields before continuing to payment.'], 'error');
                 return;
             }
             
             if (password !== confirmPassword) {
-                showNotification('Passwords do not match', 'error');
+                showNotification(translations[currentLanguage]['Passwords do not match'], 'error');
                 return;
             }
             
             if (password.length < 6) {
-                showNotification('Password must be at least 6 characters', 'error');
+                showNotification(translations[currentLanguage]['Password must be at least 6 characters'], 'error');
                 return;
             }
             
@@ -4413,7 +5420,7 @@ service cloud.firestore {
             db.collection('users').where('username', '==', username).get()
                 .then(snapshot => {
                     if (!snapshot.empty) {
-                        showNotification('Username is already taken', 'error');
+                        showNotification(translations[currentLanguage]['Username is already taken'], 'error');
                         return;
                     }
                     
@@ -4431,7 +5438,7 @@ service cloud.firestore {
                     });
                 })
                 .then(() => {
-                    showNotification('Registration successful! You are now logged in.', 'success');
+                    showNotification(translations[currentLanguage]['Order placed successfully! Discord notification sent.'], 'success');
                     document.getElementById('registerForm').reset();
                     toggleAuthDropdown();
                 })
@@ -4446,14 +5453,14 @@ service cloud.firestore {
             const password = document.getElementById('loginPassword').value;
             
             if (!email || !password) {
-                showNotification('Please enter email and password', 'error');
+                showNotification(translations[currentLanguage]['Please fill in all the required fields before continuing to payment.'], 'error');
                 return;
             }
             
             // Sign in with Firebase Auth
             auth.signInWithEmailAndPassword(email, password)
                 .then(() => {
-                    showNotification('Login successful!', 'success');
+                    showNotification(translations[currentLanguage]['Order placed successfully! Discord notification sent.'], 'success');
                     document.getElementById('loginForm').reset();
                     toggleAuthDropdown();
                 })
@@ -4490,17 +5497,17 @@ service cloud.firestore {
                             }
                         })
                         .then(() => {
-                            showNotification('Google login successful!', 'success');
+                            showNotification(translations[currentLanguage]['Order placed successfully! Discord notification sent.'], 'success');
                             toggleAuthDropdown();
                         })
                         .catch(error => {
                             console.error('Error creating user in Firestore:', error);
-                            showNotification('Error creating user profile', 'error');
+                            showNotification(translations[currentLanguage]['Error placing order'], 'error');
                         });
                 })
                 .catch(error => {
                     console.error('Google login error:', error);
-                    showNotification('Google login failed: ' + error.message, 'error');
+                    showNotification(translations[currentLanguage]['Error placing order'] + ': ' + error.message, 'error');
                 });
         }
         
@@ -4509,11 +5516,11 @@ service cloud.firestore {
                 .then(() => {
                     // Clear localStorage
                     localStorage.removeItem('egyptGameStoreUser');
-                    showNotification('You have been logged out', 'info');
+                    showNotification(translations[currentLanguage]['Admin logged out'], 'info');
                 })
                 .catch(error => {
                     console.error('Logout error:', error);
-                    showNotification('Error logging out', 'error');
+                    showNotification(translations[currentLanguage]['Error placing order'], 'error');
                 });
         }
         
@@ -4531,81 +5538,81 @@ service cloud.firestore {
                         <span>${currentUser.name || currentUser.email}${adminBadge}</span>
                     </div>
                     <button class="btn btn-outline header-auth-btn" onclick="openUserSettings()">
-                        <i class="fas fa-cog"></i> Settings
+                        <i class="fas fa-cog"></i> ${translations[currentLanguage]['Profile']}
                     </button>
                     <button class="btn btn-outline" onclick="logoutUser()">
-                        <i class="fas fa-sign-out-alt"></i> Logout
+                        <i class="fas fa-sign-out-alt"></i> ${translations[currentLanguage]['Close']}
                     </button>
                 `;
             } else {
                 // User is not logged in
                 userMenu.innerHTML = `
                     <button class="btn btn-outline header-auth-btn" onclick="toggleAuthDropdown()">
-                        <i class="fas fa-sign-in-alt"></i> Login / Register
+                        <i class="fas fa-sign-in-alt"></i> ${translations[currentLanguage]['Login'] + ' / ' + translations[currentLanguage]['Register']}
                     </button>
                     <div class="auth-dropdown" id="authDropdown">
                         <div class="auth-tabs">
-                            <div class="auth-tab active" onclick="switchAuthTab('login')">Login</div>
-                            <div class="auth-tab" onclick="switchAuthTab('register')">Register</div>
+                            <div class="auth-tab active" onclick="switchAuthTab('login')">${translations[currentLanguage]['Login']}</div>
+                            <div class="auth-tab" onclick="switchAuthTab('register')">${translations[currentLanguage]['Register']}</div>
                         </div>
                         
                         <form id="loginForm" class="auth-form active" onsubmit="return false;">
                             <div class="form-group">
-                                <label>Email</label>
-                                <input type="email" id="loginEmail" placeholder="Your email" required>
+                                <label>${translations[currentLanguage]['Email Address']}</label>
+                                <input type="email" id="loginEmail" placeholder="${translations[currentLanguage]['your@email.com']}" required>
                             </div>
                             
                             <div class="form-group">
-                                <label>Password</label>
-                                <input type="password" id="loginPassword" placeholder="Your password" required>
+                                <label>${translations[currentLanguage]['Current Password']}</label>
+                                <input type="password" id="loginPassword" placeholder="${translations[currentLanguage]['Enter your current password']}" required>
                             </div>
                             
-                            <button type="button" class="btn-auth" onclick="loginUser()">Login</button>
+                            <button type="button" class="btn-auth" onclick="loginUser()">${translations[currentLanguage]['Login']}</button>
                             
                             <div class="forgot-password">
-                                <a href="#" onclick="showForgotPassword()">Forgot Password?</a>
+                                <a href="#" onclick="showForgotPassword()">${translations[currentLanguage]['Forgot Password']}</a>
                             </div>
                             
                             <div class="google-login">
-                                <p>Or continue with</p>
+                                <p>${translations[currentLanguage]['Or continue with']}</p>
                                 <button type="button" class="btn-google" onclick="loginWithGoogle()">
-                                    <i class="fab fa-google"></i> Sign in with Google
+                                    <i class="fab fa-google"></i> ${translations[currentLanguage]['Sign in with Google']}
                                 </button>
                             </div>
                         </form>
                         
                         <form id="registerForm" class="auth-form" onsubmit="return false;">
                             <div class="form-group">
-                                <label>Full Name</label>
-                                <input type="text" id="registerName" placeholder="Your full name" required>
+                                <label>${translations[currentLanguage]['Full Name']}</label>
+                                <input type="text" id="registerName" placeholder="${translations[currentLanguage]['Your full name']}" required>
                             </div>
                             
                             <div class="form-group">
-                                <label>Username</label>
-                                <input type="text" id="registerUsername" placeholder="Choose a username" required>
+                                <label>${translations[currentLanguage]['Username']}</label>
+                                <input type="text" id="registerUsername" placeholder="${translations[currentLanguage]['Choose a username']}" required>
                             </div>
                             
                             <div class="form-group">
-                                <label>Email</label>
-                                <input type="email" id="registerEmail" placeholder="Your email" required>
+                                <label>${translations[currentLanguage]['Email Address']}</label>
+                                <input type="email" id="registerEmail" placeholder="${translations[currentLanguage]['your@email.com']}" required>
                             </div>
                             
                             <div class="form-group">
-                                <label>Password</label>
-                                <input type="password" id="registerPassword" placeholder="Create a password" required>
+                                <label>${translations[currentLanguage]['New Password']}</label>
+                                <input type="password" id="registerPassword" placeholder="${translations[currentLanguage]['Create a password']}" required>
                             </div>
                             
                             <div class="form-group">
-                                <label>Confirm Password</label>
-                                <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+                                <label>${translations[currentLanguage]['Confirm New Password']}</label>
+                                <input type="password" id="confirmPassword" placeholder="${translations[currentLanguage]['Confirm your new password']}" required>
                             </div>
                             
-                            <button type="button" class="btn-auth" onclick="registerUser()">Register</button>
+                            <button type="button" class="btn-auth" onclick="registerUser()">${translations[currentLanguage]['Register']}</button>
                             
                             <div class="google-login">
-                                <p>Or register with</p>
+                                <p>${translations[currentLanguage]['Or register with']}</p>
                                 <button type="button" class="btn-google" onclick="loginWithGoogle()">
-                                    <i class="fab fa-google"></i> Sign up with Google
+                                    <i class="fab fa-google"></i> ${translations[currentLanguage]['Sign up with Google']}
                                 </button>
                             </div>
                         </form>
@@ -4672,7 +5679,7 @@ service cloud.firestore {
         function openOrderModal(name, price, category) {
             // Check if user is logged in
             if (!currentUser) {
-                showNotification('Please login to place an order', 'error');
+                showNotification(translations[currentLanguage]['Please login to place an order'], 'error');
                 toggleAuthDropdown();
                 return;
             }
@@ -4718,16 +5725,16 @@ service cloud.firestore {
             // Adjust form based on category
             if (category === 'bloxfruits') {
                 // Change the username field label
-                document.getElementById('usernameLabel').innerHTML = '<i class="fas fa-user"></i> Username that will be delivered to *';
-                document.getElementById('username').placeholder = 'Enter Roblox username for delivery';
+                document.getElementById('usernameLabel').innerHTML = '<i class="fas fa-user"></i> ' + translations[currentLanguage]['Username that will be delivered to *'];
+                document.getElementById('username').placeholder = translations[currentLanguage]['Enter Roblox username for delivery'];
                 
                 // Hide the gamepass field
                 document.getElementById('gamepassGroup').style.display = 'none';
                 document.getElementById('gamepassLinkInput').removeAttribute('required');
             } else {
                 // Reset to normal for other categories
-                document.getElementById('usernameLabel').innerHTML = '<i class="fas fa-user"></i> Your Roblox Username *';
-                document.getElementById('username').placeholder = 'Enter your Roblox username';
+                document.getElementById('usernameLabel').innerHTML = '<i class="fas fa-user"></i> ' + translations[currentLanguage]['Your Roblox Username *'];
+                document.getElementById('username').placeholder = translations[currentLanguage]['Enter your Roblox username'];
                 
                 // Show the gamepass field
                 document.getElementById('gamepassGroup').style.display = 'block';
@@ -4762,31 +5769,31 @@ service cloud.firestore {
             const username = document.getElementById('username').value;
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
-            const gamepassLink = document.getElementById('gamepassLinkInput').value;
+            const gamepassLink = currentItem.category === 'bloxfruits' ? '' : document.getElementById('gamepassLinkInput').value;
             
             // Validate based on category
             if (!username || !email || !phone) {
-                showNotification('Please fill in all the required fields before continuing to payment.', 'error');
+                showNotification(translations[currentLanguage]['Please fill in all the required fields before continuing to payment.'], 'error');
                 return;
             }
             
             // Only validate gamepass if it's visible (not for bloxfruits)
             if (currentItem.category !== 'bloxfruits' && !gamepassLink) {
-                showNotification('Please fill in all the required fields before continuing to payment.', 'error');
+                showNotification(translations[currentLanguage]['Please fill in all the required fields before continuing to payment.'], 'error');
                 return;
             }
             
             // Validate email format
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
-                showNotification('Please enter a valid email address.', 'error');
+                showNotification(translations[currentLanguage]['Please enter a valid email address.'], 'error');
                 return;
             }
             
             // Validate phone number (Egyptian format)
             const phoneRegex = /^01[0-9]{9}$/;
             if (!phoneRegex.test(phone)) {
-                showNotification('Please enter a valid Egyptian phone number (11 digits starting with 01).', 'error');
+                showNotification(translations[currentLanguage]['Please enter a valid Egyptian phone number (11 digits starting with 01).'], 'error');
                 return;
             }
             
@@ -4795,7 +5802,7 @@ service cloud.firestore {
                 try {
                     new URL(gamepassLink);
                 } catch (e) {
-                    showNotification('Please enter a valid gamepass link.', 'error');
+                    showNotification(translations[currentLanguage]['Please enter a valid gamepass link.'], 'error');
                     return;
                 }
             }
@@ -4822,11 +5829,11 @@ service cloud.firestore {
             // Update payment instructions based on method
             const paymentTitle = document.getElementById('payment-method-title');
             if (method === 'instapay') {
-                paymentTitle.innerHTML = '<i class="fas fa-info-circle"></i> InstaPay Payment Instructions';
+                paymentTitle.innerHTML = '<i class="fas fa-info-circle"></i> ' + translations[currentLanguage]['InstaPay'] + ' ' + translations[currentLanguage]['Payment Instructions'];
                 document.getElementById('instapay-details').style.display = 'block';
                 document.getElementById('vodafone-details').style.display = 'none';
             } else if (method === 'vodafone_cash') {
-                paymentTitle.innerHTML = '<i class="fas fa-info-circle"></i> Vodafone Cash Payment Instructions';
+                paymentTitle.innerHTML = '<i class="fas fa-info-circle"></i> ' + translations[currentLanguage]['Vodafone Cash'] + ' ' + translations[currentLanguage]['Payment Instructions'];
                 document.getElementById('instapay-details').style.display = 'none';
                 document.getElementById('vodafone-details').style.display = 'block';
             }
@@ -4834,7 +5841,7 @@ service cloud.firestore {
         
         function showPaymentUpload() {
             if (!selectedPaymentMethod) {
-                showNotification('Please select a payment method', 'error');
+                showNotification(translations[currentLanguage]['Please select a payment method'], 'error');
                 return;
             }
             
@@ -4847,11 +5854,11 @@ service cloud.firestore {
             const uploadMessage = document.getElementById('upload-message');
             
             if (selectedPaymentMethod === 'instapay') {
-                uploadTitle.innerHTML = '<i class="fas fa-camera"></i> Upload Picture Of The Payment In InstaPay';
-                uploadMessage.textContent = 'Please upload a clear picture of your InstaPay payment confirmation to verify your order.';
+                uploadTitle.innerHTML = '<i class="fas fa-camera"></i> ' + translations[currentLanguage]['Upload Picture Of The Payment'] + ' (InstaPay)';
+                uploadMessage.textContent = translations[currentLanguage]['Please upload a clear picture of your payment confirmation to verify your order.'];
             } else if (selectedPaymentMethod === 'vodafone_cash') {
-                uploadTitle.innerHTML = '<i class="fas fa-camera"></i> Upload Picture Of The Payment In Vodafone Cash';
-                uploadMessage.textContent = 'Please upload a clear picture of your Vodafone Cash payment confirmation to verify your order.';
+                uploadTitle.innerHTML = '<i class="fas fa-camera"></i> ' + translations[currentLanguage]['Upload Picture Of The Payment'] + ' (Vodafone Cash)';
+                uploadMessage.textContent = translations[currentLanguage]['Please upload a clear picture of your payment confirmation to verify your order.'];
             }
         }
         
@@ -4862,13 +5869,13 @@ service cloud.firestore {
             
             // Check if file is an image
             if (!file.type.match('image.*')) {
-                showNotification('Please select an image file', 'error');
+                showNotification(translations[currentLanguage]['Please select an image file'], 'error');
                 return;
             }
             
             // Check file size (max 10MB)
             if (file.size > 10 * 1024 * 1024) {
-                showNotification('Image size must be less than 10MB', 'error');
+                showNotification(translations[currentLanguage]['Image size must be less than 10MB'], 'error');
                 return;
             }
             
@@ -4883,6 +5890,28 @@ service cloud.firestore {
                 document.getElementById('submitUploadBtn').classList.add('active');
             };
             reader.readAsDataURL(file);
+        }
+        
+        // Verify SMS code function
+        function verifySMSCode() {
+            const smsCode = document.getElementById('smsCode').value;
+            
+            if (!smsCode) {
+                showNotification(translations[currentLanguage]['Please fill in all the required fields before continuing to payment.'], 'error');
+                return;
+            }
+            
+            // Simple validation - in a real implementation, this would verify against a database
+            if (smsCode.length !== 6) {
+                showNotification(translations[currentLanguage]['Invalid verification code'], 'error');
+                return;
+            }
+            
+            // If verification is successful, show a notification
+            showNotification(translations[currentLanguage]['Payment verification successful'], 'success');
+            
+            // Enable the submit button
+            document.getElementById('submitOrderBtn').disabled = false;
         }
         
         // Fixed Discord webhook function with proper payload structure
@@ -4942,6 +5971,19 @@ service cloud.firestore {
                 message += `**Payment Method:** ${order.paymentMethod === 'instapay' ? 'InstaPay' : 'Vodafone Cash'}\n`;
                 message += `**Status:** ${order.status}\n`;
                 message += `**Date:** ${orderDate}\n`;
+                
+                // Add payment verification fields if available
+                if (order.transactionId) {
+                    message += `**Transaction ID:** ${order.transactionId}\n`;
+                }
+                
+                if (order.senderPhone) {
+                    message += `**Sender Phone (last 4 digits):** ${order.senderPhone}\n`;
+                }
+                
+                if (order.smsCode) {
+                    message += `**SMS Verification Code:** ${order.smsCode}\n`;
+                }
                 
                 // Add payment receipt image if available
                 if (order.paymentReceipt) {
@@ -5065,7 +6107,7 @@ service cloud.firestore {
         // Updated submit order function with better error handling
         function submitOrderWithReceipt() {
             if (!uploadedImageFile) {
-                showNotification('Please upload a payment receipt', 'error');
+                showNotification(translations[currentLanguage]['Please upload a payment receipt'], 'error');
                 return;
             }
             
@@ -5076,13 +6118,13 @@ service cloud.firestore {
             // Check if user is authenticated
             if (!currentUser) {
                 console.log("ERROR: No current user");
-                showNotification('Please login to place an order', 'error');
+                showNotification(translations[currentLanguage]['Please login to place an order'], 'error');
                 return;
             }
             
             if (!currentUser.uid) {
                 console.log("ERROR: User has no UID");
-                showNotification('Authentication error. Please login again.', 'error');
+                showNotification(translations[currentLanguage]['Authentication error. Please login again.'], 'error');
                 return;
             }
             
@@ -5090,10 +6132,13 @@ service cloud.firestore {
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
             const gamepassLink = currentItem.category === 'bloxfruits' ? '' : document.getElementById('gamepassLinkInput').value;
+            const transactionId = document.getElementById('transactionId').value;
+            const senderPhone = document.getElementById('senderPhone').value;
+            const smsCode = document.getElementById('smsCode').value;
             
-            console.log("Form data:", { username, email, phone, gamepassLink });
+            console.log("Form data:", { username, email, phone, gamepassLink, transactionId, senderPhone, smsCode });
             
-            // Show spinner
+            // Show loading state
             document.getElementById('uploadSpinner').style.display = 'block';
             document.getElementById('submitUploadBtn').disabled = true;
             
@@ -5115,7 +6160,10 @@ service cloud.firestore {
                     status: 'pending',
                     createdAt: firebase.firestore.FieldValue.serverTimestamp(),
                     userId: currentUser.uid,
-                    paymentReceipt: base64Image
+                    paymentReceipt: base64Image,
+                    transactionId: transactionId,
+                    senderPhone: senderPhone,
+                    smsCode: smsCode
                 };
                 
                 console.log("Order object to save:", order);
@@ -5131,12 +6179,12 @@ service cloud.firestore {
                         // Send Discord webhook notification
                         sendDiscordWebhook(order).then(() => {
                             console.log("Webhook sent successfully");
-                            showNotification('Order placed successfully! Discord notification sent.', 'success');
+                            showNotification(translations[currentLanguage]['Order placed successfully! Discord notification sent.'], 'success');
                         }).catch(error => {
                             console.error("Error sending webhook:", error);
                             // Show detailed error message
                             const errorMessage = error.message || 'Unknown error';
-                            showNotification(`Order placed but notification failed to send: ${errorMessage}`, 'warning');
+                            showNotification(translations[currentLanguage]['Order placed but notification failed to send'] + ': ' + errorMessage, 'warning');
                             
                             // Show additional error details in console for debugging
                             console.error('Webhook error details:', {
@@ -5172,9 +6220,9 @@ service cloud.firestore {
                         
                         // Check if it's a permission error
                         if (error.message.includes('Missing or insufficient permissions')) {
-                            showNotification('Permission error. Please check Firestore security rules.', 'error');
+                            showNotification(translations[currentLanguage]['Permission error. Please check Firestore security rules.'], 'error');
                         } else {
-                            showNotification('Error placing order: ' + error.message, 'error');
+                            showNotification(translations[currentLanguage]['Error placing order'] + ': ' + error.message, 'error');
                         }
                     });
             };
@@ -5188,8 +6236,8 @@ service cloud.firestore {
                 orderList.innerHTML = `
                     <div class="empty-orders">
                         <i class="fas fa-receipt"></i>
-                        <h3>Please login to view your order history</h3>
-                        <p>Login to see your previous orders.</p>
+                        <h3>${translations[currentLanguage]['Please login to view your order history']}</h3>
+                        <p>${translations[currentLanguage]['Login to see your previous orders.']}</p>
                     </div>
                 `;
                 return;
@@ -5198,7 +6246,7 @@ service cloud.firestore {
             // Show loading state
             orderList.innerHTML = `
                 <div class="spinner"></div>
-                <p style="text-align: center; margin-top: 20px;">Loading your orders...</p>
+                <p style="text-align: center; margin-top: 20px;">${translations[currentLanguage]['Loading your orders...']}</p>
             `;
             
             // Get orders from Firestore
@@ -5211,8 +6259,8 @@ service cloud.firestore {
                         orderList.innerHTML = `
                             <div class="empty-orders">
                                 <i class="fas fa-receipt"></i>
-                                <h3>No orders yet</h3>
-                                <p>Your order history will appear here once you make a purchase.</p>
+                                <h3>${translations[currentLanguage]['No orders yet']}</h3>
+                                <p>${translations[currentLanguage]['Your order history will appear here once you make a purchase.']}</p>
                             </div>
                         `;
                         return;
@@ -5230,25 +6278,25 @@ service cloud.firestore {
                                     <div class="order-id">${doc.id}</div>
                                     <div class="order-date">${orderDate} ${orderTime}</div>
                                     <div class="order-status ${order.status === 'completed' ? 'status-completed' : 'status-pending'}">
-                                        ${order.status === 'completed' ? 'Completed' : 'Pending'}
+                                        ${order.status === 'completed' ? translations[currentLanguage]['Completed'] : translations[currentLanguage]['Pending']}
                                     </div>
                                 </div>
                                 <div class="order-details-grid">
                                     <div class="order-detail-item">
-                                        <div class="order-detail-label">Product</div>
+                                        <div class="order-detail-label">${translations[currentLanguage]['Product']}</div>
                                         <div class="order-detail-value">${order.product}</div>
                                     </div>
                                     <div class="order-detail-item">
-                                        <div class="order-detail-label">Price</div>
+                                        <div class="order-detail-label">${translations[currentLanguage]['Price']}</div>
                                         <div class="order-detail-value">${order.price} EGP</div>
                                     </div>
                                     <div class="order-detail-item">
-                                        <div class="order-detail-label">Payment Method</div>
+                                        <div class="order-detail-label">${translations[currentLanguage]['Payment Method']}</div>
                                         <div class="order-detail-value">${order.paymentMethod === 'instapay' ? 'InstaPay' : 'Vodafone Cash'}</div>
                                     </div>
                                     <div class="order-detail-item">
-                                        <div class="order-detail-label">Status</div>
-                                        <div class="order-detail-value">${order.status === 'completed' ? 'Completed' : 'Pending'}</div>
+                                        <div class="order-detail-label">${translations[currentLanguage]['Status']}</div>
+                                        <div class="order-detail-value">${order.status === 'completed' ? translations[currentLanguage]['Completed'] : translations[currentLanguage]['Pending']}</div>
                                     </div>
                                 </div>
                             </div>
@@ -5263,11 +6311,11 @@ service cloud.firestore {
                     if (error.message.includes('The query requires an index')) {
                         errorMessage = `
                             <div class="index-error-box">
-                                <h3><i class="fas fa-exclamation-triangle"></i> Database Index Required</h3>
-                                <p>The database requires an index to be created to load your orders.</p>
-                                <p>Please click the button below to create the required index:</p>
-                                <button class="btn" onclick="window.open('https://console.firebase.google.com/v1/r/project/egyptstore-f5201/firestore/indexes?create_composite=Ck9wcm9qZWN0cy9lZ3lwdHN0b3JlLWY1MjAxL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9vcmRlcnMvaW5kZXhlcy9fEAEaCgoGdXNlcklkEAEaDQoJY3JlYXRlZEF0EAIaDAoIX19uYW1lX18QAg', '_blank')">Create Index</button>
-                                <p style="margin-top: 15px;">After creating the index, please wait a few minutes for it to be built, then <button class="btn btn-small" onclick="loadOrderHistory()">Retry</button></p>
+                                <h3><i class="fas fa-exclamation-triangle"></i> ${translations[currentLanguage]['Database Index Required']}</h3>
+                                <p>${translations[currentLanguage]['The database requires an index to be created to load your orders.']}</p>
+                                <p>${translations[currentLanguage]['Please click the button below to create the required index:']}</p>
+                                <button class="btn" onclick="window.open('https://console.firebase.google.com/project/egyptstore-f5201/firestore/indexes?create_composite=Ck9wcm9qZWN0cy9lZ3lwdHN0b3JlLWY1MjAxL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9vcmRlcnMvaW5kZXhlcy9fEAEaCgoGdXNlcklkEAEaDQoJY3JlYXRlZEF0EAIaDAoIX19uYW1lX18QAg', '_blank')">${translations[currentLanguage]['Create Index']}</button>
+                                <p style="margin-top: 15px;">${translations[currentLanguage]['After creating the index, please wait a few minutes for it to be built, then']} <button class="btn btn-small" onclick="loadOrderHistory()">${translations[currentLanguage]['Retry']}</button></p>
                             </div>
                         `;
                     }
@@ -5275,7 +6323,7 @@ service cloud.firestore {
                     orderList.innerHTML = `
                         <div class="empty-orders">
                             <i class="fas fa-exclamation-triangle"></i>
-                            <h3>Error loading orders</h3>
+                            <h3>${translations[currentLanguage]['Error loading orders']}</h3>
                             <div>${errorMessage}</div>
                         </div>
                     `;
@@ -5340,7 +6388,7 @@ service cloud.firestore {
             const phone = document.getElementById('settingsPhone').value;
             
             if (!name || !email) {
-                showNotification('Name and email are required', 'error');
+                showNotification(translations[currentLanguage]['Please fill in all the required fields before continuing to payment.'], 'error');
                 return;
             }
             
@@ -5393,7 +6441,7 @@ service cloud.firestore {
                     // Close settings modal
                     closeUserSettings();
                     
-                    showNotification('Profile updated successfully', 'success');
+                    showNotification(translations[currentLanguage]['Profile updated successfully'], 'success');
                 }
             })
             .catch(error => {
@@ -5401,9 +6449,9 @@ service cloud.firestore {
                 
                 // Check if it's a permission error
                 if (error.message.includes('Missing or insufficient permissions')) {
-                    showNotification('Permission error. Please check Firestore security rules.', 'error');
+                    showNotification(translations[currentLanguage]['Permission error. Please check Firestore security rules.'], 'error');
                 } else {
-                    showNotification('Error updating profile: ' + error.message, 'error');
+                    showNotification(translations[currentLanguage]['Error updating profile'] + ': ' + error.message, 'error');
                 }
             })
             .finally(() => {
@@ -5419,17 +6467,17 @@ service cloud.firestore {
             const confirmPassword = document.getElementById('confirmNewPassword').value;
             
             if (!currentPassword || !newPassword || !confirmPassword) {
-                showNotification('Please fill in all password fields', 'error');
+                showNotification(translations[currentLanguage]['Please fill in all the required fields before continuing to payment.'], 'error');
                 return;
             }
             
             if (newPassword !== confirmPassword) {
-                showNotification('New passwords do not match', 'error');
+                showNotification(translations[currentLanguage]['Passwords do not match'], 'error');
                 return;
             }
             
             if (newPassword.length < 6) {
-                showNotification('Password must be at least 6 characters', 'error');
+                showNotification(translations[currentLanguage]['Password must be at least 6 characters'], 'error');
                 return;
             }
             
@@ -5448,11 +6496,11 @@ service cloud.firestore {
                     // Reset form
                     document.getElementById('securityForm').reset();
                     
-                    showNotification('Password changed successfully', 'success');
+                    showNotification(translations[currentLanguage]['Password changed successfully'], 'success');
                 })
                 .catch(error => {
                     console.error('Error changing password:', error);
-                    showNotification('Error changing password: ' + error.message, 'error');
+                    showNotification(translations[currentLanguage]['Error changing password'] + ': ' + error.message, 'error');
                 });
         }
         
@@ -5460,7 +6508,7 @@ service cloud.firestore {
         function showAdminLogin() {
             // Check if user is logged in and is admin
             if (!currentUser) {
-                showNotification('Please login to access admin panel', 'error');
+                showNotification(translations[currentLanguage]['Please login to place an order'], 'error');
                 return;
             }
             
@@ -5494,9 +6542,9 @@ service cloud.firestore {
                 // Show admin panel
                 document.getElementById('adminPanel').classList.add('active');
                 
-                showNotification('Admin login successful', 'success');
+                showNotification(translations[currentLanguage]['Admin login successful'], 'success');
             } else {
-                showNotification('Incorrect admin password', 'error');
+                showNotification(translations[currentLanguage]['Incorrect admin password'], 'error');
             }
         }
         
@@ -5507,7 +6555,7 @@ service cloud.firestore {
             // Hide admin panel
             document.getElementById('adminPanel').classList.remove('active');
             
-            showNotification('Admin logged out', 'info');
+            showNotification(translations[currentLanguage]['Admin logged out'], 'info');
         }
         
         function switchAdminTab(tab) {
@@ -5579,10 +6627,10 @@ service cloud.firestore {
                 if (error.message.includes('Missing or insufficient permissions')) {
                     errorMessage = `
                         <div class="error-box">
-                            <h3><i class="fas fa-exclamation-triangle"></i> Firebase Security Rules Error</h3>
-                            <p>Your Firebase security rules are preventing access to the database.</p>
-                            <p>Please update your Firestore security rules to allow read/write access.</p>
-                            <p>You can use these rules for testing:</p>
+                            <h3><i class="fas fa-exclamation-triangle"></i> ${translations[currentLanguage]['Firebase Security Rules Error']}</h3>
+                            <p>${translations[currentLanguage]['Your Firebase security rules are preventing access to the database.']}</p>
+                            <p>${translations[currentLanguage]['Please update your Firestore security rules to allow read/write access.']}</p>
+                            <p>${translations[currentLanguage]['You can use these rules for testing:']}</p>
                             <pre>rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
@@ -5591,18 +6639,18 @@ service cloud.firestore {
     }
   }
 }</pre>
-                            <p>For production, you should implement more restrictive rules.</p>
-                            <button class="btn" onclick="window.open('https://console.firebase.google.com/project/egyptstore-f5201/firestore/rules', '_blank')">Open Firebase Console</button>
-                            <button class="btn btn-small" onclick="loadAdminData()" style="margin-left: 10px;">Retry</button>
+                            <p>${translations[currentLanguage]['For production, you should implement more restrictive rules.']}</p>
+                            <button class="btn" onclick="window.open('https://console.firebase.google.com/project/egyptstore-f5201/firestore/rules', '_blank')">${translations[currentLanguage]['Open Firebase Console']}</button>
+                            <button class="btn btn-small" onclick="loadAdminData()" style="margin-left: 10px;">${translations[currentLanguage]['Retry']}</button>
                         </div>
                     `;
                 }
                 
                 // Show error in admin panel
-                document.getElementById('totalUsers').textContent = 'Error';
-                document.getElementById('totalOrders').textContent = 'Error';
-                document.getElementById('totalRevenue').textContent = 'Error';
-                document.getElementById('pendingOrders').textContent = 'Error';
+                document.getElementById('totalUsers').textContent = translations[currentLanguage]['Error'];
+                document.getElementById('totalOrders').textContent = translations[currentLanguage]['Error'];
+                document.getElementById('totalRevenue').textContent = translations[currentLanguage]['Error'];
+                document.getElementById('pendingOrders').textContent = translations[currentLanguage]['Error'];
                 
                 // Create a notification area
                 const dashboardContent = document.getElementById('dashboard-content');
@@ -5614,12 +6662,12 @@ service cloud.firestore {
                     dashboardContent.insertBefore(errorDiv, dashboardContent.firstChild);
                 }
                 
-                showNotification('Error loading admin data: ' + error.message, 'error');
+                showNotification(translations[currentLanguage]['Error loading admin data'] + ': ' + error.message, 'error');
             });
         }
         
         function clearRevenueData() {
-            if (confirm('Are you sure you want to clear all revenue data? This will reset the total revenue to 0 but keep all orders.')) {
+            if (confirm(translations[currentLanguage]['Are you sure you want to delete this item? This action cannot be undone.'])) {
                 // Get orders
                 db.collection('orders').get()
                     .then(snapshot => {
@@ -5638,30 +6686,30 @@ service cloud.firestore {
                             loadOrdersTable();
                         }
                         
-                        showNotification('Revenue data cleared successfully', 'success');
+                        showNotification(translations[currentLanguage]['Revenue data cleared successfully'], 'success');
                     })
                     .catch(error => {
                         console.error('Error clearing revenue data:', error);
                         
                         // Check if it's a permission error
                         if (error.message.includes('Missing or insufficient permissions')) {
-                            showNotification('Permission error. Please check Firestore security rules.', 'error');
+                            showNotification(translations[currentLanguage]['Permission error. Please check Firestore security rules.'], 'error');
                         } else {
-                            showNotification('Error clearing revenue data', 'error');
+                            showNotification(translations[currentLanguage]['Error clearing revenue data'], 'error');
                         }
                     });
             }
         }
         
         function clearPendingOrders() {
-            if (confirm('Are you sure you want to delete all pending orders? This action cannot be undone.')) {
+            if (confirm(translations[currentLanguage]['Are you sure you want to delete this item? This action cannot be undone.'])) {
                 // Get pending orders
                 db.collection('orders')
                     .where('status', '==', 'pending')
                     .get()
                     .then(snapshot => {
                         if (snapshot.empty) {
-                            showNotification('No pending orders to clear', 'info');
+                            showNotification(translations[currentLanguage]['No pending orders to clear'], 'info');
                             return;
                         }
                         const batch = db.batch();
@@ -5679,30 +6727,30 @@ service cloud.firestore {
                             loadOrdersTable();
                         }
                         
-                        showNotification('Pending orders cleared successfully', 'success');
+                        showNotification(translations[currentLanguage]['Pending orders cleared successfully'], 'success');
                     })
                     .catch(error => {
                         console.error('Error clearing pending orders:', error);
                         
                         // Check if it's a permission error
                         if (error.message.includes('Missing or insufficient permissions')) {
-                            showNotification('Permission error. Please check Firestore security rules.', 'error');
+                            showNotification(translations[currentLanguage]['Permission error. Please check Firestore security rules.'], 'error');
                         } else {
-                            showNotification('Error clearing pending orders', 'error');
+                            showNotification(translations[currentLanguage]['Error clearing pending orders'], 'error');
                         }
                     });
             }
         }
         
         function clearCompletedOrders() {
-            if (confirm('Are you sure you want to delete all completed orders? This action cannot be undone.')) {
+            if (confirm(translations[currentLanguage]['Are you sure you want to delete this item? This action cannot be undone.'])) {
                 // Get completed orders
                 db.collection('orders')
                     .where('status', '==', 'completed')
                     .get()
                     .then(snapshot => {
                         if (snapshot.empty) {
-                            showNotification('No completed orders to clear', 'info');
+                            showNotification(translations[currentLanguage]['No completed orders to clear'], 'info');
                             return;
                         }
                         const batch = db.batch();
@@ -5720,16 +6768,16 @@ service cloud.firestore {
                             loadOrdersTable();
                         }
                         
-                        showNotification('Completed orders cleared successfully', 'success');
+                        showNotification(translations[currentLanguage]['Completed orders cleared successfully'], 'success');
                     })
                     .catch(error => {
                         console.error('Error clearing completed orders:', error);
                         
                         // Check if it's a permission error
                         if (error.message.includes('Missing or insufficient permissions')) {
-                            showNotification('Permission error. Please check Firestore security rules.', 'error');
+                            showNotification(translations[currentLanguage]['Permission error. Please check Firestore security rules.'], 'error');
                         } else {
-                            showNotification('Error clearing completed orders', 'error');
+                            showNotification(translations[currentLanguage]['Error clearing completed orders'], 'error');
                         }
                     });
             }
@@ -5741,8 +6789,8 @@ service cloud.firestore {
                 document.getElementById('usersList').innerHTML = `
                     <div class="empty-orders">
                         <i class="fas fa-exclamation-triangle"></i>
-                        <h3>Access Denied</h3>
-                        <p>You don't have permission to view this page.</p>
+                        <h3>${translations[currentLanguage]['Access Denied']}</h3>
+                        <p>${translations[currentLanguage]['You don\'t have permission to view this page.']}</p>
                     </div>
                 `;
                 return;
@@ -5753,7 +6801,7 @@ service cloud.firestore {
             // Show loading state
             usersList.innerHTML = `
                 <div class="spinner"></div>
-                <p style="text-align: center; margin-top: 20px;">Loading users...</p>
+                <p style="text-align: center; margin-top: 20px;">${translations[currentLanguage]['Loading users...']}</p>
             `;
             
             db.collection('users').get()
@@ -5762,8 +6810,8 @@ service cloud.firestore {
                         usersList.innerHTML = `
                             <div class="empty-orders">
                                 <i class="fas fa-users"></i>
-                                <h3>No users found</h3>
-                                <p>No users have registered yet.</p>
+                                <h3>${translations[currentLanguage]['No users found']}</h3>
+                                <p>${translations[currentLanguage]['No users have registered yet.']}</p>
                             </div>
                         `;
                         return;
@@ -5776,30 +6824,30 @@ service cloud.firestore {
                                 <h4>${user.name} (${user.email})</h4>
                                 <div class="user-info-grid">
                                     <div class="user-info-item">
-                                        <div class="user-info-label">User ID</div>
+                                        <div class="user-info-label">${translations[currentLanguage]['User ID']}</div>
                                         <div class="user-info-value">${user.id}</div>
                                     </div>
                                     <div class="user-info-item">
-                                        <div class="user-info-label">Username</div>
+                                        <div class="user-info-label">${translations[currentLanguage]['Username']}</div>
                                         <div class="user-info-value">${user.username || 'N/A'}</div>
                                     </div>
                                     <div class="user-info-item">
-                                        <div class="user-info-label">Phone</div>
+                                        <div class="user-info-label">${translations[currentLanguage]['Phone']}</div>
                                         <div class="user-info-value">${user.phone || 'N/A'}</div>
                                     </div>
                                     <div class="user-info-item">
-                                        <div class="user-info-label">Registered</div>
+                                        <div class="user-info-label">${translations[currentLanguage]['Registered']}</div>
                                         <div class="user-info-value">${user.registeredAt ? new Date(user.registeredAt.toDate()).toLocaleDateString() : 'N/A'}</div>
                                     </div>
                                     <div class="user-info-item">
-                                        <div class="user-info-label">Actions</div>
+                                        <div class="user-info-label">${translations[currentLanguage]['Actions']}</div>
                                         <div class="user-info-value">
                                             <div class="admin-actions">
                                                 <button class="btn-small btn-view" onclick="viewUser('${user.id}')">
-                                                    <i class="fas fa-eye"></i> View
+                                                    <i class="fas fa-eye"></i> ${translations[currentLanguage]['View']}
                                                 </button>
                                                 <button class="btn-small btn-delete" onclick="deleteUser('${user.id}')">
-                                                    <i class="fas fa-trash"></i> Delete
+                                                    <i class="fas fa-trash"></i> ${translations[currentLanguage]['Delete']}
                                                 </button>
                                             </div>
                                         </div>
@@ -5814,7 +6862,7 @@ service cloud.firestore {
                     usersList.innerHTML = `
                         <div class="empty-orders">
                             <i class="fas fa-exclamation-triangle"></i>
-                            <h3>Error loading users</h3>
+                            <h3>${translations[currentLanguage]['Error loading users']}</h3>
                             <p>${error.message}</p>
                         </div>
                     `;
@@ -5827,7 +6875,7 @@ service cloud.firestore {
                 document.getElementById('ordersTableBody').innerHTML = `
                     <tr>
                         <td colspan="8" style="text-align: center; padding: 30px; color: var(--gray);">
-                            Access Denied
+                            ${translations[currentLanguage]['Access Denied']}
                         </td>
                     </tr>
                 `;
@@ -5841,7 +6889,7 @@ service cloud.firestore {
                 <tr>
                     <td colspan="8" style="text-align: center; padding: 30px;">
                         <div class="spinner"></div>
-                        <p style="margin-top: 10px;">Loading orders...</p>
+                        <p style="margin-top: 10px;">${translations[currentLanguage]['Loading your orders...']}</p>
                     </td>
                 </tr>
             `;
@@ -5854,7 +6902,7 @@ service cloud.firestore {
                         ordersTableBody.innerHTML = `
                             <tr>
                                 <td colspan="8" style="text-align: center; padding: 30px; color: var(--gray);">
-                                    No orders found
+                                    ${translations[currentLanguage]['No orders found']}
                                 </td>
                             </tr>
                         `;
@@ -5876,21 +6924,21 @@ service cloud.firestore {
                                 <td>${orderDate} ${orderTime}</td>
                                 <td>
                                     <span class="order-status ${order.status === 'completed' ? 'status-completed' : 'status-pending'}">
-                                        ${order.status === 'completed' ? 'Completed' : 'Pending'}
+                                        ${order.status === 'completed' ? translations[currentLanguage]['Completed'] : translations[currentLanguage]['Pending']}
                                     </span>
                                 </td>
                                 <td>
                                     <div class="admin-actions">
                                         <button class="btn-small btn-view" onclick="viewOrder('${doc.id}')">
-                                            <i class="fas fa-eye"></i> View
+                                            <i class="fas fa-eye"></i> ${translations[currentLanguage]['View']}
                                         </button>
                                         ${order.status === 'pending' ? `
                                             <button class="btn-small btn-complete" onclick="completeOrder('${doc.id}')">
-                                                <i class="fas fa-check"></i> Complete
+                                                <i class="fas fa-check"></i> ${translations[currentLanguage]['Complete']}
                                             </button>
                                         ` : ''}
                                         <button class="btn-small btn-delete" onclick="deleteOrder('${doc.id}')">
-                                            <i class="fas fa-trash"></i> Delete
+                                            <i class="fas fa-trash"></i> ${translations[currentLanguage]['Delete']}
                                         </button>
                                     </div>
                                 </td>
@@ -5903,7 +6951,7 @@ service cloud.firestore {
                     ordersTableBody.innerHTML = `
                         <tr>
                             <td colspan="8" style="text-align: center; padding: 30px; color: var(--gray);">
-                                Error loading orders: ${error.message}
+                                ${translations[currentLanguage]['Error loading orders']}: ${error.message}
                             </td>
                         </tr>
                     `;
@@ -5933,7 +6981,7 @@ service cloud.firestore {
                         ordersTableBody.innerHTML = `
                             <tr>
                                 <td colspan="8" style="text-align: center; padding: 30px; color: var(--gray);">
-                                    No orders found
+                                    ${translations[currentLanguage]['No orders found']}
                                 </td>
                             </tr>
                         `;
@@ -5963,21 +7011,21 @@ service cloud.firestore {
                                 <td>${orderDate} ${orderTime}</td>
                                 <td>
                                     <span class="order-status ${order.status === 'completed' ? 'status-completed' : 'status-pending'}">
-                                        ${order.status === 'completed' ? 'Completed' : 'Pending'}
+                                        ${order.status === 'completed' ? translations[currentLanguage]['Completed'] : translations[currentLanguage]['Pending']}
                                     </span>
                                 </td>
                                 <td>
                                     <div class="admin-actions">
                                         <button class="btn-small btn-view" onclick="viewOrder('${doc.id}')">
-                                            <i class="fas fa-eye"></i> View
+                                            <i class="fas fa-eye"></i> ${translations[currentLanguage]['View']}
                                         </button>
                                         ${order.status === 'pending' ? `
                                             <button class="btn-small btn-complete" onclick="completeOrder('${doc.id}')">
-                                                <i class="fas fa-check"></i> Complete
+                                                <i class="fas fa-check"></i> ${translations[currentLanguage]['Complete']}
                                             </button>
                                         ` : ''}
                                         <button class="btn-small btn-delete" onclick="deleteOrder('${doc.id}')">
-                                            <i class="fas fa-trash"></i> Delete
+                                            <i class="fas fa-trash"></i> ${translations[currentLanguage]['Delete']}
                                         </button>
                                     </div>
                                 </td>
@@ -5990,7 +7038,7 @@ service cloud.firestore {
                     ordersTableBody.innerHTML = `
                         <tr>
                             <td colspan="8" style="text-align: center; padding: 30px; color: var(--gray);">
-                                Error loading orders: ${error.message}
+                                ${translations[currentLanguage]['Error loading orders']}: ${error.message}
                             </td>
                         </tr>
                     `;
@@ -6009,27 +7057,27 @@ service cloud.firestore {
                         // Populate account info
                         document.getElementById('accountInfo').innerHTML = `
                             <div class="info-item">
-                                <div class="info-label">User ID</div>
+                                <div class="info-label">${translations[currentLanguage]['User ID']}</div>
                                 <div class="info-value">${user.id}</div>
                             </div>
                             <div class="info-item">
-                                <div class="info-label">Name</div>
+                                <div class="info-label">${translations[currentLanguage]['Name']}</div>
                                 <div class="info-value">${user.name}</div>
                             </div>
                             <div class="info-item">
-                                <div class="info-label">Username</div>
+                                <div class="info-label">${translations[currentLanguage]['Username']}</div>
                                 <div class="info-value">${user.username || 'N/A'}</div>
                             </div>
                             <div class="info-item">
-                                <div class="info-label">Email</div>
+                                <div class="info-label">${translations[currentLanguage]['Email']}</div>
                                 <div class="info-value">${user.email}</div>
                             </div>
                             <div class="info-item">
-                                <div class="info-label">Phone</div>
+                                <div class="info-label">${translations[currentLanguage]['Phone']}</div>
                                 <div class="info-value">${user.phone || 'N/A'}</div>
                             </div>
                             <div class="info-item">
-                                <div class="info-label">Registered</div>
+                                <div class="info-label">${translations[currentLanguage]['Registered']}</div>
                                 <div class="info-value">${user.registeredAt ? new Date(user.registeredAt.toDate()).toLocaleDateString() : 'N/A'}</div>
                             </div>
                         `;
@@ -6040,7 +7088,7 @@ service cloud.firestore {
                 })
                 .catch(error => {
                     console.error('Error getting user:', error);
-                    showNotification('Error getting user details', 'error');
+                    showNotification(translations[currentLanguage]['Error getting user details'], 'error');
                 });
         }
         
@@ -6056,7 +7104,7 @@ service cloud.firestore {
                         userOrdersTable.innerHTML = `
                             <tr>
                                 <td colspan="5" style="text-align: center; padding: 30px; color: var(--gray);">
-                                    No orders found for this user
+                                    ${translations[currentLanguage]['No orders found for this user']}
                                 </td>
                             </tr>
                         `;
@@ -6076,7 +7124,7 @@ service cloud.firestore {
                                 <td>${orderDate} ${orderTime}</td>
                                 <td>
                                     <span class="order-status ${order.status === 'completed' ? 'status-completed' : 'status-pending'}">
-                                        ${order.status === 'completed' ? 'Completed' : 'Pending'}
+                                        ${order.status === 'completed' ? translations[currentLanguage]['Completed'] : translations[currentLanguage]['Pending']}
                                     </span>
                                 </td>
                             </tr>
@@ -6088,7 +7136,7 @@ service cloud.firestore {
                     document.getElementById('userOrdersTable').innerHTML = `
                         <tr>
                             <td colspan="5" style="text-align: center; padding: 30px; color: var(--gray);">
-                                Error loading orders: ${error.message}
+                                ${translations[currentLanguage]['Error loading orders']}: ${error.message}
                             </td>
                         </tr>
                     `;
@@ -6117,47 +7165,68 @@ service cloud.firestore {
                         // Populate order info
                         document.getElementById('orderInfo').innerHTML = `
                             <div class="order-info-item">
-                                <div class="order-info-label">Order ID</div>
+                                <div class="order-info-label">${translations[currentLanguage]['Order ID']}</div>
                                 <div class="order-info-value">${order.id}</div>
                             </div>
                             <div class="order-info-item">
-                                <div class="order-info-label">Product</div>
+                                <div class="order-info-label">${translations[currentLanguage]['Product']}</div>
                                 <div class="order-info-value">${order.product}</div>
                             </div>
                             <div class="order-info-item">
-                                <div class="order-info-label">Price</div>
+                                <div class="order-info-label">${translations[currentLanguage]['Price']}</div>
                                 <div class="order-info-value">${order.price} EGP</div>
                             </div>
                             <div class="order-info-item">
-                                <div class="order-info-label">Customer</div>
+                                <div class="order-info-label">${translations[currentLanguage]['Customer']}</div>
                                 <div class="order-info-value">${order.username}</div>
                             </div>
                             <div class="order-info-item">
-                                <div class="order-info-label">Email</div>
+                                <div class="order-info-label">${translations[currentLanguage]['Email']}</div>
                                 <div class="order-info-value">${order.email}</div>
                             </div>
                             <div class="order-info-item">
-                                <div class="order-info-label">Phone</div>
+                                <div class="order-info-label">${translations[currentLanguage]['Phone']}</div>
                                 <div class="order-info-value">${order.phone}</div>
                             </div>
                             <div class="order-info-item">
-                                <div class="order-info-label">Payment Method</div>
+                                <div class="order-info-label">${translations[currentLanguage]['Payment Method']}</div>
                                 <div class="order-info-value">${order.paymentMethod === 'instapay' ? 'InstaPay' : 'Vodafone Cash'}</div>
                             </div>
                             <div class="order-info-item">
-                                <div class="order-info-label">Status</div>
-                                <div class="order-info-value">${order.status === 'completed' ? 'Completed' : 'Pending'}</div>
+                                <div class="order-info-label">${translations[currentLanguage]['Status']}</div>
+                                <div class="order-info-value">${order.status === 'completed' ? translations[currentLanguage]['Completed'] : translations[currentLanguage]['Pending']}</div>
                             </div>
                             <div class="order-info-item">
-                                <div class="order-info-label">Date</div>
+                                <div class="order-info-label">${translations[currentLanguage]['Date']}</div>
                                 <div class="order-info-value">${order.createdAt ? new Date(order.createdAt.toDate()).toLocaleDateString() : 'N/A'}</div>
                             </div>
                             
+                            ${order.transactionId ? `
+                            <div class="order-info-item">
+                                <div class="order-info-label">${translations[currentLanguage]['Transaction ID']}</div>
+                                <div class="order-info-value">${order.transactionId}</div>
+                            </div>
+                            ` : ''}
+                            
+                            ${order.senderPhone ? `
+                            <div class="order-info-item">
+                                <div class="order-info-label">${translations[currentLanguage]['Last 4 digits of sender\'s phone']}</div>
+                                <div class="order-info-value">${order.senderPhone}</div>
+                            </div>
+                            ` : ''}
+                            
+                            ${order.smsCode ? `
+                            <div class="order-info-item">
+                                <div class="order-info-label">${translations[currentLanguage]['SMS Verification Code']}</div>
+                                <div class="order-info-value">${order.smsCode}</div>
+                            </div>
+                            ` : ''}
+                            
                             ${order.paymentReceipt ? `
                             <div class="order-info-item">
-                                <div class="order-info-label">Payment Receipt</div>
+                                <div class="order-info-label">${translations[currentLanguage]['Payment Receipt']}</div>
                                 <div class="order-info-value">
-                                    <img src="${order.paymentReceipt}" alt="Payment Receipt" style="max-width: 200px; max-height: 150px; border-radius: 8px; cursor: pointer;" onclick="window.open('${order.paymentReceipt}', '_blank')">
+                                    <img src="${order.paymentReceipt}" alt="${translations[currentLanguage]['Payment Receipt']}" style="max-width: 200px; max-height: 150px; border-radius: 8px; cursor: pointer;" onclick="window.open('${order.paymentReceipt}', '_blank')">
                                 </div>
                             </div>
                             ` : ''}
@@ -6166,7 +7235,7 @@ service cloud.firestore {
                 })
                 .catch(error => {
                     console.error('Error getting order:', error);
-                    showNotification('Error getting order details', 'error');
+                    showNotification(translations[currentLanguage]['Error getting order details'], 'error');
                 });
         }
         
@@ -6181,16 +7250,16 @@ service cloud.firestore {
                 // Update stats
                 loadAdminData();
                 
-                showNotification('Order marked as completed', 'success');
+                showNotification(translations[currentLanguage]['Order marked as completed'], 'success');
             })
             .catch(error => {
                 console.error('Error completing order:', error);
                 
                 // Check if it's a permission error
                 if (error.message.includes('Missing or insufficient permissions')) {
-                    showNotification('Permission error. Please check Firestore security rules.', 'error');
+                    showNotification(translations[currentLanguage]['Permission error. Please check Firestore security rules.'], 'error');
                 } else {
-                    showNotification('Error completing order', 'error');
+                    showNotification(translations[currentLanguage]['Error completing order'], 'error');
                 }
             });
         }
@@ -6217,16 +7286,16 @@ service cloud.firestore {
                         // Update stats
                         loadAdminData();
                         
-                        showNotification('User deleted successfully', 'success');
+                        showNotification(translations[currentLanguage]['User deleted successfully'], 'success');
                     })
                     .catch(error => {
                         console.error('Error deleting user:', error);
                         
                         // Check if it's a permission error
                         if (error.message.includes('Missing or insufficient permissions')) {
-                            showNotification('Permission error. Please check Firestore security rules.', 'error');
+                            showNotification(translations[currentLanguage]['Permission error. Please check Firestore security rules.'], 'error');
                         } else {
-                            showNotification('Error deleting user: ' + error.message, 'error');
+                            showNotification(translations[currentLanguage]['Error deleting user'] + ': ' + error.message, 'error');
                         }
                     });
             } else if (deleteType === 'order') {
@@ -6238,16 +7307,16 @@ service cloud.firestore {
                         // Update stats
                         loadAdminData();
                         
-                        showNotification('Order deleted successfully', 'success');
+                        showNotification(translations[currentLanguage]['Order deleted successfully'], 'success');
                     })
                     .catch(error => {
                         console.error('Error deleting order:', error);
                         
                         // Check if it's a permission error
                         if (error.message.includes('Missing or insufficient permissions')) {
-                            showNotification('Permission error. Please check Firestore security rules.', 'error');
+                            showNotification(translations[currentLanguage]['Permission error. Please check Firestore security rules.'], 'error');
                         } else {
-                            showNotification('Error deleting order: ' + error.message, 'error');
+                            showNotification(translations[currentLanguage]['Error deleting order'] + ': ' + error.message, 'error');
                         }
                     });
             }
@@ -6279,7 +7348,7 @@ service cloud.firestore {
             
             // Update UI
             document.getElementById('webhookUrl').value = webhookUrl;
-            document.getElementById('webhookStatus').textContent = 'Webhook configured';
+            document.getElementById('webhookStatus').textContent = translations[currentLanguage]['Webhook configured'];
             document.getElementById('webhookStatus').style.color = 'var(--success)';
             
             console.log('Webhook URL loaded:', webhookUrl);
@@ -6290,14 +7359,14 @@ service cloud.firestore {
             
             if (webhookUrl) {
                 localStorage.setItem('egyptGameStoreWebhookUrl', webhookUrl);
-                document.getElementById('webhookStatus').textContent = 'Webhook configured';
+                document.getElementById('webhookStatus').textContent = translations[currentLanguage]['Webhook configured'];
                 document.getElementById('webhookStatus').style.color = 'var(--success)';
-                showNotification('Webhook settings saved', 'success');
+                showNotification(translations[currentLanguage]['Webhook settings saved'], 'success');
             } else {
                 localStorage.removeItem('egyptGameStoreWebhookUrl');
-                document.getElementById('webhookStatus').textContent = 'Webhook not configured';
+                document.getElementById('webhookStatus').textContent = translations[currentLanguage]['Webhook not configured'];
                 document.getElementById('webhookStatus').style.color = 'var(--gray)';
-                showNotification('Webhook settings cleared', 'info');
+                showNotification(translations[currentLanguage]['Webhook not configured'], 'info');
             }
         }
         
@@ -6306,7 +7375,7 @@ service cloud.firestore {
                               "https://discord.com/api/webhooks/1412244202024075485/kXO3zpjgJBaz4sXzqKN_pue4BAiyumGJPMuz-Ra2S4m-f79D5VPS5ytggnIv3iI4mA68";
             
             if (!webhookUrl) {
-                showNotification('Please configure a webhook URL first', 'error');
+                showNotification(translations[currentLanguage]['Webhook URL not configured'], 'error');
                 return;
             }
             
@@ -6345,17 +7414,17 @@ service cloud.firestore {
                 console.log('Webhook response status:', response.status);
                 
                 if (response.ok) {
-                    showNotification('Test notification sent successfully!', 'success');
+                    showNotification(translations[currentLanguage]['Test notification sent successfully!'], 'success');
                 } else {
                     response.text().then(text => {
                         console.error('Failed to send test webhook. Status:', response.status, 'Response:', text);
-                        showNotification(`Failed to send test notification: ${text}`, 'error');
+                        showNotification(translations[currentLanguage]['Failed to send test notification'] + ': ' + text, 'error');
                     });
                 }
             })
             .catch(error => {
                 console.error('Error sending test webhook:', error);
-                showNotification('Error sending test notification: ' + error.message, 'error');
+                showNotification(translations[currentLanguage]['Error sending test webhook'] + ': ' + error.message, 'error');
             })
             .finally(() => {
                 // Reset button state
@@ -6400,17 +7469,17 @@ service cloud.firestore {
                 
                 if (response.ok) {
                     console.log('✅ Webhook test successful!');
-                    showNotification('Direct webhook test successful!', 'success');
+                    showNotification(translations[currentLanguage]['Direct webhook test successful!'], 'success');
                 } else {
                     response.text().then(text => {
                         console.error('❌ Webhook test failed. Status:', response.status, 'Response:', text);
-                        showNotification(`Webhook test failed: ${text}`, 'error');
+                        showNotification(translations[currentLanguage]['Webhook test failed'] + ': ' + text, 'error');
                     });
                 }
             })
             .catch(error => {
                 console.error('❌ Error testing webhook:', error);
-                showNotification('Error testing webhook: ' + error.message, 'error');
+                showNotification(translations[currentLanguage]['Error testing webhook'] + ': ' + error.message, 'error');
             });
         }
         
@@ -6436,14 +7505,14 @@ service cloud.firestore {
             const email = document.getElementById('forgotEmail').value;
             
             if (!email) {
-                showNotification('Please enter your email address', 'error');
+                showNotification(translations[currentLanguage]['Please fill in all the required fields before continuing to payment.'], 'error');
                 return;
             }
             
             // Send password reset email
             auth.sendPasswordResetEmail(email)
                 .then(() => {
-                    showNotification('Password reset email sent. Please check your inbox.', 'success');
+                    showNotification(translations[currentLanguage]['Password reset email sent. Please check your inbox.'], 'success');
                     closeForgotPassword();
                     document.getElementById('forgotEmail').value = '';
                 })
@@ -6453,15 +7522,125 @@ service cloud.firestore {
                     
                     // Check for common errors and provide a user-friendly message
                     if (error.code === 'auth/user-not-found') {
-                        errorMessage = 'No account found with this email address.';
+                        errorMessage = translations[currentLanguage]['No account found with this email address.'];
                     } else if (error.code === 'auth/invalid-email') {
-                        errorMessage = 'The email address is not valid.';
+                        errorMessage = translations[currentLanguage]['The email address is not valid.'];
                     } else if (error.code === 'auth/too-many-requests') {
-                        errorMessage = 'Too many requests. Please try again later.';
+                        errorMessage = translations[currentLanguage]['Too many requests. Please try again later.'];
                     }
                     
-                    showNotification('Error sending password reset email: ' + errorMessage, 'error');
+                    showNotification(translations[currentLanguage]['Error sending password reset email'] + ': ' + errorMessage, 'error');
                 });
+        }
+        
+        // Language switching function
+        function switchLanguage() {
+            currentLanguage = currentLanguage === 'en' ? 'ar' : 'en';
+            updatePageLanguage();
+            
+            // Update RTL/LTR direction
+            if (currentLanguage === 'ar') {
+                document.body.classList.add('rtl');
+            } else {
+                document.body.classList.remove('rtl');
+            }
+            
+            // Update the language button text
+            const langButton = document.querySelector('a[onclick="switchLanguage()"]');
+            if (langButton) {
+                langButton.textContent = currentLanguage === 'en' ? 'العربية' : 'English';
+            }
+        }
+        
+        // Update page language
+        function updatePageLanguage() {
+            // Update all elements with data-translate attribute
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[currentLanguage][key]) {
+                    element.textContent = translations[currentLanguage][key];
+                }
+            });
+            
+            // Update specific elements without data-translate attribute
+            const elementsToUpdate = {
+                'hero h1': 'Premium Robux & Game Items',
+                'hero p': 'Get the best deals on Robux and game items with instant delivery to your account. Pay with InstaPay or Vodafone Cash!',
+                '.section-title h2': 'Our Products',
+                '.section-title p': 'Choose from our selection of gaming items and currencies',
+                '.category-tab[data-category="robux"]': 'Robux',
+                '.category-tab[data-category="bloxfruits"]': 'Blox Fruits',
+                '.category-tab[data-category="mm2"]': 'Murder Mystery 2',
+                '.category-tab[data-category="garden"]': 'Grow a Garden',
+                '.product-title': 'Product Title',
+                '.product-desc': 'Product Description',
+                '.product-price': 'Product Price',
+                '.product-tax-note': 'WE DO NOT COVER ROBLOX FEES',
+                '.btn-product': 'Buy Now',
+                '.order-history .section-title h2': 'Order History',
+                '.order-history .section-title p': 'View your recent orders and their status',
+                '.empty-orders h3': 'No orders yet',
+                '.empty-orders p': 'Your order history will appear here once you make a purchase.',
+                '.features .section-title h2': 'Why Choose EgyptGameStore',
+                '.features .section-title p': 'We provide the best service for Egyptian gamers',
+                '.feature-card h3': 'Feature Title',
+                '.feature-card p': 'Feature Description',
+                '.how-it-works .section-title h2': 'How It Works',
+                '.how-it-works .section-title p': 'Simple process to purchase from our store',
+                '.step h3': 'Step Title',
+                '.step p': 'Step Description',
+                '.payment-methods .section-title h2': 'Accepted Payment Methods',
+                '.payment-methods .section-title p': 'We accept popular Egyptian payment options for your convenience',
+                '.footer-section h3': 'About EgyptGameStore',
+                '.footer-section p': 'Your trusted source for Robux and game items in Egypt. We provide fast delivery, secure payments, and excellent customer support.',
+                '.footer-section p:last-of-type': 'اشتري روبكس من خلال انستا باي و فودافون كاش',
+                '.copyright': '&copy; 2023 EgyptGameStore. All rights reserved.'
+            };
+            
+            for (const selector in elementsToUpdate) {
+                const elements = document.querySelectorAll(selector);
+                elements.forEach(element => {
+                    const key = elementsToUpdate[selector];
+                    if (translations[currentLanguage][key]) {
+                        element.textContent = translations[currentLanguage][key];
+                    }
+                });
+            }
+            
+            // Update placeholder text
+            const placeholdersToUpdate = {
+                '#username': 'Enter your Roblox username',
+                '#email': 'your@email.com',
+                '#phone': '01XXXXXXXXX',
+                '#gamepassLinkInput': 'Paste your gamepass link here',
+                '#settingsName': 'Your full name',
+                '#settingsEmail': 'Your email address',
+                '#settingsPhone': 'Your phone number',
+                '#currentPassword': 'Enter your current password',
+                '#newPassword': 'Enter your new password',
+                '#confirmNewPassword': 'Confirm your new password',
+                '#loginEmail': 'Your email',
+                '#loginPassword': 'Your password',
+                '#registerName': 'Your full name',
+                '#registerUsername': 'Choose a username',
+                '#registerEmail': 'Your email',
+                '#registerPassword': 'Create a password',
+                '#confirmPassword': 'Confirm your password',
+                '#forgotEmail': 'Enter your email address',
+                '#adminPassword': 'Enter admin password',
+                '#transactionId': 'Enter transaction ID if available',
+                '#senderPhone': 'Enter last 4 digits of sender\'s phone',
+                '#smsCode': 'Enter SMS verification code',
+                '#orderSearch': 'Search orders...',
+                '#webhookUrl': 'https://discord.com/api/webhooks/...'
+            };
+            
+            for (const selector in placeholdersToUpdate) {
+                const element = document.querySelector(selector);
+                if (element && translations[currentLanguage][placeholdersToUpdate[selector]]) {
+                    element.placeholder = translations[currentLanguage][placeholdersToUpdate[selector]];
+                }
+            }
         }
     </script>
 </body>
