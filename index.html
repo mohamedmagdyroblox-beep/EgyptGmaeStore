@@ -3,7 +3,7 @@
 <head>
   <!-- ✅ SEO Title + Description -->
   <title>اشتري روبكس في مصر | EgyptGameShop Instapay & Vodafone Cash</title>
-  <meta name="description" content="اشتري روبكس من خلال انستا باي و فودافون كاش في مصر | Buy Robux and Murder Mystery 2 and Blox Fruit in Egypt using Instapay and Vodafone Cash.">
+  <meta name="description" content="اشتري روبكس من خلال انستا باي و فودافون كاش في مصر | Buy Robux and Murder Mystery 2 and Blox Fruit in Egypt using InstaPay and Vodafone Cash.">
   
   <!-- ✅ Canonical URL (tells Google which version to index) -->
   <link rel="canonical" href="https://egyptgameshop.com/" />
@@ -112,13 +112,13 @@
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://egyptgameshop.com/"/>
   <meta property="og:title" content="اشتري روبكس في مصر | EgyptGameShop Instapay & Vodafone Cash"/>
-  <meta property="og:description" content="اشتري روبكس من خلال انستا باي و فودافون كاش في مصر | Buy Robux and Murder Mystery 2 and Blox Fruit in Egypt by Instapay and Vodafone Cash."/>
+  <meta property="og:description" content="اشتري روبكس من خلال انستا باي و فودافون كاش في مصر | Buy Robux and Murder Mystery 2 and Blox Fruit in Egypt by InstaPay and Vodafone Cash."/>
   <meta property="og:image" content="https://egyptgameshop.com/og-image.jpg"/>
 
   <meta property="twitter:card" content="summary_large_image"/>
   <meta property="twitter:url" content="https://egyptgameshop.com/"/>
   <meta property="twitter:title" content="اشتري روبكس في مصر | EgyptGameShop Instapay & Vodafone Cash"/>
-  <meta property="twitter:description" content="اشتري روبكس من خلال انستا باي و فودافون كاش في مصر | Buy Robux and Murder Mystery 2 and Blox Fruit in Egypt by Instapay and Vodafone Cash."/>
+  <meta property="twitter:description" content="اشتري روبكس من خلال انستا باي و فودافون كاش في مصر | Buy Robux and Murder Mystery 2 and Blox Fruit in Egypt by InstaPay and Vodafone Cash."/>
   <meta property="twitter:image" content="https://egyptgameshop.com/og-image.jpg"/>
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
@@ -3579,6 +3579,537 @@
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.1);
         }
+        
+        /* Product Management Styles */
+        .product-form-group {
+            margin-bottom: 20px;
+        }
+        
+        .product-form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--darker);
+        }
+        
+        .product-form-group input,
+        .product-form-group select,
+        .product-form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .product-form-group input:focus,
+        .product-form-group select:focus,
+        .product-form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.1);
+        }
+        
+        .product-form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .btn-product-action {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .btn-product-action:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(66, 133, 244, 0.3);
+        }
+        
+        .btn-product-action i {
+            font-size: 18px;
+        }
+        
+        .products-list-container {
+            margin-top: 30px;
+        }
+        
+        .products-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .products-table th {
+            background: var(--darker);
+            color: white;
+            text-align: left;
+            padding: 15px;
+            font-weight: 600;
+        }
+        
+        .products-table td {
+            padding: 15px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        
+        .products-table tr:hover {
+            background: #f8fafc;
+        }
+        
+        .product-image-preview {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        
+        .product-image-preview:hover {
+            transform: scale(1.1);
+        }
+        
+        .product-badge-small {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .badge-popular {
+            background: var(--accent);
+        }
+        
+        .badge-best-value {
+            background: var(--success);
+        }
+        
+        .badge-premium {
+            background: var(--discord);
+        }
+        
+        .tier-badge-small {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .tier-1-small {
+            background: var(--success);
+        }
+        
+        .tier-2-small {
+            background: var(--warning);
+        }
+        
+        .tier-3-small {
+            background: var(--error);
+        }
+        
+        .empty-products {
+            text-align: center;
+            padding: 40px;
+            color: var(--gray);
+        }
+        
+        .empty-products i {
+            font-size: 48px;
+            margin-bottom: 15px;
+            color: var(--gray);
+        }
+        
+        .empty-products h3 {
+            margin-bottom: 10px;
+            color: var(--darker);
+        }
+        
+        .product-actions-container {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-edit-product {
+            background: var(--warning);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .btn-edit-product:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 3px 8px rgba(245, 158, 11, 0.3);
+        }
+        
+        .btn-delete-product {
+            background: var(--error);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .btn-delete-product:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 3px 8px rgba(239, 68, 68, 0.3);
+        }
+        
+        /* Product Edit Modal */
+        .product-edit-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 3000;
+            overflow: auto;
+        }
+        
+        .product-edit-modal.active {
+            display: block;
+        }
+        
+        .product-edit-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 700px;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        
+        .product-edit-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .product-edit-title {
+            font-size: 1.8rem;
+            color: var(--darker);
+            font-weight: 700;
+        }
+        
+        /* Product Image Upload */
+        .product-image-upload {
+            margin-top: 15px;
+        }
+        
+        .product-image-upload-area {
+            border: 2px dashed #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .product-image-upload-area:hover {
+            border-color: var(--primary);
+            background: rgba(66, 133, 244, 0.05);
+        }
+        
+        .product-image-upload-area i {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .product-image-upload-area p {
+            color: var(--gray);
+            margin-bottom: 0;
+        }
+        
+        .product-image-preview-container {
+            margin-top: 15px;
+            text-align: center;
+        }
+        
+        .product-image-preview-large {
+            max-width: 200px;
+            max-height: 200px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin: 0 auto;
+        }
+        
+        .product-image-upload-input {
+            display: none;
+        }
+        
+        /* Loading spinner for products */
+        .products-loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+        
+        .products-loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 15px;
+        }
+        
+        .products-loading-text {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+        
+        /* Success message for product operations */
+        .product-success-message {
+            background: #d1fae5;
+            border: 1px solid #a7f3d0;
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin: 20px 0;
+            color: #065f46;
+            box-shadow: 0 4px 6px rgba(34, 197, 94, 0.1);
+            display: flex;
+            align-items: center;
+            animation: slideIn 0.3s ease;
+        }
+        
+        .product-success-message i {
+            font-size: 20px;
+            margin-right: 10px;
+            color: var(--success);
+        }
+        
+        .product-success-message p {
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* Error message for product operations */
+        .product-error-message {
+            background: #fee2e2;
+            border: 1px solid #fecaca;
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin: 20px 0;
+            color: #991b1b;
+            box-shadow: 0 4px 6px rgba(239, 68, 68, 0.1);
+            display: flex;
+            align-items: center;
+            animation: slideIn 0.3s ease;
+        }
+        
+        .product-error-message i {
+            font-size: 20px;
+            margin-right: 10px;
+            color: var(--error);
+        }
+        
+        .product-error-message p {
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* Product filter controls */
+        .product-filters {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .product-filter-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .product-filter-label {
+            font-weight: 600;
+            color: var(--darker);
+        }
+        
+        .product-filter-select {
+            padding: 8px 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .product-filter-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.1);
+        }
+        
+        .product-search-input {
+            padding: 8px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 14px;
+            width: 250px;
+            transition: all 0.3s ease;
+        }
+        
+        .product-search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.1);
+        }
+        
+        .btn-filter {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .btn-filter:hover {
+            background: var(--secondary);
+            transform: translateY(-1px);
+        }
+        
+        /* Product statistics */
+        .product-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .product-stat-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .product-stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .product-stat-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        /* Product bulk actions */
+        .product-bulk-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .product-selected-count {
+            font-weight: 600;
+            color: var(--darker);
+        }
+        
+        .product-bulk-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn-bulk {
+            background: var(--warning);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .btn-bulk:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 3px 8px rgba(245, 158, 11, 0.3);
+        }
+        
+        .btn-bulk-delete {
+            background: var(--error);
+        }
+        
+        .btn-bulk-delete:hover {
+            box-shadow: 0 3px 8px rgba(239, 68, 68, 0.3);
+        }
+        
+        /* Product selection checkbox */
+        .product-select-checkbox {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        
+        .product-select-all {
+            margin-right: 10px;
+        }
     </style>
 </head>
 <body>
@@ -4049,7 +4580,6 @@
 </div>
 </div>
 
-</div>
 </div>
 </div>
 </div>
@@ -5544,7 +6074,6 @@
 <i class="fas fa-check-circle"></i> I've Made the Payment
                     </button>
 </div>
-</div>
 <div class="payment-upload-section" id="paymentUploadSection">
 <h3><i class="fas fa-upload"></i> Upload Payment Receipt</h3>
 <div class="payment-upload-instructions">
@@ -5587,6 +6116,7 @@
 </div>
 </div>
 </div>
+</div>
 <section class="payment-methods">
 <div class="container">
 <div class="section-title">
@@ -5620,6 +6150,7 @@
 <div class="admin-tab active" onclick="switchAdminTab('dashboard')">Dashboard</div>
 <div class="admin-tab" onclick="switchAdminTab('users')">Users</div>
 <div class="admin-tab" onclick="switchAdminTab('orders')">Orders</div>
+<div class="admin-tab" onclick="switchAdminTab('products')">Products</div>
 <div class="admin-tab" onclick="switchAdminTab('webhook')">Webhook</div>
 <div class="admin-tab" onclick="switchAdminTab('rules')">Firestore Rules</div>
 </div>
@@ -5683,6 +6214,85 @@
 </tbody>
 </table>
 </div>
+<div class="admin-content" id="products-content">
+<h3 style="margin-bottom: 20px; color: var(--darker);">Product Management</h3>
+  
+  <!-- Add Product Form -->
+  <div class="webhook-settings">
+    <h3>Add New Product</h3>
+    <form id="addProductForm" onsubmit="return false;">
+      <div class="product-form-group">
+        <label>Product Name *</label>
+        <input type="text" id="productName" placeholder="Enter product name" required>
+      </div>
+      
+      <div class="product-form-group">
+        <label>Price (EGP) *</label>
+        <input type="number" id="productPrice" placeholder="Enter price" required>
+      </div>
+      
+      <div class="product-form-group">
+        <label>Category *</label>
+        <select id="productCategory" required>
+          <option value="">Select category</option>
+          <option value="robux">Robux</option>
+          <option value="bloxfruits">Blox Fruits</option>
+          <option value="mm2">Murder Mystery 2</option>
+          <option value="garden">Grow a Garden</option>
+        </select>
+      </div>
+      
+      <div class="product-form-group" id="subcategoryGroup" style="display: none;">
+        <label>Subcategory</label>
+        <select id="productSubcategory">
+          <option value="">Select subcategory</option>
+          <option value="gamepasses">Gamepasses</option>
+          <option value="permanent-fruits">Permanent Fruits</option>
+        </select>
+      </div>
+      
+      <div class="product-form-group">
+        <label>Description</label>
+        <textarea id="productDescription" rows="3" placeholder="Enter product description"></textarea>
+      </div>
+      
+      <div class="product-form-group">
+        <label>Image URL</label>
+        <input type="url" id="productImageUrl" placeholder="https://example.com/image.jpg">
+      </div>
+      
+      <div class="product-form-group">
+        <label>Badge (Optional)</label>
+        <select id="productBadge">
+          <option value="">None</option>
+          <option value="Popular">Popular</option>
+          <option value="Best Value">Best Value</option>
+          <option value="Premium">Premium</option>
+        </select>
+      </div>
+      
+      <div class="product-form-group" id="tierGroup" style="display: none;">
+        <label>Tier (For MM2)</label>
+        <select id="productTier">
+          <option value="">None</option>
+          <option value="tier-1">Tier 1</option>
+          <option value="tier-2">Tier 2</option>
+          <option value="tier-3">Tier 3</option>
+        </select>
+      </div>
+      
+      <button type="submit" class="btn-product-action" onclick="addProduct()"><i class="fas fa-plus"></i> Add Product</button>
+    </form>
+  </div>
+  
+  <!-- Products List -->
+  <div class="webhook-settings">
+    <h3>Current Products</h3>
+    <div id="productsList">
+      <p>Loading products...</p>
+    </div>
+  </div>
+</div>
 <div class="admin-content" id="webhook-content">
   <div class="webhook-settings">
     <h3>Discord Webhook Settings</h3>
@@ -5702,7 +6312,6 @@
     <button class="btn" onclick="testWebhook()" style="margin-top: 10px;">Send Test Notification</button>
   </div>
 </div>
-
 <div class="admin-content" id="rules-content"></div>
 
 <script>
@@ -5881,6 +6490,96 @@ service cloud.firestore {
 <div class="back-to-login">
 <a href="#" onclick="showLoginFromForgotPassword()">Back to Login</a>
 </div>
+</div>
+</div>
+<!-- Product Edit Modal -->
+<div class="product-edit-modal" id="productEditModal">
+<div class="product-edit-content">
+<span class="close" onclick="closeProductEditModal()">×</span>
+<div class="product-edit-header">
+<h2 class="product-edit-title">Edit Product</h2>
+</div>
+<form id="editProductForm" onsubmit="return false;">
+  <input type="hidden" id="editProductId">
+  
+  <div class="product-form-group">
+    <label>Product Name *</label>
+    <input type="text" id="editProductName" placeholder="Enter product name" required>
+  </div>
+  
+  <div class="product-form-group">
+    <label>Price (EGP) *</label>
+    <input type="number" id="editProductPrice" placeholder="Enter price" required>
+  </div>
+  
+  <div class="product-form-group">
+    <label>Category *</label>
+    <select id="editProductCategory" required>
+      <option value="">Select category</option>
+      <option value="robux">Robux</option>
+      <option value="bloxfruits">Blox Fruits</option>
+      <option value="mm2">Murder Mystery 2</option>
+      <option value="garden">Grow a Garden</option>
+    </select>
+  </div>
+  
+  <div class="product-form-group" id="editSubcategoryGroup" style="display: none;">
+    <label>Subcategory</label>
+    <select id="editProductSubcategory">
+      <option value="">Select subcategory</option>
+      <option value="gamepasses">Gamepasses</option>
+      <option value="permanent-fruits">Permanent Fruits</option>
+    </select>
+  </div>
+  
+  <div class="product-form-group">
+    <label>Description</label>
+    <textarea id="editProductDescription" rows="3" placeholder="Enter product description"></textarea>
+  </div>
+  
+  <div class="product-form-group">
+    <label>Image URL</label>
+    <input type="url" id="editProductImageUrl" placeholder="https://example.com/image.jpg">
+  </div>
+  
+  <div class="product-form-group">
+    <label>Badge (Optional)</label>
+    <select id="editProductBadge">
+      <option value="">None</option>
+      <option value="Popular">Popular</option>
+      <option value="Best Value">Best Value</option>
+      <option value="Premium">Premium</option>
+    </select>
+  </div>
+  
+  <div class="product-form-group" id="editTierGroup" style="display: none;">
+    <label>Tier (For MM2)</label>
+    <select id="editProductTier">
+      <option value="">None</option>
+      <option value="tier-1">Tier 1</option>
+      <option value="tier-2">Tier 2</option>
+      <option value="tier-3">Tier 3</option>
+    </select>
+  </div>
+  
+  <div class="product-image-upload">
+    <label>Product Image</label>
+    <div class="product-image-upload-area" onclick="document.getElementById('editProductImageFile').click()">
+      <i class="fas fa-cloud-upload-alt"></i>
+      <p>Click to upload or drag and drop</p>
+      <p>PNG, JPG, GIF up to 10MB</p>
+    </div>
+    <input type="file" id="editProductImageFile" class="product-image-upload-input" accept="image/*" onchange="handleEditProductImageUpload(event)">
+    <div class="product-image-preview-container" id="editProductImagePreview" style="display: none;">
+      <img id="editProductImagePreviewLarge" class="product-image-preview-large" src="" alt="Product Image">
+    </div>
+  </div>
+  
+  <div style="display: flex; gap: 15px; margin-top: 25px;">
+    <button type="submit" class="btn-product-action" onclick="updateProduct()"><i class="fas fa-save"></i> Save Changes</button>
+    <button type="button" class="btn-outline" onclick="closeProductEditModal()" style="padding: 12px 25px; border: 2px solid var(--primary); color: var(--primary);">Cancel</button>
+  </div>
+</form>
 </div>
 </div>
 <!-- Admin Access Button -->
@@ -6071,6 +6770,48 @@ service cloud.firestore {
                     });
                 });
             }
+            
+            // Product category change event
+            document.getElementById('productCategory').addEventListener('change', function() {
+                const category = this.value;
+                const subcategoryGroup = document.getElementById('subcategoryGroup');
+                const tierGroup = document.getElementById('tierGroup');
+                
+                // Show subcategory for Blox Fruits
+                if (category === 'bloxfruits') {
+                    subcategoryGroup.style.display = 'block';
+                } else {
+                    subcategoryGroup.style.display = 'none';
+                }
+                
+                // Show tier for MM2
+                if (category === 'mm2') {
+                    tierGroup.style.display = 'block';
+                } else {
+                    tierGroup.style.display = 'none';
+                }
+            });
+            
+            // Edit product category change event
+            document.getElementById('editProductCategory').addEventListener('change', function() {
+                const category = this.value;
+                const subcategoryGroup = document.getElementById('editSubcategoryGroup');
+                const tierGroup = document.getElementById('editTierGroup');
+                
+                // Show subcategory for Blox Fruits
+                if (category === 'bloxfruits') {
+                    subcategoryGroup.style.display = 'block';
+                } else {
+                    subcategoryGroup.style.display = 'none';
+                }
+                
+                // Show tier for MM2
+                if (category === 'mm2') {
+                    tierGroup.style.display = 'block';
+                } else {
+                    tierGroup.style.display = 'none';
+                }
+            });
         });
         
         // Check authentication state
@@ -6407,1975 +7148,4 @@ service cloud.firestore {
             if (currentUser) {
                 // User is logged in
                 const initials = currentUser.name ? currentUser.name.split(' ').map(n => n[0]).join('').toUpperCase() : 'U';
-                const adminBadge = currentUser.isAdmin ? '<span style="background: var(--accent); color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.7rem; margin-left: 5px;">ADMIN</span>' : '';
-                
-                userMenu.innerHTML = `
-                    <div class="user-info">
-                        <div class="user-avatar">${initials}</div>
-                        <span>${currentUser.name || currentUser.email}${adminBadge}</span>
-                    </div>
-                    <button class="btn btn-outline header-auth-btn" onclick="openUserSettings()">
-                        <i class="fas fa-cog"></i> Settings
-                    </button>
-                    <button class="btn btn-outline" onclick="logoutUser()">
-                        <i class="fas fa-sign-out-alt"></i> Logout
-                    </button>
-                `;
-            } else {
-                // User is not logged in
-                userMenu.innerHTML = `
-                    <button class="btn btn-outline header-auth-btn" onclick="toggleAuthDropdown()">
-                        <i class="fas fa-sign-in-alt"></i> Login / Register
-                    </button>
-                    <div class="auth-dropdown" id="authDropdown">
-                        <div class="auth-tabs">
-                            <div class="auth-tab active" onclick="switchAuthTab('login')">Login</div>
-                            <div class="auth-tab" onclick="switchAuthTab('register')">Register</div>
-                        </div>
-                        
-                        <form id="loginForm" class="auth-form active" onsubmit="loginUser(event); return false;">
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input type="email" id="loginEmail" placeholder="Your email" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input type="password" id="loginPassword" placeholder="Your password" required>
-                            </div>
-                            
-                            <button type="submit" class="btn-auth">Login</button>
-                            
-                            <div class="forgot-password">
-                                <a href="#" onclick="showForgotPassword()">Forgot Password?</a>
-                            </div>
-                            
-                            <div class="google-login">
-                                <p>Or continue with</p>
-                                <button type="button" class="btn-google" onclick="loginWithGoogle()">
-                                    <i class="fab fa-google"></i> Sign in with Google
-                                </button>
-                            </div>
-                        </form>
-                        
-                        <form id="registerForm" class="auth-form" onsubmit="registerUser(event); return false;">
-                            <div class="form-group">
-                                <label>Full Name</label>
-                                <input type="text" id="registerName" placeholder="Your full name" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label>Username</label>
-                                <input type="text" id="registerUsername" placeholder="Choose a username" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input type="email" id="registerEmail" placeholder="Your email" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input type="password" id="registerPassword" placeholder="Create a password" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label>Confirm Password</label>
-                                <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
-                            </div>
-                            
-                            <button type="submit" class="btn-auth">Register</button>
-                            
-                            <div class="google-login">
-                                <p>Or register with</p>
-                                <button type="button" class="btn-google" onclick="loginWithGoogle()">
-                                    <i class="fab fa-google"></i> Sign up with Google
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                `;
-            }
-        }
-        
-        function toggleAuthDropdown() {
-            const dropdown = document.getElementById('authDropdown');
-            if (dropdown) {
-                dropdown.classList.toggle('active');
-            }
-        }
-        
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(event) {
-            const userMenu = document.getElementById('userMenu');
-            const dropdown = document.getElementById('authDropdown');
-            
-            if (dropdown && dropdown.classList.contains('active') && 
-                !userMenu.contains(event.target)) {
-                dropdown.classList.remove('active');
-            }
-        });
-        
-        function showNotification(message, type = 'info') {
-            // Remove any existing notifications
-            const existingNotification = document.querySelector('.notification');
-            if (existingNotification) {
-                existingNotification.remove();
-            }
-            
-            // Create notification element
-            const notification = document.createElement('div');
-            notification.className = `notification ${type}`;
-            
-            // Add icon based on type
-            let icon = 'fa-info-circle';
-            if (type === 'success') icon = 'fa-check-circle';
-            if (type === 'error') icon = 'fa-exclamation-circle';
-            if (type === 'warning') icon = 'fa-exclamation-triangle';
-            
-            // Set notification content
-            notification.innerHTML = `<i class="fas ${icon}"></i> ${message}`;
-            
-            // Add to DOM
-            document.body.appendChild(notification);
-            
-            // Show notification
-            setTimeout(() => {
-                notification.classList.add('show');
-            }, 10);
-            
-            // Hide notification after 3 seconds
-            setTimeout(() => {
-                notification.classList.remove('show');
-                setTimeout(() => {
-                    notification.remove();
-                }, 300);
-            }, 3000);
-        }
-        
-        function openOrderModal(name, price, category) {
-            // Check if user is logged in
-            if (!currentUser) {
-                showNotification('Please login to place an order', 'error');
-                toggleAuthDropdown();
-                return;
-            }
-            
-            currentItem = { name, price, category };
-            
-            // Make sure the modal is visible
-            document.getElementById('orderModal').style.display = 'block';
-            
-            // Set the product name and price with explicit styling
-            const nameElement = document.getElementById('modal-item-name');
-            const priceElement = document.getElementById('modal-item-price');
-            const totalElement = document.getElementById('modal-total-price');
-            const paymentAmountElement = document.getElementById('paymentAmount');
-            const instructionAmountElement = document.getElementById('instruction-amount');
-            
-            // Set text content
-            nameElement.textContent = name;
-            priceElement.textContent = price + ' EGP';
-            totalElement.textContent = price + ' EGP';
-            paymentAmountElement.textContent = price + ' EGP';
-            instructionAmountElement.textContent = price + ' EGP';
-            
-            // Force visibility by setting explicit styles
-            nameElement.style.color = 'var(--darker)';
-            nameElement.style.fontWeight = '500';
-            nameElement.style.display = 'inline';
-            nameElement.style.fontSize = '1.1rem';
-            
-            priceElement.style.color = 'var(--primary)';
-            priceElement.style.fontWeight = '600';
-            priceElement.style.display = 'inline';
-            priceElement.style.fontSize = '1.1rem';
-            
-            // Show/hide tax note based on category
-            const taxNote = document.getElementById('taxNote');
-            if (category === 'robux') {
-                taxNote.style.display = 'block';
-            } else {
-                taxNote.style.display = 'none';
-            }
-            
-            // Adjust form based on category
-            if (category === 'bloxfruits') {
-                // Change the username field label
-                document.getElementById('usernameLabel').innerHTML = '<i class="fas fa-user"></i> Username that will be delivered to *';
-                document.getElementById('username').placeholder = 'Enter Roblox username for delivery';
-                
-                // Hide the gamepass field
-                document.getElementById('gamepassGroup').style.display = 'none';
-                document.getElementById('gamepassLinkInput').removeAttribute('required');
-            } else {
-                // Reset to normal for other categories
-                document.getElementById('usernameLabel').innerHTML = '<i class="fas fa-user"></i> Your Roblox Username *';
-                document.getElementById('username').placeholder = 'Enter your Roblox username';
-                
-                // Show the gamepass field
-                document.getElementById('gamepassGroup').style.display = 'block';
-                document.getElementById('gamepassLinkInput').setAttribute('required', '');
-            }
-            
-            // Reset form and payment selection
-            document.getElementById('orderForm').style.display = 'block';
-            document.getElementById('paymentSection').style.display = 'none';
-            document.getElementById('paymentUploadSection').style.display = 'none';
-            document.getElementById('orderConfirmation').style.display = 'none';
-            
-            selectedPaymentMethod = null;
-            document.querySelectorAll('.payment-option').forEach(option => {
-                option.classList.remove('selected');
-            });
-            document.getElementById('paymentDetails').style.display = 'none';
-            document.getElementById('orderForm').reset();
-            
-            // Reset upload state
-            uploadedImageFile = null;
-            document.getElementById('uploadPreview').style.display = 'none';
-            document.getElementById('submitUploadBtn').classList.remove('active');
-        }
-        
-        function closeOrderModal() {
-            document.getElementById('orderModal').style.display = 'none';
-        }
-        
-        function showPaymentOptions() {
-            const form = document.getElementById('orderForm');
-            const username = document.getElementById('username').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const gamepassLink = document.getElementById('gamepassLinkInput').value;
-            
-            // Validate based on category
-            if (!username || !email || !phone) {
-                showNotification('Please fill in all the required fields before continuing to payment.', 'error');
-                return;
-            }
-            
-            // Only validate gamepass if it's visible (not for bloxfruits)
-            if (currentItem.category !== 'bloxfruits' && !gamepassLink) {
-                showNotification('Please fill in all the required fields before continuing to payment.', 'error');
-                return;
-            }
-            
-            // Validate email format
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                showNotification('Please enter a valid email address.', 'error');
-                return;
-            }
-            
-            // Validate phone number (Egyptian format)
-            const phoneRegex = /^01[0-9]{9}$/;
-            if (!phoneRegex.test(phone)) {
-                showNotification('Please enter a valid Egyptian phone number (11 digits starting with 01).', 'error');
-                return;
-            }
-            
-            // Validate URL format (only if gamepass is required)
-            if (currentItem.category !== 'bloxfruits') {
-                try {
-                    new URL(gamepassLink);
-                } catch (e) {
-                    showNotification('Please enter a valid gamepass link.', 'error');
-                    return;
-                }
-            }
-            
-            document.getElementById('orderForm').style.display = 'none';
-            document.getElementById('paymentSection').style.display = 'block';
-        }
-        
-        function selectPayment(method) {
-            selectedPaymentMethod = method;
-            
-            // Remove selected class from all options
-            document.querySelectorAll('.payment-option').forEach(option => {
-                option.classList.remove('selected');
-            });
-            
-            // Add selected class to clicked option
-            document.getElementById(method).closest('.payment-option').classList.add('selected');
-            
-            // Show payment details and instructions
-            document.getElementById('paymentDetails').style.display = 'block';
-            document.querySelector('.payment-instructions').style.display = 'block';
-            
-            // Update payment instructions based on method
-            const paymentTitle = document.getElementById('payment-method-title');
-            if (method === 'instapay') {
-                paymentTitle.innerHTML = '<i class="fas fa-info-circle"></i> InstaPay Payment Instructions';
-                document.getElementById('instapay-details').style.display = 'block';
-                document.getElementById('vodafone-details').style.display = 'none';
-            } else if (method === 'vodafone_cash') {
-                paymentTitle.innerHTML = '<i class="fas fa-info-circle"></i> Vodafone Cash Payment Instructions';
-                document.getElementById('instapay-details').style.display = 'none';
-                document.getElementById('vodafone-details').style.display = 'block';
-            }
-        }
-        
-        function showPaymentUpload() {
-            if (!selectedPaymentMethod) {
-                showNotification('Please select a payment method', 'error');
-                return;
-            }
-            
-            // Hide payment instructions and show upload section
-            document.getElementById('paymentSection').style.display = 'none';
-            document.getElementById('paymentUploadSection').style.display = 'block';
-            
-            // Update upload message based on payment method
-            const uploadTitle = document.getElementById('upload-title');
-            const uploadMessage = document.getElementById('upload-message');
-            
-            if (selectedPaymentMethod === 'instapay') {
-                uploadTitle.innerHTML = '<i class="fas fa-camera"></i> Upload Picture Of The Payment In InstaPay';
-                uploadMessage.textContent = 'Please upload a clear picture of your InstaPay payment confirmation to verify your order.';
-            } else if (selectedPaymentMethod === 'vodafone_cash') {
-                uploadTitle.innerHTML = '<i class="fas fa-camera"></i> Upload Picture Of The Payment In Vodafone Cash';
-                uploadMessage.textContent = 'Please upload a clear picture of your Vodafone Cash payment confirmation to verify your order.';
-            }
-        }
-        
-        function handlePaymentReceiptUpload(event) {
-            const file = event.target.files[0];
-            
-            if (!file) return;
-            
-            // Check if file is an image
-            if (!file.type.match('image.*')) {
-                showNotification('Please select an image file', 'error');
-                return;
-            }
-            
-            // Check file size (max 10MB)
-            if (file.size > 10 * 1024 * 1024) {
-                showNotification('Image size must be less than 10MB', 'error');
-                return;
-            }
-            
-            // Store the file
-            uploadedImageFile = file;
-            
-            // Show preview
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                document.getElementById('previewImage').src = e.target.result;
-                document.getElementById('uploadPreview').style.display = 'block';
-                document.getElementById('submitUploadBtn').classList.add('active');
-            };
-            reader.readAsDataURL(file);
-        }
-        
-        // Fixed Discord webhook function with proper payload structure
-        function sendDiscordWebhook(order) {
-            return new Promise((resolve, reject) => {
-                // Get webhook URL from localStorage or use the hardcoded one as fallback
-                const webhookUrl = localStorage.getItem('egyptGameStoreWebhookUrl') || 
-                                  "https://discord.com/api/webhooks/1412244202024075485/kXO3zpjgJBaz4sXzqKN_pue4BAiyumGJPMuz-Ra2S4m-f79D5VPS5ytggnIv3iI4mA68";
-                
-                if (!webhookUrl) {
-                    console.error('Webhook URL not configured');
-                    reject(new Error('Webhook URL not configured'));
-                    return;
-                }
-                
-                // Safely convert Firestore timestamp to JavaScript Date
-                let orderDate = 'N/A';
-                try {
-                    if (order.createdAt) {
-                        // Check if it's a Firestore Timestamp object
-                        if (typeof order.createdAt.toDate === 'function') {
-                            orderDate = new Date(order.createdAt.toDate()).toLocaleDateString();
-                        } 
-                        // Check if it's already a JavaScript Date object
-                        else if (order.createdAt instanceof Date) {
-                            orderDate = order.createdAt.toLocaleDateString();
-                        }
-                        // Check if it's a timestamp number
-                        else if (typeof order.createdAt === 'number') {
-                            orderDate = new Date(order.createdAt).toLocaleDateString();
-                        }
-                        // Check if it's a string that can be parsed as a date
-                        else if (typeof order.createdAt === 'string') {
-                            const parsedDate = new Date(order.createdAt);
-                            if (!isNaN(parsedDate.getTime())) {
-                                orderDate = parsedDate.toLocaleDateString();
-                            }
-                        }
-                        // Check if it has seconds property (Firestore Timestamp format)
-                        else if (order.createdAt.seconds) {
-                            orderDate = new Date(order.createdAt.seconds * 1000).toLocaleDateString();
-                        }
-                    }
-                } catch (error) {
-                    console.error('Error converting order date:', error);
-                    orderDate = 'N/A';
-                }
-                
-                // Create a compact message to stay under 2000 characters
-                let message = `🛒 **New Order Received**\n\n`;
-                message += `**Order ID:** ${order.id}\n`;
-                message += `**Product:** ${order.product}\n`;
-                message += `**Price:** ${order.price} EGP\n`;
-                message += `**Customer:** ${order.username}\n`;
-                message += `**Email:** ${order.email}\n`;
-                message += `**Phone:** ${order.phone}\n`;
-                message += `**Payment Method:** ${order.paymentMethod === 'instapay' ? 'InstaPay' : 'Vodafone Cash'}\n`;
-                message += `**Status:** ${order.status}\n`;
-                message += `**Date:** ${orderDate}\n`;
-                
-                // Add payment receipt image if available
-                if (order.paymentReceipt) {
-                    // Create a simple embed with just the image
-                    const embed = {
-                        title: "Payment Receipt",
-                        image: {
-                            url: order.paymentReceipt
-                        },
-                        color: 0x4285f4
-                    };
-                    
-                     // Create webhook payload
-                    const payload = {
-                        content: message,
-                        embeds: [embed]
-                    };
-                    
-                    // Check if the total payload exceeds Discord's limits
-                    const payloadString = JSON.stringify(payload);
-                    if (payloadString.length > 2000) {
-                        // If it's too long, send without the image
-                        delete payload.embeds;
-                    }
-                    
-                    // Log the payload for debugging
-                    console.log('Webhook URL:', webhookUrl);
-                    console.log('Sending webhook payload length:', JSON.stringify(payload).length);
-                    
-                    // Validate payload before sending
-                    if (!payload.content) {
-                        console.error('Invalid payload: content is empty');
-                        reject(new Error('Invalid payload: content is empty'));
-                        return;
-                    }
-                    
-                    // Send webhook with better error handling
-                    fetch(webhookUrl, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(payload)
-                    })
-                    .then(response => {
-                        console.log('Webhook response status:', response.status);
-                        
-                        if (response.ok) {
-                            console.log('Webhook sent successfully');
-                            resolve();
-                        } else {
-                            // Try to get more error details
-                            response.text().then(text => {
-                                console.error('Failed to send webhook. Status:', response.status, 'Response:', text);
-                                
-                                // Check if it's a character limit error
-                                if (text.includes('2000') || text.includes('character') || text.includes('too long')) {
-                                    reject(new Error('Discord message exceeds character limit (2000 chars).'));
-                                } else {
-                                    reject(new Error(`Webhook failed with status ${response.status}: ${text}`));
-                                }
-                            }).catch(textError => {
-                                console.error('Failed to read response text:', textError);
-                                reject(new Error(`Webhook failed with status ${response.status}`));
-                            });
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error sending webhook:', error);
-                        reject(error);
-                    });
-                } else {
-                    // No image, send just the message
-                    const payload = {
-                        content: message
-                    };
-                    
-                    // Log the payload for debugging
-                    console.log('Webhook URL:', webhookUrl);
-                    console.log('Sending webhook payload length:', JSON.stringify(payload).length);
-                    
-                    // Send webhook with better error handling
-                    fetch(webhookUrl, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(payload)
-                    })
-                    .then(response => {
-                        console.log('Webhook response status:', response.status);
-                        
-                        if (response.ok) {
-                            console.log('Webhook sent successfully');
-                            resolve();
-                        } else {
-                            // Try to get more error details
-                            response.text().then(text => {
-                                console.error('Failed to send webhook. Status:', response.status, 'Response:', text);
-                                
-                                // Check if it's a character limit error
-                                if (text.includes('2000') || text.includes('character') || text.includes('too long')) {
-                                    reject(new Error('Discord message exceeds character limit (2000 chars).'));
-                                } else {
-                                    reject(new Error(`Webhook failed with status ${response.status}: ${text}`));
-                                }
-                            }).catch(textError => {
-                                console.error('Failed to read response text:', textError);
-                                reject(new Error(`Webhook failed with status ${response.status}`));
-                            });
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error sending webhook:', error);
-                        reject(error);
-                    });
-                }
-            });
-        }
-        
-        // Updated submit order function with better error handling
-        function submitOrderWithReceipt() {
-            if (!uploadedImageFile) {
-                showNotification('Please upload a payment receipt', 'error');
-                return;
-            }
-            
-            console.log("=== SUBMIT ORDER DEBUG ===");
-            console.log("currentUser:", currentUser);
-            console.log("currentUser.uid:", currentUser ? currentUser.uid : "NO USER");
-            
-            // Check if user is authenticated
-            if (!currentUser) {
-                console.log("ERROR: No current user");
-                showNotification('Please login to place an order', 'error');
-                return;
-            }
-            
-            if (!currentUser.uid) {
-                console.log("ERROR: User has no UID");
-                showNotification('Authentication error. Please login again.', 'error');
-                return;
-            }
-            
-            const username = document.getElementById('username').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const gamepassLink = currentItem.category === 'bloxfruits' ? '' : document.getElementById('gamepassLinkInput').value;
-            
-            console.log("Form data:", { username, email, phone, gamepassLink });
-            
-            // Show spinner
-            document.getElementById('uploadSpinner').style.display = 'block';
-            document.getElementById('submitUploadBtn').disabled = true;
-            
-            // Convert image to base64 for storage
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const base64Image = e.target.result;
-                
-                // Create order object with proper timestamp
-                const order = {
-                    product: currentItem.name,
-                    price: currentItem.price,
-                    category: currentItem.category,
-                    username,
-                    email,
-                    phone,
-                    gamepassLink,
-                    paymentMethod: selectedPaymentMethod,
-                    status: 'pending',
-                    createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-                    userId: currentUser.uid,
-                    paymentReceipt: base64Image
-                };
-                
-                console.log("Order object to save:", order);
-                
-                // Add order to Firestore
-                db.collection('orders').add(order)
-                    .then(docRef => {
-                        console.log("SUCCESS: Order created with ID:", docRef.id);
-                        
-                        // Add the ID to the order object for webhook and confirmation
-                        order.id = docRef.id;
-                        
-                        // Send Discord webhook notification
-                        sendDiscordWebhook(order).then(() => {
-                            console.log("Webhook sent successfully");
-                            showNotification('Order placed successfully! Discord notification sent.', 'success');
-                        }).catch(error => {
-                            console.error("Error sending webhook:", error);
-                            // Show detailed error message
-                            const errorMessage = error.message || 'Unknown error';
-                            showNotification(`Order placed but notification failed to send: ${errorMessage}`, 'warning');
-                            
-                            // Show additional error details in console for debugging
-                            console.error('Webhook error details:', {
-                                name: error.name,
-                                message: error.message,
-                                stack: error.stack
-                            });
-                        }).finally(() => {
-                            // Update UI regardless of webhook status
-                            document.getElementById('uploadSpinner').style.display = 'none';
-                            document.getElementById('submitUploadBtn').disabled = false;
-                            
-                            // Show confirmation
-                            document.getElementById('paymentUploadSection').style.display = 'none';
-                            document.getElementById('orderConfirmation').style.display = 'block';
-                            
-                            // Update confirmation details
-                            document.getElementById('conf-product').textContent = currentItem.name;
-                            document.getElementById('conf-price').textContent = currentItem.price + ' EGP';
-                            document.getElementById('conf-username').textContent = username;
-                            document.getElementById('conf-email').textContent = email;
-                            document.getElementById('conf-phone').textContent = phone;
-                            document.getElementById('conf-gamepass').textContent = gamepassLink || 'N/A';
-                            
-                            // Load updated order history
-                            loadOrderHistory();
-                        });
-                    })
-                    .catch(error => {
-                        console.error("ERROR: Submitting order:", error);
-                        document.getElementById('uploadSpinner').style.display = 'none';
-                        document.getElementById('submitUploadBtn').disabled = false;
-                        
-                        // Check if it's a permission error
-                        if (error.message.includes('Missing or insufficient permissions')) {
-                            showNotification('Permission error. Please check Firestore security rules.', 'error');
-                        } else {
-                            showNotification('Error placing order: ' + error.message, 'error');
-                        }
-                    });
-            };
-            reader.readAsDataURL(uploadedImageFile);
-        }
-        
-        function loadOrderHistory() {
-            const orderList = document.getElementById('orderList');
-            
-            if (!currentUser) {
-                orderList.innerHTML = `
-                    <div class="empty-orders">
-                        <i class="fas fa-receipt"></i>
-                        <h3>Please login to view your order history</h3>
-                        <p>Login to see your previous orders.</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            // Show loading state
-            orderList.innerHTML = `
-                <div class="spinner"></div>
-                <p style="text-align: center; margin-top: 20px;">Loading your orders...</p>
-            `;
-            
-            // Get orders from Firestore
-            db.collection('orders')
-                .where('userId', '==', currentUser.uid)
-                .orderBy('createdAt', 'desc')
-                .get()
-                .then(snapshot => {
-                    if (snapshot.empty) {
-                        orderList.innerHTML = `
-                            <div class="empty-orders">
-                                <i class="fas fa-receipt"></i>
-                                <h3>No orders yet</h3>
-                                <p>Your order history will appear here once you make a purchase.</p>
-                            </div>
-                        `;
-                        return;
-                    }
-                    
-                    // Display orders
-                    orderList.innerHTML = snapshot.docs.map(doc => {
-                        const order = doc.data();
-                        const orderDate = order.createdAt ? new Date(order.createdAt.toDate()).toLocaleDateString() : 'N/A';
-                        const orderTime = order.createdAt ? new Date(order.createdAt.toDate()).toLocaleTimeString() : '';
-                        
-                        return `
-                            <div class="order-item">
-                                <div class="order-header">
-                                    <div class="order-id">${doc.id}</div>
-                                    <div class="order-date">${orderDate} ${orderTime}</div>
-                                    <div class="order-status ${order.status === 'completed' ? 'status-completed' : 'status-pending'}">
-                                        ${order.status === 'completed' ? 'Completed' : 'Pending'}
-                                    </div>
-                                </div>
-                                <div class="order-details-grid">
-                                    <div class="order-detail-item">
-                                        <div class="order-detail-label">Product</div>
-                                        <div class="order-detail-value">${order.product}</div>
-                                    </div>
-                                    <div class="order-detail-item">
-                                        <div class="order-detail-label">Price</div>
-                                        <div class="order-detail-value">${order.price} EGP</div>
-                                    </div>
-                                    <div class="order-detail-item">
-                                        <div class="order-detail-label">Payment Method</div>
-                                        <div class="order-detail-value">${order.paymentMethod === 'instapay' ? 'InstaPay' : 'Vodafone Cash'}</div>
-                                    </div>
-                                    <div class="order-detail-item">
-                                        <div class="order-detail-label">Status</div>
-                                        <div class="order-detail-value">${order.status === 'completed' ? 'Completed' : 'Pending'}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        `;
-                    }).join('');
-                })
-                .catch(error => {
-                    console.error('Error loading orders:', error);
-                    let errorMessage = error.message;
-                    
-                    // Check if it's a missing index error
-                    if (error.message.includes('The query requires an index')) {
-                        errorMessage = `
-                            <div class="index-error-box">
-                                <h3><i class="fas fa-exclamation-triangle"></i> Database Index Required</h3>
-                                <p>The database requires an index to be created to load your orders.</p>
-                                <p>Please click the button below to create the required index:</p>
-                                <button class="btn" onclick="window.open('https://console.firebase.google.com/v1/r/project/egyptstore-f5201/firestore/indexes?create_composite=Ck9wcm9qZWN0cy9lZ3lwdHN0b3JlLWY1MjAxL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9vcmRlcnMvaW5kZXhlcy9fEAEaCgoGdXNlcklkEAEaDQoJY3JlYXRlZEF0EAIaDAoIX19uYW1lX18QAg', '_blank')">Create Index</button>
-                                <p style="margin-top: 15px;">After creating the index, please wait a few minutes for it to be built, then <button class="btn btn-small" onclick="loadOrderHistory()">Retry</button></p>
-                            </div>
-                        `;
-                    }
-                    
-                    orderList.innerHTML = `
-                        <div class="empty-orders">
-                            <i class="fas fa-exclamation-triangle"></i>
-                            <h3>Error loading orders</h3>
-                            <div>${errorMessage}</div>
-                        </div>
-                    `;
-                });
-        }
-        
-        function openUserSettings() {
-            document.getElementById('user-settings-modal').classList.add('active');
-            
-            // Fetch the latest user data from Firestore
-            db.collection('users').doc(currentUser.uid).get()
-                .then(doc => {
-                    if (doc.exists) {
-                        const userData = doc.data();
-                        // Update the currentUser object with the latest data
-                        currentUser = { ...currentUser, ...userData };
-                        
-                        // Update localStorage
-                        localStorage.setItem('egyptGameStoreUser', JSON.stringify(currentUser));
-                        
-                        // Load user data into form
-                        document.getElementById('settingsName').value = currentUser.name || '';
-                        document.getElementById('settingsEmail').value = currentUser.email || '';
-                        document.getElementById('settingsPhone').value = currentUser.phone || '';
-                    }
-                })
-                .catch(error => {
-                    console.error('Error fetching user data:', error);
-                    // Fallback to current user data
-                    document.getElementById('settingsName').value = currentUser.name || '';
-                    document.getElementById('settingsEmail').value = currentUser.email || '';
-                    document.getElementById('settingsPhone').value = currentUser.phone || '';
-                });
-        }
-        
-        function closeUserSettings() {
-            document.getElementById('user-settings-modal').classList.remove('active');
-        }
-        
-        function switchSettingsTab(tab) {
-            const profileForm = document.getElementById('profileForm');
-            const securityForm = document.getElementById('securityForm');
-            const settingsTabs = document.querySelectorAll('.settings-tab');
-            
-            settingsTabs.forEach(t => t.classList.remove('active'));
-            
-            if (tab === 'profile') {
-                settingsTabs[0].classList.add('active');
-                profileForm.classList.add('active');
-                securityForm.classList.remove('active');
-            } else {
-                settingsTabs[1].classList.add('active');
-                securityForm.classList.add('active');
-                profileForm.classList.remove('active');
-            }
-        }
-        
-        // Fixed updateUserProfile function
-        function updateUserProfile() {
-            const name = document.getElementById('settingsName').value;
-            const email = document.getElementById('settingsEmail').value;
-            const phone = document.getElementById('settingsPhone').value;
-            
-            if (!name || !email) {
-                showNotification('Name and email are required', 'error');
-                return;
-            }
-            
-            // Show loading state
-            const saveButton = document.querySelector('.btn-save');
-            const originalText = saveButton.textContent;
-            saveButton.textContent = 'Saving...';
-            saveButton.disabled = true;
-            
-            // Use set with merge instead of update to create document if it doesn't exist
-            db.collection('users').doc(currentUser.uid).set({
-                name: name,
-                email: email,
-                phone: phone
-            }, { merge: true })
-            .then(() => {
-                // Update Firebase Auth user profile (display name)
-                return auth.currentUser.updateProfile({
-                    displayName: name
-                });
-            })
-            .then(() => {
-                // Update the local currentUser object
-                currentUser.name = name;
-                currentUser.email = email;
-                currentUser.phone = phone;
-                
-                // Update localStorage
-                localStorage.setItem('egyptGameStoreUser', JSON.stringify(currentUser));
-                
-                // Force refresh of user data from Firebase
-                return auth.currentUser.reload();
-            })
-            .then(() => {
-                // Get fresh user data from Firestore
-                return db.collection('users').doc(currentUser.uid).get();
-            })
-            .then(doc => {
-                if (doc.exists) {
-                    const userData = doc.data();
-                    // Update currentUser with fresh data
-                    currentUser = { ...currentUser, ...userData };
-                    
-                    // Update localStorage with fresh data
-                    localStorage.setItem('egyptGameStoreUser', JSON.stringify(currentUser));
-                    
-                    // Update UI with fresh data
-                    updateUserMenu();
-                    
-                    // Close settings modal
-                    closeUserSettings();
-                    
-                    showNotification('Profile updated successfully', 'success');
-                }
-            })
-            .catch(error => {
-                console.error('Error updating profile:', error);
-                
-                // Check if it's a permission error
-                if (error.message.includes('Missing or insufficient permissions')) {
-                    showNotification('Permission error. Please check Firestore security rules.', 'error');
-                } else {
-                    showNotification('Error updating profile: ' + error.message, 'error');
-                }
-            })
-            .finally(() => {
-                // Reset button state
-                saveButton.textContent = originalText;
-                saveButton.disabled = false;
-            });
-        }
-        
-        function changePassword() {
-            const currentPassword = document.getElementById('currentPassword').value;
-            const newPassword = document.getElementById('newPassword').value;
-            const confirmPassword = document.getElementById('confirmNewPassword').value;
-            
-            if (!currentPassword || !newPassword || !confirmPassword) {
-                showNotification('Please fill in all password fields', 'error');
-                return;
-            }
-            
-            if (newPassword !== confirmPassword) {
-                showNotification('New passwords do not match', 'error');
-                return;
-            }
-            
-            if (newPassword.length < 6) {
-                showNotification('Password must be at least 6 characters', 'error');
-                return;
-            }
-            
-            // Re-authenticate user first
-            const credential = firebase.auth.EmailAuthProvider.credential(
-                currentUser.email,
-                currentPassword
-            );
-            
-            currentUser.reauthenticateWithCredential(credential)
-                .then(() => {
-                    // Update password
-                    return currentUser.updatePassword(newPassword);
-                })
-                .then(() => {
-                    // Reset form
-                    document.getElementById('securityForm').reset();
-                    
-                    showNotification('Password changed successfully', 'success');
-                })
-                .catch(error => {
-                    console.error('Error changing password:', error);
-                    
-                    // Handle specific Firebase auth errors
-                    if (error.code === 'auth/wrong-password') {
-                        showNotification('Incorrect current password. Please try again.', 'error');
-                    } else if (error.code === 'auth/user-mismatch') {
-                        showNotification('Authentication error. Please login again.', 'error');
-                    } else {
-                        showNotification('Error changing password: ' + error.message, 'error');
-                    }
-                });
-        }
-        
-        // Admin Panel Functions
-        function showAdminLogin() {
-            // Check if user is logged in and is admin
-            if (!currentUser) {
-                showNotification('Please login to access admin panel', 'error');
-                return;
-            }
-            
-            if (currentUser.isAdmin) {
-                document.getElementById('adminPanel').classList.add('active');
-                loadAdminData();
-            } else {
-                // Show admin password modal
-                document.getElementById('adminLogin').classList.add('active');
-            }
-        }
-        
-        function closeAdminLogin() {
-            document.getElementById('adminLogin').classList.remove('active');
-        }
-        
-        function adminLogin() {
-            const password = document.getElementById('adminPassword').value;
-            
-            // Simple password check (in a real app, use proper authentication)
-            if (password === 'admin123') {
-                isAdminLoggedIn = true;
-                localStorage.setItem('egyptGameStoreAdminLoggedIn', 'true');
-                
-                // Close login modal
-                closeAdminLogin();
-                
-                // Load admin data
-                loadAdminData();
-                
-                // Show admin panel
-                document.getElementById('adminPanel').classList.add('active');
-                
-                showNotification('Admin login successful', 'success');
-            } else {
-                showNotification('Incorrect admin password', 'error');
-            }
-        }
-        
-        function logoutAdmin() {
-            isAdminLoggedIn = false;
-            localStorage.removeItem('egyptGameStoreAdminLoggedIn');
-            
-            // Hide admin panel
-            document.getElementById('adminPanel').classList.remove('active');
-            
-            showNotification('Admin logged out', 'info');
-        }
-        
-        function switchAdminTab(tab) {
-            const dashboardContent = document.getElementById('dashboard-content');
-            const usersContent = document.getElementById('users-content');
-            const ordersContent = document.getElementById('orders-content');
-            const webhookContent = document.getElementById('webhook-content');
-            const rulesContent = document.getElementById('rules-content');
-            const adminTabs = document.querySelectorAll('.admin-tab');
-            
-            adminTabs.forEach(t => t.classList.remove('active'));
-            
-            // Hide all content
-            dashboardContent.classList.remove('active');
-            usersContent.classList.remove('active');
-            ordersContent.classList.remove('active');
-            webhookContent.classList.remove('active');
-            rulesContent.classList.remove('active');
-            
-            // Show selected content
-            if (tab === 'dashboard') {
-                adminTabs[0].classList.add('active');
-                dashboardContent.classList.add('active');
-            } else if (tab === 'users') {
-                adminTabs[1].classList.add('active');
-                usersContent.classList.add('active');
-                loadUsersTable();
-            } else if (tab === 'orders') {
-                adminTabs[2].classList.add('active');
-                ordersContent.classList.add('active');
-                loadOrdersTable();
-            } else if (tab === 'webhook') {
-                adminTabs[3].classList.add('active');
-                webhookContent.classList.add('active');
-            } else if (tab === 'rules') {
-                adminTabs[4].classList.add('active');
-                rulesContent.classList.add('active');
-            }
-        }
-        
-        function loadAdminData() {
-            if (!currentUser || !currentUser.isAdmin) {
-                console.log('Access denied: User is not an admin');
-                return;
-            }
-            
-            // Get data from Firestore
-            Promise.all([
-                db.collection('users').get(),
-                db.collection('orders').get()
-            ]).then(([usersSnapshot, ordersSnapshot]) => {
-                const users = usersSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                const orders = ordersSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                
-                // Calculate stats
-                const totalRevenue = orders.reduce((sum, order) => sum + parseInt(order.price || 0), 0);
-                const pendingOrders = orders.filter(order => order.status === 'pending').length;
-                
-                // Update stats
-                document.getElementById('totalUsers').textContent = users.length;
-                document.getElementById('totalOrders').textContent = orders.length;
-                document.getElementById('totalRevenue').textContent = totalRevenue;
-                document.getElementById('pendingOrders').textContent = pendingOrders;
-            }).catch(error => {
-                console.error('Error loading admin data:', error);
-                let errorMessage = error.message;
-                
-                // Check if it's a permission error
-                if (error.message.includes('Missing or insufficient permissions')) {
-                    errorMessage = `
-                        <div class="error-box">
-                            <h3><i class="fas fa-exclamation-triangle"></i> Firebase Security Rules Error</h3>
-                            <p>Your Firebase security rules are preventing access to the database.</p>
-                            <p>Please update your Firestore security rules to allow read/write access.</p>
-                            <p>You can use these rules for testing:</p>
-                            <pre>rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write: if true;
-    }
-  }
-}</pre>
-                            <p>For production, you should implement more restrictive rules.</p>
-                            <button class="btn" onclick="window.open('https://console.firebase.google.com/project/egyptstore-f5201/firestore/rules', '_blank')">Open Firebase Console</button>
-                            <button class="btn btn-small" onclick="loadAdminData()" style="margin-left: 10px;">Retry</button>
-                        </div>
-                    `;
-                }
-                
-                // Show error in admin panel
-                document.getElementById('totalUsers').textContent = 'Error';
-                document.getElementById('totalOrders').textContent = 'Error';
-                document.getElementById('totalRevenue').textContent = 'Error';
-                document.getElementById('pendingOrders').textContent = 'Error';
-                
-                // Create a notification area
-                const dashboardContent = document.getElementById('dashboard-content');
-                const existingError = dashboardContent.querySelector('.error-box');
-                if (!existingError) {
-                    const errorDiv = document.createElement('div');
-                    errorDiv.className = 'error-box';
-                    errorDiv.innerHTML = errorMessage;
-                    dashboardContent.insertBefore(errorDiv, dashboardContent.firstChild);
-                }
-                
-                showNotification('Error loading admin data: ' + error.message, 'error');
-            });
-        }
-        
-        function clearRevenueData() {
-            if (confirm('Are you sure you want to clear all revenue data? This will reset the total revenue to 0 but keep all orders.')) {
-                // Get orders
-                db.collection('orders').get()
-                    .then(snapshot => {
-                        const batch = db.batch();
-                        snapshot.docs.forEach(doc => {
-                            batch.update(doc.ref, { price: 0 });
-                        });
-                        return batch.commit();
-                    })
-                    .then(() => {
-                        // Reload admin data
-                        loadAdminData();
-                        
-                        // Reload orders table if visible
-                        if (document.getElementById('orders-content').classList.contains('active')) {
-                            loadOrdersTable();
-                        }
-                        
-                        showNotification('Revenue data cleared successfully', 'success');
-                    })
-                    .catch(error => {
-                        console.error('Error clearing revenue data:', error);
-                        
-                        // Check if it's a permission error
-                        if (error.message.includes('Missing or insufficient permissions')) {
-                            showNotification('Permission error. Please check Firestore security rules.', 'error');
-                        } else {
-                            showNotification('Error clearing revenue data', 'error');
-                        }
-                    });
-            }
-        }
-        
-        function clearPendingOrders() {
-            if (confirm('Are you sure you want to delete all pending orders? This action cannot be undone.')) {
-                // Get pending orders
-                db.collection('orders')
-                    .where('status', '==', 'pending')
-                    .get()
-                    .then(snapshot => {
-                        if (snapshot.empty) {
-                            showNotification('No pending orders to clear', 'info');
-                            return;
-                        }
-                        const batch = db.batch();
-                        snapshot.docs.forEach(doc => {
-                            batch.delete(doc.ref);
-                        });
-                        return batch.commit();
-                    })
-                    .then(() => {
-                        // Reload admin data
-                        loadAdminData();
-                        
-                        // Reload orders table if visible
-                        if (document.getElementById('orders-content').classList.contains('active')) {
-                            loadOrdersTable();
-                        }
-                        
-                        showNotification('Pending orders cleared successfully', 'success');
-                    })
-                    .catch(error => {
-                        console.error('Error clearing pending orders:', error);
-                        
-                        // Check if it's a permission error
-                        if (error.message.includes('Missing or insufficient permissions')) {
-                            showNotification('Permission error. Please check Firestore security rules.', 'error');
-                        } else {
-                            showNotification('Error clearing pending orders', 'error');
-                        }
-                    });
-            }
-        }
-        
-        function clearCompletedOrders() {
-            if (confirm('Are you sure you want to delete all completed orders? This action cannot be undone.')) {
-                // Get completed orders
-                db.collection('orders')
-                    .where('status', '==', 'completed')
-                    .get()
-                    .then(snapshot => {
-                        if (snapshot.empty) {
-                            showNotification('No completed orders to clear', 'info');
-                            return;
-                        }
-                        const batch = db.batch();
-                        snapshot.docs.forEach(doc => {
-                            batch.delete(doc.ref);
-                        });
-                        return batch.commit();
-                    })
-                    .then(() => {
-                        // Reload admin data
-                        loadAdminData();
-                        
-                        // Reload orders table if visible
-                        if (document.getElementById('orders-content').classList.contains('active')) {
-                            loadOrdersTable();
-                        }
-                        
-                        showNotification('Completed orders cleared successfully', 'success');
-                    })
-                    .catch(error => {
-                        console.error('Error clearing completed orders:', error);
-                        
-                        // Check if it's a permission error
-                        if (error.message.includes('Missing or insufficient permissions')) {
-                            showNotification('Permission error. Please check Firestore security rules.', 'error');
-                        } else {
-                            showNotification('Error clearing completed orders', 'error');
-                        }
-                    });
-            }
-        }
-        
-        function loadUsersTable() {
-            if (!currentUser || !currentUser.isAdmin) {
-                console.log('Access denied: User is not an admin');
-                document.getElementById('usersList').innerHTML = `
-                    <div class="empty-orders">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <h3>Access Denied</h3>
-                        <p>You don't have permission to view this page.</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            const usersList = document.getElementById('usersList');
-            
-            // Show loading state
-            usersList.innerHTML = `
-                <div class="spinner"></div>
-                <p style="text-align: center; margin-top: 20px;">Loading users...</p>
-            `;
-            
-            db.collection('users').get()
-                .then(snapshot => {
-                    if (snapshot.empty) {
-                        usersList.innerHTML = `
-                            <div class="empty-orders">
-                                <i class="fas fa-users"></i>
-                                <h3>No users found</h3>
-                                <p>No users have registered yet.</p>
-                            </div>
-                        `;
-                        return;
-                    }
-                    
-                    usersList.innerHTML = snapshot.docs.map(doc => {
-                        const user = { id: doc.id, ...doc.data() };
-                        return `
-                            <div class="user-info-card">
-                                <h4>${user.name} (${user.email})</h4>
-                                <div class="user-info-grid">
-                                    <div class="user-info-item">
-                                        <div class="user-info-label">User ID</div>
-                                        <div class="user-info-value">${user.id}</div>
-                                    </div>
-                                    <div class="user-info-item">
-                                        <div class="user-info-label">Username</div>
-                                        <div class="user-info-value">${user.username || 'N/A'}</div>
-                                    </div>
-                                    <div class="user-info-item">
-                                        <div class="user-info-label">Phone</div>
-                                        <div class="user-info-value">${user.phone || 'N/A'}</div>
-                                    </div>
-                                    <div class="user-info-item">
-                                        <div class="user-info-label">Registered</div>
-                                        <div class="user-info-value">${user.registeredAt ? new Date(user.registeredAt.toDate()).toLocaleDateString() : 'N/A'}</div>
-                                    </div>
-                                    <div class="user-info-item">
-                                        <div class="user-info-label">Actions</div>
-                                        <div class="user-info-value">
-                                            <div class="admin-actions">
-                                                <button class="btn-small btn-view" onclick="viewUser('${user.id}')">
-                                                    <i class="fas fa-eye"></i> View
-                                                </button>
-                                                <button class="btn-small btn-delete" onclick="deleteUser('${user.id}')">
-                                                    <i class="fas fa-trash"></i> Delete
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        `;
-                    }).join('');
-                })
-                .catch(error => {
-                    console.error('Error loading users:', error);
-                    usersList.innerHTML = `
-                        <div class="empty-orders">
-                            <i class="fas fa-exclamation-triangle"></i>
-                            <h3>Error loading users</h3>
-                            <p>${error.message}</p>
-                        </div>
-                    `;
-                });
-        }
-        
-        function loadOrdersTable() {
-            if (!currentUser || !currentUser.isAdmin) {
-                console.log('Access denied: User is not an admin');
-                document.getElementById('ordersTableBody').innerHTML = `
-                    <tr>
-                        <td colspan="8" style="text-align: center; padding: 30px; color: var(--gray);">
-                            Access Denied
-                        </td>
-                    </tr>
-                `;
-                return;
-            }
-            
-            const ordersTableBody = document.getElementById('ordersTableBody');
-            
-            // Show loading state
-            ordersTableBody.innerHTML = `
-                <tr>
-                    <td colspan="8" style="text-align: center; padding: 30px;">
-                        <div class="spinner"></div>
-                        <p style="margin-top: 10px;">Loading orders...</p>
-                    </td>
-                </tr>
-            `;
-            
-            db.collection('orders')
-                .orderBy('createdAt', 'desc')
-                .get()
-                .then(snapshot => {
-                    if (snapshot.empty) {
-                        ordersTableBody.innerHTML = `
-                            <tr>
-                                <td colspan="8" style="text-align: center; padding: 30px; color: var(--gray);">
-                                    No orders found
-                                </td>
-                            </tr>
-                        `;
-                        return;
-                    }
-                    
-                    ordersTableBody.innerHTML = snapshot.docs.map(doc => {
-                        const order = doc.data();
-                        const orderDate = order.createdAt ? new Date(order.createdAt.toDate()).toLocaleDateString() : 'N/A';
-                        const orderTime = order.createdAt ? new Date(order.createdAt.toDate()).toLocaleTimeString() : '';
-                        
-                        return `
-                            <tr>
-                                <td>${doc.id}</td>
-                                <td>${order.username}</td>
-                                <td>${order.product}</td>
-                                <td>${order.price} EGP</td>
-                                <td>${order.paymentMethod === 'instapay' ? 'InstaPay' : 'Vodafone Cash'}</td>
-                                <td>${orderDate} ${orderTime}</td>
-                                <td>
-                                    <span class="order-status ${order.status === 'completed' ? 'status-completed' : 'status-pending'}">
-                                        ${order.status === 'completed' ? 'Completed' : 'Pending'}
-                                    </span>
-                                </td>
-                                <td>
-                                    <div class="admin-actions">
-                                        <button class="btn-small btn-view" onclick="viewOrder('${doc.id}')">
-                                            <i class="fas fa-eye"></i> View
-                                        </button>
-                                        ${order.status === 'pending' ? `
-                                            <button class="btn-small btn-complete" onclick="completeOrder('${doc.id}')">
-                                                <i class="fas fa-check"></i> Complete
-                                            </button>
-                                        ` : ''}
-                                        <button class="btn-small btn-delete" onclick="deleteOrder('${doc.id}')">
-                                            <i class="fas fa-trash"></i> Delete
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                        `;
-                    }).join('');
-                })
-                .catch(error => {
-                    console.error('Error loading orders:', error);
-                    ordersTableBody.innerHTML = `
-                        <tr>
-                            <td colspan="8" style="text-align: center; padding: 30px; color: var(--gray);">
-                                Error loading orders: ${error.message}
-                            </td>
-                        </tr>
-                    `;
-                });
-        }
-        
-        function filterOrders() {
-            const searchTerm = document.getElementById('orderSearch').value.toLowerCase();
-            const filterStatus = document.getElementById('orderFilter').value;
-            
-            if (!currentUser || !currentUser.isAdmin) {
-                console.log('Access denied: User is not an admin');
-                return;
-            }
-            
-            const ordersTableBody = document.getElementById('ordersTableBody');
-            
-            let query = db.collection('orders').orderBy('createdAt', 'desc');
-            
-            if (filterStatus !== 'all') {
-                query = query.where('status', '==', filterStatus);
-            }
-            
-            query.get()
-                .then(snapshot => {
-                    if (snapshot.empty) {
-                        ordersTableBody.innerHTML = `
-                            <tr>
-                                <td colspan="8" style="text-align: center; padding: 30px; color: var(--gray);">
-                                    No orders found
-                                </td>
-                            </tr>
-                        `;
-                        return;
-                    }
-                    
-                    ordersTableBody.innerHTML = snapshot.docs.map(doc => {
-                        const order = doc.data();
-                        
-                        // Apply search filter
-                        if (searchTerm && !order.username.toLowerCase().includes(searchTerm) && 
-                            !order.product.toLowerCase().includes(searchTerm) &&
-                            !order.email.toLowerCase().includes(searchTerm)) {
-                            return '';
-                        }
-                        
-                        const orderDate = order.createdAt ? new Date(order.createdAt.toDate()).toLocaleDateString() : 'N/A';
-                        const orderTime = order.createdAt ? new Date(order.createdAt.toDate()).toLocaleTimeString() : '';
-                        
-                        return `
-                            <tr>
-                                <td>${doc.id}</td>
-                                <td>${order.username}</td>
-                                <td>${order.product}</td>
-                                <td>${order.price} EGP</td>
-                                <td>${order.paymentMethod === 'instapay' ? 'InstaPay' : 'Vodafone Cash'}</td>
-                                <td>${orderDate} ${orderTime}</td>
-                                <td>
-                                    <span class="order-status ${order.status === 'completed' ? 'status-completed' : 'status-pending'}">
-                                        ${order.status === 'completed' ? 'Completed' : 'Pending'}
-                                    </span>
-                                </td>
-                                <td>
-                                    <div class="admin-actions">
-                                        <button class="btn-small btn-view" onclick="viewOrder('${doc.id}')">
-                                            <i class="fas fa-eye"></i> View
-                                        </button>
-                                        ${order.status === 'pending' ? `
-                                            <button class="btn-small btn-complete" onclick="completeOrder('${doc.id}')">
-                                                <i class="fas fa-check"></i> Complete
-                                            </button>
-                                        ` : ''}
-                                        <button class="btn-small btn-delete" onclick="deleteOrder('${doc.id}')">
-                                            <i class="fas fa-trash"></i> Delete
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                        `;
-                    }).join('');
-                })
-                .catch(error => {
-                    console.error('Error loading orders:', error);
-                    ordersTableBody.innerHTML = `
-                        <tr>
-                            <td colspan="8" style="text-align: center; padding: 30px; color: var(--gray);">
-                                Error loading orders: ${error.message}
-                            </td>
-                        </tr>
-                    `;
-                });
-        }
-        
-        function viewUser(userId) {
-            db.collection('users').doc(userId).get()
-                .then(doc => {
-                    if (doc.exists) {
-                        const user = { id: doc.id, ...doc.data() };
-                        
-                        // Show user details in a modal
-                        document.getElementById('accountDetails').classList.add('active');
-                        
-                        // Populate account info
-                        document.getElementById('accountInfo').innerHTML = `
-                            <div class="info-item">
-                                <div class="info-label">User ID</div>
-                                <div class="info-value">${user.id}</div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-label">Name</div>
-                                <div class="info-value">${user.name}</div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-label">Username</div>
-                                <div class="info-value">${user.username || 'N/A'}</div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-label">Email</div>
-                                <div class="info-value">${user.email}</div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-label">Phone</div>
-                                <div class="info-value">${user.phone || 'N/A'}</div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-label">Registered</div>
-                                <div class="info-value">${user.registeredAt ? new Date(user.registeredAt.toDate()).toLocaleDateString() : 'N/A'}</div>
-                            </div>
-                        `;
-                        
-                        // Load user orders
-                        loadUserOrders(user.email);
-                    }
-                })
-                .catch(error => {
-                    console.error('Error getting user:', error);
-                    showNotification('Error getting user details', 'error');
-                });
-        }
-        
-        function loadUserOrders(userEmail) {
-            db.collection('orders')
-                .where('email', '==', userEmail)
-                .orderBy('createdAt', 'desc')
-                .get()
-                .then(snapshot => {
-                    const userOrdersTable = document.getElementById('userOrdersTable');
-                    
-                    if (snapshot.empty) {
-                        userOrdersTable.innerHTML = `
-                            <tr>
-                                <td colspan="5" style="text-align: center; padding: 30px; color: var(--gray);">
-                                    No orders found for this user
-                                </td>
-                            </tr>
-                        `;
-                        return;
-                    }
-                    
-                    userOrdersTable.innerHTML = snapshot.docs.map(doc => {
-                        const order = doc.data();
-                        const orderDate = order.createdAt ? new Date(order.createdAt.toDate()).toLocaleDateString() : 'N/A';
-                        const orderTime = order.createdAt ? new Date(order.createdAt.toDate()).toLocaleTimeString() : '';
-                        
-                        return `
-                            <tr>
-                                <td>${doc.id}</td>
-                                <td>${order.product}</td>
-                                <td>${order.price} EGP</td>
-                                <td>${orderDate} ${orderTime}</td>
-                                <td>
-                                    <span class="order-status ${order.status === 'completed' ? 'status-completed' : 'status-pending'}">
-                                        ${order.status === 'completed' ? 'Completed' : 'Pending'}
-                                    </span>
-                                </td>
-                            </tr>
-                        `;
-                    }).join('');
-                })
-                .catch(error => {
-                    console.error('Error loading user orders:', error);
-                    document.getElementById('userOrdersTable').innerHTML = `
-                        <tr>
-                            <td colspan="5" style="text-align: center; padding: 30px; color: var(--gray);">
-                                Error loading orders: ${error.message}
-                            </td>
-                        </tr>
-                    `;
-                });
-        }
-        
-        function deleteUser(userId) {
-            deleteTarget = userId;
-            deleteType = 'user';
-            document.getElementById('deleteConfirmation').classList.add('active');
-        }
-        
-        function viewOrder(orderId) {
-            // Hide admin panel temporarily
-            const adminPanel = document.getElementById('adminPanel');
-            adminPanel.style.display = 'none';
-            
-            db.collection('orders').doc(orderId).get()
-                .then(doc => {
-                    if (doc.exists) {
-                        const order = { id: doc.id, ...doc.data() };
-                        
-                        // Show order details in a modal
-                        document.getElementById('orderDetailsModal').classList.add('active');
-                        
-                        // Populate order info
-                        document.getElementById('orderInfo').innerHTML = `
-                            <div class="order-info-item">
-                                <div class="order-info-label">Order ID</div>
-                                <div class="order-info-value">${order.id}</div>
-                            </div>
-                            <div class="order-info-item">
-                                <div class="order-info-label">Product</div>
-                                <div class="order-info-value">${order.product}</div>
-                            </div>
-                            <div class="order-info-item">
-                                <div class="order-info-label">Price</div>
-                                <div class="order-info-value">${order.price} EGP</div>
-                            </div>
-                            <div class="order-info-item">
-                                <div class="order-info-label">Customer</div>
-                                <div class="order-info-value">${order.username}</div>
-                            </div>
-                            <div class="order-info-item">
-                                <div class="order-info-label">Email</div>
-                                <div class="order-info-value">${order.email}</div>
-                            </div>
-                            <div class="order-info-item">
-                                <div class="order-info-label">Phone</div>
-                                <div class="order-info-value">${order.phone}</div>
-                            </div>
-                            <div class="order-info-item">
-                                <div class="order-info-label">Payment Method</div>
-                                <div class="order-info-value">${order.paymentMethod === 'instapay' ? 'InstaPay' : 'Vodafone Cash'}</div>
-                            </div>
-                            <div class="order-info-item">
-                                <div class="order-info-label">Status</div>
-                                <div class="order-info-value">${order.status === 'completed' ? 'Completed' : 'Pending'}</div>
-                            </div>
-                            <div class="order-info-item">
-                                <div class="order-info-label">Date</div>
-                                <div class="order-info-value">${order.createdAt ? new Date(order.createdAt.toDate()).toLocaleDateString() : 'N/A'}</div>
-                            </div>
-                            
-                            ${order.paymentReceipt ? `
-                            <div class="order-info-item">
-                                <div class="order-info-label">Payment Receipt</div>
-                                <div class="order-info-value">
-                                    <img src="${order.paymentReceipt}" alt="Payment Receipt" style="max-width: 200px; max-height: 150px; border-radius: 8px; cursor: pointer;" onclick="window.open('${order.paymentReceipt}', '_blank')">
-                                </div>
-                            </div>
-                            ` : ''}
-                        `;
-                    }
-                })
-                .catch(error => {
-                    console.error('Error getting order:', error);
-                    showNotification('Error getting order details', 'error');
-                });
-        }
-        
-        function completeOrder(orderId) {
-            db.collection('orders').doc(orderId).update({
-                status: 'completed'
-            })
-            .then(() => {
-                // Reload table
-                loadOrdersTable();
-                
-                // Update stats
-                loadAdminData();
-                
-                showNotification('Order marked as completed', 'success');
-            })
-            .catch(error => {
-                console.error('Error completing order:', error);
-                
-                // Check if it's a permission error
-                if (error.message.includes('Missing or insufficient permissions')) {
-                    showNotification('Permission error. Please check Firestore security rules.', 'error');
-                } else {
-                    showNotification('Error completing order', 'error');
-                }
-            });
-        }
-        
-        function deleteOrder(orderId) {
-            deleteTarget = orderId;
-            deleteType = 'order';
-            document.getElementById('deleteConfirmation').classList.add('active');
-        }
-        
-        function cancelDelete() {
-            document.getElementById('deleteConfirmation').classList.remove('active');
-            deleteTarget = null;
-            deleteType = null;
-        }
-        
-        function confirmDelete() {
-            if (deleteType === 'user') {
-                db.collection('users').doc(deleteTarget).delete()
-                    .then(() => {
-                        // Reload table
-                        loadUsersTable();
-                        
-                        // Update stats
-                        loadAdminData();
-                        
-                        showNotification('User deleted successfully', 'success');
-                    })
-                    .catch(error => {
-                        console.error('Error deleting user:', error);
-                        
-                        // Check if it's a permission error
-                        if (error.message.includes('Missing or insufficient permissions')) {
-                            showNotification('Permission error. Please check Firestore security rules.', 'error');
-                        } else {
-                            showNotification('Error deleting user: ' + error.message, 'error');
-                        }
-                    });
-            } else if (deleteType === 'order') {
-                db.collection('orders').doc(deleteTarget).delete()
-                    .then(() => {
-                        // Reload table
-                        loadOrdersTable();
-                        
-                        // Update stats
-                        loadAdminData();
-                        
-                        showNotification('Order deleted successfully', 'success');
-                    })
-                    .catch(error => {
-                        console.error('Error deleting order:', error);
-                        
-                        // Check if it's a permission error
-                        if (error.message.includes('Missing or insufficient permissions')) {
-                            showNotification('Permission error. Please check Firestore security rules.', 'error');
-                        } else {
-                            showNotification('Error deleting order: ' + error.message, 'error');
-                        }
-                    });
-            }
-            
-            // Close confirmation modal
-            cancelDelete();
-        }
-        
-        function closeAccountDetails() {
-            document.getElementById('accountDetails').classList.remove('active');
-        }
-        
-        function closeOrderDetailsModal() {
-            document.getElementById('orderDetailsModal').classList.remove('active');
-            
-            // Show admin panel again if it was open
-            if (isAdminLoggedIn) {
-                document.getElementById('adminPanel').style.display = 'block';
-            }
-        }
-        
-        // Webhook Functions
-        function loadWebhookSettings() {
-            // Use the correct webhook URL
-            const webhookUrl = "https://discord.com/api/webhooks/1412244202024075485/kXO3zpjgJBaz4sXzqKN_pue4BAiyumGJPMuz-Ra2S4m-f79D5VPS5ytggnIv3iI4mA68";
-            
-            // Save to localStorage
-            localStorage.setItem('egyptGameStoreWebhookUrl', webhookUrl);
-            
-            // Update UI
-            document.getElementById('webhookUrl').value = webhookUrl;
-            document.getElementById('webhookStatus').textContent = 'Webhook configured';
-            document.getElementById('webhookStatus').style.color = 'var(--success)';
-            
-            console.log('Webhook URL loaded:', webhookUrl);
-        }
-        
-        function saveWebhookSettings() {
-            const webhookUrl = document.getElementById('webhookUrl').value;
-            
-            if (webhookUrl) {
-                localStorage.setItem('egyptGameStoreWebhookUrl', webhookUrl);
-                document.getElementById('webhookStatus').textContent = 'Webhook configured';
-                document.getElementById('webhookStatus').style.color = 'var(--success)';
-                showNotification('Webhook settings saved', 'success');
-            } else {
-                localStorage.removeItem('egyptGameStoreWebhookUrl');
-                document.getElementById('webhookStatus').textContent = 'Webhook not configured';
-                document.getElementById('webhookStatus').style.color = 'var(--gray)';
-                showNotification('Webhook settings cleared', 'info');
-            }
-        }
-        
-        function testWebhook() {
-            const webhookUrl = localStorage.getItem('egyptGameStoreWebhookUrl') || 
-                              "https://discord.com/api/webhooks/1412244202024075485/kXO3zpjgJBaz4sXzqKN_pue4BAiyumGJPMuz-Ra2S4m-f79D5VPS5ytggnIv3iI4mA68";
-            
-            if (!webhookUrl) {
-                showNotification('Please configure a webhook URL first', 'error');
-                return;
-            }
-            
-            // Create test embed object
-            const embed = {
-                title: "EgyptGameShop - Test",
-                description: "This is a test notification from EgyptGameShop",
-                color: 0x4285f4,
-                timestamp: new Date().toISOString()
-            };
-            
-            // Create test webhook payload
-            const payload = {
-                content: "🔔 **Test Notification**",
-                embeds: [embed]
-            };
-            
-            // Show loading state
-            const testBtn = event.target;
-            const originalText = testBtn.textContent;
-            testBtn.textContent = 'Sending...';
-            testBtn.disabled = true;
-            
-            console.log('Testing webhook with URL:', webhookUrl);
-            console.log('Test payload:', JSON.stringify(payload));
-            
-            // Send webhook
-            fetch(webhookUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(payload)
-            })
-            .then(response => {
-                console.log('Webhook response status:', response.status);
-                
-                if (response.ok) {
-                    showNotification('Test notification sent successfully!', 'success');
-                } else {
-                    response.text().then(text => {
-                        console.error('Failed to send test webhook. Status:', response.status, 'Response:', text);
-                        showNotification(`Failed to send test notification: ${text}`, 'error');
-                    });
-                }
-            })
-            .catch(error => {
-                console.error('Error sending test webhook:', error);
-                showNotification('Error sending test notification: ' + error.message, 'error');
-            })
-            .finally(() => {
-                // Reset button state
-                testBtn.textContent = originalText;
-                testBtn.disabled = false;
-            });
-        }
-        
-        // Direct test function for webhook (can be run from console)
-        function testWebhookDirectly() {
-            const webhookUrl = "https://discord.com/api/webhooks/1412244202024075485/kXO3zpjgJBaz4sXzqKN_pue4BAiyumGJPMuz-Ra2S4m-f79D5VPS5ytggnIv3iI4mA68";
-            
-            const testPayload = {
-                content: "🔔 **Direct Test Notification from EgyptGameShop**",
-                embeds: [{
-                    title: "Direct Webhook Test",
-                    description: "This is a direct test notification to verify the webhook is working correctly.",
-                    color: 0x4285f4,
-                    fields: [
-                        { name: "Test Field 1", value: "Test Value 1", inline: true },
-                        { name: "Test Field 2", value: "Test Value 2", inline: true }
-                    ],
-                    footer: {
-                        text: "EgyptGameShop Direct Test"
-                    },
-                    timestamp: new Date().toISOString()
-                }]
-            };
-            
-            console.log('Testing webhook with URL:', webhookUrl);
-            console.log('Test payload:', JSON.stringify(testPayload));
-            
-            fetch(webhookUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(testPayload)
-            })
-            .then(response => {
-                console.log('Webhook response status:', response.status);
-                
-                if (response.ok) {
-                    console.log('✅ Webhook test successful!');
-                    showNotification('Direct webhook test successful!', 'success');
-                } else {
-                    response.text().then(text => {
-                        console.error('❌ Webhook test failed. Status:', response.status, 'Response:', text);
-                        showNotification(`Webhook test failed: ${text}`, 'error');
-                    });
-                }
-            })
-            .catch(error => {
-                console.error('❌ Error testing webhook:', error);
-                showNotification('Error testing webhook: ' + error.message, 'error');
-            });
-        }
-        
-        // Forgot Password Functions
-        function showForgotPassword() {
-            // Close auth dropdown
-            toggleAuthDropdown();
-            
-            // Show forgot password modal
-            document.getElementById('forgotPasswordModal').classList.add('active');
-        }
-        
-        function closeForgotPassword() {
-            document.getElementById('forgotPasswordModal').classList.remove('active');
-        }
-        
-        function showLoginFromForgotPassword() {
-            closeForgotPassword();
-            toggleAuthDropdown();
-        }
-        
-        function resetPassword() {
-            const email = document.getElementById('forgotEmail').value;
-            
-            if (!email) {
-                showNotification('Please enter your email address', 'error');
-                return;
-            }
-            
-            // Show loading state
-            const resetBtn = document.querySelector('.forgot-password-form + .admin-btn');
-            const originalText = resetBtn.textContent;
-            resetBtn.textContent = 'Sending...';
-            resetBtn.disabled = true;
-            
-            // Send password reset email
-            auth.sendPasswordResetEmail(email)
-                .then(() => {
-                    showNotification('Password reset email sent. Please check your inbox.', 'success');
-                    closeForgotPassword();
-                    document.getElementById('forgotEmail').value = '';
-                })
-                .catch(error => {
-                    console.error('Error sending password reset email:', error);
-                    
-                    // Handle specific Firebase auth errors
-                    if (error.code === 'auth/user-not-found') {
-                        showNotification('No account found with this email address.', 'error');
-                    } else if (error.code === 'auth/invalid-email') {
-                        showNotification('Invalid email address. Please enter a valid email.', 'error');
-                    } else if (error.code === 'auth/too-many-requests') {
-                        showNotification('Too many requests. Please try again later.', 'error');
-                    } else {
-                        showNotification('Error sending password reset email: ' + error.message, 'error');
-                    }
-                })
-                .finally(() => {
-                    // Reset button state
-                    resetBtn.textContent = originalText;
-                    resetBtn.disabled = false;
-                });
-        }
-        
-        // Function to close Discord banner - disabled since we removed the close button
-        function closeDiscordBanner() {
-            // This function is intentionally left empty since we removed the close button
-            // The banner will always be visible now
-        }
-        
-        // Check if banner should be hidden on page load - disabled since banner is always visible
-        document.addEventListener('DOMContentLoaded', function() {
-            // Banner will always be visible now, so no need to check localStorage
-        });
-    </script>
-</body>
-</html>
+                const adminBadge = currentUser.isAdmin ? '<span style="background: var(--accent); color: white; padding: 2px 8px; border-radius: 12px; font
