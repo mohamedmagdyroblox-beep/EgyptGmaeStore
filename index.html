@@ -4235,142 +4235,73 @@
             </div>
         </div>
     </section>
-    <div class="modal" id="orderModal">
-        <div class="modal-content">
-            <span class="close" onclick="closeOrderModal()">×</span>
-            <h2>Place Your Order</h2>
-            <div class="order-summary">
+<div class="modal" id="orderModal">
+    <div class="modal-content">
+        <span class="close" onclick="closeOrderModal()">×</span>
 
-            <div class="payment-section" id="paymentSection">
-                <h3><i class="fas fa-credit-card"></i> Select Payment Method</h3>
-                <div class="payment-options">
-                    <div class="payment-option selected">
-                        <i class="fa-brands fa-facebook-f" style="color:#1877f2;font-size:32px;margin-right:15px;"></i>
-                        <div class="payment-details">
-                            <h4>Facebook Page</h4>
-                            <p>Visit facebook page to make order and learn more details</p>
-                            <p>ادخل صفحه الفيس و ابعت رساله علشان تعمل اوردر</p>
-                            <a class="payment-link" href="https://www.facebook.com/profile.php?id=61581826985292"
-                                target="_blank">Visit Facebook Page</a>
-                        </div>
-                    </div>
-                    <div class="payment-option">
-                        <i class="fa-brands fa-discord" style="color:#5865F2;font-size:32px;margin-right:15px;"></i>
-                        <div class="payment-details">
-                            <h4>Join Discord Server</h4>
-                            <p>Join the Discord server to make the purchase and learn more details</p>
-                            <p>ادخل سيرفر الديسكورد علشان تعمل أوردر و تعرف التفاصيل</p>
-                            <a class="payment-link" href="https://discord.com/invite/pCYvMsmScW" target="_blank">Join
-                                Discord</a>
-                        </div>
-                    </div>
-                </div>
-                <div id="paymentDetails">
-                    <div class="payment-instructions">
-                        <h4 id="payment-method-title"><i class="fas fa-info-circle"></i> Payment Instructions</h4>
-                        <p>Please send the following amount:</p>
-                        <div class="payment-amount" id="paymentAmount">0 EGP</div>
-                        <!-- InstaPay Details -->
-                        <div id="instapay-details" style="display: none;">
-                            <div class="payment-email">amlelsaid2024@instapay</div>
-                            <div class="payment-qr-container">
-                                <div class="payment-qr">
-                                    <img alt="InstaPay QR Code"
-                                        src="https://z-cdn-media.chatglm.cn/files/ab579136-15b5-4f3e-9824-4c1049755903_InstaPay%20Qr.png?auth_key=1790145669-06885b72f2154bb3a163dbd89f635b55-0-092eab5d3c25a43510d8d17f76122bd7" />
-                                </div>
-                            </div>
-                            <a class="payment-link" href="https://ipn.eg/S/amlelsaid2024/instapay/70vZoa"
-                                target="_blank">
-                                <i class="fas fa-external-link-alt"></i> Open InstaPay Payment Link
-                            </a>
-                        </div>
-                        <!-- Vodafone Cash Details -->
-                        <div id="vodafone-details" style="display: none;">
-                            <div class="payment-qr-container">
-                                <div class="payment-qr">
-                                    <img alt="Vodafone Cash QR Code"
-                                        src="https://z-cdn-media.chatglm.cn/files/4b5ecfc5-e871-493c-8f32-866a9eed7588_Vodafone%20Cash%20QR.png?auth_key=1790145669-3075f5b072fa484c94cbef4500e04c2e-0-b33c6f86d12a891c175f7a0d571f8023" />
-                                </div>
-                            </div>
-                            <a class="payment-link" href="http://vf.eg/vfcash?id=mt&amp;qrId=ggZjEC" target="_blank">
-                                <i class="fas fa-external-link-alt"></i> Open Vodafone Cash Payment Link
-                            </a>
-                        </div>
-                        <p>Include your Roblox username in the payment message/note.</p>
-                        <div class="instruction-steps">
-                            <div class="instruction-step">
-                                <div class="step-number">1</div>
-                                <div>Open your payment app (InstaPay or Vodafone Cash)</div>
-                            </div>
-                            <div class="instruction-step">
-                                <div class="step-number">2</div>
-                                <div>Send <span id="instruction-amount">0 EGP</span> using the details above</div>
-                            </div>
-                            <div class="instruction-step">
-                                <div class="step-number">3</div>
-                                <div>Include your Roblox username in the payment message/note</div>
-                            </div>
-                            <div class="instruction-step">
-                                <div class="step-number">4</div>
-                                <div>Click "I've Made the Payment" below</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="spinner" id="submitSpinner"></div>
-                    <button class="btn" id="submitOrderBtn" onclick="showPaymentUpload()"
-                        style="margin-top: 15px; width: 100%; padding: 16px;" type="button">
-                        <i class="fas fa-check-circle"></i> I've Made the Payment
-                    </button>
-                </div>
+        <h2>Place Your Order</h2>
+
+        <!-- Order Summary (Display Only) -->
+        <div class="order-summary">
+            <h3><i class="fas fa-receipt"></i> Order Summary</h3>
+            <div class="order-item-summary">
+                <span class="order-item-name" id="modal-item-name">Product Name</span>
+                <span class="order-item-price" id="modal-item-price">330 EGP</span>
             </div>
-            <div class="payment-upload-section" id="paymentUploadSection">
-                <h3><i class="fas fa-upload"></i> Upload Payment Receipt</h3>
-                <div class="payment-upload-instructions">
-                    <h4 id="upload-title"><i class="fas fa-camera"></i> Upload Picture Of The Payment</h4>
-                    <p id="upload-message">Please upload a clear picture of your payment confirmation to verify your
-                        order.</p>
-                    <div class="mobile-file-input">
-                        <div class="upload-area" onclick="document.getElementById('paymentReceipt').click()">
-                            <i class="fas fa-cloud-upload-alt"></i>
-                            <p>Click to upload or drag and drop</p>
-                            <p>PNG, JPG, GIF up to 10MB</p>
-                        </div>
-                        <input accept="image/*" class="file-input" id="paymentReceipt"
-                            onchange="handlePaymentReceiptUpload(event)" type="file" />
-                    </div>
-                    <div class="upload-preview" id="uploadPreview">
-                        <img alt="Payment Receipt" id="previewImage" src="" />
-                        <p>Receipt uploaded successfully</p>
-                    </div>
-                    <div class="spinner" id="uploadSpinner"></div>
-                    <button class="submit-upload-btn" id="submitUploadBtn" onclick="submitOrderWithReceipt()"
-                        type="button">
-                        <i class="fas fa-check-circle"></i> Submit Order
-                    </button>
-                </div>
-            </div>
-            <div class="confirmation" id="orderConfirmation">
-                <h3><i class="fas fa-check-circle"></i> Order Received Successfully!</h3>
-                <p>Thank you for your order. We will verify your payment and deliver your items within <strong>24
-                        hours</strong>.</p>
-                <p style="font-weight: bold; color: var(--error);">Remember to manually check your bank account to
-                    confirm the payment was received.</p>
-                <div class="order-details">
-                    <h4><i class="fas fa-receipt"></i> Order Details:</h4>
-                    <p><strong>Product:</strong> <span id="conf-product"></span></p>
-                    <p><strong>Price:</strong> <span id="conf-price"></span></p>
-                    <p><strong>Username:</strong> <span id="conf-username"></span></p>
-                    <p><strong>Email:</strong> <span id="conf-email"></span></p>
-                    <p><strong>WhatsApp:</strong> <span id="conf-phone"></span></p>
-                    <p><strong>Gamepass:</strong> <span id="conf-gamepass"></span></p>
-                </div>
-                <p><strong>If you don't receive your items within 24 hours, contact us on Discord:</strong></p>
-                <p><a href="https://discord.gg/pCYvMsmScW" style="color: var(--discord); font-weight: bold;"
-                        target="_blank"><i class="fab fa-discord"></i> https://discord.gg/pCYvMsmScW</a></p>
-                <button class="btn" onclick="closeOrderModal()"><i class="fas fa-times"></i> Close</button>
+            <div class="product-tax-note">WE DO NOT COVER ROBLOX FEES</div>
+            <div class="order-total">
+                <span>Total:</span>
+                <span id="modal-total-price">330 EGP</span>
             </div>
         </div>
+
+        <!-- Advertising Only Section -->
+        <div class="payment-section">
+            <h3><i class="fas fa-info-circle"></i> Contact Us To Complete Your Order</h3>
+
+            <div class="payment-options">
+
+                <!-- Facebook Card -->
+                <div class="payment-option">
+                    <i class="fa-brands fa-facebook-f"
+                       style="color:#1877f2;font-size:32px;margin-right:15px;"></i>
+                    <div class="payment-details">
+                        <h4>Facebook Page</h4>
+                        <p>Visit our Facebook page to place your order and get full details.</p>
+                        <p>ادخل صفحة الفيسبوك وابعت رسالة علشان تعمل أوردر</p>
+                        <a class="payment-link"
+                           href="https://www.facebook.com/profile.php?id=61581826985292"
+                           target="_blank">
+                            Visit Facebook Page
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Discord Card -->
+                <div class="payment-option">
+                    <i class="fa-brands fa-discord"
+                       style="color:#5865F2;font-size:32px;margin-right:15px;"></i>
+                    <div class="payment-details">
+                        <h4>Join Discord Server</h4>
+                        <p>Join our Discord server to make your order and learn more details.</p>
+                        <p>ادخل سيرفر الديسكورد علشان تعمل أوردر وتعرف التفاصيل</p>
+                        <a class="payment-link"
+                           href="https://discord.com/invite/pCYvMsmScW"
+                           target="_blank">
+                            Join Discord
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <button class="btn" onclick="closeOrderModal()" style="margin-top:20px;">
+            <i class="fas fa-times"></i> Close
+        </button>
     </div>
+</div>
+
     <section class="payment-methods">
         <div class="container">
             <div class="section-title">
